@@ -8,7 +8,7 @@
         height: 40px;
         background-color: #333;
         color: #fff;
-        position: absolute; 
+        position: static; 
         top: 0;
         left: 0;
     }
