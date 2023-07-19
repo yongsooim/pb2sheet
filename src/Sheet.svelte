@@ -89,7 +89,7 @@
 <style>
   .wrapper {
     width: 100vw;
-    max-width: 1800px;
+    max-width: 2000px;
     display: flex;
     align-content: center;
     justify-content: center;

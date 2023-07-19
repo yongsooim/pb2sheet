@@ -31,7 +31,6 @@
   async function paste() {
     let text = await navigator.clipboard.readText()
     editor.setValue(text, 1)
-
   }
 </script>
 
@@ -56,6 +55,7 @@
     max-width: 1800px;
     height: 35%;
     padding: 20px 0;
+    overflow: hidden;
   }
 
   #editor {

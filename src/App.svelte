@@ -1,5 +1,4 @@
 <script>
-  import Nav from "./Nav.svelte";
   import Sheet from "./Sheet.svelte";
   import Ace from "./Ace.svelte";
   import { onMount } from "svelte";
@@ -7,6 +6,7 @@
 
   let initialPos = null
 
+  /** @param {MouseEvent} event */
   function onMove(event) {
     sheetHeightRatio.update(value => event.pageY / window.innerHeight)
   }
