@@ -52,7 +52,7 @@
     align-content: center;
     justify-content: center;
     width: 100vw;
-    max-width: 1800px;
+    max-width: 2000px;
     height: 35%;
     padding: 20px 0;
     overflow: hidden;
