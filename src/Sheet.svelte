@@ -45,7 +45,7 @@
             row++
             column.push(_value);
             // set type memo
-            commentsInRow.push(parsed.root.nested[value].fields[_value].type.value)
+            commentsInRow.push(parsed.root.nested[value].fields[_value].type.value + ` ${parsed.root.nested[value].fields[_value].repeated ? "array" : ""}`)
             //comments[col][row] =  parsed.root.nested[value].fields[_value].type.value;
           });
           comments.push(commentsInRow)
