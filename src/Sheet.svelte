@@ -105,6 +105,7 @@
     border: 1px solid black;
     overflow: auto;
     transition: filter 0.3s;
+    background-color: #f3f3f3;
   }
 
   
