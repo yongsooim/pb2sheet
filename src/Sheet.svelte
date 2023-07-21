@@ -23,6 +23,9 @@
     table = jspreadsheet(document.getElementById("spreadsheet"), {
       data: data,
       columns: columns,
+      contextMenu: function(obj, x, y, e) {
+         return [];
+      }
     });
 
 
@@ -54,6 +57,10 @@
           columns.push(column);
         });
 
+        columns.push([""]);
+        columns.push([""]);
+        columns.push([""]);
+
         table.setData(columns);
         sysMsg = "";
         tableElem.style.filter = "";
@@ -70,13 +77,17 @@
         tableElem.style.filter = "blur(3px)";
       }
     });
+
+    document.getElementById('spreadsheet').addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+    });
   });
 
   sheetHeightRatio.subscribe((value) => {
     if(!elem) return;
     let height = value * window.innerHeight;
     elem.style.height = (height - 38) + "px";
-
   });
 
 </script>
