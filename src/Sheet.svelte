@@ -3,6 +3,8 @@
   import { protobufData } from "./store.js";
   import * as parser from "proto-parser";
   import { sheetHeightRatio } from "./store.js";
+  import jspreadsheet from "jspreadsheet-ce";
+  import "jspreadsheet-ce/dist/jspreadsheet.css";
 
   let elem;
   let tableElem;
@@ -18,7 +20,7 @@
     }
 
     // @ts-ignore
-    table = window.jspreadsheet(document.getElementById("spreadsheet"), {
+    table = jspreadsheet(document.getElementById("spreadsheet"), {
       data: data,
       columns: columns,
     });

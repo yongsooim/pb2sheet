@@ -1,19 +1,19 @@
 <script>
   import { onMount } from "svelte";
   import { protobufData } from "./store.js";
-
   import { protoExample } from "./protoExample.js";
   import { sheetHeightRatio } from "./store.js";
+  import ace from "ace-builds/src-noconflict/ace.js";
 
   let editor
 
   onMount(() => {
     // @ts-ignore
-    editor = window.ace.edit("editor");
+    editor = ace.edit("editor");
     editor.session.setMode("ace/mode/protobuf");
     editor.setShowPrintMargin(false);
     editor.setValue(protoExample);
-    editor.setFontSize(16);
+    editor.setFontSize("16px");
     editor.getSession().on("change", function () {
       protobufData.set(editor.getValue());
     });
