@@ -13,10 +13,10 @@
   let sysMsg = "";
 
   onMount(() => {
-    let columns = [{ type: "text", title: "Message Name", width: 180, readOnly:true }];
+    let columns = [{ type: "text", title: "Message Name", width: 200, readOnly:true, align: 'left' }];
     let numberOfCol = 10;
     for (let i = 1; i <= numberOfCol; i++) {
-      columns.push({ type: "text", title: "Parameter " + i, width: 180, readOnly:true });
+      columns.push({ type: "text", title: "Parameter " + i, width: 200, readOnly:true, align: 'left' });
     }
 
     // @ts-ignore
@@ -96,7 +96,6 @@
     align-content: center;
     justify-content: center;
     height: 60%;
-    font-family: "Courier New", Courier, monospace;
     overflow-x: auto;
     padding:20px 0;
   }

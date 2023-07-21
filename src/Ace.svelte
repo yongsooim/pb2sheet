@@ -1,9 +1,11 @@
 <script>
   import { onMount } from "svelte";
   import { protobufData } from "./store.js";
+
   import { protoExample } from "./protoExample.js";
   import { sheetHeightRatio } from "./store.js";
   import ace from "ace-builds/src-noconflict/ace.js";
+  import "ace-builds/src-noconflict/mode-protobuf.js";
 
   let editor
 
