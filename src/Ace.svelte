@@ -6,6 +6,8 @@
   import { sheetHeightRatio } from "./store.js";
   import ace from "ace-builds/src-noconflict/ace.js";
   import "ace-builds/src-noconflict/mode-protobuf.js";
+  import "ace-builds/src-noconflict/keybinding-vscode.js";
+  import "ace-builds/src-noconflict/ext-searchbox.js";
 
   let editor
 
@@ -13,6 +15,7 @@
     // @ts-ignore
     editor = ace.edit("editor");
     editor.session.setMode("ace/mode/protobuf");
+    editor.setKeyboardHandler("ace/keyboard/vscode");
     editor.setShowPrintMargin(false);
     editor.setValue(protoExample);
     editor.setFontSize("16px");
