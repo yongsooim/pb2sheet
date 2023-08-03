@@ -1,15 +1,13 @@
 <script>
   import { onMount } from "svelte";
-  import { protobufData } from "./store.js";
-
-  import protoString from './pb/the-red.proto?raw'
-  import { aceWidth } from "./store.js";
+  import { protobufData, aceWidth, selectedMessage } from "./store.js";
+  import protoString from "./pb/the-red.proto?raw";
   import ace from "ace-builds/src-noconflict/ace.js";
   import "ace-builds/src-noconflict/mode-protobuf.js";
   import "ace-builds/src-noconflict/keybinding-vscode.js";
   import "ace-builds/src-noconflict/ext-searchbox.js";
 
-  let editor
+  let editor;
 
   onMount(() => {
     // @ts-ignore
@@ -24,15 +22,19 @@
     });
     editor.moveCursorTo(0, 0);
 
+    selectedMessage.subscribe((value) => {
+      editor.find(`message ${value}`, {
+        backwards: true
+      });
+    });
   });
 
   let elem;
   aceWidth.subscribe((value) => {
-    if(!elem) return;
-    console.log(value)
+    if (!elem) return;
+    console.log(value);
     elem.style.width = value - 4 + "px";
   });
-
 </script>
 
 <div class="wrapper" bind:this={elem}>
@@ -54,5 +56,4 @@
     height: 100%;
     border: 1px solid black;
   }
-
 </style>

@@ -1,8 +1,7 @@
 <script>
   import { onMount } from "svelte";
-  import { protobufData } from "./store.js";
+  import { protobufData, aceWidth, selectedMessage } from "./store.js";
   import * as parser from "proto-parser";
-  import { aceWidth } from "./store.js";
   import jspreadsheet from "jspreadsheet-ce";
   import "jspreadsheet-ce/dist/jspreadsheet.css";
 
@@ -26,7 +25,11 @@
       contextMenu: function(obj, x, y, e) {
          return [];
       },
-      freezeColumns: 2
+      freezeColumns: 2,
+      onselection: (instance, x1, y1, x2, y2, origin) => {
+        selectedMessage.set(table.getValue(`${String.fromCharCode(65)}${y1+1}`));
+      },
+
     });
 
 

@@ -1,0 +1,362 @@
+// the-red.proto
+
+// 2023-08-02 jason: initial version
+
+syntax = "proto3";
+
+enum MessageID {
+  ACK = 0;
+  NACK = 1;
+  FIRST_CONTACT = 2;
+  FIRST_CONTACT_RESP = 3;
+  TUNER_ONOFF = 4;
+  TUNER_FREQUENCY = 5;
+  KNOB_CLICKED = 6;
+  PRESET_SAVE_READY_REQUEST = 7;
+  PRESET_SAVE_READY_RESPONSE = 8;
+  EFFECT_EOD = 9;
+  BATTERY_LEVEL = 10;
+  CURRENT_KNOB_SELECTED = 11;
+  SELECT_GATE = 12;
+  SELECT_EFX = 13;
+  SELECT_AMP = 14;
+  SELECT_IR = 15;
+  SELECT_MOD = 16;
+  SELECT_DELAY = 17;
+  SELECT_REVERB = 18;
+  PARAM_GATE_NOISE_GATE = 19;
+  PARAM_GATE_LIMITER = 20;
+  PARAM_GATE_COMPRESSOR = 21;
+  PARAM_EFX_OVERDRIVE = 22;
+  PARAM_EFX_DISTORTION = 23;
+  PARAM_EFX_FUZZ = 24;
+  PARAM_EFX_BIT_CRUSHER = 25;
+  PARAM_AMP_FENDER = 26;
+  PARAM_AMP_MARSHALL = 27;
+  PARAM_AMP_VOX = 28;
+  PARAM_AMP_ACOUSTIC = 29;
+  PARAM_IR_FENDER = 30;
+  PARAM_IR_MARSHALL = 31;
+  PARAM_IR_VOX = 32;
+  PARAM_IR_ACOUSTIC = 33;
+  PARAM_MOD_FLANGE = 34;
+  PARAM_MOD_CHORUS = 35;
+  PARAM_MOD_TREMOLO = 36;
+  PARAM_MOD_PHASER = 37;
+  PARAM_MOD_VIBRATO = 38;
+  PARAM_DELAY_ECHO = 39;
+  PARAM_DELAY_DELAY = 40;
+  PARAM_REVERB_ROOM = 41;
+  PARAM_REVERB_HALL = 42;
+  PARAM_REVERB_PLATE = 43;
+  PARAM_REVERB_SPRING = 44;
+}
+
+message Ack { int32 receivedMessageLength = 1; }
+
+message Nack {
+  enum ERROR_CODE {
+    INVALID_MESSAGE_ID = 0;
+    INVALID_MESSAGE_DATA = 1;
+    TIMEOUT = 2;
+  }
+  ERROR_CODE errorCode = 1;
+}
+
+// App -> Guitar
+message ReqSetupInfo {
+
+}
+
+message FirstContact {
+  int64  currentTimeEpoch = 1;
+  string phoneMachineId = 2;
+  string appVersion = 3;
+}
+
+message FirstContactResp {
+  string guitarName = 1;
+  string guitarModelName = 2;
+  string firmwareVersion = 3;
+}
+
+message ChangeGuitarName { string guitarName = 1; }
+message TunerOnOff { bool isOn = 1; }
+message TunerFrequency { float tunerFrequency = 1; }
+message KnobClicked { int32 knobNumber = 1; }
+message KnobMatchingStart { int32 knobNumber = 1; }
+message EffectEod { bool effectEod = 1; }
+message BatteryLevel { int32 batteryLevel = 1; }
+message CurrentKnobSelected { int32 currentKnobSelected = 1; }
+
+// 프리셋 일치 검증을 위한 UUID
+message UUID { string value = 1; }
+
+message SelectGate {
+  enum CategoryGate {
+    NOISE_GATE = 0;
+    LIMITER = 1;
+    COMPRESSOR = 2;
+  }
+  CategoryGate target = 1;
+  bool isOn = 2;
+}
+
+message SelectEfx {
+  enum CategoryEfx {
+    OVERDRIVE = 0;
+    DISTORTION = 1;
+    FUZZ = 2;
+    BIT_CRUSHER = 3;
+  }
+  CategoryEfx target = 1;
+  bool isOn = 2;
+}
+
+message SelectAmp {
+  enum CategoryAmp {
+    FENDER = 0;
+    MARSHALL = 1;
+    VOX = 2;
+    ACOUSTIC = 3;
+  }
+  CategoryAmp target = 1;
+  bool isOn = 2;
+}
+
+enum CategoryIr {
+  IR_KLON = 0;
+  IR_DS = 1;
+  IR_RAT = 2;
+  IR_MORPHER = 3;
+  IR_OCD = 4;
+  IR_BMF = 5;
+  IR_ACOUSTIC = 6;
+}
+
+message SelectIr { CategoryIr target = 1; }
+
+message SelectMod {
+  enum CategoryMod {
+    FLANGE = 0;
+    CHORUS = 1;
+    TREMOLO = 2;
+    PHASER = 3;
+    VIBRATO = 4;
+  }
+  CategoryMod target = 1;
+  bool isOn = 2;
+}
+
+message SelectDelay {
+  enum CategoryDelay {
+    ECHO = 0;
+    DELAY = 1;
+  }
+  CategoryDelay target = 1;
+  bool isOn = 2;
+}
+
+message SelectReverb {
+  enum CategoryReverb {
+    ROOM = 0;
+    HALL = 1;
+    PLATE = 2;
+  }
+  CategoryReverb target = 1;
+  bool isOn = 2;
+}
+
+message ParamGateNoiseGate {
+  float threshold = 1;
+  float openingTime = 2;
+  float closingTime = 3;
+  float holdTime = 4;
+}
+
+message ParamGateLimiter {
+  float threshold = 1;
+  float attack = 2;
+  float release = 3;
+  float gain = 4;
+}
+
+message ParamGateCompressor {
+  float threshold = 1;
+  float attack = 2;
+  float release = 3;
+  float gain = 4;
+  float ratio = 5;
+  float hysteresis = 6;
+}
+
+message ParamEfxOverdrive {
+  float drive = 1;
+  float treble = 2;
+  float level = 3;
+}
+
+message ParamEfxDistortion {
+  float distortion = 1;
+  float treble = 2;
+  float level = 3;
+}
+
+message ParamEfxFuzz {
+  float fuzz = 1;
+  float treble = 2;
+  float level = 3;
+}
+
+message ParamEfxBitCrusher {
+  float bitsDynamicRange = 1;
+  float sampleRate = 2;
+}
+
+message ParamAmpFender {
+  float gain = 1;
+  float low = 2;
+  float middle = 3;
+  float high = 4;
+  float presence = 5;
+}
+
+message ParamAmpMarshall {
+  float gain = 1;
+  float low = 2;
+  float middle = 3;
+  float high = 4;
+  float presence = 5;
+}
+
+message ParamAmpVox {
+  float gain = 1;
+  float low = 2;
+  float middle = 3;
+  float high = 4;
+  float presence = 5;
+}
+
+message ParamAmpAcoustic {
+  float gain = 1;
+  float low = 2;
+  float middle = 3;
+  float high = 4;
+  float presence = 5;
+}
+
+message ParamIrFender { float wet = 1; }
+
+message ParamIrMarshall { float wet = 1; }
+
+message ParamIrVox { float wet = 1; }
+
+message ParamIrAcoustic { float wet = 1; }
+
+message ParamModFlange {
+  float offset = 1;
+  float depth = 2;
+  float frequency = 3;
+}
+
+message ParamModChorus { int32 voices = 1; }
+
+message ParamModTremolo {
+  float depth = 1;
+  float frequency = 2;
+}
+
+message ParamModPhaser {
+  float frequency = 1;
+  float depthTop = 2;
+  float depthBottom = 3;
+  float mix = 4;
+  float feedback = 5;
+  int32 stages = 6;
+}
+
+message ParamModVibrato {
+  float frequency = 1;
+  float percent = 2;
+}
+
+message ParamDelayEcho {
+  float gap = 1;
+  float decay = 2;
+}
+
+message ParamDelayDelay {
+  float gap = 1;
+  float mix = 2;
+  float feedback = 3;
+}
+
+message ParamReverbRoom {
+  float roomsize = 1;
+  float damping = 2;
+  float wet = 3;
+}
+
+message ParamReverbHall {
+  float roomsize = 1;
+  float damping = 2;
+  float wet = 3;
+}
+
+message ParamReverbPlate {
+  float roomsize = 1;
+  float damping = 2;
+  float wet = 3;
+}
+
+message ParamReverbSpring {
+  float roomsize = 1;
+  float damping = 2;
+  float wet = 3;
+}
+
+// App -> Guitar
+enum DiagCode {
+  POWER_ON_COUNT = 0;
+  FIRST_PAIRING = 1;
+  ERROR_CODE = 2;
+}
+
+message DiagReq { DiagCode code = 1; }
+
+// Guitar -> App
+
+message DiagRespPOC { int32 powerOnCount = 1; }
+message DiagRespFirstParing { int64 FirstParingTimeEpoch = 1; }
+
+message DiagRespErrCode {
+  enum ErrorCode {
+    DIAG_ERR_UNKNOWN_DIAG_ID = 0;
+    DIAG_ERR_INVALID_DIAG_DATA = 1;
+  }
+
+  int32 errCode = 1;
+}
+
+// Save IR Request
+message bulkIrStartReq {
+  string irName = 1;
+  int32 sequenceNumber = 2;
+  repeated float data = 3;
+}
+
+message bulkIrReq {
+  repeated float data = 1;
+  int32 sequenceNumber = 2;
+}
+
+message bulkIrEndReq {
+  repeated float data = 1;
+  int32 sequenceNumber = 2;
+}
+
+// Save IR Response
+message bulkIrRes {
+  bool done = 1;
+  int32 sequenceNumber = 2;
+}
