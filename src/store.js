@@ -1,5 +1,5 @@
 import { writable } from "svelte/store";
-import { protoExample } from "./protoExample";
+import protoString from './pb/the-red.proto?raw'
 
-export const protobufData = writable(protoExample);
-export const sheetHeightRatio = writable(0.6);
+export const protobufData = writable(protoString);
+export const aceWidth = writable(0);

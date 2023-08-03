@@ -2,8 +2,8 @@
   import { onMount } from "svelte";
   import { protobufData } from "./store.js";
 
-  import { protoExample } from "./protoExample.js";
-  import { sheetHeightRatio } from "./store.js";
+  import protoString from './pb/the-red.proto?raw'
+  import { aceWidth } from "./store.js";
   import ace from "ace-builds/src-noconflict/ace.js";
   import "ace-builds/src-noconflict/mode-protobuf.js";
   import "ace-builds/src-noconflict/keybinding-vscode.js";
@@ -17,7 +17,7 @@
     editor.session.setMode("ace/mode/protobuf");
     editor.setKeyboardHandler("ace/keyboard/vscode");
     editor.setShowPrintMargin(false);
-    editor.setValue(protoExample);
+    editor.setValue(protoString);
     editor.setFontSize("16px");
     editor.getSession().on("change", function () {
       protobufData.set(editor.getValue());
@@ -27,27 +27,15 @@
   });
 
   let elem;
-  sheetHeightRatio.subscribe((value) => {
-    if (!elem) return;
-    let height = (1 - value) * window.innerHeight;
-    elem.style.height = (height - 38) + "px";
+  aceWidth.subscribe((value) => {
+    if(!elem) return;
+    console.log(value)
+    elem.style.width = value - 4 + "px";
   });
 
-  async function paste() {
-    let text = await navigator.clipboard.readText()
-    editor.setValue(text, 1)
-  }
 </script>
 
 <div class="wrapper" bind:this={elem}>
-  <div class="leftSide">
-    <button
-      class="btn-copy"
-      on:click={() => {
-        paste();
-      }}>Paste</button
-    >
-  </div>
   <div id="editor" />
 </div>
 
@@ -56,38 +44,15 @@
     display: flex;
     align-content: center;
     justify-content: center;
-    width: 100vw;
-    max-width: 2000px;
-    height: 35%;
-    padding: 20px 0;
+    width: 800px;
+    height: 100%;
     overflow: hidden;
   }
 
   #editor {
-    width: 80%;
+    width: 100%;
     height: 100%;
     border: 1px solid black;
   }
 
-  .leftSide {
-    width: 100px;
-    height: 100%;
-    display: flex;
-    align-items: end;
-    justify-content: start;
-  }
-
-  .btn-copy {
-    width: 90px;
-    height: 80px;
-    border: 1px solid black;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: filter 0.3s;
-  }
-
-  .btn-copy:hover {
-    filter: brightness(0.8);
-  }
 </style>

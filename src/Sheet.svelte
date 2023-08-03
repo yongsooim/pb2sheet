@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
   import { protobufData } from "./store.js";
   import * as parser from "proto-parser";
-  import { sheetHeightRatio } from "./store.js";
+  import { aceWidth } from "./store.js";
   import jspreadsheet from "jspreadsheet-ce";
   import "jspreadsheet-ce/dist/jspreadsheet.css";
 
@@ -25,7 +25,8 @@
       columns: columns,
       contextMenu: function(obj, x, y, e) {
          return [];
-      }
+      },
+      freezeColumns: 2
     });
 
 
@@ -74,7 +75,7 @@
       } else {
         console.log(parsed)
         sysMsg = `line ${parsed.line} \n ${parsed.message}`;
-        tableElem.style.filter = "blur(3px)";
+        tableElem.style.filter = "blur(5px) brightness(0.8)";
       }
     });
 
@@ -84,35 +85,36 @@
     });
   });
 
-  sheetHeightRatio.subscribe((value) => {
-    if(!elem) return;
-    let height = value * window.innerHeight;
-    elem.style.height = (height - 38) + "px";
+  //sheetWidthRatio.subscribe((value) => {
+  //  if (!elem) return;
+  //  let width = (1 - value) * window.innerWidth;
+  //  elem.style.width = (width - 20) + "px";
+//
+  //});
+  aceWidth.subscribe((value) => {
+    if (!elem) return;
+    elem.style.width = `calc(100vw - 2px - ${value}px)`;
   });
 
 </script>
 
 <div class="wrapper" bind:this={elem}>
-  <div class="leftSide">
-    <div class="sysMsgDiv">{sysMsg}</div>
-  </div>
+  <div class="sysMsgDiv">{sysMsg}</div>
   <div id="spreadsheet" bind:this={tableElem}/>
 </div>
 
 <style>
   .wrapper {
-    width: 100vw;
-    max-width: 2000px;
     display: flex;
     align-content: center;
     justify-content: center;
-    height: 60%;
+    height: 100%;
     overflow-x: auto;
-    padding:20px 0;
+    position: relative;
   }
 
   #spreadsheet {
-    width: 80%;
+
     height: 100%;
     border: 1px solid black;
     overflow: auto;
@@ -121,20 +123,13 @@
   }
 
   
-  .leftSide {
-    width: 100px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    font-size: 30px;
-    font-weight: bold;
-    color: red;
-    z-index: 1000;
-  }
-
   .sysMsgDiv {
     position: absolute;
     width: 50%;
+    z-index: 100;
+    top: 30%;
+    font-size: 25px;
+    color: red;
+    font-weight: bold;
   }
 </style>

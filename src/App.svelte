@@ -2,17 +2,17 @@
   import Sheet from "./Sheet.svelte";
   import Ace from "./Ace.svelte";
   import { onMount } from "svelte";
-  import { sheetHeightRatio } from "./store.js";
+  import { aceWidth as aceWidth } from "./store.js";
 
   let initialPos = null
 
   /** @param {MouseEvent} event */
   function onMove(event) {
-    sheetHeightRatio.update(value => event.pageY / window.innerHeight)
+    aceWidth.update(() => event.pageX)
   }
 
   function onMousedown(event) {
-    initialPos = event.pageY
+    initialPos = event.pageX
     window.addEventListener('mousemove', onMove)	
   }
 
@@ -26,20 +26,20 @@
 
 </script>
 <main>
-  <Sheet />
-  <button on:mousedown={onMousedown} />
   <Ace />
+  <button on:mousedown={onMousedown} />
+  <Sheet />
 </main>
 
 <style>
   button {
-    width: 100%;
-    height: 6px;
+    width: 6px;
+    height: 100%;
     background-color: black;
     margin: 5px;
   }
 
   button:hover {
-    cursor: row-resize;
+    cursor: col-resize;
   }
 </style>
