@@ -15,10 +15,10 @@ PB_BIND(Nack, Nack, AUTO)
 PB_BIND(ReqSetupInfo, ReqSetupInfo, AUTO)
 
 
-PB_BIND(FirstContact, FirstContact, AUTO)
+PB_BIND(InitFromApp, InitFromApp, AUTO)
 
 
-PB_BIND(FirstContactResp, FirstContactResp, AUTO)
+PB_BIND(InitFromGuitar, InitFromGuitar, AUTO)
 
 
 PB_BIND(ChangeGuitarName, ChangeGuitarName, AUTO)

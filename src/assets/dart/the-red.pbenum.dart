@@ -16,8 +16,8 @@ import 'package:protobuf/protobuf.dart' as $pb;
 class MessageID extends $pb.ProtobufEnum {
   static const MessageID ACK = MessageID._(0, _omitEnumNames ? '' : 'ACK');
   static const MessageID NACK = MessageID._(1, _omitEnumNames ? '' : 'NACK');
-  static const MessageID FIRST_CONTACT = MessageID._(2, _omitEnumNames ? '' : 'FIRST_CONTACT');
-  static const MessageID FIRST_CONTACT_RESP = MessageID._(3, _omitEnumNames ? '' : 'FIRST_CONTACT_RESP');
+  static const MessageID INIT_FROM_APP = MessageID._(2, _omitEnumNames ? '' : 'INIT_FROM_APP');
+  static const MessageID INIT_FROM_GUITAR = MessageID._(3, _omitEnumNames ? '' : 'INIT_FROM_GUITAR');
   static const MessageID TUNER_ONOFF = MessageID._(4, _omitEnumNames ? '' : 'TUNER_ONOFF');
   static const MessageID TUNER_FREQUENCY = MessageID._(5, _omitEnumNames ? '' : 'TUNER_FREQUENCY');
   static const MessageID KNOB_CLICKED = MessageID._(6, _omitEnumNames ? '' : 'KNOB_CLICKED');
@@ -64,8 +64,8 @@ class MessageID extends $pb.ProtobufEnum {
   static const $core.List<MessageID> values = <MessageID> [
     ACK,
     NACK,
-    FIRST_CONTACT,
-    FIRST_CONTACT_RESP,
+    INIT_FROM_APP,
+    INIT_FROM_GUITAR,
     TUNER_ONOFF,
     TUNER_FREQUENCY,
     KNOB_CLICKED,

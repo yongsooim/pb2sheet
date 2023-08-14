@@ -134,13 +134,13 @@ class ReqSetupInfo extends $pb.GeneratedMessage {
   static ReqSetupInfo? _defaultInstance;
 }
 
-class FirstContact extends $pb.GeneratedMessage {
-  factory FirstContact() => create();
-  FirstContact._() : super();
-  factory FirstContact.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory FirstContact.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+class InitFromApp extends $pb.GeneratedMessage {
+  factory InitFromApp() => create();
+  InitFromApp._() : super();
+  factory InitFromApp.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory InitFromApp.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'FirstContact', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'InitFromApp', createEmptyInstance: create)
     ..aInt64(1, _omitFieldNames ? '' : 'currentTimeEpoch', protoName: 'currentTimeEpoch')
     ..aOS(2, _omitFieldNames ? '' : 'phoneMachineId', protoName: 'phoneMachineId')
     ..aOS(3, _omitFieldNames ? '' : 'appVersion', protoName: 'appVersion')
@@ -151,22 +151,22 @@ class FirstContact extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  FirstContact clone() => FirstContact()..mergeFromMessage(this);
+  InitFromApp clone() => InitFromApp()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  FirstContact copyWith(void Function(FirstContact) updates) => super.copyWith((message) => updates(message as FirstContact)) as FirstContact;
+  InitFromApp copyWith(void Function(InitFromApp) updates) => super.copyWith((message) => updates(message as InitFromApp)) as InitFromApp;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static FirstContact create() => FirstContact._();
-  FirstContact createEmptyInstance() => create();
-  static $pb.PbList<FirstContact> createRepeated() => $pb.PbList<FirstContact>();
+  static InitFromApp create() => InitFromApp._();
+  InitFromApp createEmptyInstance() => create();
+  static $pb.PbList<InitFromApp> createRepeated() => $pb.PbList<InitFromApp>();
   @$core.pragma('dart2js:noInline')
-  static FirstContact getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FirstContact>(create);
-  static FirstContact? _defaultInstance;
+  static InitFromApp getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<InitFromApp>(create);
+  static InitFromApp? _defaultInstance;
 
   @$pb.TagNumber(1)
   $fixnum.Int64 get currentTimeEpoch => $_getI64(0);
@@ -196,13 +196,13 @@ class FirstContact extends $pb.GeneratedMessage {
   void clearAppVersion() => clearField(3);
 }
 
-class FirstContactResp extends $pb.GeneratedMessage {
-  factory FirstContactResp() => create();
-  FirstContactResp._() : super();
-  factory FirstContactResp.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory FirstContactResp.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+class InitFromGuitar extends $pb.GeneratedMessage {
+  factory InitFromGuitar() => create();
+  InitFromGuitar._() : super();
+  factory InitFromGuitar.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory InitFromGuitar.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'FirstContactResp', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'InitFromGuitar', createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'guitarName', protoName: 'guitarName')
     ..aOS(2, _omitFieldNames ? '' : 'guitarModelName', protoName: 'guitarModelName')
     ..aOS(3, _omitFieldNames ? '' : 'firmwareVersion', protoName: 'firmwareVersion')
@@ -213,22 +213,22 @@ class FirstContactResp extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  FirstContactResp clone() => FirstContactResp()..mergeFromMessage(this);
+  InitFromGuitar clone() => InitFromGuitar()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  FirstContactResp copyWith(void Function(FirstContactResp) updates) => super.copyWith((message) => updates(message as FirstContactResp)) as FirstContactResp;
+  InitFromGuitar copyWith(void Function(InitFromGuitar) updates) => super.copyWith((message) => updates(message as InitFromGuitar)) as InitFromGuitar;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static FirstContactResp create() => FirstContactResp._();
-  FirstContactResp createEmptyInstance() => create();
-  static $pb.PbList<FirstContactResp> createRepeated() => $pb.PbList<FirstContactResp>();
+  static InitFromGuitar create() => InitFromGuitar._();
+  InitFromGuitar createEmptyInstance() => create();
+  static $pb.PbList<InitFromGuitar> createRepeated() => $pb.PbList<InitFromGuitar>();
   @$core.pragma('dart2js:noInline')
-  static FirstContactResp getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FirstContactResp>(create);
-  static FirstContactResp? _defaultInstance;
+  static InitFromGuitar getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<InitFromGuitar>(create);
+  static InitFromGuitar? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get guitarName => $_getSZ(0);
@@ -955,10 +955,10 @@ class ParamGateNoiseGate extends $pb.GeneratedMessage {
   factory ParamGateNoiseGate.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamGateNoiseGate', createEmptyInstance: create)
-    ..a<$core.double>(1, _omitFieldNames ? '' : 'threshold', $pb.PbFieldType.OF)
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'openingTime', $pb.PbFieldType.OF, protoName: 'openingTime')
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'closingTime', $pb.PbFieldType.OF, protoName: 'closingTime')
-    ..a<$core.double>(4, _omitFieldNames ? '' : 'holdTime', $pb.PbFieldType.OF, protoName: 'holdTime')
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'threshold', $pb.PbFieldType.O3)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'openingTime', $pb.PbFieldType.O3, protoName: 'openingTime')
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'closingTime', $pb.PbFieldType.O3, protoName: 'closingTime')
+    ..a<$core.int>(4, _omitFieldNames ? '' : 'holdTime', $pb.PbFieldType.O3, protoName: 'holdTime')
     ..hasRequiredFields = false
   ;
 
@@ -984,36 +984,36 @@ class ParamGateNoiseGate extends $pb.GeneratedMessage {
   static ParamGateNoiseGate? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.double get threshold => $_getN(0);
+  $core.int get threshold => $_getIZ(0);
   @$pb.TagNumber(1)
-  set threshold($core.double v) { $_setFloat(0, v); }
+  set threshold($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasThreshold() => $_has(0);
   @$pb.TagNumber(1)
   void clearThreshold() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.double get openingTime => $_getN(1);
+  $core.int get openingTime => $_getIZ(1);
   @$pb.TagNumber(2)
-  set openingTime($core.double v) { $_setFloat(1, v); }
+  set openingTime($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
   $core.bool hasOpeningTime() => $_has(1);
   @$pb.TagNumber(2)
   void clearOpeningTime() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.double get closingTime => $_getN(2);
+  $core.int get closingTime => $_getIZ(2);
   @$pb.TagNumber(3)
-  set closingTime($core.double v) { $_setFloat(2, v); }
+  set closingTime($core.int v) { $_setSignedInt32(2, v); }
   @$pb.TagNumber(3)
   $core.bool hasClosingTime() => $_has(2);
   @$pb.TagNumber(3)
   void clearClosingTime() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.double get holdTime => $_getN(3);
+  $core.int get holdTime => $_getIZ(3);
   @$pb.TagNumber(4)
-  set holdTime($core.double v) { $_setFloat(3, v); }
+  set holdTime($core.int v) { $_setSignedInt32(3, v); }
   @$pb.TagNumber(4)
   $core.bool hasHoldTime() => $_has(3);
   @$pb.TagNumber(4)
@@ -1027,10 +1027,10 @@ class ParamGateLimiter extends $pb.GeneratedMessage {
   factory ParamGateLimiter.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamGateLimiter', createEmptyInstance: create)
-    ..a<$core.double>(1, _omitFieldNames ? '' : 'threshold', $pb.PbFieldType.OF)
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'attack', $pb.PbFieldType.OF)
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'release', $pb.PbFieldType.OF)
-    ..a<$core.double>(4, _omitFieldNames ? '' : 'gain', $pb.PbFieldType.OF)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'threshold', $pb.PbFieldType.O3)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'attack', $pb.PbFieldType.O3)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'release', $pb.PbFieldType.O3)
+    ..a<$core.int>(4, _omitFieldNames ? '' : 'gain', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -1056,36 +1056,36 @@ class ParamGateLimiter extends $pb.GeneratedMessage {
   static ParamGateLimiter? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.double get threshold => $_getN(0);
+  $core.int get threshold => $_getIZ(0);
   @$pb.TagNumber(1)
-  set threshold($core.double v) { $_setFloat(0, v); }
+  set threshold($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasThreshold() => $_has(0);
   @$pb.TagNumber(1)
   void clearThreshold() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.double get attack => $_getN(1);
+  $core.int get attack => $_getIZ(1);
   @$pb.TagNumber(2)
-  set attack($core.double v) { $_setFloat(1, v); }
+  set attack($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
   $core.bool hasAttack() => $_has(1);
   @$pb.TagNumber(2)
   void clearAttack() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.double get release => $_getN(2);
+  $core.int get release => $_getIZ(2);
   @$pb.TagNumber(3)
-  set release($core.double v) { $_setFloat(2, v); }
+  set release($core.int v) { $_setSignedInt32(2, v); }
   @$pb.TagNumber(3)
   $core.bool hasRelease() => $_has(2);
   @$pb.TagNumber(3)
   void clearRelease() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.double get gain => $_getN(3);
+  $core.int get gain => $_getIZ(3);
   @$pb.TagNumber(4)
-  set gain($core.double v) { $_setFloat(3, v); }
+  set gain($core.int v) { $_setSignedInt32(3, v); }
   @$pb.TagNumber(4)
   $core.bool hasGain() => $_has(3);
   @$pb.TagNumber(4)
@@ -1099,12 +1099,12 @@ class ParamGateCompressor extends $pb.GeneratedMessage {
   factory ParamGateCompressor.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamGateCompressor', createEmptyInstance: create)
-    ..a<$core.double>(1, _omitFieldNames ? '' : 'threshold', $pb.PbFieldType.OF)
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'attack', $pb.PbFieldType.OF)
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'release', $pb.PbFieldType.OF)
-    ..a<$core.double>(4, _omitFieldNames ? '' : 'gain', $pb.PbFieldType.OF)
-    ..a<$core.double>(5, _omitFieldNames ? '' : 'ratio', $pb.PbFieldType.OF)
-    ..a<$core.double>(6, _omitFieldNames ? '' : 'hysteresis', $pb.PbFieldType.OF)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'threshold', $pb.PbFieldType.O3)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'attack', $pb.PbFieldType.O3)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'release', $pb.PbFieldType.O3)
+    ..a<$core.int>(4, _omitFieldNames ? '' : 'gain', $pb.PbFieldType.O3)
+    ..a<$core.int>(5, _omitFieldNames ? '' : 'ratio', $pb.PbFieldType.O3)
+    ..a<$core.int>(6, _omitFieldNames ? '' : 'hysteresis', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -1130,54 +1130,54 @@ class ParamGateCompressor extends $pb.GeneratedMessage {
   static ParamGateCompressor? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.double get threshold => $_getN(0);
+  $core.int get threshold => $_getIZ(0);
   @$pb.TagNumber(1)
-  set threshold($core.double v) { $_setFloat(0, v); }
+  set threshold($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasThreshold() => $_has(0);
   @$pb.TagNumber(1)
   void clearThreshold() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.double get attack => $_getN(1);
+  $core.int get attack => $_getIZ(1);
   @$pb.TagNumber(2)
-  set attack($core.double v) { $_setFloat(1, v); }
+  set attack($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
   $core.bool hasAttack() => $_has(1);
   @$pb.TagNumber(2)
   void clearAttack() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.double get release => $_getN(2);
+  $core.int get release => $_getIZ(2);
   @$pb.TagNumber(3)
-  set release($core.double v) { $_setFloat(2, v); }
+  set release($core.int v) { $_setSignedInt32(2, v); }
   @$pb.TagNumber(3)
   $core.bool hasRelease() => $_has(2);
   @$pb.TagNumber(3)
   void clearRelease() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.double get gain => $_getN(3);
+  $core.int get gain => $_getIZ(3);
   @$pb.TagNumber(4)
-  set gain($core.double v) { $_setFloat(3, v); }
+  set gain($core.int v) { $_setSignedInt32(3, v); }
   @$pb.TagNumber(4)
   $core.bool hasGain() => $_has(3);
   @$pb.TagNumber(4)
   void clearGain() => clearField(4);
 
   @$pb.TagNumber(5)
-  $core.double get ratio => $_getN(4);
+  $core.int get ratio => $_getIZ(4);
   @$pb.TagNumber(5)
-  set ratio($core.double v) { $_setFloat(4, v); }
+  set ratio($core.int v) { $_setSignedInt32(4, v); }
   @$pb.TagNumber(5)
   $core.bool hasRatio() => $_has(4);
   @$pb.TagNumber(5)
   void clearRatio() => clearField(5);
 
   @$pb.TagNumber(6)
-  $core.double get hysteresis => $_getN(5);
+  $core.int get hysteresis => $_getIZ(5);
   @$pb.TagNumber(6)
-  set hysteresis($core.double v) { $_setFloat(5, v); }
+  set hysteresis($core.int v) { $_setSignedInt32(5, v); }
   @$pb.TagNumber(6)
   $core.bool hasHysteresis() => $_has(5);
   @$pb.TagNumber(6)
@@ -1191,9 +1191,9 @@ class ParamEfxOverdrive extends $pb.GeneratedMessage {
   factory ParamEfxOverdrive.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamEfxOverdrive', createEmptyInstance: create)
-    ..a<$core.double>(1, _omitFieldNames ? '' : 'drive', $pb.PbFieldType.OF)
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'treble', $pb.PbFieldType.OF)
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'level', $pb.PbFieldType.OF)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'drive', $pb.PbFieldType.O3)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'treble', $pb.PbFieldType.O3)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'level', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -1219,27 +1219,27 @@ class ParamEfxOverdrive extends $pb.GeneratedMessage {
   static ParamEfxOverdrive? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.double get drive => $_getN(0);
+  $core.int get drive => $_getIZ(0);
   @$pb.TagNumber(1)
-  set drive($core.double v) { $_setFloat(0, v); }
+  set drive($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasDrive() => $_has(0);
   @$pb.TagNumber(1)
   void clearDrive() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.double get treble => $_getN(1);
+  $core.int get treble => $_getIZ(1);
   @$pb.TagNumber(2)
-  set treble($core.double v) { $_setFloat(1, v); }
+  set treble($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
   $core.bool hasTreble() => $_has(1);
   @$pb.TagNumber(2)
   void clearTreble() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.double get level => $_getN(2);
+  $core.int get level => $_getIZ(2);
   @$pb.TagNumber(3)
-  set level($core.double v) { $_setFloat(2, v); }
+  set level($core.int v) { $_setSignedInt32(2, v); }
   @$pb.TagNumber(3)
   $core.bool hasLevel() => $_has(2);
   @$pb.TagNumber(3)
@@ -1253,9 +1253,9 @@ class ParamEfxDistortion extends $pb.GeneratedMessage {
   factory ParamEfxDistortion.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamEfxDistortion', createEmptyInstance: create)
-    ..a<$core.double>(1, _omitFieldNames ? '' : 'distortion', $pb.PbFieldType.OF)
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'treble', $pb.PbFieldType.OF)
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'level', $pb.PbFieldType.OF)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'distortion', $pb.PbFieldType.O3)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'treble', $pb.PbFieldType.O3)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'level', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -1281,27 +1281,27 @@ class ParamEfxDistortion extends $pb.GeneratedMessage {
   static ParamEfxDistortion? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.double get distortion => $_getN(0);
+  $core.int get distortion => $_getIZ(0);
   @$pb.TagNumber(1)
-  set distortion($core.double v) { $_setFloat(0, v); }
+  set distortion($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasDistortion() => $_has(0);
   @$pb.TagNumber(1)
   void clearDistortion() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.double get treble => $_getN(1);
+  $core.int get treble => $_getIZ(1);
   @$pb.TagNumber(2)
-  set treble($core.double v) { $_setFloat(1, v); }
+  set treble($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
   $core.bool hasTreble() => $_has(1);
   @$pb.TagNumber(2)
   void clearTreble() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.double get level => $_getN(2);
+  $core.int get level => $_getIZ(2);
   @$pb.TagNumber(3)
-  set level($core.double v) { $_setFloat(2, v); }
+  set level($core.int v) { $_setSignedInt32(2, v); }
   @$pb.TagNumber(3)
   $core.bool hasLevel() => $_has(2);
   @$pb.TagNumber(3)
@@ -1315,9 +1315,9 @@ class ParamEfxFuzz extends $pb.GeneratedMessage {
   factory ParamEfxFuzz.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamEfxFuzz', createEmptyInstance: create)
-    ..a<$core.double>(1, _omitFieldNames ? '' : 'fuzz', $pb.PbFieldType.OF)
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'treble', $pb.PbFieldType.OF)
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'level', $pb.PbFieldType.OF)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'fuzz', $pb.PbFieldType.O3)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'treble', $pb.PbFieldType.O3)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'level', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -1343,27 +1343,27 @@ class ParamEfxFuzz extends $pb.GeneratedMessage {
   static ParamEfxFuzz? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.double get fuzz => $_getN(0);
+  $core.int get fuzz => $_getIZ(0);
   @$pb.TagNumber(1)
-  set fuzz($core.double v) { $_setFloat(0, v); }
+  set fuzz($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasFuzz() => $_has(0);
   @$pb.TagNumber(1)
   void clearFuzz() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.double get treble => $_getN(1);
+  $core.int get treble => $_getIZ(1);
   @$pb.TagNumber(2)
-  set treble($core.double v) { $_setFloat(1, v); }
+  set treble($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
   $core.bool hasTreble() => $_has(1);
   @$pb.TagNumber(2)
   void clearTreble() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.double get level => $_getN(2);
+  $core.int get level => $_getIZ(2);
   @$pb.TagNumber(3)
-  set level($core.double v) { $_setFloat(2, v); }
+  set level($core.int v) { $_setSignedInt32(2, v); }
   @$pb.TagNumber(3)
   $core.bool hasLevel() => $_has(2);
   @$pb.TagNumber(3)
@@ -1377,8 +1377,8 @@ class ParamEfxBitCrusher extends $pb.GeneratedMessage {
   factory ParamEfxBitCrusher.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamEfxBitCrusher', createEmptyInstance: create)
-    ..a<$core.double>(1, _omitFieldNames ? '' : 'bitsDynamicRange', $pb.PbFieldType.OF, protoName: 'bitsDynamicRange')
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'sampleRate', $pb.PbFieldType.OF, protoName: 'sampleRate')
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'bitsDynamicRange', $pb.PbFieldType.O3, protoName: 'bitsDynamicRange')
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'sampleRate', $pb.PbFieldType.O3, protoName: 'sampleRate')
     ..hasRequiredFields = false
   ;
 
@@ -1404,18 +1404,18 @@ class ParamEfxBitCrusher extends $pb.GeneratedMessage {
   static ParamEfxBitCrusher? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.double get bitsDynamicRange => $_getN(0);
+  $core.int get bitsDynamicRange => $_getIZ(0);
   @$pb.TagNumber(1)
-  set bitsDynamicRange($core.double v) { $_setFloat(0, v); }
+  set bitsDynamicRange($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasBitsDynamicRange() => $_has(0);
   @$pb.TagNumber(1)
   void clearBitsDynamicRange() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.double get sampleRate => $_getN(1);
+  $core.int get sampleRate => $_getIZ(1);
   @$pb.TagNumber(2)
-  set sampleRate($core.double v) { $_setFloat(1, v); }
+  set sampleRate($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
   $core.bool hasSampleRate() => $_has(1);
   @$pb.TagNumber(2)
@@ -1429,11 +1429,11 @@ class ParamAmpFender extends $pb.GeneratedMessage {
   factory ParamAmpFender.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamAmpFender', createEmptyInstance: create)
-    ..a<$core.double>(1, _omitFieldNames ? '' : 'gain', $pb.PbFieldType.OF)
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'low', $pb.PbFieldType.OF)
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'middle', $pb.PbFieldType.OF)
-    ..a<$core.double>(4, _omitFieldNames ? '' : 'high', $pb.PbFieldType.OF)
-    ..a<$core.double>(5, _omitFieldNames ? '' : 'presence', $pb.PbFieldType.OF)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'gain', $pb.PbFieldType.O3)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'low', $pb.PbFieldType.O3)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'middle', $pb.PbFieldType.O3)
+    ..a<$core.int>(4, _omitFieldNames ? '' : 'high', $pb.PbFieldType.O3)
+    ..a<$core.int>(5, _omitFieldNames ? '' : 'presence', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -1459,45 +1459,45 @@ class ParamAmpFender extends $pb.GeneratedMessage {
   static ParamAmpFender? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.double get gain => $_getN(0);
+  $core.int get gain => $_getIZ(0);
   @$pb.TagNumber(1)
-  set gain($core.double v) { $_setFloat(0, v); }
+  set gain($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasGain() => $_has(0);
   @$pb.TagNumber(1)
   void clearGain() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.double get low => $_getN(1);
+  $core.int get low => $_getIZ(1);
   @$pb.TagNumber(2)
-  set low($core.double v) { $_setFloat(1, v); }
+  set low($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
   $core.bool hasLow() => $_has(1);
   @$pb.TagNumber(2)
   void clearLow() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.double get middle => $_getN(2);
+  $core.int get middle => $_getIZ(2);
   @$pb.TagNumber(3)
-  set middle($core.double v) { $_setFloat(2, v); }
+  set middle($core.int v) { $_setSignedInt32(2, v); }
   @$pb.TagNumber(3)
   $core.bool hasMiddle() => $_has(2);
   @$pb.TagNumber(3)
   void clearMiddle() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.double get high => $_getN(3);
+  $core.int get high => $_getIZ(3);
   @$pb.TagNumber(4)
-  set high($core.double v) { $_setFloat(3, v); }
+  set high($core.int v) { $_setSignedInt32(3, v); }
   @$pb.TagNumber(4)
   $core.bool hasHigh() => $_has(3);
   @$pb.TagNumber(4)
   void clearHigh() => clearField(4);
 
   @$pb.TagNumber(5)
-  $core.double get presence => $_getN(4);
+  $core.int get presence => $_getIZ(4);
   @$pb.TagNumber(5)
-  set presence($core.double v) { $_setFloat(4, v); }
+  set presence($core.int v) { $_setSignedInt32(4, v); }
   @$pb.TagNumber(5)
   $core.bool hasPresence() => $_has(4);
   @$pb.TagNumber(5)
@@ -1511,11 +1511,11 @@ class ParamAmpMarshall extends $pb.GeneratedMessage {
   factory ParamAmpMarshall.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamAmpMarshall', createEmptyInstance: create)
-    ..a<$core.double>(1, _omitFieldNames ? '' : 'gain', $pb.PbFieldType.OF)
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'low', $pb.PbFieldType.OF)
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'middle', $pb.PbFieldType.OF)
-    ..a<$core.double>(4, _omitFieldNames ? '' : 'high', $pb.PbFieldType.OF)
-    ..a<$core.double>(5, _omitFieldNames ? '' : 'presence', $pb.PbFieldType.OF)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'gain', $pb.PbFieldType.O3)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'low', $pb.PbFieldType.O3)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'middle', $pb.PbFieldType.O3)
+    ..a<$core.int>(4, _omitFieldNames ? '' : 'high', $pb.PbFieldType.O3)
+    ..a<$core.int>(5, _omitFieldNames ? '' : 'presence', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -1541,45 +1541,45 @@ class ParamAmpMarshall extends $pb.GeneratedMessage {
   static ParamAmpMarshall? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.double get gain => $_getN(0);
+  $core.int get gain => $_getIZ(0);
   @$pb.TagNumber(1)
-  set gain($core.double v) { $_setFloat(0, v); }
+  set gain($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasGain() => $_has(0);
   @$pb.TagNumber(1)
   void clearGain() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.double get low => $_getN(1);
+  $core.int get low => $_getIZ(1);
   @$pb.TagNumber(2)
-  set low($core.double v) { $_setFloat(1, v); }
+  set low($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
   $core.bool hasLow() => $_has(1);
   @$pb.TagNumber(2)
   void clearLow() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.double get middle => $_getN(2);
+  $core.int get middle => $_getIZ(2);
   @$pb.TagNumber(3)
-  set middle($core.double v) { $_setFloat(2, v); }
+  set middle($core.int v) { $_setSignedInt32(2, v); }
   @$pb.TagNumber(3)
   $core.bool hasMiddle() => $_has(2);
   @$pb.TagNumber(3)
   void clearMiddle() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.double get high => $_getN(3);
+  $core.int get high => $_getIZ(3);
   @$pb.TagNumber(4)
-  set high($core.double v) { $_setFloat(3, v); }
+  set high($core.int v) { $_setSignedInt32(3, v); }
   @$pb.TagNumber(4)
   $core.bool hasHigh() => $_has(3);
   @$pb.TagNumber(4)
   void clearHigh() => clearField(4);
 
   @$pb.TagNumber(5)
-  $core.double get presence => $_getN(4);
+  $core.int get presence => $_getIZ(4);
   @$pb.TagNumber(5)
-  set presence($core.double v) { $_setFloat(4, v); }
+  set presence($core.int v) { $_setSignedInt32(4, v); }
   @$pb.TagNumber(5)
   $core.bool hasPresence() => $_has(4);
   @$pb.TagNumber(5)
@@ -1593,11 +1593,11 @@ class ParamAmpVox extends $pb.GeneratedMessage {
   factory ParamAmpVox.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamAmpVox', createEmptyInstance: create)
-    ..a<$core.double>(1, _omitFieldNames ? '' : 'gain', $pb.PbFieldType.OF)
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'low', $pb.PbFieldType.OF)
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'middle', $pb.PbFieldType.OF)
-    ..a<$core.double>(4, _omitFieldNames ? '' : 'high', $pb.PbFieldType.OF)
-    ..a<$core.double>(5, _omitFieldNames ? '' : 'presence', $pb.PbFieldType.OF)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'gain', $pb.PbFieldType.O3)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'low', $pb.PbFieldType.O3)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'middle', $pb.PbFieldType.O3)
+    ..a<$core.int>(4, _omitFieldNames ? '' : 'high', $pb.PbFieldType.O3)
+    ..a<$core.int>(5, _omitFieldNames ? '' : 'presence', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -1623,45 +1623,45 @@ class ParamAmpVox extends $pb.GeneratedMessage {
   static ParamAmpVox? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.double get gain => $_getN(0);
+  $core.int get gain => $_getIZ(0);
   @$pb.TagNumber(1)
-  set gain($core.double v) { $_setFloat(0, v); }
+  set gain($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasGain() => $_has(0);
   @$pb.TagNumber(1)
   void clearGain() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.double get low => $_getN(1);
+  $core.int get low => $_getIZ(1);
   @$pb.TagNumber(2)
-  set low($core.double v) { $_setFloat(1, v); }
+  set low($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
   $core.bool hasLow() => $_has(1);
   @$pb.TagNumber(2)
   void clearLow() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.double get middle => $_getN(2);
+  $core.int get middle => $_getIZ(2);
   @$pb.TagNumber(3)
-  set middle($core.double v) { $_setFloat(2, v); }
+  set middle($core.int v) { $_setSignedInt32(2, v); }
   @$pb.TagNumber(3)
   $core.bool hasMiddle() => $_has(2);
   @$pb.TagNumber(3)
   void clearMiddle() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.double get high => $_getN(3);
+  $core.int get high => $_getIZ(3);
   @$pb.TagNumber(4)
-  set high($core.double v) { $_setFloat(3, v); }
+  set high($core.int v) { $_setSignedInt32(3, v); }
   @$pb.TagNumber(4)
   $core.bool hasHigh() => $_has(3);
   @$pb.TagNumber(4)
   void clearHigh() => clearField(4);
 
   @$pb.TagNumber(5)
-  $core.double get presence => $_getN(4);
+  $core.int get presence => $_getIZ(4);
   @$pb.TagNumber(5)
-  set presence($core.double v) { $_setFloat(4, v); }
+  set presence($core.int v) { $_setSignedInt32(4, v); }
   @$pb.TagNumber(5)
   $core.bool hasPresence() => $_has(4);
   @$pb.TagNumber(5)
@@ -1675,11 +1675,11 @@ class ParamAmpAcoustic extends $pb.GeneratedMessage {
   factory ParamAmpAcoustic.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamAmpAcoustic', createEmptyInstance: create)
-    ..a<$core.double>(1, _omitFieldNames ? '' : 'gain', $pb.PbFieldType.OF)
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'low', $pb.PbFieldType.OF)
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'middle', $pb.PbFieldType.OF)
-    ..a<$core.double>(4, _omitFieldNames ? '' : 'high', $pb.PbFieldType.OF)
-    ..a<$core.double>(5, _omitFieldNames ? '' : 'presence', $pb.PbFieldType.OF)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'gain', $pb.PbFieldType.O3)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'low', $pb.PbFieldType.O3)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'middle', $pb.PbFieldType.O3)
+    ..a<$core.int>(4, _omitFieldNames ? '' : 'high', $pb.PbFieldType.O3)
+    ..a<$core.int>(5, _omitFieldNames ? '' : 'presence', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -1705,45 +1705,45 @@ class ParamAmpAcoustic extends $pb.GeneratedMessage {
   static ParamAmpAcoustic? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.double get gain => $_getN(0);
+  $core.int get gain => $_getIZ(0);
   @$pb.TagNumber(1)
-  set gain($core.double v) { $_setFloat(0, v); }
+  set gain($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasGain() => $_has(0);
   @$pb.TagNumber(1)
   void clearGain() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.double get low => $_getN(1);
+  $core.int get low => $_getIZ(1);
   @$pb.TagNumber(2)
-  set low($core.double v) { $_setFloat(1, v); }
+  set low($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
   $core.bool hasLow() => $_has(1);
   @$pb.TagNumber(2)
   void clearLow() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.double get middle => $_getN(2);
+  $core.int get middle => $_getIZ(2);
   @$pb.TagNumber(3)
-  set middle($core.double v) { $_setFloat(2, v); }
+  set middle($core.int v) { $_setSignedInt32(2, v); }
   @$pb.TagNumber(3)
   $core.bool hasMiddle() => $_has(2);
   @$pb.TagNumber(3)
   void clearMiddle() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.double get high => $_getN(3);
+  $core.int get high => $_getIZ(3);
   @$pb.TagNumber(4)
-  set high($core.double v) { $_setFloat(3, v); }
+  set high($core.int v) { $_setSignedInt32(3, v); }
   @$pb.TagNumber(4)
   $core.bool hasHigh() => $_has(3);
   @$pb.TagNumber(4)
   void clearHigh() => clearField(4);
 
   @$pb.TagNumber(5)
-  $core.double get presence => $_getN(4);
+  $core.int get presence => $_getIZ(4);
   @$pb.TagNumber(5)
-  set presence($core.double v) { $_setFloat(4, v); }
+  set presence($core.int v) { $_setSignedInt32(4, v); }
   @$pb.TagNumber(5)
   $core.bool hasPresence() => $_has(4);
   @$pb.TagNumber(5)
@@ -1757,7 +1757,7 @@ class ParamIrFender extends $pb.GeneratedMessage {
   factory ParamIrFender.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamIrFender', createEmptyInstance: create)
-    ..a<$core.double>(1, _omitFieldNames ? '' : 'wet', $pb.PbFieldType.OF)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'wet', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -1783,9 +1783,9 @@ class ParamIrFender extends $pb.GeneratedMessage {
   static ParamIrFender? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.double get wet => $_getN(0);
+  $core.int get wet => $_getIZ(0);
   @$pb.TagNumber(1)
-  set wet($core.double v) { $_setFloat(0, v); }
+  set wet($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasWet() => $_has(0);
   @$pb.TagNumber(1)
@@ -1799,7 +1799,7 @@ class ParamIrMarshall extends $pb.GeneratedMessage {
   factory ParamIrMarshall.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamIrMarshall', createEmptyInstance: create)
-    ..a<$core.double>(1, _omitFieldNames ? '' : 'wet', $pb.PbFieldType.OF)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'wet', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -1825,9 +1825,9 @@ class ParamIrMarshall extends $pb.GeneratedMessage {
   static ParamIrMarshall? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.double get wet => $_getN(0);
+  $core.int get wet => $_getIZ(0);
   @$pb.TagNumber(1)
-  set wet($core.double v) { $_setFloat(0, v); }
+  set wet($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasWet() => $_has(0);
   @$pb.TagNumber(1)
@@ -1841,7 +1841,7 @@ class ParamIrVox extends $pb.GeneratedMessage {
   factory ParamIrVox.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamIrVox', createEmptyInstance: create)
-    ..a<$core.double>(1, _omitFieldNames ? '' : 'wet', $pb.PbFieldType.OF)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'wet', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -1867,9 +1867,9 @@ class ParamIrVox extends $pb.GeneratedMessage {
   static ParamIrVox? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.double get wet => $_getN(0);
+  $core.int get wet => $_getIZ(0);
   @$pb.TagNumber(1)
-  set wet($core.double v) { $_setFloat(0, v); }
+  set wet($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasWet() => $_has(0);
   @$pb.TagNumber(1)
@@ -1883,7 +1883,7 @@ class ParamIrAcoustic extends $pb.GeneratedMessage {
   factory ParamIrAcoustic.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamIrAcoustic', createEmptyInstance: create)
-    ..a<$core.double>(1, _omitFieldNames ? '' : 'wet', $pb.PbFieldType.OF)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'wet', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -1909,9 +1909,9 @@ class ParamIrAcoustic extends $pb.GeneratedMessage {
   static ParamIrAcoustic? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.double get wet => $_getN(0);
+  $core.int get wet => $_getIZ(0);
   @$pb.TagNumber(1)
-  set wet($core.double v) { $_setFloat(0, v); }
+  set wet($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasWet() => $_has(0);
   @$pb.TagNumber(1)
@@ -1925,9 +1925,9 @@ class ParamModFlange extends $pb.GeneratedMessage {
   factory ParamModFlange.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamModFlange', createEmptyInstance: create)
-    ..a<$core.double>(1, _omitFieldNames ? '' : 'offset', $pb.PbFieldType.OF)
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'depth', $pb.PbFieldType.OF)
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'frequency', $pb.PbFieldType.OF)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'offset', $pb.PbFieldType.O3)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'depth', $pb.PbFieldType.O3)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'frequency', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -1953,27 +1953,27 @@ class ParamModFlange extends $pb.GeneratedMessage {
   static ParamModFlange? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.double get offset => $_getN(0);
+  $core.int get offset => $_getIZ(0);
   @$pb.TagNumber(1)
-  set offset($core.double v) { $_setFloat(0, v); }
+  set offset($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasOffset() => $_has(0);
   @$pb.TagNumber(1)
   void clearOffset() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.double get depth => $_getN(1);
+  $core.int get depth => $_getIZ(1);
   @$pb.TagNumber(2)
-  set depth($core.double v) { $_setFloat(1, v); }
+  set depth($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
   $core.bool hasDepth() => $_has(1);
   @$pb.TagNumber(2)
   void clearDepth() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.double get frequency => $_getN(2);
+  $core.int get frequency => $_getIZ(2);
   @$pb.TagNumber(3)
-  set frequency($core.double v) { $_setFloat(2, v); }
+  set frequency($core.int v) { $_setSignedInt32(2, v); }
   @$pb.TagNumber(3)
   $core.bool hasFrequency() => $_has(2);
   @$pb.TagNumber(3)
@@ -2029,8 +2029,8 @@ class ParamModTremolo extends $pb.GeneratedMessage {
   factory ParamModTremolo.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamModTremolo', createEmptyInstance: create)
-    ..a<$core.double>(1, _omitFieldNames ? '' : 'depth', $pb.PbFieldType.OF)
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'frequency', $pb.PbFieldType.OF)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'depth', $pb.PbFieldType.O3)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'frequency', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -2056,18 +2056,18 @@ class ParamModTremolo extends $pb.GeneratedMessage {
   static ParamModTremolo? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.double get depth => $_getN(0);
+  $core.int get depth => $_getIZ(0);
   @$pb.TagNumber(1)
-  set depth($core.double v) { $_setFloat(0, v); }
+  set depth($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasDepth() => $_has(0);
   @$pb.TagNumber(1)
   void clearDepth() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.double get frequency => $_getN(1);
+  $core.int get frequency => $_getIZ(1);
   @$pb.TagNumber(2)
-  set frequency($core.double v) { $_setFloat(1, v); }
+  set frequency($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
   $core.bool hasFrequency() => $_has(1);
   @$pb.TagNumber(2)
@@ -2081,11 +2081,11 @@ class ParamModPhaser extends $pb.GeneratedMessage {
   factory ParamModPhaser.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamModPhaser', createEmptyInstance: create)
-    ..a<$core.double>(1, _omitFieldNames ? '' : 'frequency', $pb.PbFieldType.OF)
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'depthTop', $pb.PbFieldType.OF, protoName: 'depthTop')
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'depthBottom', $pb.PbFieldType.OF, protoName: 'depthBottom')
-    ..a<$core.double>(4, _omitFieldNames ? '' : 'mix', $pb.PbFieldType.OF)
-    ..a<$core.double>(5, _omitFieldNames ? '' : 'feedback', $pb.PbFieldType.OF)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'frequency', $pb.PbFieldType.O3)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'depthTop', $pb.PbFieldType.O3, protoName: 'depthTop')
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'depthBottom', $pb.PbFieldType.O3, protoName: 'depthBottom')
+    ..a<$core.int>(4, _omitFieldNames ? '' : 'mix', $pb.PbFieldType.O3)
+    ..a<$core.int>(5, _omitFieldNames ? '' : 'feedback', $pb.PbFieldType.O3)
     ..a<$core.int>(6, _omitFieldNames ? '' : 'stages', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
@@ -2112,45 +2112,45 @@ class ParamModPhaser extends $pb.GeneratedMessage {
   static ParamModPhaser? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.double get frequency => $_getN(0);
+  $core.int get frequency => $_getIZ(0);
   @$pb.TagNumber(1)
-  set frequency($core.double v) { $_setFloat(0, v); }
+  set frequency($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasFrequency() => $_has(0);
   @$pb.TagNumber(1)
   void clearFrequency() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.double get depthTop => $_getN(1);
+  $core.int get depthTop => $_getIZ(1);
   @$pb.TagNumber(2)
-  set depthTop($core.double v) { $_setFloat(1, v); }
+  set depthTop($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
   $core.bool hasDepthTop() => $_has(1);
   @$pb.TagNumber(2)
   void clearDepthTop() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.double get depthBottom => $_getN(2);
+  $core.int get depthBottom => $_getIZ(2);
   @$pb.TagNumber(3)
-  set depthBottom($core.double v) { $_setFloat(2, v); }
+  set depthBottom($core.int v) { $_setSignedInt32(2, v); }
   @$pb.TagNumber(3)
   $core.bool hasDepthBottom() => $_has(2);
   @$pb.TagNumber(3)
   void clearDepthBottom() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.double get mix => $_getN(3);
+  $core.int get mix => $_getIZ(3);
   @$pb.TagNumber(4)
-  set mix($core.double v) { $_setFloat(3, v); }
+  set mix($core.int v) { $_setSignedInt32(3, v); }
   @$pb.TagNumber(4)
   $core.bool hasMix() => $_has(3);
   @$pb.TagNumber(4)
   void clearMix() => clearField(4);
 
   @$pb.TagNumber(5)
-  $core.double get feedback => $_getN(4);
+  $core.int get feedback => $_getIZ(4);
   @$pb.TagNumber(5)
-  set feedback($core.double v) { $_setFloat(4, v); }
+  set feedback($core.int v) { $_setSignedInt32(4, v); }
   @$pb.TagNumber(5)
   $core.bool hasFeedback() => $_has(4);
   @$pb.TagNumber(5)
@@ -2173,8 +2173,8 @@ class ParamModVibrato extends $pb.GeneratedMessage {
   factory ParamModVibrato.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamModVibrato', createEmptyInstance: create)
-    ..a<$core.double>(1, _omitFieldNames ? '' : 'frequency', $pb.PbFieldType.OF)
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'percent', $pb.PbFieldType.OF)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'frequency', $pb.PbFieldType.O3)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'percent', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -2200,18 +2200,18 @@ class ParamModVibrato extends $pb.GeneratedMessage {
   static ParamModVibrato? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.double get frequency => $_getN(0);
+  $core.int get frequency => $_getIZ(0);
   @$pb.TagNumber(1)
-  set frequency($core.double v) { $_setFloat(0, v); }
+  set frequency($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasFrequency() => $_has(0);
   @$pb.TagNumber(1)
   void clearFrequency() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.double get percent => $_getN(1);
+  $core.int get percent => $_getIZ(1);
   @$pb.TagNumber(2)
-  set percent($core.double v) { $_setFloat(1, v); }
+  set percent($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
   $core.bool hasPercent() => $_has(1);
   @$pb.TagNumber(2)
@@ -2225,8 +2225,8 @@ class ParamDelayEcho extends $pb.GeneratedMessage {
   factory ParamDelayEcho.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamDelayEcho', createEmptyInstance: create)
-    ..a<$core.double>(1, _omitFieldNames ? '' : 'gap', $pb.PbFieldType.OF)
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'decay', $pb.PbFieldType.OF)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'gap', $pb.PbFieldType.O3)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'decay', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -2252,18 +2252,18 @@ class ParamDelayEcho extends $pb.GeneratedMessage {
   static ParamDelayEcho? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.double get gap => $_getN(0);
+  $core.int get gap => $_getIZ(0);
   @$pb.TagNumber(1)
-  set gap($core.double v) { $_setFloat(0, v); }
+  set gap($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasGap() => $_has(0);
   @$pb.TagNumber(1)
   void clearGap() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.double get decay => $_getN(1);
+  $core.int get decay => $_getIZ(1);
   @$pb.TagNumber(2)
-  set decay($core.double v) { $_setFloat(1, v); }
+  set decay($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
   $core.bool hasDecay() => $_has(1);
   @$pb.TagNumber(2)
@@ -2277,9 +2277,9 @@ class ParamDelayDelay extends $pb.GeneratedMessage {
   factory ParamDelayDelay.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamDelayDelay', createEmptyInstance: create)
-    ..a<$core.double>(1, _omitFieldNames ? '' : 'gap', $pb.PbFieldType.OF)
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'mix', $pb.PbFieldType.OF)
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'feedback', $pb.PbFieldType.OF)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'gap', $pb.PbFieldType.O3)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'mix', $pb.PbFieldType.O3)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'feedback', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -2305,27 +2305,27 @@ class ParamDelayDelay extends $pb.GeneratedMessage {
   static ParamDelayDelay? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.double get gap => $_getN(0);
+  $core.int get gap => $_getIZ(0);
   @$pb.TagNumber(1)
-  set gap($core.double v) { $_setFloat(0, v); }
+  set gap($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasGap() => $_has(0);
   @$pb.TagNumber(1)
   void clearGap() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.double get mix => $_getN(1);
+  $core.int get mix => $_getIZ(1);
   @$pb.TagNumber(2)
-  set mix($core.double v) { $_setFloat(1, v); }
+  set mix($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
   $core.bool hasMix() => $_has(1);
   @$pb.TagNumber(2)
   void clearMix() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.double get feedback => $_getN(2);
+  $core.int get feedback => $_getIZ(2);
   @$pb.TagNumber(3)
-  set feedback($core.double v) { $_setFloat(2, v); }
+  set feedback($core.int v) { $_setSignedInt32(2, v); }
   @$pb.TagNumber(3)
   $core.bool hasFeedback() => $_has(2);
   @$pb.TagNumber(3)
@@ -2339,9 +2339,9 @@ class ParamReverbRoom extends $pb.GeneratedMessage {
   factory ParamReverbRoom.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamReverbRoom', createEmptyInstance: create)
-    ..a<$core.double>(1, _omitFieldNames ? '' : 'roomsize', $pb.PbFieldType.OF)
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'damping', $pb.PbFieldType.OF)
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'wet', $pb.PbFieldType.OF)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'roomsize', $pb.PbFieldType.O3)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'damping', $pb.PbFieldType.O3)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'wet', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -2367,27 +2367,27 @@ class ParamReverbRoom extends $pb.GeneratedMessage {
   static ParamReverbRoom? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.double get roomsize => $_getN(0);
+  $core.int get roomsize => $_getIZ(0);
   @$pb.TagNumber(1)
-  set roomsize($core.double v) { $_setFloat(0, v); }
+  set roomsize($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasRoomsize() => $_has(0);
   @$pb.TagNumber(1)
   void clearRoomsize() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.double get damping => $_getN(1);
+  $core.int get damping => $_getIZ(1);
   @$pb.TagNumber(2)
-  set damping($core.double v) { $_setFloat(1, v); }
+  set damping($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
   $core.bool hasDamping() => $_has(1);
   @$pb.TagNumber(2)
   void clearDamping() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.double get wet => $_getN(2);
+  $core.int get wet => $_getIZ(2);
   @$pb.TagNumber(3)
-  set wet($core.double v) { $_setFloat(2, v); }
+  set wet($core.int v) { $_setSignedInt32(2, v); }
   @$pb.TagNumber(3)
   $core.bool hasWet() => $_has(2);
   @$pb.TagNumber(3)
@@ -2401,9 +2401,9 @@ class ParamReverbHall extends $pb.GeneratedMessage {
   factory ParamReverbHall.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamReverbHall', createEmptyInstance: create)
-    ..a<$core.double>(1, _omitFieldNames ? '' : 'roomsize', $pb.PbFieldType.OF)
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'damping', $pb.PbFieldType.OF)
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'wet', $pb.PbFieldType.OF)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'roomsize', $pb.PbFieldType.O3)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'damping', $pb.PbFieldType.O3)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'wet', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -2429,27 +2429,27 @@ class ParamReverbHall extends $pb.GeneratedMessage {
   static ParamReverbHall? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.double get roomsize => $_getN(0);
+  $core.int get roomsize => $_getIZ(0);
   @$pb.TagNumber(1)
-  set roomsize($core.double v) { $_setFloat(0, v); }
+  set roomsize($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasRoomsize() => $_has(0);
   @$pb.TagNumber(1)
   void clearRoomsize() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.double get damping => $_getN(1);
+  $core.int get damping => $_getIZ(1);
   @$pb.TagNumber(2)
-  set damping($core.double v) { $_setFloat(1, v); }
+  set damping($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
   $core.bool hasDamping() => $_has(1);
   @$pb.TagNumber(2)
   void clearDamping() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.double get wet => $_getN(2);
+  $core.int get wet => $_getIZ(2);
   @$pb.TagNumber(3)
-  set wet($core.double v) { $_setFloat(2, v); }
+  set wet($core.int v) { $_setSignedInt32(2, v); }
   @$pb.TagNumber(3)
   $core.bool hasWet() => $_has(2);
   @$pb.TagNumber(3)
@@ -2463,9 +2463,9 @@ class ParamReverbPlate extends $pb.GeneratedMessage {
   factory ParamReverbPlate.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamReverbPlate', createEmptyInstance: create)
-    ..a<$core.double>(1, _omitFieldNames ? '' : 'roomsize', $pb.PbFieldType.OF)
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'damping', $pb.PbFieldType.OF)
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'wet', $pb.PbFieldType.OF)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'roomsize', $pb.PbFieldType.O3)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'damping', $pb.PbFieldType.O3)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'wet', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -2491,27 +2491,27 @@ class ParamReverbPlate extends $pb.GeneratedMessage {
   static ParamReverbPlate? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.double get roomsize => $_getN(0);
+  $core.int get roomsize => $_getIZ(0);
   @$pb.TagNumber(1)
-  set roomsize($core.double v) { $_setFloat(0, v); }
+  set roomsize($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasRoomsize() => $_has(0);
   @$pb.TagNumber(1)
   void clearRoomsize() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.double get damping => $_getN(1);
+  $core.int get damping => $_getIZ(1);
   @$pb.TagNumber(2)
-  set damping($core.double v) { $_setFloat(1, v); }
+  set damping($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
   $core.bool hasDamping() => $_has(1);
   @$pb.TagNumber(2)
   void clearDamping() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.double get wet => $_getN(2);
+  $core.int get wet => $_getIZ(2);
   @$pb.TagNumber(3)
-  set wet($core.double v) { $_setFloat(2, v); }
+  set wet($core.int v) { $_setSignedInt32(2, v); }
   @$pb.TagNumber(3)
   $core.bool hasWet() => $_has(2);
   @$pb.TagNumber(3)
@@ -2525,9 +2525,9 @@ class ParamReverbSpring extends $pb.GeneratedMessage {
   factory ParamReverbSpring.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamReverbSpring', createEmptyInstance: create)
-    ..a<$core.double>(1, _omitFieldNames ? '' : 'roomsize', $pb.PbFieldType.OF)
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'damping', $pb.PbFieldType.OF)
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'wet', $pb.PbFieldType.OF)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'roomsize', $pb.PbFieldType.O3)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'damping', $pb.PbFieldType.O3)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'wet', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -2553,27 +2553,27 @@ class ParamReverbSpring extends $pb.GeneratedMessage {
   static ParamReverbSpring? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.double get roomsize => $_getN(0);
+  $core.int get roomsize => $_getIZ(0);
   @$pb.TagNumber(1)
-  set roomsize($core.double v) { $_setFloat(0, v); }
+  set roomsize($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasRoomsize() => $_has(0);
   @$pb.TagNumber(1)
   void clearRoomsize() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.double get damping => $_getN(1);
+  $core.int get damping => $_getIZ(1);
   @$pb.TagNumber(2)
-  set damping($core.double v) { $_setFloat(1, v); }
+  set damping($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
   $core.bool hasDamping() => $_has(1);
   @$pb.TagNumber(2)
   void clearDamping() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.double get wet => $_getN(2);
+  $core.int get wet => $_getIZ(2);
   @$pb.TagNumber(3)
-  set wet($core.double v) { $_setFloat(2, v); }
+  set wet($core.int v) { $_setSignedInt32(2, v); }
   @$pb.TagNumber(3)
   $core.bool hasWet() => $_has(2);
   @$pb.TagNumber(3)

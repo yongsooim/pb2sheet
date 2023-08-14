@@ -7,8 +7,8 @@ syntax = "proto3";
 enum MessageID {
   ACK = 0;
   NACK = 1;
-  FIRST_CONTACT = 2;
-  FIRST_CONTACT_RESP = 3;
+  INIT_FROM_APP = 2;
+  INIT_FROM_GUITAR = 3;
   TUNER_ONOFF = 4;
   TUNER_FREQUENCY = 5;
   KNOB_CLICKED = 6;
@@ -69,13 +69,13 @@ message ReqSetupInfo {
 
 }
 
-message FirstContact {
+message InitFromApp {
   int64  currentTimeEpoch = 1;
   string phoneMachineId = 2;
   string appVersion = 3;
 }
 
-message FirstContactResp {
+message InitFromGuitar {
   string guitarName = 1;
   string guitarModelName = 2;
   string firmwareVersion = 3;
@@ -166,151 +166,151 @@ message SelectReverb {
 }
 
 message ParamGateNoiseGate {
-  float threshold = 1;
-  float openingTime = 2;
-  float closingTime = 3;
-  float holdTime = 4;
+  int32 threshold = 1;
+  int32 openingTime = 2;
+  int32 closingTime = 3;
+  int32 holdTime = 4;
 }
 
 message ParamGateLimiter {
-  float threshold = 1;
-  float attack = 2;
-  float release = 3;
-  float gain = 4;
+  int32 threshold = 1;
+  int32 attack = 2;
+  int32 release = 3;
+  int32 gain = 4;
 }
 
 message ParamGateCompressor {
-  float threshold = 1;
-  float attack = 2;
-  float release = 3;
-  float gain = 4;
-  float ratio = 5;
-  float hysteresis = 6;
+  int32 threshold = 1;
+  int32 attack = 2;
+  int32 release = 3;
+  int32 gain = 4;
+  int32 ratio = 5;
+  int32 hysteresis = 6;
 }
 
 message ParamEfxOverdrive {
-  float drive = 1;
-  float treble = 2;
-  float level = 3;
+  int32 drive = 1;
+  int32 treble = 2;
+  int32 level = 3;
 }
 
 message ParamEfxDistortion {
-  float distortion = 1;
-  float treble = 2;
-  float level = 3;
+  int32 distortion = 1;
+  int32 treble = 2;
+  int32 level = 3;
 }
 
 message ParamEfxFuzz {
-  float fuzz = 1;
-  float treble = 2;
-  float level = 3;
+  int32 fuzz = 1;
+  int32 treble = 2;
+  int32 level = 3;
 }
 
 message ParamEfxBitCrusher {
-  float bitsDynamicRange = 1;
-  float sampleRate = 2;
+  int32 bitsDynamicRange = 1;
+  int32 sampleRate = 2;
 }
 
 message ParamAmpFender {
-  float gain = 1;
-  float low = 2;
-  float middle = 3;
-  float high = 4;
-  float presence = 5;
+  int32 gain = 1;
+  int32 low = 2;
+  int32 middle = 3;
+  int32 high = 4;
+  int32 presence = 5;
 }
 
 message ParamAmpMarshall {
-  float gain = 1;
-  float low = 2;
-  float middle = 3;
-  float high = 4;
-  float presence = 5;
+  int32 gain = 1;
+  int32 low = 2;
+  int32 middle = 3;
+  int32 high = 4;
+  int32 presence = 5;
 }
 
 message ParamAmpVox {
-  float gain = 1;
-  float low = 2;
-  float middle = 3;
-  float high = 4;
-  float presence = 5;
+  int32 gain = 1;
+  int32 low = 2;
+  int32 middle = 3;
+  int32 high = 4;
+  int32 presence = 5;
 }
 
 message ParamAmpAcoustic {
-  float gain = 1;
-  float low = 2;
-  float middle = 3;
-  float high = 4;
-  float presence = 5;
+  int32 gain = 1;
+  int32 low = 2;
+  int32 middle = 3;
+  int32 high = 4;
+  int32 presence = 5;
 }
 
-message ParamIrFender { float wet = 1; }
+message ParamIrFender { int32 wet = 1; }
 
-message ParamIrMarshall { float wet = 1; }
+message ParamIrMarshall { int32 wet = 1; }
 
-message ParamIrVox { float wet = 1; }
+message ParamIrVox { int32 wet = 1; }
 
-message ParamIrAcoustic { float wet = 1; }
+message ParamIrAcoustic { int32 wet = 1; }
 
 message ParamModFlange {
-  float offset = 1;
-  float depth = 2;
-  float frequency = 3;
+  int32 offset = 1;
+  int32 depth = 2;
+  int32 frequency = 3;
 }
 
 message ParamModChorus { int32 voices = 1; }
 
 message ParamModTremolo {
-  float depth = 1;
-  float frequency = 2;
+  int32 depth = 1;
+  int32 frequency = 2;
 }
 
 message ParamModPhaser {
-  float frequency = 1;
-  float depthTop = 2;
-  float depthBottom = 3;
-  float mix = 4;
-  float feedback = 5;
+  int32 frequency = 1;
+  int32 depthTop = 2;
+  int32 depthBottom = 3;
+  int32 mix = 4;
+  int32 feedback = 5;
   int32 stages = 6;
 }
 
 message ParamModVibrato {
-  float frequency = 1;
-  float percent = 2;
+  int32 frequency = 1;
+  int32 percent = 2;
 }
 
 message ParamDelayEcho {
-  float gap = 1;
-  float decay = 2;
+  int32 gap = 1;
+  int32 decay = 2;
 }
 
 message ParamDelayDelay {
-  float gap = 1;
-  float mix = 2;
-  float feedback = 3;
+  int32 gap = 1;
+  int32 mix = 2;
+  int32 feedback = 3;
 }
 
 message ParamReverbRoom {
-  float roomsize = 1;
-  float damping = 2;
-  float wet = 3;
+  int32 roomsize = 1;
+  int32 damping = 2;
+  int32 wet = 3;
 }
 
 message ParamReverbHall {
-  float roomsize = 1;
-  float damping = 2;
-  float wet = 3;
+  int32 roomsize = 1;
+  int32 damping = 2;
+  int32 wet = 3;
 }
 
 message ParamReverbPlate {
-  float roomsize = 1;
-  float damping = 2;
-  float wet = 3;
+  int32 roomsize = 1;
+  int32 damping = 2;
+  int32 wet = 3;
 }
 
 message ParamReverbSpring {
-  float roomsize = 1;
-  float damping = 2;
-  float wet = 3;
+  int32 roomsize = 1;
+  int32 damping = 2;
+  int32 wet = 3;
 }
 
 // App -> Guitar

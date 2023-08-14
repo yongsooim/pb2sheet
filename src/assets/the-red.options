@@ -5,12 +5,12 @@ bulkIrReq.data                    max_count:10
 
 bulkIrEndReq.data                 max_count:10
 
-FirstContact.phoneMachineId       max_size: 20
-FirstContact.appVersion           max_size: 20
+InitFromApp.phoneMachineId       max_size: 20
+InitFromApp.appVersion           max_size: 20
 
-FirstContactResp.guitarName       max_size: 20
-FirstContactResp.guitarModelName  max_size: 20
-FirstContactResp.firmwareVersion  max_size: 20
+InitFromGuitar.guitarName       max_size: 20
+InitFromGuitar.guitarModelName  max_size: 20
+InitFromGuitar.firmwareVersion  max_size: 20
 
 ChangeGuitarName.guitarName  max_size: 20
 

@@ -13,8 +13,8 @@
 typedef enum _MessageID {
     MessageID_ACK = 0,
     MessageID_NACK = 1,
-    MessageID_FIRST_CONTACT = 2,
-    MessageID_FIRST_CONTACT_RESP = 3,
+    MessageID_INIT_FROM_APP = 2,
+    MessageID_INIT_FROM_GUITAR = 3,
     MessageID_TUNER_ONOFF = 4,
     MessageID_TUNER_FREQUENCY = 5,
     MessageID_KNOB_CLICKED = 6,
@@ -140,20 +140,20 @@ typedef struct _ReqSetupInfo {
     char dummy_field;
 } ReqSetupInfo;
 
-typedef struct _FirstContact {
+typedef struct _InitFromApp {
     int64_t currentTimeEpoch;
-    pb_callback_t phoneMachineId;
-    pb_callback_t appVersion;
-} FirstContact;
+    char phoneMachineId[20];
+    char appVersion[20];
+} InitFromApp;
 
-typedef struct _FirstContactResp {
-    pb_callback_t guitarName;
-    pb_callback_t guitarModelName;
-    pb_callback_t firmwareVersion;
-} FirstContactResp;
+typedef struct _InitFromGuitar {
+    char guitarName[20];
+    char guitarModelName[20];
+    char firmwareVersion[20];
+} InitFromGuitar;
 
 typedef struct _ChangeGuitarName {
-    pb_callback_t guitarName;
+    char guitarName[20];
 } ChangeGuitarName;
 
 typedef struct _TunerOnOff {
@@ -219,103 +219,103 @@ typedef struct _SelectReverb {
 } SelectReverb;
 
 typedef struct _ParamGateNoiseGate {
-    float threshold;
-    float openingTime;
-    float closingTime;
-    float holdTime;
+    int32_t threshold;
+    int32_t openingTime;
+    int32_t closingTime;
+    int32_t holdTime;
 } ParamGateNoiseGate;
 
 typedef struct _ParamGateLimiter {
-    float threshold;
-    float attack;
-    float release;
-    float gain;
+    int32_t threshold;
+    int32_t attack;
+    int32_t release;
+    int32_t gain;
 } ParamGateLimiter;
 
 typedef struct _ParamGateCompressor {
-    float threshold;
-    float attack;
-    float release;
-    float gain;
-    float ratio;
-    float hysteresis;
+    int32_t threshold;
+    int32_t attack;
+    int32_t release;
+    int32_t gain;
+    int32_t ratio;
+    int32_t hysteresis;
 } ParamGateCompressor;
 
 typedef struct _ParamEfxOverdrive {
-    float drive;
-    float treble;
-    float level;
+    int32_t drive;
+    int32_t treble;
+    int32_t level;
 } ParamEfxOverdrive;
 
 typedef struct _ParamEfxDistortion {
-    float distortion;
-    float treble;
-    float level;
+    int32_t distortion;
+    int32_t treble;
+    int32_t level;
 } ParamEfxDistortion;
 
 typedef struct _ParamEfxFuzz {
-    float fuzz;
-    float treble;
-    float level;
+    int32_t fuzz;
+    int32_t treble;
+    int32_t level;
 } ParamEfxFuzz;
 
 typedef struct _ParamEfxBitCrusher {
-    float bitsDynamicRange;
-    float sampleRate;
+    int32_t bitsDynamicRange;
+    int32_t sampleRate;
 } ParamEfxBitCrusher;
 
 typedef struct _ParamAmpFender {
-    float gain;
-    float low;
-    float middle;
-    float high;
-    float presence;
+    int32_t gain;
+    int32_t low;
+    int32_t middle;
+    int32_t high;
+    int32_t presence;
 } ParamAmpFender;
 
 typedef struct _ParamAmpMarshall {
-    float gain;
-    float low;
-    float middle;
-    float high;
-    float presence;
+    int32_t gain;
+    int32_t low;
+    int32_t middle;
+    int32_t high;
+    int32_t presence;
 } ParamAmpMarshall;
 
 typedef struct _ParamAmpVox {
-    float gain;
-    float low;
-    float middle;
-    float high;
-    float presence;
+    int32_t gain;
+    int32_t low;
+    int32_t middle;
+    int32_t high;
+    int32_t presence;
 } ParamAmpVox;
 
 typedef struct _ParamAmpAcoustic {
-    float gain;
-    float low;
-    float middle;
-    float high;
-    float presence;
+    int32_t gain;
+    int32_t low;
+    int32_t middle;
+    int32_t high;
+    int32_t presence;
 } ParamAmpAcoustic;
 
 typedef struct _ParamIrFender {
-    float wet;
+    int32_t wet;
 } ParamIrFender;
 
 typedef struct _ParamIrMarshall {
-    float wet;
+    int32_t wet;
 } ParamIrMarshall;
 
 typedef struct _ParamIrVox {
-    float wet;
+    int32_t wet;
 } ParamIrVox;
 
 typedef struct _ParamIrAcoustic {
-    float wet;
+    int32_t wet;
 } ParamIrAcoustic;
 
 typedef struct _ParamModFlange {
-    float offset;
-    float depth;
-    float frequency;
+    int32_t offset;
+    int32_t depth;
+    int32_t frequency;
 } ParamModFlange;
 
 typedef struct _ParamModChorus {
@@ -323,57 +323,57 @@ typedef struct _ParamModChorus {
 } ParamModChorus;
 
 typedef struct _ParamModTremolo {
-    float depth;
-    float frequency;
+    int32_t depth;
+    int32_t frequency;
 } ParamModTremolo;
 
 typedef struct _ParamModPhaser {
-    float frequency;
-    float depthTop;
-    float depthBottom;
-    float mix;
-    float feedback;
+    int32_t frequency;
+    int32_t depthTop;
+    int32_t depthBottom;
+    int32_t mix;
+    int32_t feedback;
     int32_t stages;
 } ParamModPhaser;
 
 typedef struct _ParamModVibrato {
-    float frequency;
-    float percent;
+    int32_t frequency;
+    int32_t percent;
 } ParamModVibrato;
 
 typedef struct _ParamDelayEcho {
-    float gap;
-    float decay;
+    int32_t gap;
+    int32_t decay;
 } ParamDelayEcho;
 
 typedef struct _ParamDelayDelay {
-    float gap;
-    float mix;
-    float feedback;
+    int32_t gap;
+    int32_t mix;
+    int32_t feedback;
 } ParamDelayDelay;
 
 typedef struct _ParamReverbRoom {
-    float roomsize;
-    float damping;
-    float wet;
+    int32_t roomsize;
+    int32_t damping;
+    int32_t wet;
 } ParamReverbRoom;
 
 typedef struct _ParamReverbHall {
-    float roomsize;
-    float damping;
-    float wet;
+    int32_t roomsize;
+    int32_t damping;
+    int32_t wet;
 } ParamReverbHall;
 
 typedef struct _ParamReverbPlate {
-    float roomsize;
-    float damping;
-    float wet;
+    int32_t roomsize;
+    int32_t damping;
+    int32_t wet;
 } ParamReverbPlate;
 
 typedef struct _ParamReverbSpring {
-    float roomsize;
-    float damping;
-    float wet;
+    int32_t roomsize;
+    int32_t damping;
+    int32_t wet;
 } ParamReverbSpring;
 
 typedef struct _DiagReq {
@@ -394,18 +394,21 @@ typedef struct _DiagRespErrCode {
 
 /* Save IR Request */
 typedef struct _bulkIrStartReq {
-    pb_callback_t irName;
+    char irName[20];
     int32_t sequenceNumber;
-    pb_callback_t data;
+    pb_size_t data_count;
+    float data[10];
 } bulkIrStartReq;
 
 typedef struct _bulkIrReq {
-    pb_callback_t data;
+    pb_size_t data_count;
+    float data[10];
     int32_t sequenceNumber;
 } bulkIrReq;
 
 typedef struct _bulkIrEndReq {
-    pb_callback_t data;
+    pb_size_t data_count;
+    float data[10];
     int32_t sequenceNumber;
 } bulkIrEndReq;
 
@@ -533,9 +536,9 @@ extern "C" {
 #define Ack_init_default                         {0}
 #define Nack_init_default                        {_Nack_ERROR_CODE_MIN}
 #define ReqSetupInfo_init_default                {0}
-#define FirstContact_init_default                {0, {{NULL}, NULL}, {{NULL}, NULL}}
-#define FirstContactResp_init_default            {{{NULL}, NULL}, {{NULL}, NULL}, {{NULL}, NULL}}
-#define ChangeGuitarName_init_default            {{{NULL}, NULL}}
+#define InitFromApp_init_default                 {0, "", ""}
+#define InitFromGuitar_init_default              {"", "", ""}
+#define ChangeGuitarName_init_default            {""}
 #define TunerOnOff_init_default                  {0}
 #define TunerFrequency_init_default              {0}
 #define KnobClicked_init_default                 {0}
@@ -580,16 +583,16 @@ extern "C" {
 #define DiagRespPOC_init_default                 {0}
 #define DiagRespFirstParing_init_default         {0}
 #define DiagRespErrCode_init_default             {0}
-#define bulkIrStartReq_init_default              {{{NULL}, NULL}, 0, {{NULL}, NULL}}
-#define bulkIrReq_init_default                   {{{NULL}, NULL}, 0}
-#define bulkIrEndReq_init_default                {{{NULL}, NULL}, 0}
+#define bulkIrStartReq_init_default              {"", 0, 0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}
+#define bulkIrReq_init_default                   {0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, 0}
+#define bulkIrEndReq_init_default                {0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, 0}
 #define bulkIrRes_init_default                   {0, 0}
 #define Ack_init_zero                            {0}
 #define Nack_init_zero                           {_Nack_ERROR_CODE_MIN}
 #define ReqSetupInfo_init_zero                   {0}
-#define FirstContact_init_zero                   {0, {{NULL}, NULL}, {{NULL}, NULL}}
-#define FirstContactResp_init_zero               {{{NULL}, NULL}, {{NULL}, NULL}, {{NULL}, NULL}}
-#define ChangeGuitarName_init_zero               {{{NULL}, NULL}}
+#define InitFromApp_init_zero                    {0, "", ""}
+#define InitFromGuitar_init_zero                 {"", "", ""}
+#define ChangeGuitarName_init_zero               {""}
 #define TunerOnOff_init_zero                     {0}
 #define TunerFrequency_init_zero                 {0}
 #define KnobClicked_init_zero                    {0}
@@ -634,20 +637,20 @@ extern "C" {
 #define DiagRespPOC_init_zero                    {0}
 #define DiagRespFirstParing_init_zero            {0}
 #define DiagRespErrCode_init_zero                {0}
-#define bulkIrStartReq_init_zero                 {{{NULL}, NULL}, 0, {{NULL}, NULL}}
-#define bulkIrReq_init_zero                      {{{NULL}, NULL}, 0}
-#define bulkIrEndReq_init_zero                   {{{NULL}, NULL}, 0}
+#define bulkIrStartReq_init_zero                 {"", 0, 0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}
+#define bulkIrReq_init_zero                      {0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, 0}
+#define bulkIrEndReq_init_zero                   {0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, 0}
 #define bulkIrRes_init_zero                      {0, 0}
 
 /* Field tags (for use in manual encoding/decoding) */
 #define Ack_receivedMessageLength_tag            1
 #define Nack_errorCode_tag                       1
-#define FirstContact_currentTimeEpoch_tag        1
-#define FirstContact_phoneMachineId_tag          2
-#define FirstContact_appVersion_tag              3
-#define FirstContactResp_guitarName_tag          1
-#define FirstContactResp_guitarModelName_tag     2
-#define FirstContactResp_firmwareVersion_tag     3
+#define InitFromApp_currentTimeEpoch_tag         1
+#define InitFromApp_phoneMachineId_tag           2
+#define InitFromApp_appVersion_tag               3
+#define InitFromGuitar_guitarName_tag            1
+#define InitFromGuitar_guitarModelName_tag       2
+#define InitFromGuitar_firmwareVersion_tag       3
 #define ChangeGuitarName_guitarName_tag          1
 #define TunerOnOff_isOn_tag                      1
 #define TunerFrequency_tunerFrequency_tag        1
@@ -779,23 +782,23 @@ X(a, STATIC,   SINGULAR, UENUM,    errorCode,         1)
 #define ReqSetupInfo_CALLBACK NULL
 #define ReqSetupInfo_DEFAULT NULL
 
-#define FirstContact_FIELDLIST(X, a) \
+#define InitFromApp_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, INT64,    currentTimeEpoch,   1) \
-X(a, CALLBACK, SINGULAR, STRING,   phoneMachineId,    2) \
-X(a, CALLBACK, SINGULAR, STRING,   appVersion,        3)
-#define FirstContact_CALLBACK pb_default_field_callback
-#define FirstContact_DEFAULT NULL
+X(a, STATIC,   SINGULAR, STRING,   phoneMachineId,    2) \
+X(a, STATIC,   SINGULAR, STRING,   appVersion,        3)
+#define InitFromApp_CALLBACK NULL
+#define InitFromApp_DEFAULT NULL
 
-#define FirstContactResp_FIELDLIST(X, a) \
-X(a, CALLBACK, SINGULAR, STRING,   guitarName,        1) \
-X(a, CALLBACK, SINGULAR, STRING,   guitarModelName,   2) \
-X(a, CALLBACK, SINGULAR, STRING,   firmwareVersion,   3)
-#define FirstContactResp_CALLBACK pb_default_field_callback
-#define FirstContactResp_DEFAULT NULL
+#define InitFromGuitar_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, STRING,   guitarName,        1) \
+X(a, STATIC,   SINGULAR, STRING,   guitarModelName,   2) \
+X(a, STATIC,   SINGULAR, STRING,   firmwareVersion,   3)
+#define InitFromGuitar_CALLBACK NULL
+#define InitFromGuitar_DEFAULT NULL
 
 #define ChangeGuitarName_FIELDLIST(X, a) \
-X(a, CALLBACK, SINGULAR, STRING,   guitarName,        1)
-#define ChangeGuitarName_CALLBACK pb_default_field_callback
+X(a, STATIC,   SINGULAR, STRING,   guitarName,        1)
+#define ChangeGuitarName_CALLBACK NULL
 #define ChangeGuitarName_DEFAULT NULL
 
 #define TunerOnOff_FIELDLIST(X, a) \
@@ -875,118 +878,118 @@ X(a, STATIC,   SINGULAR, BOOL,     isOn,              2)
 #define SelectReverb_DEFAULT NULL
 
 #define ParamGateNoiseGate_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, FLOAT,    threshold,         1) \
-X(a, STATIC,   SINGULAR, FLOAT,    openingTime,       2) \
-X(a, STATIC,   SINGULAR, FLOAT,    closingTime,       3) \
-X(a, STATIC,   SINGULAR, FLOAT,    holdTime,          4)
+X(a, STATIC,   SINGULAR, INT32,    threshold,         1) \
+X(a, STATIC,   SINGULAR, INT32,    openingTime,       2) \
+X(a, STATIC,   SINGULAR, INT32,    closingTime,       3) \
+X(a, STATIC,   SINGULAR, INT32,    holdTime,          4)
 #define ParamGateNoiseGate_CALLBACK NULL
 #define ParamGateNoiseGate_DEFAULT NULL
 
 #define ParamGateLimiter_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, FLOAT,    threshold,         1) \
-X(a, STATIC,   SINGULAR, FLOAT,    attack,            2) \
-X(a, STATIC,   SINGULAR, FLOAT,    release,           3) \
-X(a, STATIC,   SINGULAR, FLOAT,    gain,              4)
+X(a, STATIC,   SINGULAR, INT32,    threshold,         1) \
+X(a, STATIC,   SINGULAR, INT32,    attack,            2) \
+X(a, STATIC,   SINGULAR, INT32,    release,           3) \
+X(a, STATIC,   SINGULAR, INT32,    gain,              4)
 #define ParamGateLimiter_CALLBACK NULL
 #define ParamGateLimiter_DEFAULT NULL
 
 #define ParamGateCompressor_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, FLOAT,    threshold,         1) \
-X(a, STATIC,   SINGULAR, FLOAT,    attack,            2) \
-X(a, STATIC,   SINGULAR, FLOAT,    release,           3) \
-X(a, STATIC,   SINGULAR, FLOAT,    gain,              4) \
-X(a, STATIC,   SINGULAR, FLOAT,    ratio,             5) \
-X(a, STATIC,   SINGULAR, FLOAT,    hysteresis,        6)
+X(a, STATIC,   SINGULAR, INT32,    threshold,         1) \
+X(a, STATIC,   SINGULAR, INT32,    attack,            2) \
+X(a, STATIC,   SINGULAR, INT32,    release,           3) \
+X(a, STATIC,   SINGULAR, INT32,    gain,              4) \
+X(a, STATIC,   SINGULAR, INT32,    ratio,             5) \
+X(a, STATIC,   SINGULAR, INT32,    hysteresis,        6)
 #define ParamGateCompressor_CALLBACK NULL
 #define ParamGateCompressor_DEFAULT NULL
 
 #define ParamEfxOverdrive_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, FLOAT,    drive,             1) \
-X(a, STATIC,   SINGULAR, FLOAT,    treble,            2) \
-X(a, STATIC,   SINGULAR, FLOAT,    level,             3)
+X(a, STATIC,   SINGULAR, INT32,    drive,             1) \
+X(a, STATIC,   SINGULAR, INT32,    treble,            2) \
+X(a, STATIC,   SINGULAR, INT32,    level,             3)
 #define ParamEfxOverdrive_CALLBACK NULL
 #define ParamEfxOverdrive_DEFAULT NULL
 
 #define ParamEfxDistortion_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, FLOAT,    distortion,        1) \
-X(a, STATIC,   SINGULAR, FLOAT,    treble,            2) \
-X(a, STATIC,   SINGULAR, FLOAT,    level,             3)
+X(a, STATIC,   SINGULAR, INT32,    distortion,        1) \
+X(a, STATIC,   SINGULAR, INT32,    treble,            2) \
+X(a, STATIC,   SINGULAR, INT32,    level,             3)
 #define ParamEfxDistortion_CALLBACK NULL
 #define ParamEfxDistortion_DEFAULT NULL
 
 #define ParamEfxFuzz_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, FLOAT,    fuzz,              1) \
-X(a, STATIC,   SINGULAR, FLOAT,    treble,            2) \
-X(a, STATIC,   SINGULAR, FLOAT,    level,             3)
+X(a, STATIC,   SINGULAR, INT32,    fuzz,              1) \
+X(a, STATIC,   SINGULAR, INT32,    treble,            2) \
+X(a, STATIC,   SINGULAR, INT32,    level,             3)
 #define ParamEfxFuzz_CALLBACK NULL
 #define ParamEfxFuzz_DEFAULT NULL
 
 #define ParamEfxBitCrusher_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, FLOAT,    bitsDynamicRange,   1) \
-X(a, STATIC,   SINGULAR, FLOAT,    sampleRate,        2)
+X(a, STATIC,   SINGULAR, INT32,    bitsDynamicRange,   1) \
+X(a, STATIC,   SINGULAR, INT32,    sampleRate,        2)
 #define ParamEfxBitCrusher_CALLBACK NULL
 #define ParamEfxBitCrusher_DEFAULT NULL
 
 #define ParamAmpFender_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, FLOAT,    gain,              1) \
-X(a, STATIC,   SINGULAR, FLOAT,    low,               2) \
-X(a, STATIC,   SINGULAR, FLOAT,    middle,            3) \
-X(a, STATIC,   SINGULAR, FLOAT,    high,              4) \
-X(a, STATIC,   SINGULAR, FLOAT,    presence,          5)
+X(a, STATIC,   SINGULAR, INT32,    gain,              1) \
+X(a, STATIC,   SINGULAR, INT32,    low,               2) \
+X(a, STATIC,   SINGULAR, INT32,    middle,            3) \
+X(a, STATIC,   SINGULAR, INT32,    high,              4) \
+X(a, STATIC,   SINGULAR, INT32,    presence,          5)
 #define ParamAmpFender_CALLBACK NULL
 #define ParamAmpFender_DEFAULT NULL
 
 #define ParamAmpMarshall_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, FLOAT,    gain,              1) \
-X(a, STATIC,   SINGULAR, FLOAT,    low,               2) \
-X(a, STATIC,   SINGULAR, FLOAT,    middle,            3) \
-X(a, STATIC,   SINGULAR, FLOAT,    high,              4) \
-X(a, STATIC,   SINGULAR, FLOAT,    presence,          5)
+X(a, STATIC,   SINGULAR, INT32,    gain,              1) \
+X(a, STATIC,   SINGULAR, INT32,    low,               2) \
+X(a, STATIC,   SINGULAR, INT32,    middle,            3) \
+X(a, STATIC,   SINGULAR, INT32,    high,              4) \
+X(a, STATIC,   SINGULAR, INT32,    presence,          5)
 #define ParamAmpMarshall_CALLBACK NULL
 #define ParamAmpMarshall_DEFAULT NULL
 
 #define ParamAmpVox_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, FLOAT,    gain,              1) \
-X(a, STATIC,   SINGULAR, FLOAT,    low,               2) \
-X(a, STATIC,   SINGULAR, FLOAT,    middle,            3) \
-X(a, STATIC,   SINGULAR, FLOAT,    high,              4) \
-X(a, STATIC,   SINGULAR, FLOAT,    presence,          5)
+X(a, STATIC,   SINGULAR, INT32,    gain,              1) \
+X(a, STATIC,   SINGULAR, INT32,    low,               2) \
+X(a, STATIC,   SINGULAR, INT32,    middle,            3) \
+X(a, STATIC,   SINGULAR, INT32,    high,              4) \
+X(a, STATIC,   SINGULAR, INT32,    presence,          5)
 #define ParamAmpVox_CALLBACK NULL
 #define ParamAmpVox_DEFAULT NULL
 
 #define ParamAmpAcoustic_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, FLOAT,    gain,              1) \
-X(a, STATIC,   SINGULAR, FLOAT,    low,               2) \
-X(a, STATIC,   SINGULAR, FLOAT,    middle,            3) \
-X(a, STATIC,   SINGULAR, FLOAT,    high,              4) \
-X(a, STATIC,   SINGULAR, FLOAT,    presence,          5)
+X(a, STATIC,   SINGULAR, INT32,    gain,              1) \
+X(a, STATIC,   SINGULAR, INT32,    low,               2) \
+X(a, STATIC,   SINGULAR, INT32,    middle,            3) \
+X(a, STATIC,   SINGULAR, INT32,    high,              4) \
+X(a, STATIC,   SINGULAR, INT32,    presence,          5)
 #define ParamAmpAcoustic_CALLBACK NULL
 #define ParamAmpAcoustic_DEFAULT NULL
 
 #define ParamIrFender_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, FLOAT,    wet,               1)
+X(a, STATIC,   SINGULAR, INT32,    wet,               1)
 #define ParamIrFender_CALLBACK NULL
 #define ParamIrFender_DEFAULT NULL
 
 #define ParamIrMarshall_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, FLOAT,    wet,               1)
+X(a, STATIC,   SINGULAR, INT32,    wet,               1)
 #define ParamIrMarshall_CALLBACK NULL
 #define ParamIrMarshall_DEFAULT NULL
 
 #define ParamIrVox_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, FLOAT,    wet,               1)
+X(a, STATIC,   SINGULAR, INT32,    wet,               1)
 #define ParamIrVox_CALLBACK NULL
 #define ParamIrVox_DEFAULT NULL
 
 #define ParamIrAcoustic_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, FLOAT,    wet,               1)
+X(a, STATIC,   SINGULAR, INT32,    wet,               1)
 #define ParamIrAcoustic_CALLBACK NULL
 #define ParamIrAcoustic_DEFAULT NULL
 
 #define ParamModFlange_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, FLOAT,    offset,            1) \
-X(a, STATIC,   SINGULAR, FLOAT,    depth,             2) \
-X(a, STATIC,   SINGULAR, FLOAT,    frequency,         3)
+X(a, STATIC,   SINGULAR, INT32,    offset,            1) \
+X(a, STATIC,   SINGULAR, INT32,    depth,             2) \
+X(a, STATIC,   SINGULAR, INT32,    frequency,         3)
 #define ParamModFlange_CALLBACK NULL
 #define ParamModFlange_DEFAULT NULL
 
@@ -996,65 +999,65 @@ X(a, STATIC,   SINGULAR, INT32,    voices,            1)
 #define ParamModChorus_DEFAULT NULL
 
 #define ParamModTremolo_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, FLOAT,    depth,             1) \
-X(a, STATIC,   SINGULAR, FLOAT,    frequency,         2)
+X(a, STATIC,   SINGULAR, INT32,    depth,             1) \
+X(a, STATIC,   SINGULAR, INT32,    frequency,         2)
 #define ParamModTremolo_CALLBACK NULL
 #define ParamModTremolo_DEFAULT NULL
 
 #define ParamModPhaser_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, FLOAT,    frequency,         1) \
-X(a, STATIC,   SINGULAR, FLOAT,    depthTop,          2) \
-X(a, STATIC,   SINGULAR, FLOAT,    depthBottom,       3) \
-X(a, STATIC,   SINGULAR, FLOAT,    mix,               4) \
-X(a, STATIC,   SINGULAR, FLOAT,    feedback,          5) \
+X(a, STATIC,   SINGULAR, INT32,    frequency,         1) \
+X(a, STATIC,   SINGULAR, INT32,    depthTop,          2) \
+X(a, STATIC,   SINGULAR, INT32,    depthBottom,       3) \
+X(a, STATIC,   SINGULAR, INT32,    mix,               4) \
+X(a, STATIC,   SINGULAR, INT32,    feedback,          5) \
 X(a, STATIC,   SINGULAR, INT32,    stages,            6)
 #define ParamModPhaser_CALLBACK NULL
 #define ParamModPhaser_DEFAULT NULL
 
 #define ParamModVibrato_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, FLOAT,    frequency,         1) \
-X(a, STATIC,   SINGULAR, FLOAT,    percent,           2)
+X(a, STATIC,   SINGULAR, INT32,    frequency,         1) \
+X(a, STATIC,   SINGULAR, INT32,    percent,           2)
 #define ParamModVibrato_CALLBACK NULL
 #define ParamModVibrato_DEFAULT NULL
 
 #define ParamDelayEcho_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, FLOAT,    gap,               1) \
-X(a, STATIC,   SINGULAR, FLOAT,    decay,             2)
+X(a, STATIC,   SINGULAR, INT32,    gap,               1) \
+X(a, STATIC,   SINGULAR, INT32,    decay,             2)
 #define ParamDelayEcho_CALLBACK NULL
 #define ParamDelayEcho_DEFAULT NULL
 
 #define ParamDelayDelay_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, FLOAT,    gap,               1) \
-X(a, STATIC,   SINGULAR, FLOAT,    mix,               2) \
-X(a, STATIC,   SINGULAR, FLOAT,    feedback,          3)
+X(a, STATIC,   SINGULAR, INT32,    gap,               1) \
+X(a, STATIC,   SINGULAR, INT32,    mix,               2) \
+X(a, STATIC,   SINGULAR, INT32,    feedback,          3)
 #define ParamDelayDelay_CALLBACK NULL
 #define ParamDelayDelay_DEFAULT NULL
 
 #define ParamReverbRoom_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, FLOAT,    roomsize,          1) \
-X(a, STATIC,   SINGULAR, FLOAT,    damping,           2) \
-X(a, STATIC,   SINGULAR, FLOAT,    wet,               3)
+X(a, STATIC,   SINGULAR, INT32,    roomsize,          1) \
+X(a, STATIC,   SINGULAR, INT32,    damping,           2) \
+X(a, STATIC,   SINGULAR, INT32,    wet,               3)
 #define ParamReverbRoom_CALLBACK NULL
 #define ParamReverbRoom_DEFAULT NULL
 
 #define ParamReverbHall_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, FLOAT,    roomsize,          1) \
-X(a, STATIC,   SINGULAR, FLOAT,    damping,           2) \
-X(a, STATIC,   SINGULAR, FLOAT,    wet,               3)
+X(a, STATIC,   SINGULAR, INT32,    roomsize,          1) \
+X(a, STATIC,   SINGULAR, INT32,    damping,           2) \
+X(a, STATIC,   SINGULAR, INT32,    wet,               3)
 #define ParamReverbHall_CALLBACK NULL
 #define ParamReverbHall_DEFAULT NULL
 
 #define ParamReverbPlate_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, FLOAT,    roomsize,          1) \
-X(a, STATIC,   SINGULAR, FLOAT,    damping,           2) \
-X(a, STATIC,   SINGULAR, FLOAT,    wet,               3)
+X(a, STATIC,   SINGULAR, INT32,    roomsize,          1) \
+X(a, STATIC,   SINGULAR, INT32,    damping,           2) \
+X(a, STATIC,   SINGULAR, INT32,    wet,               3)
 #define ParamReverbPlate_CALLBACK NULL
 #define ParamReverbPlate_DEFAULT NULL
 
 #define ParamReverbSpring_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, FLOAT,    roomsize,          1) \
-X(a, STATIC,   SINGULAR, FLOAT,    damping,           2) \
-X(a, STATIC,   SINGULAR, FLOAT,    wet,               3)
+X(a, STATIC,   SINGULAR, INT32,    roomsize,          1) \
+X(a, STATIC,   SINGULAR, INT32,    damping,           2) \
+X(a, STATIC,   SINGULAR, INT32,    wet,               3)
 #define ParamReverbSpring_CALLBACK NULL
 #define ParamReverbSpring_DEFAULT NULL
 
@@ -1079,22 +1082,22 @@ X(a, STATIC,   SINGULAR, INT32,    errCode,           1)
 #define DiagRespErrCode_DEFAULT NULL
 
 #define bulkIrStartReq_FIELDLIST(X, a) \
-X(a, CALLBACK, SINGULAR, STRING,   irName,            1) \
+X(a, STATIC,   SINGULAR, STRING,   irName,            1) \
 X(a, STATIC,   SINGULAR, INT32,    sequenceNumber,    2) \
-X(a, CALLBACK, REPEATED, FLOAT,    data,              3)
-#define bulkIrStartReq_CALLBACK pb_default_field_callback
+X(a, STATIC,   REPEATED, FLOAT,    data,              3)
+#define bulkIrStartReq_CALLBACK NULL
 #define bulkIrStartReq_DEFAULT NULL
 
 #define bulkIrReq_FIELDLIST(X, a) \
-X(a, CALLBACK, REPEATED, FLOAT,    data,              1) \
+X(a, STATIC,   REPEATED, FLOAT,    data,              1) \
 X(a, STATIC,   SINGULAR, INT32,    sequenceNumber,    2)
-#define bulkIrReq_CALLBACK pb_default_field_callback
+#define bulkIrReq_CALLBACK NULL
 #define bulkIrReq_DEFAULT NULL
 
 #define bulkIrEndReq_FIELDLIST(X, a) \
-X(a, CALLBACK, REPEATED, FLOAT,    data,              1) \
+X(a, STATIC,   REPEATED, FLOAT,    data,              1) \
 X(a, STATIC,   SINGULAR, INT32,    sequenceNumber,    2)
-#define bulkIrEndReq_CALLBACK pb_default_field_callback
+#define bulkIrEndReq_CALLBACK NULL
 #define bulkIrEndReq_DEFAULT NULL
 
 #define bulkIrRes_FIELDLIST(X, a) \
@@ -1106,8 +1109,8 @@ X(a, STATIC,   SINGULAR, INT32,    sequenceNumber,    2)
 extern const pb_msgdesc_t Ack_msg;
 extern const pb_msgdesc_t Nack_msg;
 extern const pb_msgdesc_t ReqSetupInfo_msg;
-extern const pb_msgdesc_t FirstContact_msg;
-extern const pb_msgdesc_t FirstContactResp_msg;
+extern const pb_msgdesc_t InitFromApp_msg;
+extern const pb_msgdesc_t InitFromGuitar_msg;
 extern const pb_msgdesc_t ChangeGuitarName_msg;
 extern const pb_msgdesc_t TunerOnOff_msg;
 extern const pb_msgdesc_t TunerFrequency_msg;
@@ -1162,8 +1165,8 @@ extern const pb_msgdesc_t bulkIrRes_msg;
 #define Ack_fields &Ack_msg
 #define Nack_fields &Nack_msg
 #define ReqSetupInfo_fields &ReqSetupInfo_msg
-#define FirstContact_fields &FirstContact_msg
-#define FirstContactResp_fields &FirstContactResp_msg
+#define InitFromApp_fields &InitFromApp_msg
+#define InitFromGuitar_fields &InitFromGuitar_msg
 #define ChangeGuitarName_fields &ChangeGuitarName_msg
 #define TunerOnOff_fields &TunerOnOff_msg
 #define TunerFrequency_fields &TunerFrequency_msg
@@ -1215,49 +1218,46 @@ extern const pb_msgdesc_t bulkIrRes_msg;
 #define bulkIrRes_fields &bulkIrRes_msg
 
 /* Maximum encoded size of messages (where known) */
-/* FirstContact_size depends on runtime parameters */
-/* FirstContactResp_size depends on runtime parameters */
-/* ChangeGuitarName_size depends on runtime parameters */
-/* bulkIrStartReq_size depends on runtime parameters */
-/* bulkIrReq_size depends on runtime parameters */
-/* bulkIrEndReq_size depends on runtime parameters */
 #define Ack_size                                 11
 #define BatteryLevel_size                        11
+#define ChangeGuitarName_size                    21
 #define CurrentKnobSelected_size                 11
 #define DiagReq_size                             2
 #define DiagRespErrCode_size                     11
 #define DiagRespFirstParing_size                 11
 #define DiagRespPOC_size                         11
 #define EffectEod_size                           2
+#define InitFromApp_size                         53
+#define InitFromGuitar_size                      63
 #define KnobClicked_size                         11
 #define KnobMatchingStart_size                   11
 #define Nack_size                                2
-#define ParamAmpAcoustic_size                    25
-#define ParamAmpFender_size                      25
-#define ParamAmpMarshall_size                    25
-#define ParamAmpVox_size                         25
-#define ParamDelayDelay_size                     15
-#define ParamDelayEcho_size                      10
-#define ParamEfxBitCrusher_size                  10
-#define ParamEfxDistortion_size                  15
-#define ParamEfxFuzz_size                        15
-#define ParamEfxOverdrive_size                   15
-#define ParamGateCompressor_size                 30
-#define ParamGateLimiter_size                    20
-#define ParamGateNoiseGate_size                  20
-#define ParamIrAcoustic_size                     5
-#define ParamIrFender_size                       5
-#define ParamIrMarshall_size                     5
-#define ParamIrVox_size                          5
+#define ParamAmpAcoustic_size                    55
+#define ParamAmpFender_size                      55
+#define ParamAmpMarshall_size                    55
+#define ParamAmpVox_size                         55
+#define ParamDelayDelay_size                     33
+#define ParamDelayEcho_size                      22
+#define ParamEfxBitCrusher_size                  22
+#define ParamEfxDistortion_size                  33
+#define ParamEfxFuzz_size                        33
+#define ParamEfxOverdrive_size                   33
+#define ParamGateCompressor_size                 66
+#define ParamGateLimiter_size                    44
+#define ParamGateNoiseGate_size                  44
+#define ParamIrAcoustic_size                     11
+#define ParamIrFender_size                       11
+#define ParamIrMarshall_size                     11
+#define ParamIrVox_size                          11
 #define ParamModChorus_size                      11
-#define ParamModFlange_size                      15
-#define ParamModPhaser_size                      36
-#define ParamModTremolo_size                     10
-#define ParamModVibrato_size                     10
-#define ParamReverbHall_size                     15
-#define ParamReverbPlate_size                    15
-#define ParamReverbRoom_size                     15
-#define ParamReverbSpring_size                   15
+#define ParamModFlange_size                      33
+#define ParamModPhaser_size                      66
+#define ParamModTremolo_size                     22
+#define ParamModVibrato_size                     22
+#define ParamReverbHall_size                     33
+#define ParamReverbPlate_size                    33
+#define ParamReverbRoom_size                     33
+#define ParamReverbSpring_size                   33
 #define ReqSetupInfo_size                        0
 #define SelectAmp_size                           4
 #define SelectDelay_size                         4
@@ -1268,7 +1268,10 @@ extern const pb_msgdesc_t bulkIrRes_msg;
 #define SelectReverb_size                        4
 #define TunerFrequency_size                      5
 #define TunerOnOff_size                          2
+#define bulkIrEndReq_size                        61
+#define bulkIrReq_size                           61
 #define bulkIrRes_size                           13
+#define bulkIrStartReq_size                      82
 
 #ifdef __cplusplus
 } /* extern "C" */

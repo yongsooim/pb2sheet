@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import { protobufData, aceWidth, selectedMessage } from "./store.js";
-  import protoString from "./pb/the-red.proto?raw";
+  import protoString from "./assets/the-red.proto?raw";
   import ace from "ace-builds/src-noconflict/ace.js";
   import "ace-builds/src-noconflict/mode-protobuf.js";
   import "ace-builds/src-noconflict/keybinding-vscode.js";
