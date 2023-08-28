@@ -524,45 +524,45 @@ const ParamEfxOverdrive$json = {
   '1': 'ParamEfxOverdrive',
   '2': [
     {'1': 'drive', '3': 1, '4': 1, '5': 5, '10': 'drive'},
-    {'1': 'treble', '3': 2, '4': 1, '5': 5, '10': 'treble'},
+    {'1': 'tone', '3': 2, '4': 1, '5': 5, '10': 'tone'},
     {'1': 'level', '3': 3, '4': 1, '5': 5, '10': 'level'},
   ],
 };
 
 /// Descriptor for `ParamEfxOverdrive`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List paramEfxOverdriveDescriptor = $convert.base64Decode(
-    'ChFQYXJhbUVmeE92ZXJkcml2ZRIUCgVkcml2ZRgBIAEoBVIFZHJpdmUSFgoGdHJlYmxlGAIgAS'
-    'gFUgZ0cmVibGUSFAoFbGV2ZWwYAyABKAVSBWxldmVs');
+    'ChFQYXJhbUVmeE92ZXJkcml2ZRIUCgVkcml2ZRgBIAEoBVIFZHJpdmUSEgoEdG9uZRgCIAEoBV'
+    'IEdG9uZRIUCgVsZXZlbBgDIAEoBVIFbGV2ZWw=');
 
 @$core.Deprecated('Use paramEfxDistortionDescriptor instead')
 const ParamEfxDistortion$json = {
   '1': 'ParamEfxDistortion',
   '2': [
     {'1': 'distortion', '3': 1, '4': 1, '5': 5, '10': 'distortion'},
-    {'1': 'treble', '3': 2, '4': 1, '5': 5, '10': 'treble'},
+    {'1': 'tone', '3': 2, '4': 1, '5': 5, '10': 'tone'},
     {'1': 'level', '3': 3, '4': 1, '5': 5, '10': 'level'},
   ],
 };
 
 /// Descriptor for `ParamEfxDistortion`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List paramEfxDistortionDescriptor = $convert.base64Decode(
-    'ChJQYXJhbUVmeERpc3RvcnRpb24SHgoKZGlzdG9ydGlvbhgBIAEoBVIKZGlzdG9ydGlvbhIWCg'
-    'Z0cmVibGUYAiABKAVSBnRyZWJsZRIUCgVsZXZlbBgDIAEoBVIFbGV2ZWw=');
+    'ChJQYXJhbUVmeERpc3RvcnRpb24SHgoKZGlzdG9ydGlvbhgBIAEoBVIKZGlzdG9ydGlvbhISCg'
+    'R0b25lGAIgASgFUgR0b25lEhQKBWxldmVsGAMgASgFUgVsZXZlbA==');
 
 @$core.Deprecated('Use paramEfxFuzzDescriptor instead')
 const ParamEfxFuzz$json = {
   '1': 'ParamEfxFuzz',
   '2': [
     {'1': 'fuzz', '3': 1, '4': 1, '5': 5, '10': 'fuzz'},
-    {'1': 'treble', '3': 2, '4': 1, '5': 5, '10': 'treble'},
+    {'1': 'tone', '3': 2, '4': 1, '5': 5, '10': 'tone'},
     {'1': 'level', '3': 3, '4': 1, '5': 5, '10': 'level'},
   ],
 };
 
 /// Descriptor for `ParamEfxFuzz`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List paramEfxFuzzDescriptor = $convert.base64Decode(
-    'CgxQYXJhbUVmeEZ1enoSEgoEZnV6ehgBIAEoBVIEZnV6ehIWCgZ0cmVibGUYAiABKAVSBnRyZW'
-    'JsZRIUCgVsZXZlbBgDIAEoBVIFbGV2ZWw=');
+    'CgxQYXJhbUVmeEZ1enoSEgoEZnV6ehgBIAEoBVIEZnV6ehISCgR0b25lGAIgASgFUgR0b25lEh'
+    'QKBWxldmVsGAMgASgFUgVsZXZlbA==');
 
 @$core.Deprecated('Use paramEfxAutowahDescriptor instead')
 const ParamEfxAutowah$json = {

@@ -241,19 +241,19 @@ typedef struct _ParamGateCompressor {
 
 typedef struct _ParamEfxOverdrive {
     int32_t drive;
-    int32_t treble;
+    int32_t tone;
     int32_t level;
 } ParamEfxOverdrive;
 
 typedef struct _ParamEfxDistortion {
     int32_t distortion;
-    int32_t treble;
+    int32_t tone;
     int32_t level;
 } ParamEfxDistortion;
 
 typedef struct _ParamEfxFuzz {
     int32_t fuzz;
-    int32_t treble;
+    int32_t tone;
     int32_t level;
 } ParamEfxFuzz;
 
@@ -674,13 +674,13 @@ extern "C" {
 #define ParamGateCompressor_ratio_tag            5
 #define ParamGateCompressor_hysteresis_tag       6
 #define ParamEfxOverdrive_drive_tag              1
-#define ParamEfxOverdrive_treble_tag             2
+#define ParamEfxOverdrive_tone_tag               2
 #define ParamEfxOverdrive_level_tag              3
 #define ParamEfxDistortion_distortion_tag        1
-#define ParamEfxDistortion_treble_tag            2
+#define ParamEfxDistortion_tone_tag              2
 #define ParamEfxDistortion_level_tag             3
 #define ParamEfxFuzz_fuzz_tag                    1
-#define ParamEfxFuzz_treble_tag                  2
+#define ParamEfxFuzz_tone_tag                    2
 #define ParamEfxFuzz_level_tag                   3
 #define ParamEfxAutowah_depth_tag                1
 #define ParamEfxAutowah_wet_tag                  2
@@ -887,21 +887,21 @@ X(a, STATIC,   SINGULAR, INT32,    hysteresis,        6)
 
 #define ParamEfxOverdrive_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, INT32,    drive,             1) \
-X(a, STATIC,   SINGULAR, INT32,    treble,            2) \
+X(a, STATIC,   SINGULAR, INT32,    tone,              2) \
 X(a, STATIC,   SINGULAR, INT32,    level,             3)
 #define ParamEfxOverdrive_CALLBACK NULL
 #define ParamEfxOverdrive_DEFAULT NULL
 
 #define ParamEfxDistortion_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, INT32,    distortion,        1) \
-X(a, STATIC,   SINGULAR, INT32,    treble,            2) \
+X(a, STATIC,   SINGULAR, INT32,    tone,              2) \
 X(a, STATIC,   SINGULAR, INT32,    level,             3)
 #define ParamEfxDistortion_CALLBACK NULL
 #define ParamEfxDistortion_DEFAULT NULL
 
 #define ParamEfxFuzz_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, INT32,    fuzz,              1) \
-X(a, STATIC,   SINGULAR, INT32,    treble,            2) \
+X(a, STATIC,   SINGULAR, INT32,    tone,              2) \
 X(a, STATIC,   SINGULAR, INT32,    level,             3)
 #define ParamEfxFuzz_CALLBACK NULL
 #define ParamEfxFuzz_DEFAULT NULL

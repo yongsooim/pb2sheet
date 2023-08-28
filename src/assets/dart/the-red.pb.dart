@@ -1202,7 +1202,7 @@ class ParamEfxOverdrive extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamEfxOverdrive', createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'drive', $pb.PbFieldType.O3)
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'treble', $pb.PbFieldType.O3)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'tone', $pb.PbFieldType.O3)
     ..a<$core.int>(3, _omitFieldNames ? '' : 'level', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
@@ -1238,13 +1238,13 @@ class ParamEfxOverdrive extends $pb.GeneratedMessage {
   void clearDrive() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.int get treble => $_getIZ(1);
+  $core.int get tone => $_getIZ(1);
   @$pb.TagNumber(2)
-  set treble($core.int v) { $_setSignedInt32(1, v); }
+  set tone($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasTreble() => $_has(1);
+  $core.bool hasTone() => $_has(1);
   @$pb.TagNumber(2)
-  void clearTreble() => clearField(2);
+  void clearTone() => clearField(2);
 
   @$pb.TagNumber(3)
   $core.int get level => $_getIZ(2);
@@ -1264,7 +1264,7 @@ class ParamEfxDistortion extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamEfxDistortion', createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'distortion', $pb.PbFieldType.O3)
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'treble', $pb.PbFieldType.O3)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'tone', $pb.PbFieldType.O3)
     ..a<$core.int>(3, _omitFieldNames ? '' : 'level', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
@@ -1300,13 +1300,13 @@ class ParamEfxDistortion extends $pb.GeneratedMessage {
   void clearDistortion() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.int get treble => $_getIZ(1);
+  $core.int get tone => $_getIZ(1);
   @$pb.TagNumber(2)
-  set treble($core.int v) { $_setSignedInt32(1, v); }
+  set tone($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasTreble() => $_has(1);
+  $core.bool hasTone() => $_has(1);
   @$pb.TagNumber(2)
-  void clearTreble() => clearField(2);
+  void clearTone() => clearField(2);
 
   @$pb.TagNumber(3)
   $core.int get level => $_getIZ(2);
@@ -1326,7 +1326,7 @@ class ParamEfxFuzz extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamEfxFuzz', createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'fuzz', $pb.PbFieldType.O3)
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'treble', $pb.PbFieldType.O3)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'tone', $pb.PbFieldType.O3)
     ..a<$core.int>(3, _omitFieldNames ? '' : 'level', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
@@ -1362,13 +1362,13 @@ class ParamEfxFuzz extends $pb.GeneratedMessage {
   void clearFuzz() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.int get treble => $_getIZ(1);
+  $core.int get tone => $_getIZ(1);
   @$pb.TagNumber(2)
-  set treble($core.int v) { $_setSignedInt32(1, v); }
+  set tone($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasTreble() => $_has(1);
+  $core.bool hasTone() => $_has(1);
   @$pb.TagNumber(2)
-  void clearTreble() => clearField(2);
+  void clearTone() => clearField(2);
 
   @$pb.TagNumber(3)
   $core.int get level => $_getIZ(2);
