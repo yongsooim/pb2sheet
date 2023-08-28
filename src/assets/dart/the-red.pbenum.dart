@@ -40,7 +40,6 @@ class MessageID extends $pb.ProtobufEnum {
   static const MessageID PARAM_EFX_OVERDRIVE = MessageID._(23, _omitEnumNames ? '' : 'PARAM_EFX_OVERDRIVE');
   static const MessageID PARAM_EFX_DISTORTION = MessageID._(24, _omitEnumNames ? '' : 'PARAM_EFX_DISTORTION');
   static const MessageID PARAM_EFX_FUZZ = MessageID._(25, _omitEnumNames ? '' : 'PARAM_EFX_FUZZ');
-  static const MessageID PARAM_EFX_BIT_CRUSHER = MessageID._(26, _omitEnumNames ? '' : 'PARAM_EFX_BIT_CRUSHER');
   static const MessageID PARAM_AMP_FENDER = MessageID._(27, _omitEnumNames ? '' : 'PARAM_AMP_FENDER');
   static const MessageID PARAM_AMP_MARSHALL = MessageID._(28, _omitEnumNames ? '' : 'PARAM_AMP_MARSHALL');
   static const MessageID PARAM_AMP_VOX = MessageID._(29, _omitEnumNames ? '' : 'PARAM_AMP_VOX');
@@ -54,7 +53,6 @@ class MessageID extends $pb.ProtobufEnum {
   static const MessageID PARAM_MOD_TREMOLO = MessageID._(37, _omitEnumNames ? '' : 'PARAM_MOD_TREMOLO');
   static const MessageID PARAM_MOD_PHASER = MessageID._(38, _omitEnumNames ? '' : 'PARAM_MOD_PHASER');
   static const MessageID PARAM_MOD_VIBRATO = MessageID._(39, _omitEnumNames ? '' : 'PARAM_MOD_VIBRATO');
-  static const MessageID PARAM_DELAY_ECHO = MessageID._(40, _omitEnumNames ? '' : 'PARAM_DELAY_ECHO');
   static const MessageID PARAM_DELAY_DELAY = MessageID._(41, _omitEnumNames ? '' : 'PARAM_DELAY_DELAY');
   static const MessageID PARAM_REVERB_ROOM = MessageID._(42, _omitEnumNames ? '' : 'PARAM_REVERB_ROOM');
   static const MessageID PARAM_REVERB_HALL = MessageID._(43, _omitEnumNames ? '' : 'PARAM_REVERB_HALL');
@@ -88,7 +86,6 @@ class MessageID extends $pb.ProtobufEnum {
     PARAM_EFX_OVERDRIVE,
     PARAM_EFX_DISTORTION,
     PARAM_EFX_FUZZ,
-    PARAM_EFX_BIT_CRUSHER,
     PARAM_AMP_FENDER,
     PARAM_AMP_MARSHALL,
     PARAM_AMP_VOX,
@@ -102,7 +99,6 @@ class MessageID extends $pb.ProtobufEnum {
     PARAM_MOD_TREMOLO,
     PARAM_MOD_PHASER,
     PARAM_MOD_VIBRATO,
-    PARAM_DELAY_ECHO,
     PARAM_DELAY_DELAY,
     PARAM_REVERB_ROOM,
     PARAM_REVERB_HALL,
@@ -114,31 +110,6 @@ class MessageID extends $pb.ProtobufEnum {
   static MessageID? valueOf($core.int value) => _byValue[value];
 
   const MessageID._($core.int v, $core.String n) : super(v, n);
-}
-
-class CategoryIr extends $pb.ProtobufEnum {
-  static const CategoryIr IR_KLON = CategoryIr._(0, _omitEnumNames ? '' : 'IR_KLON');
-  static const CategoryIr IR_DS = CategoryIr._(1, _omitEnumNames ? '' : 'IR_DS');
-  static const CategoryIr IR_RAT = CategoryIr._(2, _omitEnumNames ? '' : 'IR_RAT');
-  static const CategoryIr IR_MORPHER = CategoryIr._(3, _omitEnumNames ? '' : 'IR_MORPHER');
-  static const CategoryIr IR_OCD = CategoryIr._(4, _omitEnumNames ? '' : 'IR_OCD');
-  static const CategoryIr IR_BMF = CategoryIr._(5, _omitEnumNames ? '' : 'IR_BMF');
-  static const CategoryIr IR_ACOUSTIC = CategoryIr._(6, _omitEnumNames ? '' : 'IR_ACOUSTIC');
-
-  static const $core.List<CategoryIr> values = <CategoryIr> [
-    IR_KLON,
-    IR_DS,
-    IR_RAT,
-    IR_MORPHER,
-    IR_OCD,
-    IR_BMF,
-    IR_ACOUSTIC,
-  ];
-
-  static final $core.Map<$core.int, CategoryIr> _byValue = $pb.ProtobufEnum.initByValue(values);
-  static CategoryIr? valueOf($core.int value) => _byValue[value];
-
-  const CategoryIr._($core.int v, $core.String n) : super(v, n);
 }
 
 class DiagCode extends $pb.ProtobufEnum {
@@ -161,11 +132,15 @@ class DiagCode extends $pb.ProtobufEnum {
 class Nack_ERROR_CODE extends $pb.ProtobufEnum {
   static const Nack_ERROR_CODE INVALID_MESSAGE_ID = Nack_ERROR_CODE._(0, _omitEnumNames ? '' : 'INVALID_MESSAGE_ID');
   static const Nack_ERROR_CODE INVALID_MESSAGE_DATA = Nack_ERROR_CODE._(1, _omitEnumNames ? '' : 'INVALID_MESSAGE_DATA');
-  static const Nack_ERROR_CODE TIMEOUT = Nack_ERROR_CODE._(2, _omitEnumNames ? '' : 'TIMEOUT');
+  static const Nack_ERROR_CODE INVALID_STATE = Nack_ERROR_CODE._(2, _omitEnumNames ? '' : 'INVALID_STATE');
+  static const Nack_ERROR_CODE PROTOBUF_DECODE_ERROR = Nack_ERROR_CODE._(3, _omitEnumNames ? '' : 'PROTOBUF_DECODE_ERROR');
+  static const Nack_ERROR_CODE TIMEOUT = Nack_ERROR_CODE._(4, _omitEnumNames ? '' : 'TIMEOUT');
 
   static const $core.List<Nack_ERROR_CODE> values = <Nack_ERROR_CODE> [
     INVALID_MESSAGE_ID,
     INVALID_MESSAGE_DATA,
+    INVALID_STATE,
+    PROTOBUF_DECODE_ERROR,
     TIMEOUT,
   ];
 
@@ -196,13 +171,13 @@ class SelectEfx_CategoryEfx extends $pb.ProtobufEnum {
   static const SelectEfx_CategoryEfx OVERDRIVE = SelectEfx_CategoryEfx._(0, _omitEnumNames ? '' : 'OVERDRIVE');
   static const SelectEfx_CategoryEfx DISTORTION = SelectEfx_CategoryEfx._(1, _omitEnumNames ? '' : 'DISTORTION');
   static const SelectEfx_CategoryEfx FUZZ = SelectEfx_CategoryEfx._(2, _omitEnumNames ? '' : 'FUZZ');
-  static const SelectEfx_CategoryEfx BIT_CRUSHER = SelectEfx_CategoryEfx._(3, _omitEnumNames ? '' : 'BIT_CRUSHER');
+  static const SelectEfx_CategoryEfx AUTOWAH = SelectEfx_CategoryEfx._(3, _omitEnumNames ? '' : 'AUTOWAH');
 
   static const $core.List<SelectEfx_CategoryEfx> values = <SelectEfx_CategoryEfx> [
     OVERDRIVE,
     DISTORTION,
     FUZZ,
-    BIT_CRUSHER,
+    AUTOWAH,
   ];
 
   static final $core.Map<$core.int, SelectEfx_CategoryEfx> _byValue = $pb.ProtobufEnum.initByValue(values);
@@ -230,6 +205,25 @@ class SelectAmp_CategoryAmp extends $pb.ProtobufEnum {
   const SelectAmp_CategoryAmp._($core.int v, $core.String n) : super(v, n);
 }
 
+class SelectCab_CategoryCab extends $pb.ProtobufEnum {
+  static const SelectCab_CategoryCab FENDER = SelectCab_CategoryCab._(0, _omitEnumNames ? '' : 'FENDER');
+  static const SelectCab_CategoryCab MARSHALL = SelectCab_CategoryCab._(1, _omitEnumNames ? '' : 'MARSHALL');
+  static const SelectCab_CategoryCab VOX = SelectCab_CategoryCab._(2, _omitEnumNames ? '' : 'VOX');
+  static const SelectCab_CategoryCab ACOUSTIC = SelectCab_CategoryCab._(3, _omitEnumNames ? '' : 'ACOUSTIC');
+
+  static const $core.List<SelectCab_CategoryCab> values = <SelectCab_CategoryCab> [
+    FENDER,
+    MARSHALL,
+    VOX,
+    ACOUSTIC,
+  ];
+
+  static final $core.Map<$core.int, SelectCab_CategoryCab> _byValue = $pb.ProtobufEnum.initByValue(values);
+  static SelectCab_CategoryCab? valueOf($core.int value) => _byValue[value];
+
+  const SelectCab_CategoryCab._($core.int v, $core.String n) : super(v, n);
+}
+
 class SelectMod_CategoryMod extends $pb.ProtobufEnum {
   static const SelectMod_CategoryMod FLANGE = SelectMod_CategoryMod._(0, _omitEnumNames ? '' : 'FLANGE');
   static const SelectMod_CategoryMod CHORUS = SelectMod_CategoryMod._(1, _omitEnumNames ? '' : 'CHORUS');
@@ -252,11 +246,9 @@ class SelectMod_CategoryMod extends $pb.ProtobufEnum {
 }
 
 class SelectDelay_CategoryDelay extends $pb.ProtobufEnum {
-  static const SelectDelay_CategoryDelay ECHO = SelectDelay_CategoryDelay._(0, _omitEnumNames ? '' : 'ECHO');
-  static const SelectDelay_CategoryDelay DELAY = SelectDelay_CategoryDelay._(1, _omitEnumNames ? '' : 'DELAY');
+  static const SelectDelay_CategoryDelay DELAY = SelectDelay_CategoryDelay._(0, _omitEnumNames ? '' : 'DELAY');
 
   static const $core.List<SelectDelay_CategoryDelay> values = <SelectDelay_CategoryDelay> [
-    ECHO,
     DELAY,
   ];
 

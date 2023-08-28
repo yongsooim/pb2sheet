@@ -54,7 +54,7 @@ PB_BIND(SelectEfx, SelectEfx, AUTO)
 PB_BIND(SelectAmp, SelectAmp, AUTO)
 
 
-PB_BIND(SelectIr, SelectIr, AUTO)
+PB_BIND(SelectCab, SelectCab, AUTO)
 
 
 PB_BIND(SelectMod, SelectMod, AUTO)
@@ -84,7 +84,7 @@ PB_BIND(ParamEfxDistortion, ParamEfxDistortion, AUTO)
 PB_BIND(ParamEfxFuzz, ParamEfxFuzz, AUTO)
 
 
-PB_BIND(ParamEfxBitCrusher, ParamEfxBitCrusher, AUTO)
+PB_BIND(ParamEfxAutowah, ParamEfxAutowah, AUTO)
 
 
 PB_BIND(ParamAmpFender, ParamAmpFender, AUTO)
@@ -124,9 +124,6 @@ PB_BIND(ParamModPhaser, ParamModPhaser, AUTO)
 
 
 PB_BIND(ParamModVibrato, ParamModVibrato, AUTO)
-
-
-PB_BIND(ParamDelayEcho, ParamDelayEcho, AUTO)
 
 
 PB_BIND(ParamDelayDelay, ParamDelayDelay, AUTO)

@@ -43,7 +43,6 @@ const MessageID$json = {
     {'1': 'PARAM_EFX_OVERDRIVE', '2': 23},
     {'1': 'PARAM_EFX_DISTORTION', '2': 24},
     {'1': 'PARAM_EFX_FUZZ', '2': 25},
-    {'1': 'PARAM_EFX_BIT_CRUSHER', '2': 26},
     {'1': 'PARAM_AMP_FENDER', '2': 27},
     {'1': 'PARAM_AMP_MARSHALL', '2': 28},
     {'1': 'PARAM_AMP_VOX', '2': 29},
@@ -57,7 +56,6 @@ const MessageID$json = {
     {'1': 'PARAM_MOD_TREMOLO', '2': 37},
     {'1': 'PARAM_MOD_PHASER', '2': 38},
     {'1': 'PARAM_MOD_VIBRATO', '2': 39},
-    {'1': 'PARAM_DELAY_ECHO', '2': 40},
     {'1': 'PARAM_DELAY_DELAY', '2': 41},
     {'1': 'PARAM_REVERB_ROOM', '2': 42},
     {'1': 'PARAM_REVERB_HALL', '2': 43},
@@ -77,34 +75,15 @@ final $typed_data.Uint8List messageIDDescriptor = $convert.base64Decode(
     'RUNUX0lSEBASDgoKU0VMRUNUX01PRBAREhAKDFNFTEVDVF9ERUxBWRASEhEKDVNFTEVDVF9SRV'
     'ZFUkIQExIZChVQQVJBTV9HQVRFX05PSVNFX0dBVEUQFBIWChJQQVJBTV9HQVRFX0xJTUlURVIQ'
     'FRIZChVQQVJBTV9HQVRFX0NPTVBSRVNTT1IQFhIXChNQQVJBTV9FRlhfT1ZFUkRSSVZFEBcSGA'
-    'oUUEFSQU1fRUZYX0RJU1RPUlRJT04QGBISCg5QQVJBTV9FRlhfRlVaWhAZEhkKFVBBUkFNX0VG'
-    'WF9CSVRfQ1JVU0hFUhAaEhQKEFBBUkFNX0FNUF9GRU5ERVIQGxIWChJQQVJBTV9BTVBfTUFSU0'
-    'hBTEwQHBIRCg1QQVJBTV9BTVBfVk9YEB0SFgoSUEFSQU1fQU1QX0FDT1VTVElDEB4SEwoPUEFS'
-    'QU1fSVJfRkVOREVSEB8SFQoRUEFSQU1fSVJfTUFSU0hBTEwQIBIQCgxQQVJBTV9JUl9WT1gQIR'
-    'IVChFQQVJBTV9JUl9BQ09VU1RJQxAiEhQKEFBBUkFNX01PRF9GTEFOR0UQIxIUChBQQVJBTV9N'
-    'T0RfQ0hPUlVTECQSFQoRUEFSQU1fTU9EX1RSRU1PTE8QJRIUChBQQVJBTV9NT0RfUEhBU0VSEC'
-    'YSFQoRUEFSQU1fTU9EX1ZJQlJBVE8QJxIUChBQQVJBTV9ERUxBWV9FQ0hPECgSFQoRUEFSQU1f'
-    'REVMQVlfREVMQVkQKRIVChFQQVJBTV9SRVZFUkJfUk9PTRAqEhUKEVBBUkFNX1JFVkVSQl9IQU'
-    'xMECsSFgoSUEFSQU1fUkVWRVJCX1BMQVRFECwSFwoTUEFSQU1fUkVWRVJCX1NQUklORxAt');
-
-@$core.Deprecated('Use categoryIrDescriptor instead')
-const CategoryIr$json = {
-  '1': 'CategoryIr',
-  '2': [
-    {'1': 'IR_KLON', '2': 0},
-    {'1': 'IR_DS', '2': 1},
-    {'1': 'IR_RAT', '2': 2},
-    {'1': 'IR_MORPHER', '2': 3},
-    {'1': 'IR_OCD', '2': 4},
-    {'1': 'IR_BMF', '2': 5},
-    {'1': 'IR_ACOUSTIC', '2': 6},
-  ],
-};
-
-/// Descriptor for `CategoryIr`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List categoryIrDescriptor = $convert.base64Decode(
-    'CgpDYXRlZ29yeUlyEgsKB0lSX0tMT04QABIJCgVJUl9EUxABEgoKBklSX1JBVBACEg4KCklSX0'
-    '1PUlBIRVIQAxIKCgZJUl9PQ0QQBBIKCgZJUl9CTUYQBRIPCgtJUl9BQ09VU1RJQxAG');
+    'oUUEFSQU1fRUZYX0RJU1RPUlRJT04QGBISCg5QQVJBTV9FRlhfRlVaWhAZEhQKEFBBUkFNX0FN'
+    'UF9GRU5ERVIQGxIWChJQQVJBTV9BTVBfTUFSU0hBTEwQHBIRCg1QQVJBTV9BTVBfVk9YEB0SFg'
+    'oSUEFSQU1fQU1QX0FDT1VTVElDEB4SEwoPUEFSQU1fSVJfRkVOREVSEB8SFQoRUEFSQU1fSVJf'
+    'TUFSU0hBTEwQIBIQCgxQQVJBTV9JUl9WT1gQIRIVChFQQVJBTV9JUl9BQ09VU1RJQxAiEhQKEF'
+    'BBUkFNX01PRF9GTEFOR0UQIxIUChBQQVJBTV9NT0RfQ0hPUlVTECQSFQoRUEFSQU1fTU9EX1RS'
+    'RU1PTE8QJRIUChBQQVJBTV9NT0RfUEhBU0VSECYSFQoRUEFSQU1fTU9EX1ZJQlJBVE8QJxIVCh'
+    'FQQVJBTV9ERUxBWV9ERUxBWRApEhUKEVBBUkFNX1JFVkVSQl9ST09NECoSFQoRUEFSQU1fUkVW'
+    'RVJCX0hBTEwQKxIWChJQQVJBTV9SRVZFUkJfUExBVEUQLBIXChNQQVJBTV9SRVZFUkJfU1BSSU'
+    '5HEC0=');
 
 @$core.Deprecated('Use diagCodeDescriptor instead')
 const DiagCode$json = {
@@ -149,15 +128,18 @@ const Nack_ERROR_CODE$json = {
   '2': [
     {'1': 'INVALID_MESSAGE_ID', '2': 0},
     {'1': 'INVALID_MESSAGE_DATA', '2': 1},
-    {'1': 'TIMEOUT', '2': 2},
+    {'1': 'INVALID_STATE', '2': 2},
+    {'1': 'PROTOBUF_DECODE_ERROR', '2': 3},
+    {'1': 'TIMEOUT', '2': 4},
   ],
 };
 
 /// Descriptor for `Nack`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List nackDescriptor = $convert.base64Decode(
-    'CgROYWNrEi4KCWVycm9yQ29kZRgBIAEoDjIQLk5hY2suRVJST1JfQ09ERVIJZXJyb3JDb2RlIk'
-    'sKCkVSUk9SX0NPREUSFgoSSU5WQUxJRF9NRVNTQUdFX0lEEAASGAoUSU5WQUxJRF9NRVNTQUdF'
-    'X0RBVEEQARILCgdUSU1FT1VUEAI=');
+    'CgROYWNrEi4KCWVycm9yQ29kZRgBIAEoDjIQLk5hY2suRVJST1JfQ09ERVIJZXJyb3JDb2RlIn'
+    'kKCkVSUk9SX0NPREUSFgoSSU5WQUxJRF9NRVNTQUdFX0lEEAASGAoUSU5WQUxJRF9NRVNTQUdF'
+    'X0RBVEEQARIRCg1JTlZBTElEX1NUQVRFEAISGQoVUFJPVE9CVUZfREVDT0RFX0VSUk9SEAMSCw'
+    'oHVElNRU9VVBAE');
 
 @$core.Deprecated('Use reqSetupInfoDescriptor instead')
 const ReqSetupInfo$json = {
@@ -341,15 +323,15 @@ const SelectEfx_CategoryEfx$json = {
     {'1': 'OVERDRIVE', '2': 0},
     {'1': 'DISTORTION', '2': 1},
     {'1': 'FUZZ', '2': 2},
-    {'1': 'BIT_CRUSHER', '2': 3},
+    {'1': 'AUTOWAH', '2': 3},
   ],
 };
 
 /// Descriptor for `SelectEfx`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List selectEfxDescriptor = $convert.base64Decode(
     'CglTZWxlY3RFZngSLgoGdGFyZ2V0GAEgASgOMhYuU2VsZWN0RWZ4LkNhdGVnb3J5RWZ4UgZ0YX'
-    'JnZXQSEgoEaXNPbhgCIAEoCFIEaXNPbiJHCgtDYXRlZ29yeUVmeBINCglPVkVSRFJJVkUQABIO'
-    'CgpESVNUT1JUSU9OEAESCAoERlVaWhACEg8KC0JJVF9DUlVTSEVSEAM=');
+    'JnZXQSEgoEaXNPbhgCIAEoCFIEaXNPbiJDCgtDYXRlZ29yeUVmeBINCglPVkVSRFJJVkUQABIO'
+    'CgpESVNUT1JUSU9OEAESCAoERlVaWhACEgsKB0FVVE9XQUgQAw==');
 
 @$core.Deprecated('Use selectAmpDescriptor instead')
 const SelectAmp$json = {
@@ -378,17 +360,32 @@ final $typed_data.Uint8List selectAmpDescriptor = $convert.base64Decode(
     'JnZXQSEgoEaXNPbhgCIAEoCFIEaXNPbiI+CgtDYXRlZ29yeUFtcBIKCgZGRU5ERVIQABIMCghN'
     'QVJTSEFMTBABEgcKA1ZPWBACEgwKCEFDT1VTVElDEAM=');
 
-@$core.Deprecated('Use selectIrDescriptor instead')
-const SelectIr$json = {
-  '1': 'SelectIr',
+@$core.Deprecated('Use selectCabDescriptor instead')
+const SelectCab$json = {
+  '1': 'SelectCab',
   '2': [
-    {'1': 'target', '3': 1, '4': 1, '5': 14, '6': '.CategoryIr', '10': 'target'},
+    {'1': 'target', '3': 1, '4': 1, '5': 14, '6': '.SelectCab.CategoryCab', '10': 'target'},
+    {'1': 'isOn', '3': 2, '4': 1, '5': 8, '10': 'isOn'},
+  ],
+  '4': [SelectCab_CategoryCab$json],
+};
+
+@$core.Deprecated('Use selectCabDescriptor instead')
+const SelectCab_CategoryCab$json = {
+  '1': 'CategoryCab',
+  '2': [
+    {'1': 'FENDER', '2': 0},
+    {'1': 'MARSHALL', '2': 1},
+    {'1': 'VOX', '2': 2},
+    {'1': 'ACOUSTIC', '2': 3},
   ],
 };
 
-/// Descriptor for `SelectIr`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List selectIrDescriptor = $convert.base64Decode(
-    'CghTZWxlY3RJchIjCgZ0YXJnZXQYASABKA4yCy5DYXRlZ29yeUlyUgZ0YXJnZXQ=');
+/// Descriptor for `SelectCab`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List selectCabDescriptor = $convert.base64Decode(
+    'CglTZWxlY3RDYWISLgoGdGFyZ2V0GAEgASgOMhYuU2VsZWN0Q2FiLkNhdGVnb3J5Q2FiUgZ0YX'
+    'JnZXQSEgoEaXNPbhgCIAEoCFIEaXNPbiI+CgtDYXRlZ29yeUNhYhIKCgZGRU5ERVIQABIMCghN'
+    'QVJTSEFMTBABEgcKA1ZPWBACEgwKCEFDT1VTVElDEAM=');
 
 @$core.Deprecated('Use selectModDescriptor instead')
 const SelectMod$json = {
@@ -432,16 +429,15 @@ const SelectDelay$json = {
 const SelectDelay_CategoryDelay$json = {
   '1': 'CategoryDelay',
   '2': [
-    {'1': 'ECHO', '2': 0},
-    {'1': 'DELAY', '2': 1},
+    {'1': 'DELAY', '2': 0},
   ],
 };
 
 /// Descriptor for `SelectDelay`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List selectDelayDescriptor = $convert.base64Decode(
     'CgtTZWxlY3REZWxheRIyCgZ0YXJnZXQYASABKA4yGi5TZWxlY3REZWxheS5DYXRlZ29yeURlbG'
-    'F5UgZ0YXJnZXQSEgoEaXNPbhgCIAEoCFIEaXNPbiIkCg1DYXRlZ29yeURlbGF5EggKBEVDSE8Q'
-    'ABIJCgVERUxBWRAB');
+    'F5UgZ0YXJnZXQSEgoEaXNPbhgCIAEoCFIEaXNPbiIaCg1DYXRlZ29yeURlbGF5EgkKBURFTEFZ'
+    'EAA=');
 
 @$core.Deprecated('Use selectReverbDescriptor instead')
 const SelectReverb$json = {
@@ -568,19 +564,19 @@ final $typed_data.Uint8List paramEfxFuzzDescriptor = $convert.base64Decode(
     'CgxQYXJhbUVmeEZ1enoSEgoEZnV6ehgBIAEoBVIEZnV6ehIWCgZ0cmVibGUYAiABKAVSBnRyZW'
     'JsZRIUCgVsZXZlbBgDIAEoBVIFbGV2ZWw=');
 
-@$core.Deprecated('Use paramEfxBitCrusherDescriptor instead')
-const ParamEfxBitCrusher$json = {
-  '1': 'ParamEfxBitCrusher',
+@$core.Deprecated('Use paramEfxAutowahDescriptor instead')
+const ParamEfxAutowah$json = {
+  '1': 'ParamEfxAutowah',
   '2': [
-    {'1': 'bitsDynamicRange', '3': 1, '4': 1, '5': 5, '10': 'bitsDynamicRange'},
-    {'1': 'sampleRate', '3': 2, '4': 1, '5': 5, '10': 'sampleRate'},
+    {'1': 'depth', '3': 1, '4': 1, '5': 5, '10': 'depth'},
+    {'1': 'wet', '3': 2, '4': 1, '5': 5, '10': 'wet'},
   ],
 };
 
-/// Descriptor for `ParamEfxBitCrusher`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List paramEfxBitCrusherDescriptor = $convert.base64Decode(
-    'ChJQYXJhbUVmeEJpdENydXNoZXISKgoQYml0c0R5bmFtaWNSYW5nZRgBIAEoBVIQYml0c0R5bm'
-    'FtaWNSYW5nZRIeCgpzYW1wbGVSYXRlGAIgASgFUgpzYW1wbGVSYXRl');
+/// Descriptor for `ParamEfxAutowah`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List paramEfxAutowahDescriptor = $convert.base64Decode(
+    'Cg9QYXJhbUVmeEF1dG93YWgSFAoFZGVwdGgYASABKAVSBWRlcHRoEhAKA3dldBgCIAEoBVIDd2'
+    'V0');
 
 @$core.Deprecated('Use paramAmpFenderDescriptor instead')
 const ParamAmpFender$json = {
@@ -590,15 +586,13 @@ const ParamAmpFender$json = {
     {'1': 'low', '3': 2, '4': 1, '5': 5, '10': 'low'},
     {'1': 'middle', '3': 3, '4': 1, '5': 5, '10': 'middle'},
     {'1': 'high', '3': 4, '4': 1, '5': 5, '10': 'high'},
-    {'1': 'presence', '3': 5, '4': 1, '5': 5, '10': 'presence'},
   ],
 };
 
 /// Descriptor for `ParamAmpFender`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List paramAmpFenderDescriptor = $convert.base64Decode(
     'Cg5QYXJhbUFtcEZlbmRlchISCgRnYWluGAEgASgFUgRnYWluEhAKA2xvdxgCIAEoBVIDbG93Eh'
-    'YKBm1pZGRsZRgDIAEoBVIGbWlkZGxlEhIKBGhpZ2gYBCABKAVSBGhpZ2gSGgoIcHJlc2VuY2UY'
-    'BSABKAVSCHByZXNlbmNl');
+    'YKBm1pZGRsZRgDIAEoBVIGbWlkZGxlEhIKBGhpZ2gYBCABKAVSBGhpZ2g=');
 
 @$core.Deprecated('Use paramAmpMarshallDescriptor instead')
 const ParamAmpMarshall$json = {
@@ -608,15 +602,13 @@ const ParamAmpMarshall$json = {
     {'1': 'low', '3': 2, '4': 1, '5': 5, '10': 'low'},
     {'1': 'middle', '3': 3, '4': 1, '5': 5, '10': 'middle'},
     {'1': 'high', '3': 4, '4': 1, '5': 5, '10': 'high'},
-    {'1': 'presence', '3': 5, '4': 1, '5': 5, '10': 'presence'},
   ],
 };
 
 /// Descriptor for `ParamAmpMarshall`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List paramAmpMarshallDescriptor = $convert.base64Decode(
     'ChBQYXJhbUFtcE1hcnNoYWxsEhIKBGdhaW4YASABKAVSBGdhaW4SEAoDbG93GAIgASgFUgNsb3'
-    'cSFgoGbWlkZGxlGAMgASgFUgZtaWRkbGUSEgoEaGlnaBgEIAEoBVIEaGlnaBIaCghwcmVzZW5j'
-    'ZRgFIAEoBVIIcHJlc2VuY2U=');
+    'cSFgoGbWlkZGxlGAMgASgFUgZtaWRkbGUSEgoEaGlnaBgEIAEoBVIEaGlnaA==');
 
 @$core.Deprecated('Use paramAmpVoxDescriptor instead')
 const ParamAmpVox$json = {
@@ -626,15 +618,13 @@ const ParamAmpVox$json = {
     {'1': 'low', '3': 2, '4': 1, '5': 5, '10': 'low'},
     {'1': 'middle', '3': 3, '4': 1, '5': 5, '10': 'middle'},
     {'1': 'high', '3': 4, '4': 1, '5': 5, '10': 'high'},
-    {'1': 'presence', '3': 5, '4': 1, '5': 5, '10': 'presence'},
   ],
 };
 
 /// Descriptor for `ParamAmpVox`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List paramAmpVoxDescriptor = $convert.base64Decode(
     'CgtQYXJhbUFtcFZveBISCgRnYWluGAEgASgFUgRnYWluEhAKA2xvdxgCIAEoBVIDbG93EhYKBm'
-    '1pZGRsZRgDIAEoBVIGbWlkZGxlEhIKBGhpZ2gYBCABKAVSBGhpZ2gSGgoIcHJlc2VuY2UYBSAB'
-    'KAVSCHByZXNlbmNl');
+    '1pZGRsZRgDIAEoBVIGbWlkZGxlEhIKBGhpZ2gYBCABKAVSBGhpZ2g=');
 
 @$core.Deprecated('Use paramAmpAcousticDescriptor instead')
 const ParamAmpAcoustic$json = {
@@ -644,15 +634,13 @@ const ParamAmpAcoustic$json = {
     {'1': 'low', '3': 2, '4': 1, '5': 5, '10': 'low'},
     {'1': 'middle', '3': 3, '4': 1, '5': 5, '10': 'middle'},
     {'1': 'high', '3': 4, '4': 1, '5': 5, '10': 'high'},
-    {'1': 'presence', '3': 5, '4': 1, '5': 5, '10': 'presence'},
   ],
 };
 
 /// Descriptor for `ParamAmpAcoustic`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List paramAmpAcousticDescriptor = $convert.base64Decode(
     'ChBQYXJhbUFtcEFjb3VzdGljEhIKBGdhaW4YASABKAVSBGdhaW4SEAoDbG93GAIgASgFUgNsb3'
-    'cSFgoGbWlkZGxlGAMgASgFUgZtaWRkbGUSEgoEaGlnaBgEIAEoBVIEaGlnaBIaCghwcmVzZW5j'
-    'ZRgFIAEoBVIIcHJlc2VuY2U=');
+    'cSFgoGbWlkZGxlGAMgASgFUgZtaWRkbGUSEgoEaGlnaBgEIAEoBVIEaGlnaA==');
 
 @$core.Deprecated('Use paramIrFenderDescriptor instead')
 const ParamIrFender$json = {
@@ -768,34 +756,20 @@ const ParamModVibrato$json = {
   '1': 'ParamModVibrato',
   '2': [
     {'1': 'frequency', '3': 1, '4': 1, '5': 5, '10': 'frequency'},
-    {'1': 'percent', '3': 2, '4': 1, '5': 5, '10': 'percent'},
+    {'1': 'depth', '3': 2, '4': 1, '5': 5, '10': 'depth'},
   ],
 };
 
 /// Descriptor for `ParamModVibrato`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List paramModVibratoDescriptor = $convert.base64Decode(
-    'Cg9QYXJhbU1vZFZpYnJhdG8SHAoJZnJlcXVlbmN5GAEgASgFUglmcmVxdWVuY3kSGAoHcGVyY2'
-    'VudBgCIAEoBVIHcGVyY2VudA==');
-
-@$core.Deprecated('Use paramDelayEchoDescriptor instead')
-const ParamDelayEcho$json = {
-  '1': 'ParamDelayEcho',
-  '2': [
-    {'1': 'gap', '3': 1, '4': 1, '5': 5, '10': 'gap'},
-    {'1': 'decay', '3': 2, '4': 1, '5': 5, '10': 'decay'},
-  ],
-};
-
-/// Descriptor for `ParamDelayEcho`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List paramDelayEchoDescriptor = $convert.base64Decode(
-    'Cg5QYXJhbURlbGF5RWNobxIQCgNnYXAYASABKAVSA2dhcBIUCgVkZWNheRgCIAEoBVIFZGVjYX'
-    'k=');
+    'Cg9QYXJhbU1vZFZpYnJhdG8SHAoJZnJlcXVlbmN5GAEgASgFUglmcmVxdWVuY3kSFAoFZGVwdG'
+    'gYAiABKAVSBWRlcHRo');
 
 @$core.Deprecated('Use paramDelayDelayDescriptor instead')
 const ParamDelayDelay$json = {
   '1': 'ParamDelayDelay',
   '2': [
-    {'1': 'gap', '3': 1, '4': 1, '5': 5, '10': 'gap'},
+    {'1': 'time', '3': 1, '4': 1, '5': 5, '10': 'time'},
     {'1': 'mix', '3': 2, '4': 1, '5': 5, '10': 'mix'},
     {'1': 'feedback', '3': 3, '4': 1, '5': 5, '10': 'feedback'},
   ],
@@ -803,8 +777,8 @@ const ParamDelayDelay$json = {
 
 /// Descriptor for `ParamDelayDelay`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List paramDelayDelayDescriptor = $convert.base64Decode(
-    'Cg9QYXJhbURlbGF5RGVsYXkSEAoDZ2FwGAEgASgFUgNnYXASEAoDbWl4GAIgASgFUgNtaXgSGg'
-    'oIZmVlZGJhY2sYAyABKAVSCGZlZWRiYWNr');
+    'Cg9QYXJhbURlbGF5RGVsYXkSEgoEdGltZRgBIAEoBVIEdGltZRIQCgNtaXgYAiABKAVSA21peB'
+    'IaCghmZWVkYmFjaxgDIAEoBVIIZmVlZGJhY2s=');
 
 @$core.Deprecated('Use paramReverbRoomDescriptor instead')
 const ParamReverbRoom$json = {
@@ -946,41 +920,41 @@ final $typed_data.Uint8List bulkIrStartReqDescriptor = $convert.base64Decode(
 const bulkIrReq$json = {
   '1': 'bulkIrReq',
   '2': [
-    {'1': 'data', '3': 1, '4': 3, '5': 2, '10': 'data'},
-    {'1': 'sequenceNumber', '3': 2, '4': 1, '5': 5, '10': 'sequenceNumber'},
+    {'1': 'sequenceNumber', '3': 1, '4': 1, '5': 5, '10': 'sequenceNumber'},
+    {'1': 'data', '3': 2, '4': 3, '5': 2, '10': 'data'},
   ],
 };
 
 /// Descriptor for `bulkIrReq`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List bulkIrReqDescriptor = $convert.base64Decode(
-    'CglidWxrSXJSZXESEgoEZGF0YRgBIAMoAlIEZGF0YRImCg5zZXF1ZW5jZU51bWJlchgCIAEoBV'
-    'IOc2VxdWVuY2VOdW1iZXI=');
+    'CglidWxrSXJSZXESJgoOc2VxdWVuY2VOdW1iZXIYASABKAVSDnNlcXVlbmNlTnVtYmVyEhIKBG'
+    'RhdGEYAiADKAJSBGRhdGE=');
 
 @$core.Deprecated('Use bulkIrEndReqDescriptor instead')
 const bulkIrEndReq$json = {
   '1': 'bulkIrEndReq',
   '2': [
-    {'1': 'data', '3': 1, '4': 3, '5': 2, '10': 'data'},
-    {'1': 'sequenceNumber', '3': 2, '4': 1, '5': 5, '10': 'sequenceNumber'},
+    {'1': 'sequenceNumber', '3': 1, '4': 1, '5': 5, '10': 'sequenceNumber'},
+    {'1': 'data', '3': 2, '4': 3, '5': 2, '10': 'data'},
   ],
 };
 
 /// Descriptor for `bulkIrEndReq`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List bulkIrEndReqDescriptor = $convert.base64Decode(
-    'CgxidWxrSXJFbmRSZXESEgoEZGF0YRgBIAMoAlIEZGF0YRImCg5zZXF1ZW5jZU51bWJlchgCIA'
-    'EoBVIOc2VxdWVuY2VOdW1iZXI=');
+    'CgxidWxrSXJFbmRSZXESJgoOc2VxdWVuY2VOdW1iZXIYASABKAVSDnNlcXVlbmNlTnVtYmVyEh'
+    'IKBGRhdGEYAiADKAJSBGRhdGE=');
 
 @$core.Deprecated('Use bulkIrResDescriptor instead')
 const bulkIrRes$json = {
   '1': 'bulkIrRes',
   '2': [
-    {'1': 'done', '3': 1, '4': 1, '5': 8, '10': 'done'},
-    {'1': 'sequenceNumber', '3': 2, '4': 1, '5': 5, '10': 'sequenceNumber'},
+    {'1': 'sequenceNumber', '3': 1, '4': 1, '5': 5, '10': 'sequenceNumber'},
+    {'1': 'done', '3': 2, '4': 1, '5': 8, '10': 'done'},
   ],
 };
 
 /// Descriptor for `bulkIrRes`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List bulkIrResDescriptor = $convert.base64Decode(
-    'CglidWxrSXJSZXMSEgoEZG9uZRgBIAEoCFIEZG9uZRImCg5zZXF1ZW5jZU51bWJlchgCIAEoBV'
-    'IOc2VxdWVuY2VOdW1iZXI=');
+    'CglidWxrSXJSZXMSJgoOc2VxdWVuY2VOdW1iZXIYASABKAVSDnNlcXVlbmNlTnVtYmVyEhIKBG'
+    'RvbmUYAiABKAhSBGRvbmU=');
 

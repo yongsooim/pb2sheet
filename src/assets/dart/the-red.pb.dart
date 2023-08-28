@@ -750,14 +750,15 @@ class SelectAmp extends $pb.GeneratedMessage {
   void clearIsOn() => clearField(2);
 }
 
-class SelectIr extends $pb.GeneratedMessage {
-  factory SelectIr() => create();
-  SelectIr._() : super();
-  factory SelectIr.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory SelectIr.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+class SelectCab extends $pb.GeneratedMessage {
+  factory SelectCab() => create();
+  SelectCab._() : super();
+  factory SelectCab.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory SelectCab.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SelectIr', createEmptyInstance: create)
-    ..e<CategoryIr>(1, _omitFieldNames ? '' : 'target', $pb.PbFieldType.OE, defaultOrMaker: CategoryIr.IR_KLON, valueOf: CategoryIr.valueOf, enumValues: CategoryIr.values)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SelectCab', createEmptyInstance: create)
+    ..e<SelectCab_CategoryCab>(1, _omitFieldNames ? '' : 'target', $pb.PbFieldType.OE, defaultOrMaker: SelectCab_CategoryCab.FENDER, valueOf: SelectCab_CategoryCab.valueOf, enumValues: SelectCab_CategoryCab.values)
+    ..aOB(2, _omitFieldNames ? '' : 'isOn', protoName: 'isOn')
     ..hasRequiredFields = false
   ;
 
@@ -765,31 +766,40 @@ class SelectIr extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  SelectIr clone() => SelectIr()..mergeFromMessage(this);
+  SelectCab clone() => SelectCab()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  SelectIr copyWith(void Function(SelectIr) updates) => super.copyWith((message) => updates(message as SelectIr)) as SelectIr;
+  SelectCab copyWith(void Function(SelectCab) updates) => super.copyWith((message) => updates(message as SelectCab)) as SelectCab;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static SelectIr create() => SelectIr._();
-  SelectIr createEmptyInstance() => create();
-  static $pb.PbList<SelectIr> createRepeated() => $pb.PbList<SelectIr>();
+  static SelectCab create() => SelectCab._();
+  SelectCab createEmptyInstance() => create();
+  static $pb.PbList<SelectCab> createRepeated() => $pb.PbList<SelectCab>();
   @$core.pragma('dart2js:noInline')
-  static SelectIr getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SelectIr>(create);
-  static SelectIr? _defaultInstance;
+  static SelectCab getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SelectCab>(create);
+  static SelectCab? _defaultInstance;
 
   @$pb.TagNumber(1)
-  CategoryIr get target => $_getN(0);
+  SelectCab_CategoryCab get target => $_getN(0);
   @$pb.TagNumber(1)
-  set target(CategoryIr v) { setField(1, v); }
+  set target(SelectCab_CategoryCab v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasTarget() => $_has(0);
   @$pb.TagNumber(1)
   void clearTarget() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.bool get isOn => $_getBF(1);
+  @$pb.TagNumber(2)
+  set isOn($core.bool v) { $_setBool(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasIsOn() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearIsOn() => clearField(2);
 }
 
 class SelectMod extends $pb.GeneratedMessage {
@@ -851,7 +861,7 @@ class SelectDelay extends $pb.GeneratedMessage {
   factory SelectDelay.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SelectDelay', createEmptyInstance: create)
-    ..e<SelectDelay_CategoryDelay>(1, _omitFieldNames ? '' : 'target', $pb.PbFieldType.OE, defaultOrMaker: SelectDelay_CategoryDelay.ECHO, valueOf: SelectDelay_CategoryDelay.valueOf, enumValues: SelectDelay_CategoryDelay.values)
+    ..e<SelectDelay_CategoryDelay>(1, _omitFieldNames ? '' : 'target', $pb.PbFieldType.OE, defaultOrMaker: SelectDelay_CategoryDelay.DELAY, valueOf: SelectDelay_CategoryDelay.valueOf, enumValues: SelectDelay_CategoryDelay.values)
     ..aOB(2, _omitFieldNames ? '' : 'isOn', protoName: 'isOn')
     ..hasRequiredFields = false
   ;
@@ -1370,15 +1380,15 @@ class ParamEfxFuzz extends $pb.GeneratedMessage {
   void clearLevel() => clearField(3);
 }
 
-class ParamEfxBitCrusher extends $pb.GeneratedMessage {
-  factory ParamEfxBitCrusher() => create();
-  ParamEfxBitCrusher._() : super();
-  factory ParamEfxBitCrusher.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory ParamEfxBitCrusher.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+class ParamEfxAutowah extends $pb.GeneratedMessage {
+  factory ParamEfxAutowah() => create();
+  ParamEfxAutowah._() : super();
+  factory ParamEfxAutowah.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ParamEfxAutowah.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamEfxBitCrusher', createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'bitsDynamicRange', $pb.PbFieldType.O3, protoName: 'bitsDynamicRange')
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'sampleRate', $pb.PbFieldType.O3, protoName: 'sampleRate')
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamEfxAutowah', createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'depth', $pb.PbFieldType.O3)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'wet', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -1386,40 +1396,40 @@ class ParamEfxBitCrusher extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  ParamEfxBitCrusher clone() => ParamEfxBitCrusher()..mergeFromMessage(this);
+  ParamEfxAutowah clone() => ParamEfxAutowah()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  ParamEfxBitCrusher copyWith(void Function(ParamEfxBitCrusher) updates) => super.copyWith((message) => updates(message as ParamEfxBitCrusher)) as ParamEfxBitCrusher;
+  ParamEfxAutowah copyWith(void Function(ParamEfxAutowah) updates) => super.copyWith((message) => updates(message as ParamEfxAutowah)) as ParamEfxAutowah;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static ParamEfxBitCrusher create() => ParamEfxBitCrusher._();
-  ParamEfxBitCrusher createEmptyInstance() => create();
-  static $pb.PbList<ParamEfxBitCrusher> createRepeated() => $pb.PbList<ParamEfxBitCrusher>();
+  static ParamEfxAutowah create() => ParamEfxAutowah._();
+  ParamEfxAutowah createEmptyInstance() => create();
+  static $pb.PbList<ParamEfxAutowah> createRepeated() => $pb.PbList<ParamEfxAutowah>();
   @$core.pragma('dart2js:noInline')
-  static ParamEfxBitCrusher getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ParamEfxBitCrusher>(create);
-  static ParamEfxBitCrusher? _defaultInstance;
+  static ParamEfxAutowah getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ParamEfxAutowah>(create);
+  static ParamEfxAutowah? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get bitsDynamicRange => $_getIZ(0);
+  $core.int get depth => $_getIZ(0);
   @$pb.TagNumber(1)
-  set bitsDynamicRange($core.int v) { $_setSignedInt32(0, v); }
+  set depth($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasBitsDynamicRange() => $_has(0);
+  $core.bool hasDepth() => $_has(0);
   @$pb.TagNumber(1)
-  void clearBitsDynamicRange() => clearField(1);
+  void clearDepth() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.int get sampleRate => $_getIZ(1);
+  $core.int get wet => $_getIZ(1);
   @$pb.TagNumber(2)
-  set sampleRate($core.int v) { $_setSignedInt32(1, v); }
+  set wet($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasSampleRate() => $_has(1);
+  $core.bool hasWet() => $_has(1);
   @$pb.TagNumber(2)
-  void clearSampleRate() => clearField(2);
+  void clearWet() => clearField(2);
 }
 
 class ParamAmpFender extends $pb.GeneratedMessage {
@@ -1433,7 +1443,6 @@ class ParamAmpFender extends $pb.GeneratedMessage {
     ..a<$core.int>(2, _omitFieldNames ? '' : 'low', $pb.PbFieldType.O3)
     ..a<$core.int>(3, _omitFieldNames ? '' : 'middle', $pb.PbFieldType.O3)
     ..a<$core.int>(4, _omitFieldNames ? '' : 'high', $pb.PbFieldType.O3)
-    ..a<$core.int>(5, _omitFieldNames ? '' : 'presence', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -1493,15 +1502,6 @@ class ParamAmpFender extends $pb.GeneratedMessage {
   $core.bool hasHigh() => $_has(3);
   @$pb.TagNumber(4)
   void clearHigh() => clearField(4);
-
-  @$pb.TagNumber(5)
-  $core.int get presence => $_getIZ(4);
-  @$pb.TagNumber(5)
-  set presence($core.int v) { $_setSignedInt32(4, v); }
-  @$pb.TagNumber(5)
-  $core.bool hasPresence() => $_has(4);
-  @$pb.TagNumber(5)
-  void clearPresence() => clearField(5);
 }
 
 class ParamAmpMarshall extends $pb.GeneratedMessage {
@@ -1515,7 +1515,6 @@ class ParamAmpMarshall extends $pb.GeneratedMessage {
     ..a<$core.int>(2, _omitFieldNames ? '' : 'low', $pb.PbFieldType.O3)
     ..a<$core.int>(3, _omitFieldNames ? '' : 'middle', $pb.PbFieldType.O3)
     ..a<$core.int>(4, _omitFieldNames ? '' : 'high', $pb.PbFieldType.O3)
-    ..a<$core.int>(5, _omitFieldNames ? '' : 'presence', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -1575,15 +1574,6 @@ class ParamAmpMarshall extends $pb.GeneratedMessage {
   $core.bool hasHigh() => $_has(3);
   @$pb.TagNumber(4)
   void clearHigh() => clearField(4);
-
-  @$pb.TagNumber(5)
-  $core.int get presence => $_getIZ(4);
-  @$pb.TagNumber(5)
-  set presence($core.int v) { $_setSignedInt32(4, v); }
-  @$pb.TagNumber(5)
-  $core.bool hasPresence() => $_has(4);
-  @$pb.TagNumber(5)
-  void clearPresence() => clearField(5);
 }
 
 class ParamAmpVox extends $pb.GeneratedMessage {
@@ -1597,7 +1587,6 @@ class ParamAmpVox extends $pb.GeneratedMessage {
     ..a<$core.int>(2, _omitFieldNames ? '' : 'low', $pb.PbFieldType.O3)
     ..a<$core.int>(3, _omitFieldNames ? '' : 'middle', $pb.PbFieldType.O3)
     ..a<$core.int>(4, _omitFieldNames ? '' : 'high', $pb.PbFieldType.O3)
-    ..a<$core.int>(5, _omitFieldNames ? '' : 'presence', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -1657,15 +1646,6 @@ class ParamAmpVox extends $pb.GeneratedMessage {
   $core.bool hasHigh() => $_has(3);
   @$pb.TagNumber(4)
   void clearHigh() => clearField(4);
-
-  @$pb.TagNumber(5)
-  $core.int get presence => $_getIZ(4);
-  @$pb.TagNumber(5)
-  set presence($core.int v) { $_setSignedInt32(4, v); }
-  @$pb.TagNumber(5)
-  $core.bool hasPresence() => $_has(4);
-  @$pb.TagNumber(5)
-  void clearPresence() => clearField(5);
 }
 
 class ParamAmpAcoustic extends $pb.GeneratedMessage {
@@ -1679,7 +1659,6 @@ class ParamAmpAcoustic extends $pb.GeneratedMessage {
     ..a<$core.int>(2, _omitFieldNames ? '' : 'low', $pb.PbFieldType.O3)
     ..a<$core.int>(3, _omitFieldNames ? '' : 'middle', $pb.PbFieldType.O3)
     ..a<$core.int>(4, _omitFieldNames ? '' : 'high', $pb.PbFieldType.O3)
-    ..a<$core.int>(5, _omitFieldNames ? '' : 'presence', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -1739,15 +1718,6 @@ class ParamAmpAcoustic extends $pb.GeneratedMessage {
   $core.bool hasHigh() => $_has(3);
   @$pb.TagNumber(4)
   void clearHigh() => clearField(4);
-
-  @$pb.TagNumber(5)
-  $core.int get presence => $_getIZ(4);
-  @$pb.TagNumber(5)
-  set presence($core.int v) { $_setSignedInt32(4, v); }
-  @$pb.TagNumber(5)
-  $core.bool hasPresence() => $_has(4);
-  @$pb.TagNumber(5)
-  void clearPresence() => clearField(5);
 }
 
 class ParamIrFender extends $pb.GeneratedMessage {
@@ -2174,7 +2144,7 @@ class ParamModVibrato extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamModVibrato', createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'frequency', $pb.PbFieldType.O3)
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'percent', $pb.PbFieldType.O3)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'depth', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -2209,65 +2179,13 @@ class ParamModVibrato extends $pb.GeneratedMessage {
   void clearFrequency() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.int get percent => $_getIZ(1);
+  $core.int get depth => $_getIZ(1);
   @$pb.TagNumber(2)
-  set percent($core.int v) { $_setSignedInt32(1, v); }
+  set depth($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasPercent() => $_has(1);
+  $core.bool hasDepth() => $_has(1);
   @$pb.TagNumber(2)
-  void clearPercent() => clearField(2);
-}
-
-class ParamDelayEcho extends $pb.GeneratedMessage {
-  factory ParamDelayEcho() => create();
-  ParamDelayEcho._() : super();
-  factory ParamDelayEcho.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory ParamDelayEcho.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamDelayEcho', createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'gap', $pb.PbFieldType.O3)
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'decay', $pb.PbFieldType.O3)
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  ParamDelayEcho clone() => ParamDelayEcho()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  ParamDelayEcho copyWith(void Function(ParamDelayEcho) updates) => super.copyWith((message) => updates(message as ParamDelayEcho)) as ParamDelayEcho;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static ParamDelayEcho create() => ParamDelayEcho._();
-  ParamDelayEcho createEmptyInstance() => create();
-  static $pb.PbList<ParamDelayEcho> createRepeated() => $pb.PbList<ParamDelayEcho>();
-  @$core.pragma('dart2js:noInline')
-  static ParamDelayEcho getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ParamDelayEcho>(create);
-  static ParamDelayEcho? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.int get gap => $_getIZ(0);
-  @$pb.TagNumber(1)
-  set gap($core.int v) { $_setSignedInt32(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasGap() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearGap() => clearField(1);
-
-  @$pb.TagNumber(2)
-  $core.int get decay => $_getIZ(1);
-  @$pb.TagNumber(2)
-  set decay($core.int v) { $_setSignedInt32(1, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasDecay() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearDecay() => clearField(2);
+  void clearDepth() => clearField(2);
 }
 
 class ParamDelayDelay extends $pb.GeneratedMessage {
@@ -2277,7 +2195,7 @@ class ParamDelayDelay extends $pb.GeneratedMessage {
   factory ParamDelayDelay.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamDelayDelay', createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'gap', $pb.PbFieldType.O3)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'time', $pb.PbFieldType.O3)
     ..a<$core.int>(2, _omitFieldNames ? '' : 'mix', $pb.PbFieldType.O3)
     ..a<$core.int>(3, _omitFieldNames ? '' : 'feedback', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
@@ -2305,13 +2223,13 @@ class ParamDelayDelay extends $pb.GeneratedMessage {
   static ParamDelayDelay? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get gap => $_getIZ(0);
+  $core.int get time => $_getIZ(0);
   @$pb.TagNumber(1)
-  set gap($core.int v) { $_setSignedInt32(0, v); }
+  set time($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasGap() => $_has(0);
+  $core.bool hasTime() => $_has(0);
   @$pb.TagNumber(1)
-  void clearGap() => clearField(1);
+  void clearTime() => clearField(1);
 
   @$pb.TagNumber(2)
   $core.int get mix => $_getIZ(1);
@@ -2811,8 +2729,8 @@ class bulkIrReq extends $pb.GeneratedMessage {
   factory bulkIrReq.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'bulkIrReq', createEmptyInstance: create)
-    ..p<$core.double>(1, _omitFieldNames ? '' : 'data', $pb.PbFieldType.KF)
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'sequenceNumber', $pb.PbFieldType.O3, protoName: 'sequenceNumber')
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'sequenceNumber', $pb.PbFieldType.O3, protoName: 'sequenceNumber')
+    ..p<$core.double>(2, _omitFieldNames ? '' : 'data', $pb.PbFieldType.KF)
     ..hasRequiredFields = false
   ;
 
@@ -2838,16 +2756,16 @@ class bulkIrReq extends $pb.GeneratedMessage {
   static bulkIrReq? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.List<$core.double> get data => $_getList(0);
+  $core.int get sequenceNumber => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set sequenceNumber($core.int v) { $_setSignedInt32(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasSequenceNumber() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearSequenceNumber() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.int get sequenceNumber => $_getIZ(1);
-  @$pb.TagNumber(2)
-  set sequenceNumber($core.int v) { $_setSignedInt32(1, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasSequenceNumber() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearSequenceNumber() => clearField(2);
+  $core.List<$core.double> get data => $_getList(1);
 }
 
 class bulkIrEndReq extends $pb.GeneratedMessage {
@@ -2857,8 +2775,8 @@ class bulkIrEndReq extends $pb.GeneratedMessage {
   factory bulkIrEndReq.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'bulkIrEndReq', createEmptyInstance: create)
-    ..p<$core.double>(1, _omitFieldNames ? '' : 'data', $pb.PbFieldType.KF)
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'sequenceNumber', $pb.PbFieldType.O3, protoName: 'sequenceNumber')
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'sequenceNumber', $pb.PbFieldType.O3, protoName: 'sequenceNumber')
+    ..p<$core.double>(2, _omitFieldNames ? '' : 'data', $pb.PbFieldType.KF)
     ..hasRequiredFields = false
   ;
 
@@ -2884,16 +2802,16 @@ class bulkIrEndReq extends $pb.GeneratedMessage {
   static bulkIrEndReq? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.List<$core.double> get data => $_getList(0);
+  $core.int get sequenceNumber => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set sequenceNumber($core.int v) { $_setSignedInt32(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasSequenceNumber() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearSequenceNumber() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.int get sequenceNumber => $_getIZ(1);
-  @$pb.TagNumber(2)
-  set sequenceNumber($core.int v) { $_setSignedInt32(1, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasSequenceNumber() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearSequenceNumber() => clearField(2);
+  $core.List<$core.double> get data => $_getList(1);
 }
 
 class bulkIrRes extends $pb.GeneratedMessage {
@@ -2903,8 +2821,8 @@ class bulkIrRes extends $pb.GeneratedMessage {
   factory bulkIrRes.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'bulkIrRes', createEmptyInstance: create)
-    ..aOB(1, _omitFieldNames ? '' : 'done')
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'sequenceNumber', $pb.PbFieldType.O3, protoName: 'sequenceNumber')
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'sequenceNumber', $pb.PbFieldType.O3, protoName: 'sequenceNumber')
+    ..aOB(2, _omitFieldNames ? '' : 'done')
     ..hasRequiredFields = false
   ;
 
@@ -2930,22 +2848,22 @@ class bulkIrRes extends $pb.GeneratedMessage {
   static bulkIrRes? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.bool get done => $_getBF(0);
+  $core.int get sequenceNumber => $_getIZ(0);
   @$pb.TagNumber(1)
-  set done($core.bool v) { $_setBool(0, v); }
+  set sequenceNumber($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasDone() => $_has(0);
+  $core.bool hasSequenceNumber() => $_has(0);
   @$pb.TagNumber(1)
-  void clearDone() => clearField(1);
+  void clearSequenceNumber() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.int get sequenceNumber => $_getIZ(1);
+  $core.bool get done => $_getBF(1);
   @$pb.TagNumber(2)
-  set sequenceNumber($core.int v) { $_setSignedInt32(1, v); }
+  set done($core.bool v) { $_setBool(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasSequenceNumber() => $_has(1);
+  $core.bool hasDone() => $_has(1);
   @$pb.TagNumber(2)
-  void clearSequenceNumber() => clearField(2);
+  void clearDone() => clearField(2);
 }
 
 

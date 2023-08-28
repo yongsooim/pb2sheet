@@ -1,7 +1,19 @@
 // the-red.proto
 
-// 2023-08-02 jason: initial version
+/*
+ 2023-08-28 jason:
+  - add NACK error codes
+  - add message ParamEfxAutowah
+  - delete message ParamEfxBitCrusher
+  - delete message ParamDelayEcho
+  - change parameter name : ParamModVibrato.percent -> depth
+  - change parameter name : ParamDelayDelay.gap -> time
+  - change parameter name : ParamModChorus.voices -> rate
+  - change parameter name "treble" to "tone" in ParamAmps (ParamAmpFender, ParamAmpMarshall, ParamAmpVox, ParamAmpAcoustic)
+  - delete parameter "presence" in ParamAmps (ParamAmpFender, ParamAmpMarshall, ParamAmpVox, ParamAmpAcoustic)
 
+ 2023-08-02 jason: initial version
+*/
 syntax = "proto3";
 
 enum MessageID {
@@ -31,7 +43,6 @@ enum MessageID {
   PARAM_EFX_OVERDRIVE = 23;
   PARAM_EFX_DISTORTION = 24;
   PARAM_EFX_FUZZ = 25;
-  PARAM_EFX_BIT_CRUSHER = 26;
   PARAM_AMP_FENDER = 27;
   PARAM_AMP_MARSHALL = 28;
   PARAM_AMP_VOX = 29;
@@ -45,7 +56,6 @@ enum MessageID {
   PARAM_MOD_TREMOLO = 37;
   PARAM_MOD_PHASER = 38;
   PARAM_MOD_VIBRATO = 39;
-  PARAM_DELAY_ECHO = 40;
   PARAM_DELAY_DELAY = 41;
   PARAM_REVERB_ROOM = 42;
   PARAM_REVERB_HALL = 43;
@@ -59,18 +69,18 @@ message Nack {
   enum ERROR_CODE {
     INVALID_MESSAGE_ID = 0;
     INVALID_MESSAGE_DATA = 1;
-    TIMEOUT = 2;
+    INVALID_STATE = 2;
+    PROTOBUF_DECODE_ERROR = 3;
+    TIMEOUT = 4;
   }
   ERROR_CODE errorCode = 1;
 }
 
 // App -> Guitar
-message ReqSetupInfo {
-
-}
+message ReqSetupInfo {}
 
 message InitFromApp {
-  int64  currentTimeEpoch = 1;
+  int64 currentTimeEpoch = 1;
   string phoneMachineId = 2;
   string appVersion = 3;
 }
@@ -82,12 +92,19 @@ message InitFromGuitar {
 }
 
 message ChangeGuitarName { string guitarName = 1; }
+
 message TunerOnOff { bool isOn = 1; }
 message TunerFrequency { float tunerFrequency = 1; }
+
+// Knob number 0 is clear
 message KnobClicked { int32 knobNumber = 1; }
+
 message KnobMatchingStart { int32 knobNumber = 1; }
+
 message EffectEod { bool effectEod = 1; }
+
 message BatteryLevel { int32 batteryLevel = 1; }
+
 message CurrentKnobSelected { int32 currentKnobSelected = 1; }
 
 message SelectGate {
@@ -105,7 +122,7 @@ message SelectEfx {
     OVERDRIVE = 0;
     DISTORTION = 1;
     FUZZ = 2;
-    BIT_CRUSHER = 3;
+    AUTOWAH = 3;
   }
   CategoryEfx target = 1;
   bool isOn = 2;
@@ -122,17 +139,16 @@ message SelectAmp {
   bool isOn = 2;
 }
 
-enum CategoryIr {
-  IR_KLON = 0;
-  IR_DS = 1;
-  IR_RAT = 2;
-  IR_MORPHER = 3;
-  IR_OCD = 4;
-  IR_BMF = 5;
-  IR_ACOUSTIC = 6;
+message SelectCab {
+  enum CategoryCab {
+    FENDER = 0;
+    MARSHALL = 1;
+    VOX = 2;
+    ACOUSTIC = 3;
+  }
+  CategoryCab target = 1;
+  bool isOn = 2;
 }
-
-message SelectIr { CategoryIr target = 1; }
 
 message SelectMod {
   enum CategoryMod {
@@ -148,8 +164,7 @@ message SelectMod {
 
 message SelectDelay {
   enum CategoryDelay {
-    ECHO = 0;
-    DELAY = 1;
+    DELAY = 0;
   }
   CategoryDelay target = 1;
   bool isOn = 2;
@@ -190,25 +205,25 @@ message ParamGateCompressor {
 
 message ParamEfxOverdrive {
   int32 drive = 1;
-  int32 treble = 2;
+  int32 tone = 2;
   int32 level = 3;
 }
 
 message ParamEfxDistortion {
   int32 distortion = 1;
-  int32 treble = 2;
+  int32 tone = 2;
   int32 level = 3;
 }
 
 message ParamEfxFuzz {
   int32 fuzz = 1;
-  int32 treble = 2;
+  int32 tone = 2;
   int32 level = 3;
 }
 
-message ParamEfxBitCrusher {
-  int32 bitsDynamicRange = 1;
-  int32 sampleRate = 2;
+message ParamEfxAutowah {
+  int32 depth = 1;
+  int32 wet = 2;
 }
 
 message ParamAmpFender {
@@ -216,7 +231,6 @@ message ParamAmpFender {
   int32 low = 2;
   int32 middle = 3;
   int32 high = 4;
-  int32 presence = 5;
 }
 
 message ParamAmpMarshall {
@@ -224,7 +238,6 @@ message ParamAmpMarshall {
   int32 low = 2;
   int32 middle = 3;
   int32 high = 4;
-  int32 presence = 5;
 }
 
 message ParamAmpVox {
@@ -232,7 +245,6 @@ message ParamAmpVox {
   int32 low = 2;
   int32 middle = 3;
   int32 high = 4;
-  int32 presence = 5;
 }
 
 message ParamAmpAcoustic {
@@ -240,7 +252,6 @@ message ParamAmpAcoustic {
   int32 low = 2;
   int32 middle = 3;
   int32 high = 4;
-  int32 presence = 5;
 }
 
 message ParamIrFender { int32 wet = 1; }
@@ -275,16 +286,11 @@ message ParamModPhaser {
 
 message ParamModVibrato {
   int32 frequency = 1;
-  int32 percent = 2;
-}
-
-message ParamDelayEcho {
-  int32 gap = 1;
-  int32 decay = 2;
+  int32 depth = 2;
 }
 
 message ParamDelayDelay {
-  int32 gap = 1;
+  int32 time = 1;
   int32 mix = 2;
   int32 feedback = 3;
 }
@@ -344,17 +350,17 @@ message bulkIrStartReq {
 }
 
 message bulkIrReq {
-  repeated float data = 1;
-  int32 sequenceNumber = 2;
+  int32 sequenceNumber = 1;
+  repeated float data = 2;
 }
 
 message bulkIrEndReq {
-  repeated float data = 1;
-  int32 sequenceNumber = 2;
+  int32 sequenceNumber = 1;
+  repeated float data = 2;
 }
 
 // Save IR Response
 message bulkIrRes {
-  bool done = 1;
-  int32 sequenceNumber = 2;
+  int32 sequenceNumber = 1;
+  bool done = 2;
 }

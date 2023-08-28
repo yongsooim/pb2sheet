@@ -17,6 +17,7 @@
     "@types/ace": "^0.0.48",
     "ace-builds": "^1.23.4",
     "jspreadsheet-ce": "^4.13.3",
-    "proto-parser": "^0.0.9"
+    "proto-parser": "^0.0.9",
+    "protoc-gen-js": "^3.21.2"
   }
 }
