@@ -3,7 +3,8 @@
 /*
  2023-08-28 jason:
   - add NACK error codes
-  - add message ParamEfxAutowah
+  - add message ParamGate
+  - delete Gate messages (ParamGateNoiseGate, ParamGateLimiter, ParamGateCompressor)
   - delete message ParamEfxBitCrusher
   - delete message ParamDelayEcho
   - change parameter name : ParamModVibrato.percent -> depth
@@ -11,56 +12,63 @@
   - change parameter name : ParamModChorus.voices -> rate
   - change parameter name "treble" to "tone" in ParamAmps (ParamAmpFender, ParamAmpMarshall, ParamAmpVox, ParamAmpAcoustic)
   - delete parameter "presence" in ParamAmps (ParamAmpFender, ParamAmpMarshall, ParamAmpVox, ParamAmpAcoustic)
+  - Change and rearrange Message IDs
 
  2023-08-02 jason: initial version
 */
 syntax = "proto3";
 
 enum MessageID {
-  ACK = 0;
-  NACK = 1;
-  INIT_FROM_APP = 2;
-  INIT_FROM_GUITAR = 3;
-  TUNER_ONOFF = 4;
-  TUNER_FREQUENCY = 5;
-  KNOB_CLICKED = 6;
-  KNOB_MATCHING_START = 7;
-  PRESET_SAVE_READY_REQUEST = 8;
-  PRESET_SAVE_READY_RESPONSE = 9;
-  EFFECT_EOD = 10;
-  BATTERY_LEVEL = 11;
-  CURRENT_KNOB_SELECTED = 12;
-  SELECT_GATE = 13;
-  SELECT_EFX = 14;
-  SELECT_AMP = 15;
-  SELECT_IR = 16;
-  SELECT_MOD = 17;
-  SELECT_DELAY = 18;
-  SELECT_REVERB = 19;
-  PARAM_GATE_NOISE_GATE = 20;
-  PARAM_GATE_LIMITER = 21;
-  PARAM_GATE_COMPRESSOR = 22;
-  PARAM_EFX_OVERDRIVE = 23;
-  PARAM_EFX_DISTORTION = 24;
-  PARAM_EFX_FUZZ = 25;
-  PARAM_AMP_FENDER = 27;
-  PARAM_AMP_MARSHALL = 28;
-  PARAM_AMP_VOX = 29;
-  PARAM_AMP_ACOUSTIC = 30;
-  PARAM_IR_FENDER = 31;
-  PARAM_IR_MARSHALL = 32;
-  PARAM_IR_VOX = 33;
-  PARAM_IR_ACOUSTIC = 34;
-  PARAM_MOD_FLANGE = 35;
-  PARAM_MOD_CHORUS = 36;
-  PARAM_MOD_TREMOLO = 37;
-  PARAM_MOD_PHASER = 38;
-  PARAM_MOD_VIBRATO = 39;
-  PARAM_DELAY_DELAY = 41;
-  PARAM_REVERB_ROOM = 42;
-  PARAM_REVERB_HALL = 43;
-  PARAM_REVERB_PLATE = 44;
-  PARAM_REVERB_SPRING = 45;
+  MessageID_ACK = 0;
+  MessageID_NACK = 1;
+  MessageID_REQ_SETUP_INFO = 2;
+  MessageID_INIT_FROM_APP = 3;
+  MessageID_INIT_FROM_GUITAR = 4;
+  MessageID_CHANGE_GUITAR_NAME = 5;
+  MessageID_TUNER_ON_OFF = 6;
+  MessageID_TUNER_FREQUENCY = 7;
+  MessageID_KNOB_CLICKED = 8;
+  MessageID_KNOB_MATCHING_START = 9;
+  MessageID_EFFECT_EOD = 10;
+  MessageID_BATTERY_LEVEL = 11;
+  MessageID_CURRENT_KNOB_SELECTED = 12;
+  MessageID_SELECT_GATE = 13;
+  MessageID_SELECT_EFX = 14;
+  MessageID_SELECT_AMP = 15;
+  MessageID_SELECT_CAB = 16;
+  MessageID_SELECT_MOD = 17;
+  MessageID_SELECT_DELAY = 18;
+  MessageID_SELECT_REVERB = 19;
+  MessageID_PARAM_GATE = 20;
+  MessageID_PARAM_EFX_OVERDRIVE = 21;
+  MessageID_PARAM_EFX_DISTORTION = 22;
+  MessageID_PARAM_EFX_FUZZ = 23;
+  MessageID_PARAM_AMP_FENDER = 24;
+  MessageID_PARAM_AMP_MARSHALL = 25;
+  MessageID_PARAM_AMP_VOX = 26;
+  MessageID_PARAM_AMP_ACOUSTIC = 27;
+  MessageID_PARAM_IR_FENDER = 28;
+  MessageID_PARAM_IR_MARSHALL = 29;
+  MessageID_PARAM_IR_VOX = 30;
+  MessageID_PARAM_IR_ACOUSTIC = 31;
+  MessageID_PARAM_MOD_FLANGE = 32;
+  MessageID_PARAM_MOD_CHORUS = 33;
+  MessageID_PARAM_MOD_TREMOLO = 34;
+  MessageID_PARAM_MOD_PHASER = 35;
+  MessageID_PARAM_MOD_VIBRATO = 36;
+  MessageID_PARAM_DELAY_DELAY = 37;
+  MessageID_PARAM_REVERB_ROOM = 38;
+  MessageID_PARAM_REVERB_HALL = 39;
+  MessageID_PARAM_REVERB_PLATE = 40;
+  MessageID_PARAM_REVERB_SPRING = 41;
+  MessageID_DIAG_REQ = 42;
+  MessageID_DIAG_RESP_POC = 43;
+  MessageID_DIAG_RESP_FIRST_PARING = 44;
+  MessageID_DIAG_RESP_ERR_CODE = 45;
+  MessageID_BULK_IR_START_REQ = 46;
+  MessageID_BULK_IR_REQ = 47;
+  MessageID_BULK_IR_END_REQ = 48;
+  MessageID_BULK_IR_RES = 49;
 }
 
 message Ack { int32 receivedMessageLength = 1; }
@@ -110,8 +118,6 @@ message CurrentKnobSelected { int32 currentKnobSelected = 1; }
 message SelectGate {
   enum CategoryGate {
     NOISE_GATE = 0;
-    LIMITER = 1;
-    COMPRESSOR = 2;
   }
   CategoryGate target = 1;
   bool isOn = 2;
@@ -122,7 +128,6 @@ message SelectEfx {
     OVERDRIVE = 0;
     DISTORTION = 1;
     FUZZ = 2;
-    AUTOWAH = 3;
   }
   CategoryEfx target = 1;
   bool isOn = 2;
@@ -180,27 +185,19 @@ message SelectReverb {
   bool isOn = 2;
 }
 
-message ParamGateNoiseGate {
-  int32 threshold = 1;
-  int32 openingTime = 2;
-  int32 closingTime = 3;
-  int32 holdTime = 4;
-}
-
-message ParamGateLimiter {
-  int32 threshold = 1;
-  int32 attack = 2;
-  int32 release = 3;
-  int32 gain = 4;
-}
-
-message ParamGateCompressor {
-  int32 threshold = 1;
-  int32 attack = 2;
-  int32 release = 3;
-  int32 gain = 4;
-  int32 ratio = 5;
-  int32 hysteresis = 6;
+message ParamGate {
+  int32 noiseGateThreshold = 1;
+  int32 noiseGateOpeningTime = 2;
+  int32 noiseGateClosingTime = 3;
+  int32 noiseGateHoldTime = 4;
+  int32 compressorThreshold = 5;
+  int32 compressorAttack = 6;
+  int32 compressorRelease = 7;
+  int32 compressorGain = 8;
+  int32 compressorRatio = 9;
+  int32 compressorHysteresis = 10;
+  int32 autowahDepth = 11;
+  int32 autowahWet = 12;
 }
 
 message ParamEfxOverdrive {
@@ -210,20 +207,15 @@ message ParamEfxOverdrive {
 }
 
 message ParamEfxDistortion {
-  int32 distortion = 1;
+  int32 drive = 1;
   int32 tone = 2;
   int32 level = 3;
 }
 
 message ParamEfxFuzz {
-  int32 fuzz = 1;
+  int32 drive = 1;
   int32 tone = 2;
   int32 level = 3;
-}
-
-message ParamEfxAutowah {
-  int32 depth = 1;
-  int32 wet = 2;
 }
 
 message ParamAmpFender {
@@ -343,24 +335,24 @@ message DiagRespErrCode {
 }
 
 // Save IR Request
-message bulkIrStartReq {
+message BulkIrStartReq {
   string irName = 1;
   int32 sequenceNumber = 2;
   repeated float data = 3;
 }
 
-message bulkIrReq {
+message BulkIrReq {
   int32 sequenceNumber = 1;
   repeated float data = 2;
 }
 
-message bulkIrEndReq {
+message BulkIrEndReq {
   int32 sequenceNumber = 1;
   repeated float data = 2;
 }
 
 // Save IR Response
-message bulkIrRes {
+message BulkIrRes {
   int32 sequenceNumber = 1;
   bool done = 2;
 }

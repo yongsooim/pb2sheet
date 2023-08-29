@@ -11,50 +11,56 @@
 
 /* Enum definitions */
 typedef enum _MessageID {
-    MessageID_ACK = 0,
-    MessageID_NACK = 1,
-    MessageID_INIT_FROM_APP = 2,
-    MessageID_INIT_FROM_GUITAR = 3,
-    MessageID_TUNER_ONOFF = 4,
-    MessageID_TUNER_FREQUENCY = 5,
-    MessageID_KNOB_CLICKED = 6,
-    MessageID_KNOB_MATCHING_START = 7,
-    MessageID_PRESET_SAVE_READY_REQUEST = 8,
-    MessageID_PRESET_SAVE_READY_RESPONSE = 9,
-    MessageID_EFFECT_EOD = 10,
-    MessageID_BATTERY_LEVEL = 11,
-    MessageID_CURRENT_KNOB_SELECTED = 12,
-    MessageID_SELECT_GATE = 13,
-    MessageID_SELECT_EFX = 14,
-    MessageID_SELECT_AMP = 15,
-    MessageID_SELECT_IR = 16,
-    MessageID_SELECT_MOD = 17,
-    MessageID_SELECT_DELAY = 18,
-    MessageID_SELECT_REVERB = 19,
-    MessageID_PARAM_GATE_NOISE_GATE = 20,
-    MessageID_PARAM_GATE_LIMITER = 21,
-    MessageID_PARAM_GATE_COMPRESSOR = 22,
-    MessageID_PARAM_EFX_OVERDRIVE = 23,
-    MessageID_PARAM_EFX_DISTORTION = 24,
-    MessageID_PARAM_EFX_FUZZ = 25,
-    MessageID_PARAM_AMP_FENDER = 27,
-    MessageID_PARAM_AMP_MARSHALL = 28,
-    MessageID_PARAM_AMP_VOX = 29,
-    MessageID_PARAM_AMP_ACOUSTIC = 30,
-    MessageID_PARAM_IR_FENDER = 31,
-    MessageID_PARAM_IR_MARSHALL = 32,
-    MessageID_PARAM_IR_VOX = 33,
-    MessageID_PARAM_IR_ACOUSTIC = 34,
-    MessageID_PARAM_MOD_FLANGE = 35,
-    MessageID_PARAM_MOD_CHORUS = 36,
-    MessageID_PARAM_MOD_TREMOLO = 37,
-    MessageID_PARAM_MOD_PHASER = 38,
-    MessageID_PARAM_MOD_VIBRATO = 39,
-    MessageID_PARAM_DELAY_DELAY = 41,
-    MessageID_PARAM_REVERB_ROOM = 42,
-    MessageID_PARAM_REVERB_HALL = 43,
-    MessageID_PARAM_REVERB_PLATE = 44,
-    MessageID_PARAM_REVERB_SPRING = 45
+    MessageID_MessageID_ACK = 0,
+    MessageID_MessageID_NACK = 1,
+    MessageID_MessageID_REQ_SETUP_INFO = 2,
+    MessageID_MessageID_INIT_FROM_APP = 3,
+    MessageID_MessageID_INIT_FROM_GUITAR = 4,
+    MessageID_MessageID_CHANGE_GUITAR_NAME = 5,
+    MessageID_MessageID_TUNER_ON_OFF = 6,
+    MessageID_MessageID_TUNER_FREQUENCY = 7,
+    MessageID_MessageID_KNOB_CLICKED = 8,
+    MessageID_MessageID_KNOB_MATCHING_START = 9,
+    MessageID_MessageID_EFFECT_EOD = 10,
+    MessageID_MessageID_BATTERY_LEVEL = 11,
+    MessageID_MessageID_CURRENT_KNOB_SELECTED = 12,
+    MessageID_MessageID_SELECT_GATE = 13,
+    MessageID_MessageID_SELECT_EFX = 14,
+    MessageID_MessageID_SELECT_AMP = 15,
+    MessageID_MessageID_SELECT_CAB = 16,
+    MessageID_MessageID_SELECT_MOD = 17,
+    MessageID_MessageID_SELECT_DELAY = 18,
+    MessageID_MessageID_SELECT_REVERB = 19,
+    MessageID_MessageID_PARAM_GATE = 20,
+    MessageID_MessageID_PARAM_EFX_OVERDRIVE = 21,
+    MessageID_MessageID_PARAM_EFX_DISTORTION = 22,
+    MessageID_MessageID_PARAM_EFX_FUZZ = 23,
+    MessageID_MessageID_PARAM_AMP_FENDER = 24,
+    MessageID_MessageID_PARAM_AMP_MARSHALL = 25,
+    MessageID_MessageID_PARAM_AMP_VOX = 26,
+    MessageID_MessageID_PARAM_AMP_ACOUSTIC = 27,
+    MessageID_MessageID_PARAM_IR_FENDER = 28,
+    MessageID_MessageID_PARAM_IR_MARSHALL = 29,
+    MessageID_MessageID_PARAM_IR_VOX = 30,
+    MessageID_MessageID_PARAM_IR_ACOUSTIC = 31,
+    MessageID_MessageID_PARAM_MOD_FLANGE = 32,
+    MessageID_MessageID_PARAM_MOD_CHORUS = 33,
+    MessageID_MessageID_PARAM_MOD_TREMOLO = 34,
+    MessageID_MessageID_PARAM_MOD_PHASER = 35,
+    MessageID_MessageID_PARAM_MOD_VIBRATO = 36,
+    MessageID_MessageID_PARAM_DELAY_DELAY = 37,
+    MessageID_MessageID_PARAM_REVERB_ROOM = 38,
+    MessageID_MessageID_PARAM_REVERB_HALL = 39,
+    MessageID_MessageID_PARAM_REVERB_PLATE = 40,
+    MessageID_MessageID_PARAM_REVERB_SPRING = 41,
+    MessageID_MessageID_DIAG_REQ = 42,
+    MessageID_MessageID_DIAG_RESP_POC = 43,
+    MessageID_MessageID_DIAG_RESP_FIRST_PARING = 44,
+    MessageID_MessageID_DIAG_RESP_ERR_CODE = 45,
+    MessageID_MessageID_BULK_IR_START_REQ = 46,
+    MessageID_MessageID_BULK_IR_REQ = 47,
+    MessageID_MessageID_BULK_IR_END_REQ = 48,
+    MessageID_MessageID_BULK_IR_RES = 49
 } MessageID;
 
 /* App -> Guitar */
@@ -73,16 +79,13 @@ typedef enum _Nack_ERROR_CODE {
 } Nack_ERROR_CODE;
 
 typedef enum _SelectGate_CategoryGate {
-    SelectGate_CategoryGate_NOISE_GATE = 0,
-    SelectGate_CategoryGate_LIMITER = 1,
-    SelectGate_CategoryGate_COMPRESSOR = 2
+    SelectGate_CategoryGate_NOISE_GATE = 0
 } SelectGate_CategoryGate;
 
 typedef enum _SelectEfx_CategoryEfx {
     SelectEfx_CategoryEfx_OVERDRIVE = 0,
     SelectEfx_CategoryEfx_DISTORTION = 1,
-    SelectEfx_CategoryEfx_FUZZ = 2,
-    SelectEfx_CategoryEfx_AUTOWAH = 3
+    SelectEfx_CategoryEfx_FUZZ = 2
 } SelectEfx_CategoryEfx;
 
 typedef enum _SelectAmp_CategoryAmp {
@@ -216,28 +219,20 @@ typedef struct _SelectReverb {
     bool isOn;
 } SelectReverb;
 
-typedef struct _ParamGateNoiseGate {
-    int32_t threshold;
-    int32_t openingTime;
-    int32_t closingTime;
-    int32_t holdTime;
-} ParamGateNoiseGate;
-
-typedef struct _ParamGateLimiter {
-    int32_t threshold;
-    int32_t attack;
-    int32_t release;
-    int32_t gain;
-} ParamGateLimiter;
-
-typedef struct _ParamGateCompressor {
-    int32_t threshold;
-    int32_t attack;
-    int32_t release;
-    int32_t gain;
-    int32_t ratio;
-    int32_t hysteresis;
-} ParamGateCompressor;
+typedef struct _ParamGate {
+    int32_t noiseGateThreshold;
+    int32_t noiseGateOpeningTime;
+    int32_t noiseGateClosingTime;
+    int32_t noiseGateHoldTime;
+    int32_t compressorThreshold;
+    int32_t compressorAttack;
+    int32_t compressorRelease;
+    int32_t compressorGain;
+    int32_t compressorRatio;
+    int32_t compressorHysteresis;
+    int32_t autowahDepth;
+    int32_t autowahWet;
+} ParamGate;
 
 typedef struct _ParamEfxOverdrive {
     int32_t drive;
@@ -246,21 +241,16 @@ typedef struct _ParamEfxOverdrive {
 } ParamEfxOverdrive;
 
 typedef struct _ParamEfxDistortion {
-    int32_t distortion;
+    int32_t drive;
     int32_t tone;
     int32_t level;
 } ParamEfxDistortion;
 
 typedef struct _ParamEfxFuzz {
-    int32_t fuzz;
+    int32_t drive;
     int32_t tone;
     int32_t level;
 } ParamEfxFuzz;
-
-typedef struct _ParamEfxAutowah {
-    int32_t depth;
-    int32_t wet;
-} ParamEfxAutowah;
 
 typedef struct _ParamAmpFender {
     int32_t gain;
@@ -382,30 +372,30 @@ typedef struct _DiagRespErrCode {
 } DiagRespErrCode;
 
 /* Save IR Request */
-typedef struct _bulkIrStartReq {
+typedef struct _BulkIrStartReq {
     char irName[20];
     int32_t sequenceNumber;
     pb_size_t data_count;
     float data[10];
-} bulkIrStartReq;
+} BulkIrStartReq;
 
-typedef struct _bulkIrReq {
+typedef struct _BulkIrReq {
     int32_t sequenceNumber;
     pb_size_t data_count;
     float data[10];
-} bulkIrReq;
+} BulkIrReq;
 
-typedef struct _bulkIrEndReq {
+typedef struct _BulkIrEndReq {
     int32_t sequenceNumber;
     pb_size_t data_count;
     float data[10];
-} bulkIrEndReq;
+} BulkIrEndReq;
 
 /* Save IR Response */
-typedef struct _bulkIrRes {
+typedef struct _BulkIrRes {
     int32_t sequenceNumber;
     bool done;
-} bulkIrRes;
+} BulkIrRes;
 
 
 #ifdef __cplusplus
@@ -413,9 +403,9 @@ extern "C" {
 #endif
 
 /* Helper constants for enums */
-#define _MessageID_MIN MessageID_ACK
-#define _MessageID_MAX MessageID_PARAM_REVERB_SPRING
-#define _MessageID_ARRAYSIZE ((MessageID)(MessageID_PARAM_REVERB_SPRING+1))
+#define _MessageID_MIN MessageID_MessageID_ACK
+#define _MessageID_MAX MessageID_MessageID_BULK_IR_RES
+#define _MessageID_ARRAYSIZE ((MessageID)(MessageID_MessageID_BULK_IR_RES+1))
 
 #define _DiagCode_MIN DiagCode_POWER_ON_COUNT
 #define _DiagCode_MAX DiagCode_ERROR_CODE
@@ -426,12 +416,12 @@ extern "C" {
 #define _Nack_ERROR_CODE_ARRAYSIZE ((Nack_ERROR_CODE)(Nack_ERROR_CODE_TIMEOUT+1))
 
 #define _SelectGate_CategoryGate_MIN SelectGate_CategoryGate_NOISE_GATE
-#define _SelectGate_CategoryGate_MAX SelectGate_CategoryGate_COMPRESSOR
-#define _SelectGate_CategoryGate_ARRAYSIZE ((SelectGate_CategoryGate)(SelectGate_CategoryGate_COMPRESSOR+1))
+#define _SelectGate_CategoryGate_MAX SelectGate_CategoryGate_NOISE_GATE
+#define _SelectGate_CategoryGate_ARRAYSIZE ((SelectGate_CategoryGate)(SelectGate_CategoryGate_NOISE_GATE+1))
 
 #define _SelectEfx_CategoryEfx_MIN SelectEfx_CategoryEfx_OVERDRIVE
-#define _SelectEfx_CategoryEfx_MAX SelectEfx_CategoryEfx_AUTOWAH
-#define _SelectEfx_CategoryEfx_ARRAYSIZE ((SelectEfx_CategoryEfx)(SelectEfx_CategoryEfx_AUTOWAH+1))
+#define _SelectEfx_CategoryEfx_MAX SelectEfx_CategoryEfx_FUZZ
+#define _SelectEfx_CategoryEfx_ARRAYSIZE ((SelectEfx_CategoryEfx)(SelectEfx_CategoryEfx_FUZZ+1))
 
 #define _SelectAmp_CategoryAmp_MIN SelectAmp_CategoryAmp_FENDER
 #define _SelectAmp_CategoryAmp_MAX SelectAmp_CategoryAmp_ACOUSTIC
@@ -507,9 +497,6 @@ extern "C" {
 
 
 
-
-
-
 #define DiagReq_code_ENUMTYPE DiagCode
 
 
@@ -541,13 +528,10 @@ extern "C" {
 #define SelectMod_init_default                   {_SelectMod_CategoryMod_MIN, 0}
 #define SelectDelay_init_default                 {_SelectDelay_CategoryDelay_MIN, 0}
 #define SelectReverb_init_default                {_SelectReverb_CategoryReverb_MIN, 0}
-#define ParamGateNoiseGate_init_default          {0, 0, 0, 0}
-#define ParamGateLimiter_init_default            {0, 0, 0, 0}
-#define ParamGateCompressor_init_default         {0, 0, 0, 0, 0, 0}
+#define ParamGate_init_default                   {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 #define ParamEfxOverdrive_init_default           {0, 0, 0}
 #define ParamEfxDistortion_init_default          {0, 0, 0}
 #define ParamEfxFuzz_init_default                {0, 0, 0}
-#define ParamEfxAutowah_init_default             {0, 0}
 #define ParamAmpFender_init_default              {0, 0, 0, 0}
 #define ParamAmpMarshall_init_default            {0, 0, 0, 0}
 #define ParamAmpVox_init_default                 {0, 0, 0, 0}
@@ -570,10 +554,10 @@ extern "C" {
 #define DiagRespPOC_init_default                 {0}
 #define DiagRespFirstParing_init_default         {0}
 #define DiagRespErrCode_init_default             {0}
-#define bulkIrStartReq_init_default              {"", 0, 0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}
-#define bulkIrReq_init_default                   {0, 0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}
-#define bulkIrEndReq_init_default                {0, 0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}
-#define bulkIrRes_init_default                   {0, 0}
+#define BulkIrStartReq_init_default              {"", 0, 0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}
+#define BulkIrReq_init_default                   {0, 0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}
+#define BulkIrEndReq_init_default                {0, 0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}
+#define BulkIrRes_init_default                   {0, 0}
 #define Ack_init_zero                            {0}
 #define Nack_init_zero                           {_Nack_ERROR_CODE_MIN}
 #define ReqSetupInfo_init_zero                   {0}
@@ -594,13 +578,10 @@ extern "C" {
 #define SelectMod_init_zero                      {_SelectMod_CategoryMod_MIN, 0}
 #define SelectDelay_init_zero                    {_SelectDelay_CategoryDelay_MIN, 0}
 #define SelectReverb_init_zero                   {_SelectReverb_CategoryReverb_MIN, 0}
-#define ParamGateNoiseGate_init_zero             {0, 0, 0, 0}
-#define ParamGateLimiter_init_zero               {0, 0, 0, 0}
-#define ParamGateCompressor_init_zero            {0, 0, 0, 0, 0, 0}
+#define ParamGate_init_zero                      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 #define ParamEfxOverdrive_init_zero              {0, 0, 0}
 #define ParamEfxDistortion_init_zero             {0, 0, 0}
 #define ParamEfxFuzz_init_zero                   {0, 0, 0}
-#define ParamEfxAutowah_init_zero                {0, 0}
 #define ParamAmpFender_init_zero                 {0, 0, 0, 0}
 #define ParamAmpMarshall_init_zero               {0, 0, 0, 0}
 #define ParamAmpVox_init_zero                    {0, 0, 0, 0}
@@ -623,10 +604,10 @@ extern "C" {
 #define DiagRespPOC_init_zero                    {0}
 #define DiagRespFirstParing_init_zero            {0}
 #define DiagRespErrCode_init_zero                {0}
-#define bulkIrStartReq_init_zero                 {"", 0, 0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}
-#define bulkIrReq_init_zero                      {0, 0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}
-#define bulkIrEndReq_init_zero                   {0, 0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}
-#define bulkIrRes_init_zero                      {0, 0}
+#define BulkIrStartReq_init_zero                 {"", 0, 0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}
+#define BulkIrReq_init_zero                      {0, 0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}
+#define BulkIrEndReq_init_zero                   {0, 0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}
+#define BulkIrRes_init_zero                      {0, 0}
 
 /* Field tags (for use in manual encoding/decoding) */
 #define Ack_receivedMessageLength_tag            1
@@ -659,31 +640,27 @@ extern "C" {
 #define SelectDelay_isOn_tag                     2
 #define SelectReverb_target_tag                  1
 #define SelectReverb_isOn_tag                    2
-#define ParamGateNoiseGate_threshold_tag         1
-#define ParamGateNoiseGate_openingTime_tag       2
-#define ParamGateNoiseGate_closingTime_tag       3
-#define ParamGateNoiseGate_holdTime_tag          4
-#define ParamGateLimiter_threshold_tag           1
-#define ParamGateLimiter_attack_tag              2
-#define ParamGateLimiter_release_tag             3
-#define ParamGateLimiter_gain_tag                4
-#define ParamGateCompressor_threshold_tag        1
-#define ParamGateCompressor_attack_tag           2
-#define ParamGateCompressor_release_tag          3
-#define ParamGateCompressor_gain_tag             4
-#define ParamGateCompressor_ratio_tag            5
-#define ParamGateCompressor_hysteresis_tag       6
+#define ParamGate_noiseGateThreshold_tag         1
+#define ParamGate_noiseGateOpeningTime_tag       2
+#define ParamGate_noiseGateClosingTime_tag       3
+#define ParamGate_noiseGateHoldTime_tag          4
+#define ParamGate_compressorThreshold_tag        5
+#define ParamGate_compressorAttack_tag           6
+#define ParamGate_compressorRelease_tag          7
+#define ParamGate_compressorGain_tag             8
+#define ParamGate_compressorRatio_tag            9
+#define ParamGate_compressorHysteresis_tag       10
+#define ParamGate_autowahDepth_tag               11
+#define ParamGate_autowahWet_tag                 12
 #define ParamEfxOverdrive_drive_tag              1
 #define ParamEfxOverdrive_tone_tag               2
 #define ParamEfxOverdrive_level_tag              3
-#define ParamEfxDistortion_distortion_tag        1
+#define ParamEfxDistortion_drive_tag             1
 #define ParamEfxDistortion_tone_tag              2
 #define ParamEfxDistortion_level_tag             3
-#define ParamEfxFuzz_fuzz_tag                    1
+#define ParamEfxFuzz_drive_tag                   1
 #define ParamEfxFuzz_tone_tag                    2
 #define ParamEfxFuzz_level_tag                   3
-#define ParamEfxAutowah_depth_tag                1
-#define ParamEfxAutowah_wet_tag                  2
 #define ParamAmpFender_gain_tag                  1
 #define ParamAmpFender_low_tag                   2
 #define ParamAmpFender_middle_tag                3
@@ -737,15 +714,15 @@ extern "C" {
 #define DiagRespPOC_powerOnCount_tag             1
 #define DiagRespFirstParing_FirstParingTimeEpoch_tag 1
 #define DiagRespErrCode_errCode_tag              1
-#define bulkIrStartReq_irName_tag                1
-#define bulkIrStartReq_sequenceNumber_tag        2
-#define bulkIrStartReq_data_tag                  3
-#define bulkIrReq_sequenceNumber_tag             1
-#define bulkIrReq_data_tag                       2
-#define bulkIrEndReq_sequenceNumber_tag          1
-#define bulkIrEndReq_data_tag                    2
-#define bulkIrRes_sequenceNumber_tag             1
-#define bulkIrRes_done_tag                       2
+#define BulkIrStartReq_irName_tag                1
+#define BulkIrStartReq_sequenceNumber_tag        2
+#define BulkIrStartReq_data_tag                  3
+#define BulkIrReq_sequenceNumber_tag             1
+#define BulkIrReq_data_tag                       2
+#define BulkIrEndReq_sequenceNumber_tag          1
+#define BulkIrEndReq_data_tag                    2
+#define BulkIrRes_sequenceNumber_tag             1
+#define BulkIrRes_done_tag                       2
 
 /* Struct field encoding specification for nanopb */
 #define Ack_FIELDLIST(X, a) \
@@ -859,31 +836,21 @@ X(a, STATIC,   SINGULAR, BOOL,     isOn,              2)
 #define SelectReverb_CALLBACK NULL
 #define SelectReverb_DEFAULT NULL
 
-#define ParamGateNoiseGate_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, INT32,    threshold,         1) \
-X(a, STATIC,   SINGULAR, INT32,    openingTime,       2) \
-X(a, STATIC,   SINGULAR, INT32,    closingTime,       3) \
-X(a, STATIC,   SINGULAR, INT32,    holdTime,          4)
-#define ParamGateNoiseGate_CALLBACK NULL
-#define ParamGateNoiseGate_DEFAULT NULL
-
-#define ParamGateLimiter_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, INT32,    threshold,         1) \
-X(a, STATIC,   SINGULAR, INT32,    attack,            2) \
-X(a, STATIC,   SINGULAR, INT32,    release,           3) \
-X(a, STATIC,   SINGULAR, INT32,    gain,              4)
-#define ParamGateLimiter_CALLBACK NULL
-#define ParamGateLimiter_DEFAULT NULL
-
-#define ParamGateCompressor_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, INT32,    threshold,         1) \
-X(a, STATIC,   SINGULAR, INT32,    attack,            2) \
-X(a, STATIC,   SINGULAR, INT32,    release,           3) \
-X(a, STATIC,   SINGULAR, INT32,    gain,              4) \
-X(a, STATIC,   SINGULAR, INT32,    ratio,             5) \
-X(a, STATIC,   SINGULAR, INT32,    hysteresis,        6)
-#define ParamGateCompressor_CALLBACK NULL
-#define ParamGateCompressor_DEFAULT NULL
+#define ParamGate_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, INT32,    noiseGateThreshold,   1) \
+X(a, STATIC,   SINGULAR, INT32,    noiseGateOpeningTime,   2) \
+X(a, STATIC,   SINGULAR, INT32,    noiseGateClosingTime,   3) \
+X(a, STATIC,   SINGULAR, INT32,    noiseGateHoldTime,   4) \
+X(a, STATIC,   SINGULAR, INT32,    compressorThreshold,   5) \
+X(a, STATIC,   SINGULAR, INT32,    compressorAttack,   6) \
+X(a, STATIC,   SINGULAR, INT32,    compressorRelease,   7) \
+X(a, STATIC,   SINGULAR, INT32,    compressorGain,    8) \
+X(a, STATIC,   SINGULAR, INT32,    compressorRatio,   9) \
+X(a, STATIC,   SINGULAR, INT32,    compressorHysteresis,  10) \
+X(a, STATIC,   SINGULAR, INT32,    autowahDepth,     11) \
+X(a, STATIC,   SINGULAR, INT32,    autowahWet,       12)
+#define ParamGate_CALLBACK NULL
+#define ParamGate_DEFAULT NULL
 
 #define ParamEfxOverdrive_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, INT32,    drive,             1) \
@@ -893,24 +860,18 @@ X(a, STATIC,   SINGULAR, INT32,    level,             3)
 #define ParamEfxOverdrive_DEFAULT NULL
 
 #define ParamEfxDistortion_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, INT32,    distortion,        1) \
+X(a, STATIC,   SINGULAR, INT32,    drive,             1) \
 X(a, STATIC,   SINGULAR, INT32,    tone,              2) \
 X(a, STATIC,   SINGULAR, INT32,    level,             3)
 #define ParamEfxDistortion_CALLBACK NULL
 #define ParamEfxDistortion_DEFAULT NULL
 
 #define ParamEfxFuzz_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, INT32,    fuzz,              1) \
+X(a, STATIC,   SINGULAR, INT32,    drive,             1) \
 X(a, STATIC,   SINGULAR, INT32,    tone,              2) \
 X(a, STATIC,   SINGULAR, INT32,    level,             3)
 #define ParamEfxFuzz_CALLBACK NULL
 #define ParamEfxFuzz_DEFAULT NULL
-
-#define ParamEfxAutowah_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, INT32,    depth,             1) \
-X(a, STATIC,   SINGULAR, INT32,    wet,               2)
-#define ParamEfxAutowah_CALLBACK NULL
-#define ParamEfxAutowah_DEFAULT NULL
 
 #define ParamAmpFender_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, INT32,    gain,              1) \
@@ -1053,30 +1014,30 @@ X(a, STATIC,   SINGULAR, INT32,    errCode,           1)
 #define DiagRespErrCode_CALLBACK NULL
 #define DiagRespErrCode_DEFAULT NULL
 
-#define bulkIrStartReq_FIELDLIST(X, a) \
+#define BulkIrStartReq_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, STRING,   irName,            1) \
 X(a, STATIC,   SINGULAR, INT32,    sequenceNumber,    2) \
 X(a, STATIC,   REPEATED, FLOAT,    data,              3)
-#define bulkIrStartReq_CALLBACK NULL
-#define bulkIrStartReq_DEFAULT NULL
+#define BulkIrStartReq_CALLBACK NULL
+#define BulkIrStartReq_DEFAULT NULL
 
-#define bulkIrReq_FIELDLIST(X, a) \
+#define BulkIrReq_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, INT32,    sequenceNumber,    1) \
 X(a, STATIC,   REPEATED, FLOAT,    data,              2)
-#define bulkIrReq_CALLBACK NULL
-#define bulkIrReq_DEFAULT NULL
+#define BulkIrReq_CALLBACK NULL
+#define BulkIrReq_DEFAULT NULL
 
-#define bulkIrEndReq_FIELDLIST(X, a) \
+#define BulkIrEndReq_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, INT32,    sequenceNumber,    1) \
 X(a, STATIC,   REPEATED, FLOAT,    data,              2)
-#define bulkIrEndReq_CALLBACK NULL
-#define bulkIrEndReq_DEFAULT NULL
+#define BulkIrEndReq_CALLBACK NULL
+#define BulkIrEndReq_DEFAULT NULL
 
-#define bulkIrRes_FIELDLIST(X, a) \
+#define BulkIrRes_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, INT32,    sequenceNumber,    1) \
 X(a, STATIC,   SINGULAR, BOOL,     done,              2)
-#define bulkIrRes_CALLBACK NULL
-#define bulkIrRes_DEFAULT NULL
+#define BulkIrRes_CALLBACK NULL
+#define BulkIrRes_DEFAULT NULL
 
 extern const pb_msgdesc_t Ack_msg;
 extern const pb_msgdesc_t Nack_msg;
@@ -1098,13 +1059,10 @@ extern const pb_msgdesc_t SelectCab_msg;
 extern const pb_msgdesc_t SelectMod_msg;
 extern const pb_msgdesc_t SelectDelay_msg;
 extern const pb_msgdesc_t SelectReverb_msg;
-extern const pb_msgdesc_t ParamGateNoiseGate_msg;
-extern const pb_msgdesc_t ParamGateLimiter_msg;
-extern const pb_msgdesc_t ParamGateCompressor_msg;
+extern const pb_msgdesc_t ParamGate_msg;
 extern const pb_msgdesc_t ParamEfxOverdrive_msg;
 extern const pb_msgdesc_t ParamEfxDistortion_msg;
 extern const pb_msgdesc_t ParamEfxFuzz_msg;
-extern const pb_msgdesc_t ParamEfxAutowah_msg;
 extern const pb_msgdesc_t ParamAmpFender_msg;
 extern const pb_msgdesc_t ParamAmpMarshall_msg;
 extern const pb_msgdesc_t ParamAmpVox_msg;
@@ -1127,10 +1085,10 @@ extern const pb_msgdesc_t DiagReq_msg;
 extern const pb_msgdesc_t DiagRespPOC_msg;
 extern const pb_msgdesc_t DiagRespFirstParing_msg;
 extern const pb_msgdesc_t DiagRespErrCode_msg;
-extern const pb_msgdesc_t bulkIrStartReq_msg;
-extern const pb_msgdesc_t bulkIrReq_msg;
-extern const pb_msgdesc_t bulkIrEndReq_msg;
-extern const pb_msgdesc_t bulkIrRes_msg;
+extern const pb_msgdesc_t BulkIrStartReq_msg;
+extern const pb_msgdesc_t BulkIrReq_msg;
+extern const pb_msgdesc_t BulkIrEndReq_msg;
+extern const pb_msgdesc_t BulkIrRes_msg;
 
 /* Defines for backwards compatibility with code written before nanopb-0.4.0 */
 #define Ack_fields &Ack_msg
@@ -1153,13 +1111,10 @@ extern const pb_msgdesc_t bulkIrRes_msg;
 #define SelectMod_fields &SelectMod_msg
 #define SelectDelay_fields &SelectDelay_msg
 #define SelectReverb_fields &SelectReverb_msg
-#define ParamGateNoiseGate_fields &ParamGateNoiseGate_msg
-#define ParamGateLimiter_fields &ParamGateLimiter_msg
-#define ParamGateCompressor_fields &ParamGateCompressor_msg
+#define ParamGate_fields &ParamGate_msg
 #define ParamEfxOverdrive_fields &ParamEfxOverdrive_msg
 #define ParamEfxDistortion_fields &ParamEfxDistortion_msg
 #define ParamEfxFuzz_fields &ParamEfxFuzz_msg
-#define ParamEfxAutowah_fields &ParamEfxAutowah_msg
 #define ParamAmpFender_fields &ParamAmpFender_msg
 #define ParamAmpMarshall_fields &ParamAmpMarshall_msg
 #define ParamAmpVox_fields &ParamAmpVox_msg
@@ -1182,14 +1137,18 @@ extern const pb_msgdesc_t bulkIrRes_msg;
 #define DiagRespPOC_fields &DiagRespPOC_msg
 #define DiagRespFirstParing_fields &DiagRespFirstParing_msg
 #define DiagRespErrCode_fields &DiagRespErrCode_msg
-#define bulkIrStartReq_fields &bulkIrStartReq_msg
-#define bulkIrReq_fields &bulkIrReq_msg
-#define bulkIrEndReq_fields &bulkIrEndReq_msg
-#define bulkIrRes_fields &bulkIrRes_msg
+#define BulkIrStartReq_fields &BulkIrStartReq_msg
+#define BulkIrReq_fields &BulkIrReq_msg
+#define BulkIrEndReq_fields &BulkIrEndReq_msg
+#define BulkIrRes_fields &BulkIrRes_msg
 
 /* Maximum encoded size of messages (where known) */
 #define Ack_size                                 11
 #define BatteryLevel_size                        11
+#define BulkIrEndReq_size                        61
+#define BulkIrReq_size                           61
+#define BulkIrRes_size                           13
+#define BulkIrStartReq_size                      82
 #define ChangeGuitarName_size                    21
 #define CurrentKnobSelected_size                 11
 #define DiagReq_size                             2
@@ -1207,13 +1166,10 @@ extern const pb_msgdesc_t bulkIrRes_msg;
 #define ParamAmpMarshall_size                    44
 #define ParamAmpVox_size                         44
 #define ParamDelayDelay_size                     33
-#define ParamEfxAutowah_size                     22
 #define ParamEfxDistortion_size                  33
 #define ParamEfxFuzz_size                        33
 #define ParamEfxOverdrive_size                   33
-#define ParamGateCompressor_size                 66
-#define ParamGateLimiter_size                    44
-#define ParamGateNoiseGate_size                  44
+#define ParamGate_size                           132
 #define ParamIrAcoustic_size                     11
 #define ParamIrFender_size                       11
 #define ParamIrMarshall_size                     11
@@ -1237,10 +1193,6 @@ extern const pb_msgdesc_t bulkIrRes_msg;
 #define SelectReverb_size                        4
 #define TunerFrequency_size                      5
 #define TunerOnOff_size                          2
-#define bulkIrEndReq_size                        61
-#define bulkIrReq_size                           61
-#define bulkIrRes_size                           13
-#define bulkIrStartReq_size                      82
 
 #ifdef __cplusplus
 } /* extern "C" */

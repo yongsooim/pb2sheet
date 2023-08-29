@@ -1,9 +1,9 @@
-bulkIrStartReq.irName             max_size: 20
-bulkIrStartReq.data               max_count:10
+BulkIrStartReq.irName             max_size: 20
+BulkIrStartReq.data               max_count:10
 
-bulkIrReq.data                    max_count:10
+BulkIrReq.data                    max_count:10
 
-bulkIrEndReq.data                 max_count:10
+BulkIrEndReq.data                 max_count:10
 
 InitFromApp.phoneMachineId       max_size: 20
 InitFromApp.appVersion           max_size: 20

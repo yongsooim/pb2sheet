@@ -66,13 +66,7 @@ PB_BIND(SelectDelay, SelectDelay, AUTO)
 PB_BIND(SelectReverb, SelectReverb, AUTO)
 
 
-PB_BIND(ParamGateNoiseGate, ParamGateNoiseGate, AUTO)
-
-
-PB_BIND(ParamGateLimiter, ParamGateLimiter, AUTO)
-
-
-PB_BIND(ParamGateCompressor, ParamGateCompressor, AUTO)
+PB_BIND(ParamGate, ParamGate, AUTO)
 
 
 PB_BIND(ParamEfxOverdrive, ParamEfxOverdrive, AUTO)
@@ -82,9 +76,6 @@ PB_BIND(ParamEfxDistortion, ParamEfxDistortion, AUTO)
 
 
 PB_BIND(ParamEfxFuzz, ParamEfxFuzz, AUTO)
-
-
-PB_BIND(ParamEfxAutowah, ParamEfxAutowah, AUTO)
 
 
 PB_BIND(ParamAmpFender, ParamAmpFender, AUTO)
@@ -153,16 +144,16 @@ PB_BIND(DiagRespFirstParing, DiagRespFirstParing, AUTO)
 PB_BIND(DiagRespErrCode, DiagRespErrCode, AUTO)
 
 
-PB_BIND(bulkIrStartReq, bulkIrStartReq, AUTO)
+PB_BIND(BulkIrStartReq, BulkIrStartReq, AUTO)
 
 
-PB_BIND(bulkIrReq, bulkIrReq, AUTO)
+PB_BIND(BulkIrReq, BulkIrReq, AUTO)
 
 
-PB_BIND(bulkIrEndReq, bulkIrEndReq, AUTO)
+PB_BIND(BulkIrEndReq, BulkIrEndReq, AUTO)
 
 
-PB_BIND(bulkIrRes, bulkIrRes, AUTO)
+PB_BIND(BulkIrRes, BulkIrRes, AUTO)
 
 
 

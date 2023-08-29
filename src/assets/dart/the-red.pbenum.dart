@@ -14,96 +14,108 @@ import 'dart:core' as $core;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 class MessageID extends $pb.ProtobufEnum {
-  static const MessageID ACK = MessageID._(0, _omitEnumNames ? '' : 'ACK');
-  static const MessageID NACK = MessageID._(1, _omitEnumNames ? '' : 'NACK');
-  static const MessageID INIT_FROM_APP = MessageID._(2, _omitEnumNames ? '' : 'INIT_FROM_APP');
-  static const MessageID INIT_FROM_GUITAR = MessageID._(3, _omitEnumNames ? '' : 'INIT_FROM_GUITAR');
-  static const MessageID TUNER_ONOFF = MessageID._(4, _omitEnumNames ? '' : 'TUNER_ONOFF');
-  static const MessageID TUNER_FREQUENCY = MessageID._(5, _omitEnumNames ? '' : 'TUNER_FREQUENCY');
-  static const MessageID KNOB_CLICKED = MessageID._(6, _omitEnumNames ? '' : 'KNOB_CLICKED');
-  static const MessageID KNOB_MATCHING_START = MessageID._(7, _omitEnumNames ? '' : 'KNOB_MATCHING_START');
-  static const MessageID PRESET_SAVE_READY_REQUEST = MessageID._(8, _omitEnumNames ? '' : 'PRESET_SAVE_READY_REQUEST');
-  static const MessageID PRESET_SAVE_READY_RESPONSE = MessageID._(9, _omitEnumNames ? '' : 'PRESET_SAVE_READY_RESPONSE');
-  static const MessageID EFFECT_EOD = MessageID._(10, _omitEnumNames ? '' : 'EFFECT_EOD');
-  static const MessageID BATTERY_LEVEL = MessageID._(11, _omitEnumNames ? '' : 'BATTERY_LEVEL');
-  static const MessageID CURRENT_KNOB_SELECTED = MessageID._(12, _omitEnumNames ? '' : 'CURRENT_KNOB_SELECTED');
-  static const MessageID SELECT_GATE = MessageID._(13, _omitEnumNames ? '' : 'SELECT_GATE');
-  static const MessageID SELECT_EFX = MessageID._(14, _omitEnumNames ? '' : 'SELECT_EFX');
-  static const MessageID SELECT_AMP = MessageID._(15, _omitEnumNames ? '' : 'SELECT_AMP');
-  static const MessageID SELECT_IR = MessageID._(16, _omitEnumNames ? '' : 'SELECT_IR');
-  static const MessageID SELECT_MOD = MessageID._(17, _omitEnumNames ? '' : 'SELECT_MOD');
-  static const MessageID SELECT_DELAY = MessageID._(18, _omitEnumNames ? '' : 'SELECT_DELAY');
-  static const MessageID SELECT_REVERB = MessageID._(19, _omitEnumNames ? '' : 'SELECT_REVERB');
-  static const MessageID PARAM_GATE_NOISE_GATE = MessageID._(20, _omitEnumNames ? '' : 'PARAM_GATE_NOISE_GATE');
-  static const MessageID PARAM_GATE_LIMITER = MessageID._(21, _omitEnumNames ? '' : 'PARAM_GATE_LIMITER');
-  static const MessageID PARAM_GATE_COMPRESSOR = MessageID._(22, _omitEnumNames ? '' : 'PARAM_GATE_COMPRESSOR');
-  static const MessageID PARAM_EFX_OVERDRIVE = MessageID._(23, _omitEnumNames ? '' : 'PARAM_EFX_OVERDRIVE');
-  static const MessageID PARAM_EFX_DISTORTION = MessageID._(24, _omitEnumNames ? '' : 'PARAM_EFX_DISTORTION');
-  static const MessageID PARAM_EFX_FUZZ = MessageID._(25, _omitEnumNames ? '' : 'PARAM_EFX_FUZZ');
-  static const MessageID PARAM_AMP_FENDER = MessageID._(27, _omitEnumNames ? '' : 'PARAM_AMP_FENDER');
-  static const MessageID PARAM_AMP_MARSHALL = MessageID._(28, _omitEnumNames ? '' : 'PARAM_AMP_MARSHALL');
-  static const MessageID PARAM_AMP_VOX = MessageID._(29, _omitEnumNames ? '' : 'PARAM_AMP_VOX');
-  static const MessageID PARAM_AMP_ACOUSTIC = MessageID._(30, _omitEnumNames ? '' : 'PARAM_AMP_ACOUSTIC');
-  static const MessageID PARAM_IR_FENDER = MessageID._(31, _omitEnumNames ? '' : 'PARAM_IR_FENDER');
-  static const MessageID PARAM_IR_MARSHALL = MessageID._(32, _omitEnumNames ? '' : 'PARAM_IR_MARSHALL');
-  static const MessageID PARAM_IR_VOX = MessageID._(33, _omitEnumNames ? '' : 'PARAM_IR_VOX');
-  static const MessageID PARAM_IR_ACOUSTIC = MessageID._(34, _omitEnumNames ? '' : 'PARAM_IR_ACOUSTIC');
-  static const MessageID PARAM_MOD_FLANGE = MessageID._(35, _omitEnumNames ? '' : 'PARAM_MOD_FLANGE');
-  static const MessageID PARAM_MOD_CHORUS = MessageID._(36, _omitEnumNames ? '' : 'PARAM_MOD_CHORUS');
-  static const MessageID PARAM_MOD_TREMOLO = MessageID._(37, _omitEnumNames ? '' : 'PARAM_MOD_TREMOLO');
-  static const MessageID PARAM_MOD_PHASER = MessageID._(38, _omitEnumNames ? '' : 'PARAM_MOD_PHASER');
-  static const MessageID PARAM_MOD_VIBRATO = MessageID._(39, _omitEnumNames ? '' : 'PARAM_MOD_VIBRATO');
-  static const MessageID PARAM_DELAY_DELAY = MessageID._(41, _omitEnumNames ? '' : 'PARAM_DELAY_DELAY');
-  static const MessageID PARAM_REVERB_ROOM = MessageID._(42, _omitEnumNames ? '' : 'PARAM_REVERB_ROOM');
-  static const MessageID PARAM_REVERB_HALL = MessageID._(43, _omitEnumNames ? '' : 'PARAM_REVERB_HALL');
-  static const MessageID PARAM_REVERB_PLATE = MessageID._(44, _omitEnumNames ? '' : 'PARAM_REVERB_PLATE');
-  static const MessageID PARAM_REVERB_SPRING = MessageID._(45, _omitEnumNames ? '' : 'PARAM_REVERB_SPRING');
+  static const MessageID MessageID_ACK = MessageID._(0, _omitEnumNames ? '' : 'MessageID_ACK');
+  static const MessageID MessageID_NACK = MessageID._(1, _omitEnumNames ? '' : 'MessageID_NACK');
+  static const MessageID MessageID_REQ_SETUP_INFO = MessageID._(2, _omitEnumNames ? '' : 'MessageID_REQ_SETUP_INFO');
+  static const MessageID MessageID_INIT_FROM_APP = MessageID._(3, _omitEnumNames ? '' : 'MessageID_INIT_FROM_APP');
+  static const MessageID MessageID_INIT_FROM_GUITAR = MessageID._(4, _omitEnumNames ? '' : 'MessageID_INIT_FROM_GUITAR');
+  static const MessageID MessageID_CHANGE_GUITAR_NAME = MessageID._(5, _omitEnumNames ? '' : 'MessageID_CHANGE_GUITAR_NAME');
+  static const MessageID MessageID_TUNER_ON_OFF = MessageID._(6, _omitEnumNames ? '' : 'MessageID_TUNER_ON_OFF');
+  static const MessageID MessageID_TUNER_FREQUENCY = MessageID._(7, _omitEnumNames ? '' : 'MessageID_TUNER_FREQUENCY');
+  static const MessageID MessageID_KNOB_CLICKED = MessageID._(8, _omitEnumNames ? '' : 'MessageID_KNOB_CLICKED');
+  static const MessageID MessageID_KNOB_MATCHING_START = MessageID._(9, _omitEnumNames ? '' : 'MessageID_KNOB_MATCHING_START');
+  static const MessageID MessageID_EFFECT_EOD = MessageID._(10, _omitEnumNames ? '' : 'MessageID_EFFECT_EOD');
+  static const MessageID MessageID_BATTERY_LEVEL = MessageID._(11, _omitEnumNames ? '' : 'MessageID_BATTERY_LEVEL');
+  static const MessageID MessageID_CURRENT_KNOB_SELECTED = MessageID._(12, _omitEnumNames ? '' : 'MessageID_CURRENT_KNOB_SELECTED');
+  static const MessageID MessageID_SELECT_GATE = MessageID._(13, _omitEnumNames ? '' : 'MessageID_SELECT_GATE');
+  static const MessageID MessageID_SELECT_EFX = MessageID._(14, _omitEnumNames ? '' : 'MessageID_SELECT_EFX');
+  static const MessageID MessageID_SELECT_AMP = MessageID._(15, _omitEnumNames ? '' : 'MessageID_SELECT_AMP');
+  static const MessageID MessageID_SELECT_CAB = MessageID._(16, _omitEnumNames ? '' : 'MessageID_SELECT_CAB');
+  static const MessageID MessageID_SELECT_MOD = MessageID._(17, _omitEnumNames ? '' : 'MessageID_SELECT_MOD');
+  static const MessageID MessageID_SELECT_DELAY = MessageID._(18, _omitEnumNames ? '' : 'MessageID_SELECT_DELAY');
+  static const MessageID MessageID_SELECT_REVERB = MessageID._(19, _omitEnumNames ? '' : 'MessageID_SELECT_REVERB');
+  static const MessageID MessageID_PARAM_GATE = MessageID._(20, _omitEnumNames ? '' : 'MessageID_PARAM_GATE');
+  static const MessageID MessageID_PARAM_EFX_OVERDRIVE = MessageID._(21, _omitEnumNames ? '' : 'MessageID_PARAM_EFX_OVERDRIVE');
+  static const MessageID MessageID_PARAM_EFX_DISTORTION = MessageID._(22, _omitEnumNames ? '' : 'MessageID_PARAM_EFX_DISTORTION');
+  static const MessageID MessageID_PARAM_EFX_FUZZ = MessageID._(23, _omitEnumNames ? '' : 'MessageID_PARAM_EFX_FUZZ');
+  static const MessageID MessageID_PARAM_AMP_FENDER = MessageID._(24, _omitEnumNames ? '' : 'MessageID_PARAM_AMP_FENDER');
+  static const MessageID MessageID_PARAM_AMP_MARSHALL = MessageID._(25, _omitEnumNames ? '' : 'MessageID_PARAM_AMP_MARSHALL');
+  static const MessageID MessageID_PARAM_AMP_VOX = MessageID._(26, _omitEnumNames ? '' : 'MessageID_PARAM_AMP_VOX');
+  static const MessageID MessageID_PARAM_AMP_ACOUSTIC = MessageID._(27, _omitEnumNames ? '' : 'MessageID_PARAM_AMP_ACOUSTIC');
+  static const MessageID MessageID_PARAM_IR_FENDER = MessageID._(28, _omitEnumNames ? '' : 'MessageID_PARAM_IR_FENDER');
+  static const MessageID MessageID_PARAM_IR_MARSHALL = MessageID._(29, _omitEnumNames ? '' : 'MessageID_PARAM_IR_MARSHALL');
+  static const MessageID MessageID_PARAM_IR_VOX = MessageID._(30, _omitEnumNames ? '' : 'MessageID_PARAM_IR_VOX');
+  static const MessageID MessageID_PARAM_IR_ACOUSTIC = MessageID._(31, _omitEnumNames ? '' : 'MessageID_PARAM_IR_ACOUSTIC');
+  static const MessageID MessageID_PARAM_MOD_FLANGE = MessageID._(32, _omitEnumNames ? '' : 'MessageID_PARAM_MOD_FLANGE');
+  static const MessageID MessageID_PARAM_MOD_CHORUS = MessageID._(33, _omitEnumNames ? '' : 'MessageID_PARAM_MOD_CHORUS');
+  static const MessageID MessageID_PARAM_MOD_TREMOLO = MessageID._(34, _omitEnumNames ? '' : 'MessageID_PARAM_MOD_TREMOLO');
+  static const MessageID MessageID_PARAM_MOD_PHASER = MessageID._(35, _omitEnumNames ? '' : 'MessageID_PARAM_MOD_PHASER');
+  static const MessageID MessageID_PARAM_MOD_VIBRATO = MessageID._(36, _omitEnumNames ? '' : 'MessageID_PARAM_MOD_VIBRATO');
+  static const MessageID MessageID_PARAM_DELAY_DELAY = MessageID._(37, _omitEnumNames ? '' : 'MessageID_PARAM_DELAY_DELAY');
+  static const MessageID MessageID_PARAM_REVERB_ROOM = MessageID._(38, _omitEnumNames ? '' : 'MessageID_PARAM_REVERB_ROOM');
+  static const MessageID MessageID_PARAM_REVERB_HALL = MessageID._(39, _omitEnumNames ? '' : 'MessageID_PARAM_REVERB_HALL');
+  static const MessageID MessageID_PARAM_REVERB_PLATE = MessageID._(40, _omitEnumNames ? '' : 'MessageID_PARAM_REVERB_PLATE');
+  static const MessageID MessageID_PARAM_REVERB_SPRING = MessageID._(41, _omitEnumNames ? '' : 'MessageID_PARAM_REVERB_SPRING');
+  static const MessageID MessageID_DIAG_REQ = MessageID._(42, _omitEnumNames ? '' : 'MessageID_DIAG_REQ');
+  static const MessageID MessageID_DIAG_RESP_POC = MessageID._(43, _omitEnumNames ? '' : 'MessageID_DIAG_RESP_POC');
+  static const MessageID MessageID_DIAG_RESP_FIRST_PARING = MessageID._(44, _omitEnumNames ? '' : 'MessageID_DIAG_RESP_FIRST_PARING');
+  static const MessageID MessageID_DIAG_RESP_ERR_CODE = MessageID._(45, _omitEnumNames ? '' : 'MessageID_DIAG_RESP_ERR_CODE');
+  static const MessageID MessageID_BULK_IR_START_REQ = MessageID._(46, _omitEnumNames ? '' : 'MessageID_BULK_IR_START_REQ');
+  static const MessageID MessageID_BULK_IR_REQ = MessageID._(47, _omitEnumNames ? '' : 'MessageID_BULK_IR_REQ');
+  static const MessageID MessageID_BULK_IR_END_REQ = MessageID._(48, _omitEnumNames ? '' : 'MessageID_BULK_IR_END_REQ');
+  static const MessageID MessageID_BULK_IR_RES = MessageID._(49, _omitEnumNames ? '' : 'MessageID_BULK_IR_RES');
 
   static const $core.List<MessageID> values = <MessageID> [
-    ACK,
-    NACK,
-    INIT_FROM_APP,
-    INIT_FROM_GUITAR,
-    TUNER_ONOFF,
-    TUNER_FREQUENCY,
-    KNOB_CLICKED,
-    KNOB_MATCHING_START,
-    PRESET_SAVE_READY_REQUEST,
-    PRESET_SAVE_READY_RESPONSE,
-    EFFECT_EOD,
-    BATTERY_LEVEL,
-    CURRENT_KNOB_SELECTED,
-    SELECT_GATE,
-    SELECT_EFX,
-    SELECT_AMP,
-    SELECT_IR,
-    SELECT_MOD,
-    SELECT_DELAY,
-    SELECT_REVERB,
-    PARAM_GATE_NOISE_GATE,
-    PARAM_GATE_LIMITER,
-    PARAM_GATE_COMPRESSOR,
-    PARAM_EFX_OVERDRIVE,
-    PARAM_EFX_DISTORTION,
-    PARAM_EFX_FUZZ,
-    PARAM_AMP_FENDER,
-    PARAM_AMP_MARSHALL,
-    PARAM_AMP_VOX,
-    PARAM_AMP_ACOUSTIC,
-    PARAM_IR_FENDER,
-    PARAM_IR_MARSHALL,
-    PARAM_IR_VOX,
-    PARAM_IR_ACOUSTIC,
-    PARAM_MOD_FLANGE,
-    PARAM_MOD_CHORUS,
-    PARAM_MOD_TREMOLO,
-    PARAM_MOD_PHASER,
-    PARAM_MOD_VIBRATO,
-    PARAM_DELAY_DELAY,
-    PARAM_REVERB_ROOM,
-    PARAM_REVERB_HALL,
-    PARAM_REVERB_PLATE,
-    PARAM_REVERB_SPRING,
+    MessageID_ACK,
+    MessageID_NACK,
+    MessageID_REQ_SETUP_INFO,
+    MessageID_INIT_FROM_APP,
+    MessageID_INIT_FROM_GUITAR,
+    MessageID_CHANGE_GUITAR_NAME,
+    MessageID_TUNER_ON_OFF,
+    MessageID_TUNER_FREQUENCY,
+    MessageID_KNOB_CLICKED,
+    MessageID_KNOB_MATCHING_START,
+    MessageID_EFFECT_EOD,
+    MessageID_BATTERY_LEVEL,
+    MessageID_CURRENT_KNOB_SELECTED,
+    MessageID_SELECT_GATE,
+    MessageID_SELECT_EFX,
+    MessageID_SELECT_AMP,
+    MessageID_SELECT_CAB,
+    MessageID_SELECT_MOD,
+    MessageID_SELECT_DELAY,
+    MessageID_SELECT_REVERB,
+    MessageID_PARAM_GATE,
+    MessageID_PARAM_EFX_OVERDRIVE,
+    MessageID_PARAM_EFX_DISTORTION,
+    MessageID_PARAM_EFX_FUZZ,
+    MessageID_PARAM_AMP_FENDER,
+    MessageID_PARAM_AMP_MARSHALL,
+    MessageID_PARAM_AMP_VOX,
+    MessageID_PARAM_AMP_ACOUSTIC,
+    MessageID_PARAM_IR_FENDER,
+    MessageID_PARAM_IR_MARSHALL,
+    MessageID_PARAM_IR_VOX,
+    MessageID_PARAM_IR_ACOUSTIC,
+    MessageID_PARAM_MOD_FLANGE,
+    MessageID_PARAM_MOD_CHORUS,
+    MessageID_PARAM_MOD_TREMOLO,
+    MessageID_PARAM_MOD_PHASER,
+    MessageID_PARAM_MOD_VIBRATO,
+    MessageID_PARAM_DELAY_DELAY,
+    MessageID_PARAM_REVERB_ROOM,
+    MessageID_PARAM_REVERB_HALL,
+    MessageID_PARAM_REVERB_PLATE,
+    MessageID_PARAM_REVERB_SPRING,
+    MessageID_DIAG_REQ,
+    MessageID_DIAG_RESP_POC,
+    MessageID_DIAG_RESP_FIRST_PARING,
+    MessageID_DIAG_RESP_ERR_CODE,
+    MessageID_BULK_IR_START_REQ,
+    MessageID_BULK_IR_REQ,
+    MessageID_BULK_IR_END_REQ,
+    MessageID_BULK_IR_RES,
   ];
 
   static final $core.Map<$core.int, MessageID> _byValue = $pb.ProtobufEnum.initByValue(values);
@@ -152,13 +164,9 @@ class Nack_ERROR_CODE extends $pb.ProtobufEnum {
 
 class SelectGate_CategoryGate extends $pb.ProtobufEnum {
   static const SelectGate_CategoryGate NOISE_GATE = SelectGate_CategoryGate._(0, _omitEnumNames ? '' : 'NOISE_GATE');
-  static const SelectGate_CategoryGate LIMITER = SelectGate_CategoryGate._(1, _omitEnumNames ? '' : 'LIMITER');
-  static const SelectGate_CategoryGate COMPRESSOR = SelectGate_CategoryGate._(2, _omitEnumNames ? '' : 'COMPRESSOR');
 
   static const $core.List<SelectGate_CategoryGate> values = <SelectGate_CategoryGate> [
     NOISE_GATE,
-    LIMITER,
-    COMPRESSOR,
   ];
 
   static final $core.Map<$core.int, SelectGate_CategoryGate> _byValue = $pb.ProtobufEnum.initByValue(values);
@@ -171,13 +179,11 @@ class SelectEfx_CategoryEfx extends $pb.ProtobufEnum {
   static const SelectEfx_CategoryEfx OVERDRIVE = SelectEfx_CategoryEfx._(0, _omitEnumNames ? '' : 'OVERDRIVE');
   static const SelectEfx_CategoryEfx DISTORTION = SelectEfx_CategoryEfx._(1, _omitEnumNames ? '' : 'DISTORTION');
   static const SelectEfx_CategoryEfx FUZZ = SelectEfx_CategoryEfx._(2, _omitEnumNames ? '' : 'FUZZ');
-  static const SelectEfx_CategoryEfx AUTOWAH = SelectEfx_CategoryEfx._(3, _omitEnumNames ? '' : 'AUTOWAH');
 
   static const $core.List<SelectEfx_CategoryEfx> values = <SelectEfx_CategoryEfx> [
     OVERDRIVE,
     DISTORTION,
     FUZZ,
-    AUTOWAH,
   ];
 
   static final $core.Map<$core.int, SelectEfx_CategoryEfx> _byValue = $pb.ProtobufEnum.initByValue(values);
