@@ -13,7 +13,7 @@
 
   onMount(() => {
     let columns = [{ type: "text", title: "Message Name", width: 200, readOnly:true, align: 'left' }];
-    let numberOfCol = 10;
+    let numberOfCol = 16;
     for (let i = 1; i <= numberOfCol; i++) {
       columns.push({ type: "text", title: "Parameter " + i, width: 200, readOnly:true, align: 'left' });
     }
