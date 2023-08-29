@@ -4,7 +4,7 @@
 
  2023-08-29 jason:
   - change parameter names in EFX : drive -> gain
-
+  - change parameter names in MOD : frequency -> rate
 
  2023-08-28 jason:
   - add NACK error codes
@@ -71,10 +71,10 @@ enum MessageID {
   DIAG_RESP_POC = 43;
   DIAG_RESP_FIRST_PARING = 44;
   DIAG_RESP_ERR_CODE = 45;
-  BULK_IR_START_REQ = 46;
-  BULK_IR_REQ = 47;
-  BULK_IR_END_REQ = 48;
-  BULK_IR_RES = 49;
+  BULK_CAB_START_REQ = 46;
+  BULK_CAB_REQ = 47;
+  BULK_CAB_END_REQ = 48;
+  BULK_CAB_RES = 49;
 }
 
 message Ack { int32 receivedMessageLength = 1; }
@@ -227,64 +227,60 @@ message ParamEfxFuzz {
 
 message ParamAmpFender {
   int32 gain = 1;
-  int32 low = 2;
+  int32 bass = 2;
   int32 middle = 3;
-  int32 high = 4;
+  int32 treble = 4;
 }
 
 message ParamAmpMarshall {
   int32 gain = 1;
-  int32 low = 2;
+  int32 bass = 2;
   int32 middle = 3;
-  int32 high = 4;
+  int32 treble = 4;
 }
 
 message ParamAmpVox {
   int32 gain = 1;
-  int32 low = 2;
+  int32 bass = 2;
   int32 middle = 3;
-  int32 high = 4;
+  int32 treble = 4;
 }
 
 message ParamAmpAcoustic {
   int32 gain = 1;
-  int32 low = 2;
+  int32 bass = 2;
   int32 middle = 3;
-  int32 high = 4;
+  int32 treble = 4;
 }
 
-message ParamIrFender { int32 wet = 1; }
+message ParamCabFender { int32 wet = 1; }
 
-message ParamIrMarshall { int32 wet = 1; }
+message ParamCabMarshall { int32 wet = 1; }
 
-message ParamIrVox { int32 wet = 1; }
+message ParamCabVox { int32 wet = 1; }
 
-message ParamIrAcoustic { int32 wet = 1; }
+message ParamCabAcoustic { int32 wet = 1; }
 
 message ParamModFlange {
   int32 offset = 1;
   int32 depth = 2;
-  int32 frequency = 3;
+  int32 rate = 3;
 }
 
 message ParamModChorus { int32 rate = 1; }
 
 message ParamModTremolo {
   int32 depth = 1;
-  int32 frequency = 2;
+  int32 rate = 2;
 }
 
 message ParamModPhaser {
-  int32 frequency = 1;
-  int32 depthTop = 2;
-  int32 depthBottom = 3;
-  int32 mix = 4;
-  int32 feedback = 5;
-  int32 stages = 6;
+  int32 rate = 1;
+  int32 depth = 2;
 }
 
 message ParamModVibrato {
-  int32 frequency = 1;
+  int32 rate = 1;
   int32 depth = 2;
 }
 
