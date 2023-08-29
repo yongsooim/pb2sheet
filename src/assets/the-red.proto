@@ -5,6 +5,7 @@
  2023-08-29 jason:
   - change parameter names in EFX : drive -> gain
 
+
  2023-08-28 jason:
   - add NACK error codes
   - add message ParamGate
@@ -83,8 +84,9 @@ message Nack {
     INVALID_MESSAGE_ID = 0;
     INVALID_MESSAGE_DATA = 1;
     INVALID_STATE = 2;
-    PROTOBUF_DECODE_ERROR = 3;
-    TIMEOUT = 4;
+    INVALID_OPCODE = 3;
+    PROTOBUF_DECODE_ERROR = 4;
+    TIMEOUT = 5;
   }
   ERROR_CODE errorCode = 1;
 }
@@ -265,7 +267,7 @@ message ParamModFlange {
   int32 frequency = 3;
 }
 
-message ParamModChorus { int32 voices = 1; }
+message ParamModChorus { int32 rate = 1; }
 
 message ParamModTremolo {
   int32 depth = 1;
