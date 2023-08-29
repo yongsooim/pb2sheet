@@ -1,12 +1,17 @@
 // the-red.proto
 
 /*
+
+ 2023-08-29 jason:
+  - change parameter names in EFX : drive -> gain
+
  2023-08-28 jason:
   - add NACK error codes
   - add message ParamGate
   - delete Gate messages (ParamGateNoiseGate, ParamGateLimiter, ParamGateCompressor)
   - delete message ParamEfxBitCrusher
   - delete message ParamDelayEcho
+  - change parameter name in EFX : ParamModVibrato.percent -> depth
   - change parameter name : ParamModVibrato.percent -> depth
   - change parameter name : ParamDelayDelay.gap -> time
   - change parameter name : ParamModChorus.voices -> rate
@@ -201,19 +206,19 @@ message ParamGate {
 }
 
 message ParamEfxOverdrive {
-  int32 drive = 1;
+  int32 gain = 1;
   int32 tone = 2;
   int32 level = 3;
 }
 
 message ParamEfxDistortion {
-  int32 drive = 1;
+  int32 gain = 1;
   int32 tone = 2;
   int32 level = 3;
 }
 
 message ParamEfxFuzz {
-  int32 drive = 1;
+  int32 gain = 1;
   int32 tone = 2;
   int32 level = 3;
 }

@@ -1117,7 +1117,7 @@ class ParamEfxOverdrive extends $pb.GeneratedMessage {
   factory ParamEfxOverdrive.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamEfxOverdrive', createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'drive', $pb.PbFieldType.O3)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'gain', $pb.PbFieldType.O3)
     ..a<$core.int>(2, _omitFieldNames ? '' : 'tone', $pb.PbFieldType.O3)
     ..a<$core.int>(3, _omitFieldNames ? '' : 'level', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
@@ -1145,13 +1145,13 @@ class ParamEfxOverdrive extends $pb.GeneratedMessage {
   static ParamEfxOverdrive? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get drive => $_getIZ(0);
+  $core.int get gain => $_getIZ(0);
   @$pb.TagNumber(1)
-  set drive($core.int v) { $_setSignedInt32(0, v); }
+  set gain($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasDrive() => $_has(0);
+  $core.bool hasGain() => $_has(0);
   @$pb.TagNumber(1)
-  void clearDrive() => clearField(1);
+  void clearGain() => clearField(1);
 
   @$pb.TagNumber(2)
   $core.int get tone => $_getIZ(1);
@@ -1179,7 +1179,7 @@ class ParamEfxDistortion extends $pb.GeneratedMessage {
   factory ParamEfxDistortion.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamEfxDistortion', createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'drive', $pb.PbFieldType.O3)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'gain', $pb.PbFieldType.O3)
     ..a<$core.int>(2, _omitFieldNames ? '' : 'tone', $pb.PbFieldType.O3)
     ..a<$core.int>(3, _omitFieldNames ? '' : 'level', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
@@ -1207,13 +1207,13 @@ class ParamEfxDistortion extends $pb.GeneratedMessage {
   static ParamEfxDistortion? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get drive => $_getIZ(0);
+  $core.int get gain => $_getIZ(0);
   @$pb.TagNumber(1)
-  set drive($core.int v) { $_setSignedInt32(0, v); }
+  set gain($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasDrive() => $_has(0);
+  $core.bool hasGain() => $_has(0);
   @$pb.TagNumber(1)
-  void clearDrive() => clearField(1);
+  void clearGain() => clearField(1);
 
   @$pb.TagNumber(2)
   $core.int get tone => $_getIZ(1);
@@ -1241,7 +1241,7 @@ class ParamEfxFuzz extends $pb.GeneratedMessage {
   factory ParamEfxFuzz.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamEfxFuzz', createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'drive', $pb.PbFieldType.O3)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'gain', $pb.PbFieldType.O3)
     ..a<$core.int>(2, _omitFieldNames ? '' : 'tone', $pb.PbFieldType.O3)
     ..a<$core.int>(3, _omitFieldNames ? '' : 'level', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
@@ -1269,13 +1269,13 @@ class ParamEfxFuzz extends $pb.GeneratedMessage {
   static ParamEfxFuzz? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get drive => $_getIZ(0);
+  $core.int get gain => $_getIZ(0);
   @$pb.TagNumber(1)
-  set drive($core.int v) { $_setSignedInt32(0, v); }
+  set gain($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasDrive() => $_has(0);
+  $core.bool hasGain() => $_has(0);
   @$pb.TagNumber(1)
-  void clearDrive() => clearField(1);
+  void clearGain() => clearField(1);
 
   @$pb.TagNumber(2)
   $core.int get tone => $_getIZ(1);
