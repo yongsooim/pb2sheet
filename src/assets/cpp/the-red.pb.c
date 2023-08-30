@@ -24,6 +24,9 @@ PB_BIND(InitFromGuitar, InitFromGuitar, AUTO)
 PB_BIND(ChangeGuitarName, ChangeGuitarName, AUTO)
 
 
+PB_BIND(ChangeSsid, ChangeSsid, AUTO)
+
+
 PB_BIND(TunerOnOff, TunerOnOff, AUTO)
 
 
@@ -78,28 +81,37 @@ PB_BIND(ParamEfxDistortion, ParamEfxDistortion, AUTO)
 PB_BIND(ParamEfxFuzz, ParamEfxFuzz, AUTO)
 
 
-PB_BIND(ParamAmpFender, ParamAmpFender, AUTO)
+PB_BIND(ParamEfxAcoustic, ParamEfxAcoustic, AUTO)
 
 
-PB_BIND(ParamAmpMarshall, ParamAmpMarshall, AUTO)
+PB_BIND(ParamAmpF, ParamAmpF, AUTO)
 
 
-PB_BIND(ParamAmpVox, ParamAmpVox, AUTO)
+PB_BIND(ParamAmpMa, ParamAmpMa, AUTO)
 
 
-PB_BIND(ParamAmpAcoustic, ParamAmpAcoustic, AUTO)
+PB_BIND(ParamAmpMe, ParamAmpMe, AUTO)
 
 
-PB_BIND(ParamIrFender, ParamIrFender, AUTO)
+PB_BIND(ParamAmpV, ParamAmpV, AUTO)
 
 
-PB_BIND(ParamIrMarshall, ParamIrMarshall, AUTO)
+PB_BIND(ParamAmpB, ParamAmpB, AUTO)
 
 
-PB_BIND(ParamIrVox, ParamIrVox, AUTO)
+PB_BIND(ParamCabA, ParamCabA, AUTO)
 
 
-PB_BIND(ParamIrAcoustic, ParamIrAcoustic, AUTO)
+PB_BIND(ParamCabB, ParamCabB, AUTO)
+
+
+PB_BIND(ParamCabC, ParamCabC, AUTO)
+
+
+PB_BIND(ParamCabD, ParamCabD, AUTO)
+
+
+PB_BIND(ParamCabE, ParamCabE, AUTO)
 
 
 PB_BIND(ParamModFlange, ParamModFlange, AUTO)

@@ -86,6 +86,8 @@
       e.preventDefault();
       e.stopPropagation();
     });
+    table.updateSelectionFromCoords(0, 0, 0, 0);
+
   });
 
   //sheetWidthRatio.subscribe((value) => {
@@ -98,6 +100,8 @@
     if (!elem) return;
     elem.style.width = `calc(100vw - 2px - ${value}px)`;
   });
+
+  
 
 </script>
 

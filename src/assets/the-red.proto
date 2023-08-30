@@ -1,10 +1,17 @@
 // the-red.proto
 
 /*
+ 2023-08-30 jason:
+  - delete message : ParamCabAcoustic
+  - add message : ParamEfxAcoustic
+  - change AMP names to F, MA, V, ME, B
+  - change CAB names to A, B, C, D, E
+
 
  2023-08-29 jason:
   - change parameter names in EFX : drive -> gain
   - change parameter names in MOD : frequency -> rate
+  - change parameter names : wet -> mix
 
  2023-08-28 jason:
   - add NACK error codes
@@ -52,11 +59,9 @@ enum MessageID {
   PARAM_AMP_FENDER = 24;
   PARAM_AMP_MARSHALL = 25;
   PARAM_AMP_VOX = 26;
-  PARAM_AMP_ACOUSTIC = 27;
   PARAM_IR_FENDER = 28;
   PARAM_IR_MARSHALL = 29;
   PARAM_IR_VOX = 30;
-  PARAM_IR_ACOUSTIC = 31;
   PARAM_MOD_FLANGE = 32;
   PARAM_MOD_CHORUS = 33;
   PARAM_MOD_TREMOLO = 34;
@@ -96,8 +101,7 @@ message ReqSetupInfo {}
 
 message InitFromApp {
   int64 currentTimeEpoch = 1;
-  string phoneMachineId = 2;
-  string appVersion = 3;
+  string appVersion = 2;
 }
 
 message InitFromGuitar {
@@ -107,6 +111,7 @@ message InitFromGuitar {
 }
 
 message ChangeGuitarName { string guitarName = 1; }
+message ChangeSsid { string ssid = 1; }
 
 message TunerOnOff { bool isOn = 1; }
 message TunerFrequency { float tunerFrequency = 1; }
@@ -135,6 +140,7 @@ message SelectEfx {
     OVERDRIVE = 0;
     DISTORTION = 1;
     FUZZ = 2;
+    ACOUSTIC = 3;
   }
   CategoryEfx target = 1;
   bool isOn = 2;
@@ -142,10 +148,11 @@ message SelectEfx {
 
 message SelectAmp {
   enum CategoryAmp {
-    FENDER = 0;
-    MARSHALL = 1;
-    VOX = 2;
-    ACOUSTIC = 3;
+    F = 0;
+    MA = 1;
+    V = 2;
+    ME = 3;
+    B = 4;
   }
   CategoryAmp target = 1;
   bool isOn = 2;
@@ -153,10 +160,11 @@ message SelectAmp {
 
 message SelectCab {
   enum CategoryCab {
-    FENDER = 0;
-    MARSHALL = 1;
-    VOX = 2;
-    ACOUSTIC = 3;
+    A = 0;
+    B = 1;
+    C = 2;
+    D = 3;
+    E = 4;
   }
   CategoryCab target = 1;
   bool isOn = 2;
@@ -187,6 +195,7 @@ message SelectReverb {
     ROOM = 0;
     HALL = 1;
     PLATE = 2;
+    SPRING = 3;
   }
   CategoryReverb target = 1;
   bool isOn = 2;
@@ -204,7 +213,7 @@ message ParamGate {
   int32 compressorRatio = 9;
   int32 compressorHysteresis = 10;
   int32 autowahDepth = 11;
-  int32 autowahWet = 12;
+  int32 autowahMix = 12;
 }
 
 message ParamEfxOverdrive {
@@ -225,44 +234,54 @@ message ParamEfxFuzz {
   int32 level = 3;
 }
 
-message ParamAmpFender {
+message ParamEfxAcoustic {
+  int32 bass = 1;
+  int32 middle = 2;
+  int32 treble = 3;
+}
+
+message ParamAmpF {
   int32 gain = 1;
   int32 bass = 2;
   int32 middle = 3;
   int32 treble = 4;
 }
 
-message ParamAmpMarshall {
+message ParamAmpMa {
+  int32 gain = 1;
+  int32 bass = 2;
+  int32 middle = 3;
+  int32 treble = 4;
+}
+message ParamAmpMe {
   int32 gain = 1;
   int32 bass = 2;
   int32 middle = 3;
   int32 treble = 4;
 }
 
-message ParamAmpVox {
+message ParamAmpV {
   int32 gain = 1;
   int32 bass = 2;
   int32 middle = 3;
   int32 treble = 4;
 }
 
-message ParamAmpAcoustic {
+message ParamAmpB {
   int32 gain = 1;
   int32 bass = 2;
   int32 middle = 3;
   int32 treble = 4;
 }
 
-message ParamCabFender { int32 wet = 1; }
-
-message ParamCabMarshall { int32 wet = 1; }
-
-message ParamCabVox { int32 wet = 1; }
-
-message ParamCabAcoustic { int32 wet = 1; }
+message ParamCabA { int32 level = 1; }
+message ParamCabB { int32 level = 1; }
+message ParamCabC { int32 level = 1; }
+message ParamCabD { int32 level = 1; }
+message ParamCabE { int32 level = 1; }
 
 message ParamModFlange {
-  int32 offset = 1;
+  int32 manual = 1;
   int32 depth = 2;
   int32 rate = 3;
 }
@@ -286,32 +305,32 @@ message ParamModVibrato {
 
 message ParamDelayDelay {
   int32 time = 1;
-  int32 mix = 2;
+  int32 level = 2;
   int32 feedback = 3;
 }
 
 message ParamReverbRoom {
   int32 roomsize = 1;
-  int32 damping = 2;
-  int32 wet = 3;
+  int32 tone = 2;
+  int32 mix = 3;
 }
 
 message ParamReverbHall {
   int32 roomsize = 1;
-  int32 damping = 2;
-  int32 wet = 3;
+  int32 tone = 2;
+  int32 mix = 3;
 }
 
 message ParamReverbPlate {
   int32 roomsize = 1;
-  int32 damping = 2;
-  int32 wet = 3;
+  int32 tone = 2;
+  int32 mix = 3;
 }
 
 message ParamReverbSpring {
   int32 roomsize = 1;
-  int32 damping = 2;
-  int32 wet = 3;
+  int32 tone = 2;
+  int32 mix = 3;
 }
 
 // App -> Guitar
