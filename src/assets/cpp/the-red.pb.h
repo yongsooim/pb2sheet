@@ -150,21 +150,21 @@ typedef struct _ReqSetupInfo {
 
 typedef struct _InitFromApp {
     int64_t currentTimeEpoch;
-    char appVersion[20];
+    char appVersion[55];
 } InitFromApp;
 
 typedef struct _InitFromGuitar {
-    char guitarName[20];
-    char guitarModelName[20];
-    char firmwareVersion[20];
+    char guitarName[55];
+    char guitarModelName[55];
+    char firmwareVersion[55];
 } InitFromGuitar;
 
 typedef struct _ChangeGuitarName {
-    char guitarName[20];
+    char guitarName[55];
 } ChangeGuitarName;
 
 typedef struct _ChangeSsid {
-    char ssid[20];
+    char ssid[55];
 } ChangeSsid;
 
 typedef struct _TunerOnOff {
