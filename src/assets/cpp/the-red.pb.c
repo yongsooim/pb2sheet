@@ -24,9 +24,6 @@ PB_BIND(InitFromGuitar, InitFromGuitar, AUTO)
 PB_BIND(ChangeGuitarName, ChangeGuitarName, AUTO)
 
 
-PB_BIND(ChangeSsid, ChangeSsid, AUTO)
-
-
 PB_BIND(TunerOnOff, TunerOnOff, AUTO)
 
 
@@ -37,9 +34,6 @@ PB_BIND(KnobClicked, KnobClicked, AUTO)
 
 
 PB_BIND(KnobMatchingStart, KnobMatchingStart, AUTO)
-
-
-PB_BIND(EffectEod, EffectEod, AUTO)
 
 
 PB_BIND(BatteryLevel, BatteryLevel, AUTO)

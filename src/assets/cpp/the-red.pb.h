@@ -17,54 +17,52 @@ typedef enum _MessageID {
     MessageID_INIT_FROM_APP = 3,
     MessageID_INIT_FROM_GUITAR = 4,
     MessageID_CHANGE_GUITAR_NAME = 5,
-    MessageID_CHANGE_SSID = 6,
-    MessageID_TUNER_ON_OFF = 7,
-    MessageID_TUNER_FREQUENCY = 8,
-    MessageID_KNOB_CLICKED = 9,
-    MessageID_KNOB_MATCHING_START = 10,
-    MessageID_EFFECT_EOD = 11,
-    MessageID_BATTERY_LEVEL = 12,
-    MessageID_CURRENT_KNOB_SELECTED = 13,
-    MessageID_SELECT_GATE = 14,
-    MessageID_SELECT_EFX = 15,
-    MessageID_SELECT_AMP = 16,
-    MessageID_SELECT_CAB = 17,
-    MessageID_SELECT_MOD = 18,
-    MessageID_SELECT_DELAY = 19,
-    MessageID_SELECT_REVERB = 20,
-    MessageID_PARAM_GATE = 21,
-    MessageID_PARAM_EFX_OVERDRIVE = 22,
-    MessageID_PARAM_EFX_DISTORTION = 23,
-    MessageID_PARAM_EFX_FUZZ = 24,
-    MessageID_PARAM_EFX_ACOUSTIC = 25,
-    MessageID_PARAM_AMP_F = 26,
-    MessageID_PARAM_AMP_MA = 27,
-    MessageID_PARAM_AMP_ME = 28,
-    MessageID_PARAM_AMP_V = 29,
-    MessageID_PARAM_AMP_B = 30,
-    MessageID_PARAM_CAB_A = 31,
-    MessageID_PARAM_CAB_B = 32,
-    MessageID_PARAM_CAB_C = 33,
-    MessageID_PARAM_CAB_D = 34,
-    MessageID_PARAM_CAB_E = 35,
-    MessageID_PARAM_MOD_FLANGE = 36,
-    MessageID_PARAM_MOD_CHORUS = 37,
-    MessageID_PARAM_MOD_TREMOLO = 38,
-    MessageID_PARAM_MOD_PHASER = 39,
-    MessageID_PARAM_MOD_VIBRATO = 40,
-    MessageID_PARAM_DELAY_DELAY = 41,
-    MessageID_PARAM_REVERB_ROOM = 42,
-    MessageID_PARAM_REVERB_HALL = 43,
-    MessageID_PARAM_REVERB_PLATE = 44,
-    MessageID_PARAM_REVERB_SPRING = 45,
-    MessageID_DIAG_REQ = 46,
-    MessageID_DIAG_RESP_POC = 47,
-    MessageID_DIAG_RESP_FIRST_PARING = 48,
-    MessageID_DIAG_RESP_ERR_CODE = 49,
-    MessageID_BULK_IR_START_REQ = 50,
-    MessageID_BULK_IR_REQ = 51,
-    MessageID_BULK_IR_END_REQ = 52,
-    MessageID_BULK_IR_RES = 53
+    MessageID_TUNER_ON_OFF = 6,
+    MessageID_TUNER_FREQUENCY = 7,
+    MessageID_KNOB_CLICKED = 8,
+    MessageID_KNOB_MATCHING_START = 9,
+    MessageID_BATTERY_LEVEL = 10,
+    MessageID_CURRENT_KNOB_SELECTED = 11,
+    MessageID_SELECT_GATE = 12,
+    MessageID_SELECT_EFX = 13,
+    MessageID_SELECT_AMP = 14,
+    MessageID_SELECT_CAB = 15,
+    MessageID_SELECT_MOD = 16,
+    MessageID_SELECT_DELAY = 17,
+    MessageID_SELECT_REVERB = 18,
+    MessageID_PARAM_GATE = 19,
+    MessageID_PARAM_EFX_OVERDRIVE = 20,
+    MessageID_PARAM_EFX_DISTORTION = 21,
+    MessageID_PARAM_EFX_FUZZ = 22,
+    MessageID_PARAM_EFX_ACOUSTIC = 23,
+    MessageID_PARAM_AMP_F = 24,
+    MessageID_PARAM_AMP_MA = 25,
+    MessageID_PARAM_AMP_ME = 26,
+    MessageID_PARAM_AMP_V = 27,
+    MessageID_PARAM_AMP_B = 28,
+    MessageID_PARAM_CAB_A = 29,
+    MessageID_PARAM_CAB_B = 30,
+    MessageID_PARAM_CAB_C = 31,
+    MessageID_PARAM_CAB_D = 32,
+    MessageID_PARAM_CAB_E = 33,
+    MessageID_PARAM_MOD_FLANGE = 34,
+    MessageID_PARAM_MOD_CHORUS = 35,
+    MessageID_PARAM_MOD_TREMOLO = 36,
+    MessageID_PARAM_MOD_PHASER = 37,
+    MessageID_PARAM_MOD_VIBRATO = 38,
+    MessageID_PARAM_DELAY_DELAY = 39,
+    MessageID_PARAM_REVERB_ROOM = 40,
+    MessageID_PARAM_REVERB_HALL = 41,
+    MessageID_PARAM_REVERB_PLATE = 42,
+    MessageID_PARAM_REVERB_SPRING = 43,
+    MessageID_DIAG_REQ = 44,
+    MessageID_DIAG_RESP_POC = 45,
+    MessageID_DIAG_RESP_FIRST_PARING = 46,
+    MessageID_DIAG_RESP_ERR_CODE = 47,
+    MessageID_BULK_IR_START_REQ = 48,
+    MessageID_BULK_IR_REQ = 49,
+    MessageID_BULK_IR_END_REQ = 50,
+    MessageID_BULK_IR_RES = 51
 } MessageID;
 
 /* App -> Guitar */
@@ -157,15 +155,12 @@ typedef struct _InitFromGuitar {
     char guitarName[55];
     char guitarModelName[55];
     char firmwareVersion[55];
+    int32_t batteryLevel;
 } InitFromGuitar;
 
 typedef struct _ChangeGuitarName {
     char guitarName[55];
 } ChangeGuitarName;
-
-typedef struct _ChangeSsid {
-    char ssid[55];
-} ChangeSsid;
 
 typedef struct _TunerOnOff {
     bool isOn;
@@ -184,12 +179,9 @@ typedef struct _KnobMatchingStart {
     int32_t knobNumber;
 } KnobMatchingStart;
 
-typedef struct _EffectEod {
-    bool effectEod;
-} EffectEod;
-
 typedef struct _BatteryLevel {
     int32_t batteryLevel;
+    bool isCharging;
 } BatteryLevel;
 
 typedef struct _CurrentKnobSelected {
@@ -398,7 +390,7 @@ typedef struct _DiagRespErrCode {
 
 /* Save IR Request */
 typedef struct _BulkIrStartReq {
-    char irName[20];
+    char irName[55];
     int32_t sequenceNumber;
     pb_size_t data_count;
     float data[10];
@@ -485,8 +477,6 @@ extern "C" {
 
 
 
-
-
 #define SelectGate_target_ENUMTYPE SelectGate_CategoryGate
 
 #define SelectEfx_target_ENUMTYPE SelectEfx_CategoryEfx
@@ -541,15 +531,13 @@ extern "C" {
 #define Nack_init_default                        {_Nack_ERROR_CODE_MIN}
 #define ReqSetupInfo_init_default                {0}
 #define InitFromApp_init_default                 {0, ""}
-#define InitFromGuitar_init_default              {"", "", ""}
+#define InitFromGuitar_init_default              {"", "", "", 0}
 #define ChangeGuitarName_init_default            {""}
-#define ChangeSsid_init_default                  {""}
 #define TunerOnOff_init_default                  {0}
 #define TunerFrequency_init_default              {0}
 #define KnobClicked_init_default                 {0}
 #define KnobMatchingStart_init_default           {0}
-#define EffectEod_init_default                   {0}
-#define BatteryLevel_init_default                {0}
+#define BatteryLevel_init_default                {0, 0}
 #define CurrentKnobSelected_init_default         {0}
 #define SelectGate_init_default                  {_SelectGate_CategoryGate_MIN, 0}
 #define SelectEfx_init_default                   {_SelectEfx_CategoryEfx_MIN, 0}
@@ -595,15 +583,13 @@ extern "C" {
 #define Nack_init_zero                           {_Nack_ERROR_CODE_MIN}
 #define ReqSetupInfo_init_zero                   {0}
 #define InitFromApp_init_zero                    {0, ""}
-#define InitFromGuitar_init_zero                 {"", "", ""}
+#define InitFromGuitar_init_zero                 {"", "", "", 0}
 #define ChangeGuitarName_init_zero               {""}
-#define ChangeSsid_init_zero                     {""}
 #define TunerOnOff_init_zero                     {0}
 #define TunerFrequency_init_zero                 {0}
 #define KnobClicked_init_zero                    {0}
 #define KnobMatchingStart_init_zero              {0}
-#define EffectEod_init_zero                      {0}
-#define BatteryLevel_init_zero                   {0}
+#define BatteryLevel_init_zero                   {0, 0}
 #define CurrentKnobSelected_init_zero            {0}
 #define SelectGate_init_zero                     {_SelectGate_CategoryGate_MIN, 0}
 #define SelectEfx_init_zero                      {_SelectEfx_CategoryEfx_MIN, 0}
@@ -654,14 +640,14 @@ extern "C" {
 #define InitFromGuitar_guitarName_tag            1
 #define InitFromGuitar_guitarModelName_tag       2
 #define InitFromGuitar_firmwareVersion_tag       3
+#define InitFromGuitar_batteryLevel_tag          4
 #define ChangeGuitarName_guitarName_tag          1
-#define ChangeSsid_ssid_tag                      1
 #define TunerOnOff_isOn_tag                      1
 #define TunerFrequency_tunerFrequency_tag        1
 #define KnobClicked_knobNumber_tag               1
 #define KnobMatchingStart_knobNumber_tag         1
-#define EffectEod_effectEod_tag                  1
 #define BatteryLevel_batteryLevel_tag            1
+#define BatteryLevel_isCharging_tag              2
 #define CurrentKnobSelected_currentKnobSelected_tag 1
 #define SelectGate_target_tag                    1
 #define SelectGate_isOn_tag                      2
@@ -790,7 +776,8 @@ X(a, STATIC,   SINGULAR, STRING,   appVersion,        2)
 #define InitFromGuitar_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, STRING,   guitarName,        1) \
 X(a, STATIC,   SINGULAR, STRING,   guitarModelName,   2) \
-X(a, STATIC,   SINGULAR, STRING,   firmwareVersion,   3)
+X(a, STATIC,   SINGULAR, STRING,   firmwareVersion,   3) \
+X(a, STATIC,   SINGULAR, INT32,    batteryLevel,      4)
 #define InitFromGuitar_CALLBACK NULL
 #define InitFromGuitar_DEFAULT NULL
 
@@ -798,11 +785,6 @@ X(a, STATIC,   SINGULAR, STRING,   firmwareVersion,   3)
 X(a, STATIC,   SINGULAR, STRING,   guitarName,        1)
 #define ChangeGuitarName_CALLBACK NULL
 #define ChangeGuitarName_DEFAULT NULL
-
-#define ChangeSsid_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, STRING,   ssid,              1)
-#define ChangeSsid_CALLBACK NULL
-#define ChangeSsid_DEFAULT NULL
 
 #define TunerOnOff_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, BOOL,     isOn,              1)
@@ -824,13 +806,9 @@ X(a, STATIC,   SINGULAR, INT32,    knobNumber,        1)
 #define KnobMatchingStart_CALLBACK NULL
 #define KnobMatchingStart_DEFAULT NULL
 
-#define EffectEod_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, BOOL,     effectEod,         1)
-#define EffectEod_CALLBACK NULL
-#define EffectEod_DEFAULT NULL
-
 #define BatteryLevel_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, INT32,    batteryLevel,      1)
+X(a, STATIC,   SINGULAR, INT32,    batteryLevel,      1) \
+X(a, STATIC,   SINGULAR, BOOL,     isCharging,        2)
 #define BatteryLevel_CALLBACK NULL
 #define BatteryLevel_DEFAULT NULL
 
@@ -1106,12 +1084,10 @@ extern const pb_msgdesc_t ReqSetupInfo_msg;
 extern const pb_msgdesc_t InitFromApp_msg;
 extern const pb_msgdesc_t InitFromGuitar_msg;
 extern const pb_msgdesc_t ChangeGuitarName_msg;
-extern const pb_msgdesc_t ChangeSsid_msg;
 extern const pb_msgdesc_t TunerOnOff_msg;
 extern const pb_msgdesc_t TunerFrequency_msg;
 extern const pb_msgdesc_t KnobClicked_msg;
 extern const pb_msgdesc_t KnobMatchingStart_msg;
-extern const pb_msgdesc_t EffectEod_msg;
 extern const pb_msgdesc_t BatteryLevel_msg;
 extern const pb_msgdesc_t CurrentKnobSelected_msg;
 extern const pb_msgdesc_t SelectGate_msg;
@@ -1162,12 +1138,10 @@ extern const pb_msgdesc_t BulkIrRes_msg;
 #define InitFromApp_fields &InitFromApp_msg
 #define InitFromGuitar_fields &InitFromGuitar_msg
 #define ChangeGuitarName_fields &ChangeGuitarName_msg
-#define ChangeSsid_fields &ChangeSsid_msg
 #define TunerOnOff_fields &TunerOnOff_msg
 #define TunerFrequency_fields &TunerFrequency_msg
 #define KnobClicked_fields &KnobClicked_msg
 #define KnobMatchingStart_fields &KnobMatchingStart_msg
-#define EffectEod_fields &EffectEod_msg
 #define BatteryLevel_fields &BatteryLevel_msg
 #define CurrentKnobSelected_fields &CurrentKnobSelected_msg
 #define SelectGate_fields &SelectGate_msg
@@ -1213,21 +1187,19 @@ extern const pb_msgdesc_t BulkIrRes_msg;
 
 /* Maximum encoded size of messages (where known) */
 #define Ack_size                                 11
-#define BatteryLevel_size                        11
+#define BatteryLevel_size                        13
 #define BulkIrEndReq_size                        61
 #define BulkIrReq_size                           61
 #define BulkIrRes_size                           13
-#define BulkIrStartReq_size                      82
-#define ChangeGuitarName_size                    21
-#define ChangeSsid_size                          21
+#define BulkIrStartReq_size                      117
+#define ChangeGuitarName_size                    56
 #define CurrentKnobSelected_size                 11
 #define DiagReq_size                             2
 #define DiagRespErrCode_size                     11
 #define DiagRespFirstParing_size                 11
 #define DiagRespPOC_size                         11
-#define EffectEod_size                           2
-#define InitFromApp_size                         32
-#define InitFromGuitar_size                      63
+#define InitFromApp_size                         67
+#define InitFromGuitar_size                      179
 #define KnobClicked_size                         11
 #define KnobMatchingStart_size                   11
 #define Nack_size                                2

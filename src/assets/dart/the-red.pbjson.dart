@@ -23,54 +23,52 @@ const MessageID$json = {
     {'1': 'INIT_FROM_APP', '2': 3},
     {'1': 'INIT_FROM_GUITAR', '2': 4},
     {'1': 'CHANGE_GUITAR_NAME', '2': 5},
-    {'1': 'CHANGE_SSID', '2': 6},
-    {'1': 'TUNER_ON_OFF', '2': 7},
-    {'1': 'TUNER_FREQUENCY', '2': 8},
-    {'1': 'KNOB_CLICKED', '2': 9},
-    {'1': 'KNOB_MATCHING_START', '2': 10},
-    {'1': 'EFFECT_EOD', '2': 11},
-    {'1': 'BATTERY_LEVEL', '2': 12},
-    {'1': 'CURRENT_KNOB_SELECTED', '2': 13},
-    {'1': 'SELECT_GATE', '2': 14},
-    {'1': 'SELECT_EFX', '2': 15},
-    {'1': 'SELECT_AMP', '2': 16},
-    {'1': 'SELECT_CAB', '2': 17},
-    {'1': 'SELECT_MOD', '2': 18},
-    {'1': 'SELECT_DELAY', '2': 19},
-    {'1': 'SELECT_REVERB', '2': 20},
-    {'1': 'PARAM_GATE', '2': 21},
-    {'1': 'PARAM_EFX_OVERDRIVE', '2': 22},
-    {'1': 'PARAM_EFX_DISTORTION', '2': 23},
-    {'1': 'PARAM_EFX_FUZZ', '2': 24},
-    {'1': 'PARAM_EFX_ACOUSTIC', '2': 25},
-    {'1': 'PARAM_AMP_F', '2': 26},
-    {'1': 'PARAM_AMP_MA', '2': 27},
-    {'1': 'PARAM_AMP_ME', '2': 28},
-    {'1': 'PARAM_AMP_V', '2': 29},
-    {'1': 'PARAM_AMP_B', '2': 30},
-    {'1': 'PARAM_CAB_A', '2': 31},
-    {'1': 'PARAM_CAB_B', '2': 32},
-    {'1': 'PARAM_CAB_C', '2': 33},
-    {'1': 'PARAM_CAB_D', '2': 34},
-    {'1': 'PARAM_CAB_E', '2': 35},
-    {'1': 'PARAM_MOD_FLANGE', '2': 36},
-    {'1': 'PARAM_MOD_CHORUS', '2': 37},
-    {'1': 'PARAM_MOD_TREMOLO', '2': 38},
-    {'1': 'PARAM_MOD_PHASER', '2': 39},
-    {'1': 'PARAM_MOD_VIBRATO', '2': 40},
-    {'1': 'PARAM_DELAY_DELAY', '2': 41},
-    {'1': 'PARAM_REVERB_ROOM', '2': 42},
-    {'1': 'PARAM_REVERB_HALL', '2': 43},
-    {'1': 'PARAM_REVERB_PLATE', '2': 44},
-    {'1': 'PARAM_REVERB_SPRING', '2': 45},
-    {'1': 'DIAG_REQ', '2': 46},
-    {'1': 'DIAG_RESP_POC', '2': 47},
-    {'1': 'DIAG_RESP_FIRST_PARING', '2': 48},
-    {'1': 'DIAG_RESP_ERR_CODE', '2': 49},
-    {'1': 'BULK_IR_START_REQ', '2': 50},
-    {'1': 'BULK_IR_REQ', '2': 51},
-    {'1': 'BULK_IR_END_REQ', '2': 52},
-    {'1': 'BULK_IR_RES', '2': 53},
+    {'1': 'TUNER_ON_OFF', '2': 6},
+    {'1': 'TUNER_FREQUENCY', '2': 7},
+    {'1': 'KNOB_CLICKED', '2': 8},
+    {'1': 'KNOB_MATCHING_START', '2': 9},
+    {'1': 'BATTERY_LEVEL', '2': 10},
+    {'1': 'CURRENT_KNOB_SELECTED', '2': 11},
+    {'1': 'SELECT_GATE', '2': 12},
+    {'1': 'SELECT_EFX', '2': 13},
+    {'1': 'SELECT_AMP', '2': 14},
+    {'1': 'SELECT_CAB', '2': 15},
+    {'1': 'SELECT_MOD', '2': 16},
+    {'1': 'SELECT_DELAY', '2': 17},
+    {'1': 'SELECT_REVERB', '2': 18},
+    {'1': 'PARAM_GATE', '2': 19},
+    {'1': 'PARAM_EFX_OVERDRIVE', '2': 20},
+    {'1': 'PARAM_EFX_DISTORTION', '2': 21},
+    {'1': 'PARAM_EFX_FUZZ', '2': 22},
+    {'1': 'PARAM_EFX_ACOUSTIC', '2': 23},
+    {'1': 'PARAM_AMP_F', '2': 24},
+    {'1': 'PARAM_AMP_MA', '2': 25},
+    {'1': 'PARAM_AMP_ME', '2': 26},
+    {'1': 'PARAM_AMP_V', '2': 27},
+    {'1': 'PARAM_AMP_B', '2': 28},
+    {'1': 'PARAM_CAB_A', '2': 29},
+    {'1': 'PARAM_CAB_B', '2': 30},
+    {'1': 'PARAM_CAB_C', '2': 31},
+    {'1': 'PARAM_CAB_D', '2': 32},
+    {'1': 'PARAM_CAB_E', '2': 33},
+    {'1': 'PARAM_MOD_FLANGE', '2': 34},
+    {'1': 'PARAM_MOD_CHORUS', '2': 35},
+    {'1': 'PARAM_MOD_TREMOLO', '2': 36},
+    {'1': 'PARAM_MOD_PHASER', '2': 37},
+    {'1': 'PARAM_MOD_VIBRATO', '2': 38},
+    {'1': 'PARAM_DELAY_DELAY', '2': 39},
+    {'1': 'PARAM_REVERB_ROOM', '2': 40},
+    {'1': 'PARAM_REVERB_HALL', '2': 41},
+    {'1': 'PARAM_REVERB_PLATE', '2': 42},
+    {'1': 'PARAM_REVERB_SPRING', '2': 43},
+    {'1': 'DIAG_REQ', '2': 44},
+    {'1': 'DIAG_RESP_POC', '2': 45},
+    {'1': 'DIAG_RESP_FIRST_PARING', '2': 46},
+    {'1': 'DIAG_RESP_ERR_CODE', '2': 47},
+    {'1': 'BULK_IR_START_REQ', '2': 48},
+    {'1': 'BULK_IR_REQ', '2': 49},
+    {'1': 'BULK_IR_END_REQ', '2': 50},
+    {'1': 'BULK_IR_RES', '2': 51},
   ],
 };
 
@@ -78,24 +76,23 @@ const MessageID$json = {
 final $typed_data.Uint8List messageIDDescriptor = $convert.base64Decode(
     'CglNZXNzYWdlSUQSBwoDQUNLEAASCAoETkFDSxABEhIKDlJFUV9TRVRVUF9JTkZPEAISEQoNSU'
     '5JVF9GUk9NX0FQUBADEhQKEElOSVRfRlJPTV9HVUlUQVIQBBIWChJDSEFOR0VfR1VJVEFSX05B'
-    'TUUQBRIPCgtDSEFOR0VfU1NJRBAGEhAKDFRVTkVSX09OX09GRhAHEhMKD1RVTkVSX0ZSRVFVRU'
-    '5DWRAIEhAKDEtOT0JfQ0xJQ0tFRBAJEhcKE0tOT0JfTUFUQ0hJTkdfU1RBUlQQChIOCgpFRkZF'
-    'Q1RfRU9EEAsSEQoNQkFUVEVSWV9MRVZFTBAMEhkKFUNVUlJFTlRfS05PQl9TRUxFQ1RFRBANEg'
-    '8KC1NFTEVDVF9HQVRFEA4SDgoKU0VMRUNUX0VGWBAPEg4KClNFTEVDVF9BTVAQEBIOCgpTRUxF'
-    'Q1RfQ0FCEBESDgoKU0VMRUNUX01PRBASEhAKDFNFTEVDVF9ERUxBWRATEhEKDVNFTEVDVF9SRV'
-    'ZFUkIQFBIOCgpQQVJBTV9HQVRFEBUSFwoTUEFSQU1fRUZYX09WRVJEUklWRRAWEhgKFFBBUkFN'
-    'X0VGWF9ESVNUT1JUSU9OEBcSEgoOUEFSQU1fRUZYX0ZVWloQGBIWChJQQVJBTV9FRlhfQUNPVV'
-    'NUSUMQGRIPCgtQQVJBTV9BTVBfRhAaEhAKDFBBUkFNX0FNUF9NQRAbEhAKDFBBUkFNX0FNUF9N'
-    'RRAcEg8KC1BBUkFNX0FNUF9WEB0SDwoLUEFSQU1fQU1QX0IQHhIPCgtQQVJBTV9DQUJfQRAfEg'
-    '8KC1BBUkFNX0NBQl9CECASDwoLUEFSQU1fQ0FCX0MQIRIPCgtQQVJBTV9DQUJfRBAiEg8KC1BB'
-    'UkFNX0NBQl9FECMSFAoQUEFSQU1fTU9EX0ZMQU5HRRAkEhQKEFBBUkFNX01PRF9DSE9SVVMQJR'
-    'IVChFQQVJBTV9NT0RfVFJFTU9MTxAmEhQKEFBBUkFNX01PRF9QSEFTRVIQJxIVChFQQVJBTV9N'
-    'T0RfVklCUkFUTxAoEhUKEVBBUkFNX0RFTEFZX0RFTEFZECkSFQoRUEFSQU1fUkVWRVJCX1JPT0'
-    '0QKhIVChFQQVJBTV9SRVZFUkJfSEFMTBArEhYKElBBUkFNX1JFVkVSQl9QTEFURRAsEhcKE1BB'
-    'UkFNX1JFVkVSQl9TUFJJTkcQLRIMCghESUFHX1JFURAuEhEKDURJQUdfUkVTUF9QT0MQLxIaCh'
-    'ZESUFHX1JFU1BfRklSU1RfUEFSSU5HEDASFgoSRElBR19SRVNQX0VSUl9DT0RFEDESFQoRQlVM'
-    'S19JUl9TVEFSVF9SRVEQMhIPCgtCVUxLX0lSX1JFURAzEhMKD0JVTEtfSVJfRU5EX1JFURA0Eg'
-    '8KC0JVTEtfSVJfUkVTEDU=');
+    'TUUQBRIQCgxUVU5FUl9PTl9PRkYQBhITCg9UVU5FUl9GUkVRVUVOQ1kQBxIQCgxLTk9CX0NMSU'
+    'NLRUQQCBIXChNLTk9CX01BVENISU5HX1NUQVJUEAkSEQoNQkFUVEVSWV9MRVZFTBAKEhkKFUNV'
+    'UlJFTlRfS05PQl9TRUxFQ1RFRBALEg8KC1NFTEVDVF9HQVRFEAwSDgoKU0VMRUNUX0VGWBANEg'
+    '4KClNFTEVDVF9BTVAQDhIOCgpTRUxFQ1RfQ0FCEA8SDgoKU0VMRUNUX01PRBAQEhAKDFNFTEVD'
+    'VF9ERUxBWRAREhEKDVNFTEVDVF9SRVZFUkIQEhIOCgpQQVJBTV9HQVRFEBMSFwoTUEFSQU1fRU'
+    'ZYX09WRVJEUklWRRAUEhgKFFBBUkFNX0VGWF9ESVNUT1JUSU9OEBUSEgoOUEFSQU1fRUZYX0ZV'
+    'WloQFhIWChJQQVJBTV9FRlhfQUNPVVNUSUMQFxIPCgtQQVJBTV9BTVBfRhAYEhAKDFBBUkFNX0'
+    'FNUF9NQRAZEhAKDFBBUkFNX0FNUF9NRRAaEg8KC1BBUkFNX0FNUF9WEBsSDwoLUEFSQU1fQU1Q'
+    'X0IQHBIPCgtQQVJBTV9DQUJfQRAdEg8KC1BBUkFNX0NBQl9CEB4SDwoLUEFSQU1fQ0FCX0MQHx'
+    'IPCgtQQVJBTV9DQUJfRBAgEg8KC1BBUkFNX0NBQl9FECESFAoQUEFSQU1fTU9EX0ZMQU5HRRAi'
+    'EhQKEFBBUkFNX01PRF9DSE9SVVMQIxIVChFQQVJBTV9NT0RfVFJFTU9MTxAkEhQKEFBBUkFNX0'
+    '1PRF9QSEFTRVIQJRIVChFQQVJBTV9NT0RfVklCUkFUTxAmEhUKEVBBUkFNX0RFTEFZX0RFTEFZ'
+    'ECcSFQoRUEFSQU1fUkVWRVJCX1JPT00QKBIVChFQQVJBTV9SRVZFUkJfSEFMTBApEhYKElBBUk'
+    'FNX1JFVkVSQl9QTEFURRAqEhcKE1BBUkFNX1JFVkVSQl9TUFJJTkcQKxIMCghESUFHX1JFURAs'
+    'EhEKDURJQUdfUkVTUF9QT0MQLRIaChZESUFHX1JFU1BfRklSU1RfUEFSSU5HEC4SFgoSRElBR1'
+    '9SRVNQX0VSUl9DT0RFEC8SFQoRQlVMS19JUl9TVEFSVF9SRVEQMBIPCgtCVUxLX0lSX1JFURAx'
+    'EhMKD0JVTEtfSVJfRU5EX1JFURAyEg8KC0JVTEtfSVJfUkVTEDM=');
 
 @$core.Deprecated('Use diagCodeDescriptor instead')
 const DiagCode$json = {
@@ -184,6 +181,7 @@ const InitFromGuitar$json = {
     {'1': 'guitarName', '3': 1, '4': 1, '5': 9, '10': 'guitarName'},
     {'1': 'guitarModelName', '3': 2, '4': 1, '5': 9, '10': 'guitarModelName'},
     {'1': 'firmwareVersion', '3': 3, '4': 1, '5': 9, '10': 'firmwareVersion'},
+    {'1': 'batteryLevel', '3': 4, '4': 1, '5': 5, '10': 'batteryLevel'},
   ],
 };
 
@@ -191,7 +189,8 @@ const InitFromGuitar$json = {
 final $typed_data.Uint8List initFromGuitarDescriptor = $convert.base64Decode(
     'Cg5Jbml0RnJvbUd1aXRhchIeCgpndWl0YXJOYW1lGAEgASgJUgpndWl0YXJOYW1lEigKD2d1aX'
     'Rhck1vZGVsTmFtZRgCIAEoCVIPZ3VpdGFyTW9kZWxOYW1lEigKD2Zpcm13YXJlVmVyc2lvbhgD'
-    'IAEoCVIPZmlybXdhcmVWZXJzaW9u');
+    'IAEoCVIPZmlybXdhcmVWZXJzaW9uEiIKDGJhdHRlcnlMZXZlbBgEIAEoBVIMYmF0dGVyeUxldm'
+    'Vs');
 
 @$core.Deprecated('Use changeGuitarNameDescriptor instead')
 const ChangeGuitarName$json = {
@@ -204,18 +203,6 @@ const ChangeGuitarName$json = {
 /// Descriptor for `ChangeGuitarName`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List changeGuitarNameDescriptor = $convert.base64Decode(
     'ChBDaGFuZ2VHdWl0YXJOYW1lEh4KCmd1aXRhck5hbWUYASABKAlSCmd1aXRhck5hbWU=');
-
-@$core.Deprecated('Use changeSsidDescriptor instead')
-const ChangeSsid$json = {
-  '1': 'ChangeSsid',
-  '2': [
-    {'1': 'ssid', '3': 1, '4': 1, '5': 9, '10': 'ssid'},
-  ],
-};
-
-/// Descriptor for `ChangeSsid`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List changeSsidDescriptor = $convert.base64Decode(
-    'CgpDaGFuZ2VTc2lkEhIKBHNzaWQYASABKAlSBHNzaWQ=');
 
 @$core.Deprecated('Use tunerOnOffDescriptor instead')
 const TunerOnOff$json = {
@@ -266,29 +253,19 @@ const KnobMatchingStart$json = {
 final $typed_data.Uint8List knobMatchingStartDescriptor = $convert.base64Decode(
     'ChFLbm9iTWF0Y2hpbmdTdGFydBIeCgprbm9iTnVtYmVyGAEgASgFUgprbm9iTnVtYmVy');
 
-@$core.Deprecated('Use effectEodDescriptor instead')
-const EffectEod$json = {
-  '1': 'EffectEod',
-  '2': [
-    {'1': 'effectEod', '3': 1, '4': 1, '5': 8, '10': 'effectEod'},
-  ],
-};
-
-/// Descriptor for `EffectEod`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List effectEodDescriptor = $convert.base64Decode(
-    'CglFZmZlY3RFb2QSHAoJZWZmZWN0RW9kGAEgASgIUgllZmZlY3RFb2Q=');
-
 @$core.Deprecated('Use batteryLevelDescriptor instead')
 const BatteryLevel$json = {
   '1': 'BatteryLevel',
   '2': [
     {'1': 'batteryLevel', '3': 1, '4': 1, '5': 5, '10': 'batteryLevel'},
+    {'1': 'isCharging', '3': 2, '4': 1, '5': 8, '10': 'isCharging'},
   ],
 };
 
 /// Descriptor for `BatteryLevel`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List batteryLevelDescriptor = $convert.base64Decode(
-    'CgxCYXR0ZXJ5TGV2ZWwSIgoMYmF0dGVyeUxldmVsGAEgASgFUgxiYXR0ZXJ5TGV2ZWw=');
+    'CgxCYXR0ZXJ5TGV2ZWwSIgoMYmF0dGVyeUxldmVsGAEgASgFUgxiYXR0ZXJ5TGV2ZWwSHgoKaX'
+    'NDaGFyZ2luZxgCIAEoCFIKaXNDaGFyZ2luZw==');
 
 @$core.Deprecated('Use currentKnobSelectedDescriptor instead')
 const CurrentKnobSelected$json = {

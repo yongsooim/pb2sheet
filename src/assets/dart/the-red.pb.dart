@@ -196,6 +196,7 @@ class InitFromGuitar extends $pb.GeneratedMessage {
     ..aOS(1, _omitFieldNames ? '' : 'guitarName', protoName: 'guitarName')
     ..aOS(2, _omitFieldNames ? '' : 'guitarModelName', protoName: 'guitarModelName')
     ..aOS(3, _omitFieldNames ? '' : 'firmwareVersion', protoName: 'firmwareVersion')
+    ..a<$core.int>(4, _omitFieldNames ? '' : 'batteryLevel', $pb.PbFieldType.O3, protoName: 'batteryLevel')
     ..hasRequiredFields = false
   ;
 
@@ -246,6 +247,15 @@ class InitFromGuitar extends $pb.GeneratedMessage {
   $core.bool hasFirmwareVersion() => $_has(2);
   @$pb.TagNumber(3)
   void clearFirmwareVersion() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.int get batteryLevel => $_getIZ(3);
+  @$pb.TagNumber(4)
+  set batteryLevel($core.int v) { $_setSignedInt32(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasBatteryLevel() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearBatteryLevel() => clearField(4);
 }
 
 class ChangeGuitarName extends $pb.GeneratedMessage {
@@ -288,48 +298,6 @@ class ChangeGuitarName extends $pb.GeneratedMessage {
   $core.bool hasGuitarName() => $_has(0);
   @$pb.TagNumber(1)
   void clearGuitarName() => clearField(1);
-}
-
-class ChangeSsid extends $pb.GeneratedMessage {
-  factory ChangeSsid() => create();
-  ChangeSsid._() : super();
-  factory ChangeSsid.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory ChangeSsid.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ChangeSsid', createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'ssid')
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  ChangeSsid clone() => ChangeSsid()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  ChangeSsid copyWith(void Function(ChangeSsid) updates) => super.copyWith((message) => updates(message as ChangeSsid)) as ChangeSsid;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static ChangeSsid create() => ChangeSsid._();
-  ChangeSsid createEmptyInstance() => create();
-  static $pb.PbList<ChangeSsid> createRepeated() => $pb.PbList<ChangeSsid>();
-  @$core.pragma('dart2js:noInline')
-  static ChangeSsid getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ChangeSsid>(create);
-  static ChangeSsid? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.String get ssid => $_getSZ(0);
-  @$pb.TagNumber(1)
-  set ssid($core.String v) { $_setString(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasSsid() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearSsid() => clearField(1);
 }
 
 class TunerOnOff extends $pb.GeneratedMessage {
@@ -500,48 +468,6 @@ class KnobMatchingStart extends $pb.GeneratedMessage {
   void clearKnobNumber() => clearField(1);
 }
 
-class EffectEod extends $pb.GeneratedMessage {
-  factory EffectEod() => create();
-  EffectEod._() : super();
-  factory EffectEod.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory EffectEod.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'EffectEod', createEmptyInstance: create)
-    ..aOB(1, _omitFieldNames ? '' : 'effectEod', protoName: 'effectEod')
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  EffectEod clone() => EffectEod()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  EffectEod copyWith(void Function(EffectEod) updates) => super.copyWith((message) => updates(message as EffectEod)) as EffectEod;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static EffectEod create() => EffectEod._();
-  EffectEod createEmptyInstance() => create();
-  static $pb.PbList<EffectEod> createRepeated() => $pb.PbList<EffectEod>();
-  @$core.pragma('dart2js:noInline')
-  static EffectEod getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<EffectEod>(create);
-  static EffectEod? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.bool get effectEod => $_getBF(0);
-  @$pb.TagNumber(1)
-  set effectEod($core.bool v) { $_setBool(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasEffectEod() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearEffectEod() => clearField(1);
-}
-
 class BatteryLevel extends $pb.GeneratedMessage {
   factory BatteryLevel() => create();
   BatteryLevel._() : super();
@@ -550,6 +476,7 @@ class BatteryLevel extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BatteryLevel', createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'batteryLevel', $pb.PbFieldType.O3, protoName: 'batteryLevel')
+    ..aOB(2, _omitFieldNames ? '' : 'isCharging', protoName: 'isCharging')
     ..hasRequiredFields = false
   ;
 
@@ -582,6 +509,15 @@ class BatteryLevel extends $pb.GeneratedMessage {
   $core.bool hasBatteryLevel() => $_has(0);
   @$pb.TagNumber(1)
   void clearBatteryLevel() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.bool get isCharging => $_getBF(1);
+  @$pb.TagNumber(2)
+  set isCharging($core.bool v) { $_setBool(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasIsCharging() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearIsCharging() => clearField(2);
 }
 
 class CurrentKnobSelected extends $pb.GeneratedMessage {

@@ -1,12 +1,18 @@
 // the-red.proto
 
 /*
+ 2023-09-05 jason:
+  - delete message : EffectEod
+  - delete message : ChangeSsid
+  - delete field : InitFromApp.currentTime
+  - add field : InitFromGuitar.batteryLevel
+  - add field : BatteryLevel.isCharging
+
  2023-08-30 jason:
   - delete message : ParamCabAcoustic
   - add message : ParamEfxAcoustic
   - change AMP names to F, MA, V, ME, B
   - change CAB names to A, B, C, D, E
-
 
  2023-08-29 jason:
   - change parameter names in EFX : drive -> gain
@@ -15,16 +21,19 @@
 
  2023-08-28 jason:
   - add NACK error codes
-  - add message ParamGate
-  - delete Gate messages (ParamGateNoiseGate, ParamGateLimiter, ParamGateCompressor)
-  - delete message ParamEfxBitCrusher
-  - delete message ParamDelayEcho
+  - add message : ParamGate
+  - delete Gate messages : (ParamGateNoiseGate, ParamGateLimiter,
+ ParamGateCompressor)
+  - delete message : ParamEfxBitCrusher
+  - delete message : ParamDelayEcho
   - change parameter name in EFX : ParamModVibrato.percent -> depth
   - change parameter name : ParamModVibrato.percent -> depth
   - change parameter name : ParamDelayDelay.gap -> time
   - change parameter name : ParamModChorus.voices -> rate
-  - change parameter name "treble" to "tone" in ParamAmps (ParamAmpFender, ParamAmpMarshall, ParamAmpVox, ParamAmpAcoustic)
-  - delete parameter "presence" in ParamAmps (ParamAmpFender, ParamAmpMarshall, ParamAmpVox, ParamAmpAcoustic)
+  - change parameter name "treble" to "tone" in ParamAmps (ParamAmpFender,
+ ParamAmpMarshall, ParamAmpVox, ParamAmpAcoustic)
+  - delete parameter "presence" in ParamAmps (ParamAmpFender, ParamAmpMarshall,
+ ParamAmpVox, ParamAmpAcoustic)
   - Change and rearrange Message IDs
 
  2023-08-02 jason: initial version
@@ -38,54 +47,52 @@ enum MessageID {
   INIT_FROM_APP = 3;
   INIT_FROM_GUITAR = 4;
   CHANGE_GUITAR_NAME = 5;
-  CHANGE_SSID = 6;
-  TUNER_ON_OFF = 7;
-  TUNER_FREQUENCY = 8;
-  KNOB_CLICKED = 9;
-  KNOB_MATCHING_START = 10;
-  EFFECT_EOD = 11;
-  BATTERY_LEVEL = 12;
-  CURRENT_KNOB_SELECTED = 13;
-  SELECT_GATE = 14;
-  SELECT_EFX = 15;
-  SELECT_AMP = 16;
-  SELECT_CAB = 17;
-  SELECT_MOD = 18;
-  SELECT_DELAY = 19;
-  SELECT_REVERB = 20;
-  PARAM_GATE = 21;
-  PARAM_EFX_OVERDRIVE = 22;
-  PARAM_EFX_DISTORTION = 23;
-  PARAM_EFX_FUZZ = 24;
-  PARAM_EFX_ACOUSTIC = 25;
-  PARAM_AMP_F = 26;
-  PARAM_AMP_MA = 27;
-  PARAM_AMP_ME = 28;
-  PARAM_AMP_V = 29;
-  PARAM_AMP_B = 30;
-  PARAM_CAB_A = 31;
-  PARAM_CAB_B = 32;
-  PARAM_CAB_C = 33;
-  PARAM_CAB_D = 34;
-  PARAM_CAB_E = 35;
-  PARAM_MOD_FLANGE = 36;
-  PARAM_MOD_CHORUS = 37;
-  PARAM_MOD_TREMOLO = 38;
-  PARAM_MOD_PHASER = 39;
-  PARAM_MOD_VIBRATO = 40;
-  PARAM_DELAY_DELAY = 41;
-  PARAM_REVERB_ROOM = 42;
-  PARAM_REVERB_HALL = 43;
-  PARAM_REVERB_PLATE = 44;
-  PARAM_REVERB_SPRING = 45;
-  DIAG_REQ = 46;
-  DIAG_RESP_POC = 47;
-  DIAG_RESP_FIRST_PARING = 48;
-  DIAG_RESP_ERR_CODE = 49;
-  BULK_IR_START_REQ = 50;
-  BULK_IR_REQ = 51;
-  BULK_IR_END_REQ = 52;
-  BULK_IR_RES = 53;
+  TUNER_ON_OFF = 6;
+  TUNER_FREQUENCY = 7;
+  KNOB_CLICKED = 8;
+  KNOB_MATCHING_START = 9;
+  BATTERY_LEVEL = 10;
+  CURRENT_KNOB_SELECTED = 11;
+  SELECT_GATE = 12;
+  SELECT_EFX = 13;
+  SELECT_AMP = 14;
+  SELECT_CAB = 15;
+  SELECT_MOD = 16;
+  SELECT_DELAY = 17;
+  SELECT_REVERB = 18;
+  PARAM_GATE = 19;
+  PARAM_EFX_OVERDRIVE = 20;
+  PARAM_EFX_DISTORTION = 21;
+  PARAM_EFX_FUZZ = 22;
+  PARAM_EFX_ACOUSTIC = 23;
+  PARAM_AMP_F = 24;
+  PARAM_AMP_MA = 25;
+  PARAM_AMP_ME = 26;
+  PARAM_AMP_V = 27;
+  PARAM_AMP_B = 28;
+  PARAM_CAB_A = 29;
+  PARAM_CAB_B = 30;
+  PARAM_CAB_C = 31;
+  PARAM_CAB_D = 32;
+  PARAM_CAB_E = 33;
+  PARAM_MOD_FLANGE = 34;
+  PARAM_MOD_CHORUS = 35;
+  PARAM_MOD_TREMOLO = 36;
+  PARAM_MOD_PHASER = 37;
+  PARAM_MOD_VIBRATO = 38;
+  PARAM_DELAY_DELAY = 39;
+  PARAM_REVERB_ROOM = 40;
+  PARAM_REVERB_HALL = 41;
+  PARAM_REVERB_PLATE = 42;
+  PARAM_REVERB_SPRING = 43;
+  DIAG_REQ = 44;
+  DIAG_RESP_POC = 45;
+  DIAG_RESP_FIRST_PARING = 46;
+  DIAG_RESP_ERR_CODE = 47;
+  BULK_IR_START_REQ = 48;
+  BULK_IR_REQ = 49;
+  BULK_IR_END_REQ = 50;
+  BULK_IR_RES = 51;
 }
 
 message Ack { int32 receivedMessageLength = 1; }
@@ -114,10 +121,10 @@ message InitFromGuitar {
   string guitarName = 1;
   string guitarModelName = 2;
   string firmwareVersion = 3;
+  int32 batteryLevel = 4;
 }
 
 message ChangeGuitarName { string guitarName = 1; }
-message ChangeSsid { string ssid = 1; }
 
 message TunerOnOff { bool isOn = 1; }
 message TunerFrequency { float tunerFrequency = 1; }
@@ -127,9 +134,10 @@ message KnobClicked { int32 knobNumber = 1; }
 
 message KnobMatchingStart { int32 knobNumber = 1; }
 
-message EffectEod { bool effectEod = 1; }
-
-message BatteryLevel { int32 batteryLevel = 1; }
+message BatteryLevel {
+  int32 batteryLevel = 1;
+  bool isCharging = 2;
+}
 
 message CurrentKnobSelected { int32 currentKnobSelected = 1; }
 

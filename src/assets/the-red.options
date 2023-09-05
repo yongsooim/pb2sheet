@@ -7,10 +7,8 @@ BulkIrEndReq.data                 max_count:10
 
 InitFromApp.appVersion           max_size: 55
 
-InitFromGuitar.guitarName       max_size: 50
-InitFromGuitar.guitarModelName  max_size: 50
+InitFromGuitar.guitarName       max_size: 55
+InitFromGuitar.guitarModelName  max_size: 55
 InitFromGuitar.firmwareVersion  max_size: 55
 
-ChangeGuitarName.guitarName  max_size: 50
-ChangeSsid.ssid  max_size: 50
-
+ChangeGuitarName.guitarName  max_size: 55

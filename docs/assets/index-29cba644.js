@@ -1,12 +1,19 @@
 var Er=Object.defineProperty;var Lr=(h,w,g)=>w in h?Er(h,w,{enumerable:!0,configurable:!0,writable:!0,value:g}):h[w]=g;var Jt=(h,w,g)=>(Lr(h,typeof w!="symbol"?w+"":w,g),g);(function(){const w=document.createElement("link").relList;if(w&&w.supports&&w.supports("modulepreload"))return;for(const N of document.querySelectorAll('link[rel="modulepreload"]'))v(N);new MutationObserver(N=>{for(const R of N)if(R.type==="childList")for(const O of R.addedNodes)O.tagName==="LINK"&&O.rel==="modulepreload"&&v(O)}).observe(document,{childList:!0,subtree:!0});function g(N){const R={};return N.integrity&&(R.integrity=N.integrity),N.referrerPolicy&&(R.referrerPolicy=N.referrerPolicy),N.crossOrigin==="use-credentials"?R.credentials="include":N.crossOrigin==="anonymous"?R.credentials="omit":R.credentials="same-origin",R}function v(N){if(N.ep)return;N.ep=!0;const R=g(N);fetch(N.href,R)}})();const app="";function noop(){}function run(h){return h()}function blank_object(){return Object.create(null)}function run_all(h){h.forEach(run)}function is_function(h){return typeof h=="function"}function safe_not_equal(h,w){return h!=h?w==w:h!==w||h&&typeof h=="object"||typeof h=="function"}function is_empty(h){return Object.keys(h).length===0}function append(h,w){h.appendChild(w)}function insert(h,w,g){h.insertBefore(w,g||null)}function detach(h){h.parentNode&&h.parentNode.removeChild(h)}function element(h){return document.createElement(h)}function text(h){return document.createTextNode(h)}function space(){return text(" ")}function listen(h,w,g,v){return h.addEventListener(w,g,v),()=>h.removeEventListener(w,g,v)}function attr(h,w,g){g==null?h.removeAttribute(w):h.getAttribute(w)!==g&&h.setAttribute(w,g)}function children(h){return Array.from(h.childNodes)}function set_data(h,w){w=""+w,h.data!==w&&(h.data=w)}let current_component;function set_current_component(h){current_component=h}function get_current_component(){if(!current_component)throw new Error("Function called outside component initialization");return current_component}function onMount(h){get_current_component().$$.on_mount.push(h)}const dirty_components=[],binding_callbacks=[];let render_callbacks=[];const flush_callbacks=[],resolved_promise=Promise.resolve();let update_scheduled=!1;function schedule_update(){update_scheduled||(update_scheduled=!0,resolved_promise.then(flush))}function add_render_callback(h){render_callbacks.push(h)}const seen_callbacks=new Set;let flushidx=0;function flush(){if(flushidx!==0)return;const h=current_component;do{try{for(;flushidx<dirty_components.length;){const w=dirty_components[flushidx];flushidx++,set_current_component(w),update(w.$$)}}catch(w){throw dirty_components.length=0,flushidx=0,w}for(set_current_component(null),dirty_components.length=0,flushidx=0;binding_callbacks.length;)binding_callbacks.pop()();for(let w=0;w<render_callbacks.length;w+=1){const g=render_callbacks[w];seen_callbacks.has(g)||(seen_callbacks.add(g),g())}render_callbacks.length=0}while(dirty_components.length);for(;flush_callbacks.length;)flush_callbacks.pop()();update_scheduled=!1,seen_callbacks.clear(),set_current_component(h)}function update(h){if(h.fragment!==null){h.update(),run_all(h.before_update);const w=h.dirty;h.dirty=[-1],h.fragment&&h.fragment.p(h.ctx,w),h.after_update.forEach(add_render_callback)}}function flush_render_callbacks(h){const w=[],g=[];render_callbacks.forEach(v=>h.indexOf(v)===-1?w.push(v):g.push(v)),g.forEach(v=>v()),render_callbacks=w}const outroing=new Set;let outros;function transition_in(h,w){h&&h.i&&(outroing.delete(h),h.i(w))}function transition_out(h,w,g,v){if(h&&h.o){if(outroing.has(h))return;outroing.add(h),outros.c.push(()=>{outroing.delete(h),v&&(g&&h.d(1),v())}),h.o(w)}else v&&v()}function create_component(h){h&&h.c()}function mount_component(h,w,g){const{fragment:v,after_update:N}=h.$$;v&&v.m(w,g),add_render_callback(()=>{const R=h.$$.on_mount.map(run).filter(is_function);h.$$.on_destroy?h.$$.on_destroy.push(...R):run_all(R),h.$$.on_mount=[]}),N.forEach(add_render_callback)}function destroy_component(h,w){const g=h.$$;g.fragment!==null&&(flush_render_callbacks(g.after_update),run_all(g.on_destroy),g.fragment&&g.fragment.d(w),g.on_destroy=g.fragment=null,g.ctx=[])}function make_dirty(h,w){h.$$.dirty[0]===-1&&(dirty_components.push(h),schedule_update(),h.$$.dirty.fill(0)),h.$$.dirty[w/31|0]|=1<<w%31}function init(h,w,g,v,N,R,O,p=[-1]){const r=current_component;set_current_component(h);const u=h.$$={fragment:null,ctx:[],props:R,update:noop,not_equal:N,bound:blank_object(),on_mount:[],on_destroy:[],on_disconnect:[],before_update:[],after_update:[],context:new Map(w.context||(r?r.$$.context:[])),callbacks:blank_object(),dirty:p,skip_bound:!1,root:w.target||r.$$.root};O&&O(u.root);let l=!1;if(u.ctx=g?g(h,w.props||{},(c,o,...e)=>{const n=e.length?e[0]:o;return u.ctx&&N(u.ctx[c],u.ctx[c]=n)&&(!u.skip_bound&&u.bound[c]&&u.bound[c](n),l&&make_dirty(h,c)),o}):[],u.update(),l=!0,run_all(u.before_update),u.fragment=v?v(u.ctx):!1,w.target){if(w.hydrate){const c=children(w.target);u.fragment&&u.fragment.l(c),c.forEach(detach)}else u.fragment&&u.fragment.c();w.intro&&transition_in(h.$$.fragment),mount_component(h,w.target,w.anchor),flush()}set_current_component(r)}class SvelteComponent{constructor(){Jt(this,"$$");Jt(this,"$$set")}$destroy(){destroy_component(this,1),this.$destroy=noop}$on(w,g){if(!is_function(g))return noop;const v=this.$$.callbacks[w]||(this.$$.callbacks[w]=[]);return v.push(g),()=>{const N=v.indexOf(g);N!==-1&&v.splice(N,1)}}$set(w){this.$$set&&!is_empty(w)&&(this.$$.skip_bound=!0,this.$$set(w),this.$$.skip_bound=!1)}}const PUBLIC_VERSION="4";typeof window<"u"&&(window.__svelte||(window.__svelte={v:new Set})).v.add(PUBLIC_VERSION);const subscriber_queue=[];function writable(h,w=noop){let g;const v=new Set;function N(p){if(safe_not_equal(h,p)&&(h=p,g)){const r=!subscriber_queue.length;for(const u of v)u[1](),subscriber_queue.push(u,h);if(r){for(let u=0;u<subscriber_queue.length;u+=2)subscriber_queue[u][0](subscriber_queue[u+1]);subscriber_queue.length=0}}}function R(p){N(p(h))}function O(p,r=noop){const u=[p,r];return v.add(u),v.size===1&&(g=w(N,R)||noop),p(h),()=>{v.delete(u),v.size===0&&g&&(g(),g=null)}}return{set:N,update:R,subscribe:O}}const protoString=`// the-red.proto
 
 /*
+
+ 2023-09-05 jason:
+  - delete message : EffectEod
+  - delete message : ChangeSsid
+  - delete field : InitFromApp.currentTime
+  - add field : InitFromGuitar.batteryLevel
+  - add field : BatteryLevel.isCharging
+
  2023-08-30 jason:
   - delete message : ParamCabAcoustic
   - add message : ParamEfxAcoustic
   - change AMP names to F, MA, V, ME, B
   - change CAB names to A, B, C, D, E
-
 
  2023-08-29 jason:
   - change parameter names in EFX : drive -> gain
@@ -15,16 +22,19 @@ var Er=Object.defineProperty;var Lr=(h,w,g)=>w in h?Er(h,w,{enumerable:!0,config
 
  2023-08-28 jason:
   - add NACK error codes
-  - add message ParamGate
-  - delete Gate messages (ParamGateNoiseGate, ParamGateLimiter, ParamGateCompressor)
-  - delete message ParamEfxBitCrusher
-  - delete message ParamDelayEcho
+  - add message : ParamGate
+  - delete Gate messages : (ParamGateNoiseGate, ParamGateLimiter,
+ ParamGateCompressor)
+  - delete message : ParamEfxBitCrusher
+  - delete message : ParamDelayEcho
   - change parameter name in EFX : ParamModVibrato.percent -> depth
   - change parameter name : ParamModVibrato.percent -> depth
   - change parameter name : ParamDelayDelay.gap -> time
   - change parameter name : ParamModChorus.voices -> rate
-  - change parameter name "treble" to "tone" in ParamAmps (ParamAmpFender, ParamAmpMarshall, ParamAmpVox, ParamAmpAcoustic)
-  - delete parameter "presence" in ParamAmps (ParamAmpFender, ParamAmpMarshall, ParamAmpVox, ParamAmpAcoustic)
+  - change parameter name "treble" to "tone" in ParamAmps (ParamAmpFender,
+ ParamAmpMarshall, ParamAmpVox, ParamAmpAcoustic)
+  - delete parameter "presence" in ParamAmps (ParamAmpFender, ParamAmpMarshall,
+ ParamAmpVox, ParamAmpAcoustic)
   - Change and rearrange Message IDs
 
  2023-08-02 jason: initial version
@@ -38,54 +48,52 @@ enum MessageID {
   INIT_FROM_APP = 3;
   INIT_FROM_GUITAR = 4;
   CHANGE_GUITAR_NAME = 5;
-  CHANGE_SSID = 6;
-  TUNER_ON_OFF = 7;
-  TUNER_FREQUENCY = 8;
-  KNOB_CLICKED = 9;
-  KNOB_MATCHING_START = 10;
-  EFFECT_EOD = 11;
-  BATTERY_LEVEL = 12;
-  CURRENT_KNOB_SELECTED = 13;
-  SELECT_GATE = 14;
-  SELECT_EFX = 15;
-  SELECT_AMP = 16;
-  SELECT_CAB = 17;
-  SELECT_MOD = 18;
-  SELECT_DELAY = 19;
-  SELECT_REVERB = 20;
-  PARAM_GATE = 21;
-  PARAM_EFX_OVERDRIVE = 22;
-  PARAM_EFX_DISTORTION = 23;
-  PARAM_EFX_FUZZ = 24;
-  PARAM_EFX_ACOUSTIC = 25;
-  PARAM_AMP_F = 26;
-  PARAM_AMP_MA = 27;
-  PARAM_AMP_ME = 28;
-  PARAM_AMP_V = 29;
-  PARAM_AMP_B = 30;
-  PARAM_CAB_A = 31;
-  PARAM_CAB_B = 32;
-  PARAM_CAB_C = 33;
-  PARAM_CAB_D = 34;
-  PARAM_CAB_E = 35;
-  PARAM_MOD_FLANGE = 36;
-  PARAM_MOD_CHORUS = 37;
-  PARAM_MOD_TREMOLO = 38;
-  PARAM_MOD_PHASER = 39;
-  PARAM_MOD_VIBRATO = 40;
-  PARAM_DELAY_DELAY = 41;
-  PARAM_REVERB_ROOM = 42;
-  PARAM_REVERB_HALL = 43;
-  PARAM_REVERB_PLATE = 44;
-  PARAM_REVERB_SPRING = 45;
-  DIAG_REQ = 46;
-  DIAG_RESP_POC = 47;
-  DIAG_RESP_FIRST_PARING = 48;
-  DIAG_RESP_ERR_CODE = 49;
-  BULK_IR_START_REQ = 50;
-  BULK_IR_REQ = 51;
-  BULK_IR_END_REQ = 52;
-  BULK_IR_RES = 53;
+  TUNER_ON_OFF = 6;
+  TUNER_FREQUENCY = 7;
+  KNOB_CLICKED = 8;
+  KNOB_MATCHING_START = 9;
+  BATTERY_LEVEL = 10;
+  CURRENT_KNOB_SELECTED = 11;
+  SELECT_GATE = 12;
+  SELECT_EFX = 13;
+  SELECT_AMP = 14;
+  SELECT_CAB = 15;
+  SELECT_MOD = 16;
+  SELECT_DELAY = 17;
+  SELECT_REVERB = 18;
+  PARAM_GATE = 19;
+  PARAM_EFX_OVERDRIVE = 20;
+  PARAM_EFX_DISTORTION = 21;
+  PARAM_EFX_FUZZ = 22;
+  PARAM_EFX_ACOUSTIC = 23;
+  PARAM_AMP_F = 24;
+  PARAM_AMP_MA = 25;
+  PARAM_AMP_ME = 26;
+  PARAM_AMP_V = 27;
+  PARAM_AMP_B = 28;
+  PARAM_CAB_A = 29;
+  PARAM_CAB_B = 30;
+  PARAM_CAB_C = 31;
+  PARAM_CAB_D = 32;
+  PARAM_CAB_E = 33;
+  PARAM_MOD_FLANGE = 34;
+  PARAM_MOD_CHORUS = 35;
+  PARAM_MOD_TREMOLO = 36;
+  PARAM_MOD_PHASER = 37;
+  PARAM_MOD_VIBRATO = 38;
+  PARAM_DELAY_DELAY = 39;
+  PARAM_REVERB_ROOM = 40;
+  PARAM_REVERB_HALL = 41;
+  PARAM_REVERB_PLATE = 42;
+  PARAM_REVERB_SPRING = 43;
+  DIAG_REQ = 44;
+  DIAG_RESP_POC = 45;
+  DIAG_RESP_FIRST_PARING = 46;
+  DIAG_RESP_ERR_CODE = 47;
+  BULK_IR_START_REQ = 48;
+  BULK_IR_REQ = 49;
+  BULK_IR_END_REQ = 50;
+  BULK_IR_RES = 51;
 }
 
 message Ack { int32 receivedMessageLength = 1; }
@@ -114,10 +122,10 @@ message InitFromGuitar {
   string guitarName = 1;
   string guitarModelName = 2;
   string firmwareVersion = 3;
+  int32 batteryLevel = 4;
 }
 
 message ChangeGuitarName { string guitarName = 1; }
-message ChangeSsid { string ssid = 1; }
 
 message TunerOnOff { bool isOn = 1; }
 message TunerFrequency { float tunerFrequency = 1; }
@@ -127,9 +135,10 @@ message KnobClicked { int32 knobNumber = 1; }
 
 message KnobMatchingStart { int32 knobNumber = 1; }
 
-message EffectEod { bool effectEod = 1; }
-
-message BatteryLevel { int32 batteryLevel = 1; }
+message BatteryLevel {
+  int32 batteryLevel = 1;
+  bool isCharging = 2;
+}
 
 message CurrentKnobSelected { int32 currentKnobSelected = 1; }
 
