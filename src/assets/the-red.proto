@@ -1,6 +1,11 @@
 // the-red.proto
 
 /*
+ 2023-09-06 jason:
+  - delete messages : Select XXX
+  - add fields in Param XXX : bool isOn
+  - add enum : ERRORCODE::INVALID_PACKET_LENGTH
+
  2023-09-05 jason:
   - delete message : EffectEod
   - delete message : ChangeSsid
@@ -43,56 +48,48 @@ syntax = "proto3";
 enum MessageID {
   ACK = 0;
   NACK = 1;
-  REQ_SETUP_INFO = 2;
-  INIT_FROM_APP = 3;
-  INIT_FROM_GUITAR = 4;
-  CHANGE_GUITAR_NAME = 5;
-  TUNER_ON_OFF = 6;
-  TUNER_FREQUENCY = 7;
-  KNOB_CLICKED = 8;
-  KNOB_MATCHING_START = 9;
-  BATTERY_LEVEL = 10;
-  CURRENT_KNOB_SELECTED = 11;
-  SELECT_GATE = 12;
-  SELECT_EFX = 13;
-  SELECT_AMP = 14;
-  SELECT_CAB = 15;
-  SELECT_MOD = 16;
-  SELECT_DELAY = 17;
-  SELECT_REVERB = 18;
-  PARAM_GATE = 19;
-  PARAM_EFX_OVERDRIVE = 20;
-  PARAM_EFX_DISTORTION = 21;
-  PARAM_EFX_FUZZ = 22;
-  PARAM_EFX_ACOUSTIC = 23;
-  PARAM_AMP_F = 24;
-  PARAM_AMP_MA = 25;
-  PARAM_AMP_ME = 26;
-  PARAM_AMP_V = 27;
-  PARAM_AMP_B = 28;
-  PARAM_CAB_A = 29;
-  PARAM_CAB_B = 30;
-  PARAM_CAB_C = 31;
-  PARAM_CAB_D = 32;
-  PARAM_CAB_E = 33;
-  PARAM_MOD_FLANGE = 34;
-  PARAM_MOD_CHORUS = 35;
-  PARAM_MOD_TREMOLO = 36;
-  PARAM_MOD_PHASER = 37;
-  PARAM_MOD_VIBRATO = 38;
-  PARAM_DELAY_DELAY = 39;
-  PARAM_REVERB_ROOM = 40;
-  PARAM_REVERB_HALL = 41;
-  PARAM_REVERB_PLATE = 42;
-  PARAM_REVERB_SPRING = 43;
-  DIAG_REQ = 44;
-  DIAG_RESP_POC = 45;
-  DIAG_RESP_FIRST_PARING = 46;
-  DIAG_RESP_ERR_CODE = 47;
-  BULK_IR_START_REQ = 48;
-  BULK_IR_REQ = 49;
-  BULK_IR_END_REQ = 50;
-  BULK_IR_RES = 51;
+  INIT_FROM_APP = 2;
+  INIT_FROM_GUITAR = 3;
+  CHANGE_GUITAR_NAME = 4;
+  TUNER_ON_OFF = 5;
+  TUNER_FREQUENCY = 6;
+  KNOB_CLICKED = 7;
+  KNOB_MATCHING_START = 8;
+  BATTERY_LEVEL = 9;
+  CURRENT_KNOB_SELECTED = 10;
+  PARAM_GATE = 11;
+  PARAM_EFX_OVERDRIVE = 12;
+  PARAM_EFX_DISTORTION = 13;
+  PARAM_EFX_FUZZ = 14;
+  PARAM_EFX_ACOUSTIC = 15;
+  PARAM_AMP_F = 16;
+  PARAM_AMP_MA = 17;
+  PARAM_AMP_ME = 18;
+  PARAM_AMP_V = 19;
+  PARAM_AMP_B = 20;
+  PARAM_CAB_A = 21;
+  PARAM_CAB_B = 22;
+  PARAM_CAB_C = 23;
+  PARAM_CAB_D = 24;
+  PARAM_CAB_E = 25;
+  PARAM_MOD_FLANGE = 26;
+  PARAM_MOD_CHORUS = 27;
+  PARAM_MOD_TREMOLO = 28;
+  PARAM_MOD_PHASER = 29;
+  PARAM_MOD_VIBRATO = 30;
+  PARAM_DELAY_DELAY = 31;
+  PARAM_REVERB_ROOM = 32;
+  PARAM_REVERB_HALL = 33;
+  PARAM_REVERB_PLATE = 34;
+  PARAM_REVERB_SPRING = 35;
+  DIAG_REQ = 36;
+  DIAG_RESP_POC = 37;
+  DIAG_RESP_FIRST_PARING = 38;
+  DIAG_RESP_ERR_CODE = 39;
+  BULK_IR_START_REQ = 40;
+  BULK_IR_REQ = 41;
+  BULK_IR_END_REQ = 42;
+  BULK_IR_RES   = 43;
 }
 
 message Ack { int32 receivedMessageLength = 1; }
@@ -103,19 +100,14 @@ message Nack {
     INVALID_MESSAGE_DATA = 1;
     INVALID_STATE = 2;
     INVALID_OPCODE = 3;
-    PROTOBUF_DECODE_ERROR = 4;
-    TIMEOUT = 5;
+    INVALID_PACKET_LENGTH = 4;
+    PROTOBUF_DECODE_ERROR = 5;
+    TIMEOUT = 6;
   }
   ERROR_CODE errorCode = 1;
 }
 
-// App -> Guitar
-message ReqSetupInfo {}
-
-message InitFromApp {
-  int64 currentTimeEpoch = 1;
-  string appVersion = 2;
-}
+message InitFromApp { string appVersion = 1; }
 
 message InitFromGuitar {
   string guitarName = 1;
@@ -141,210 +133,173 @@ message BatteryLevel {
 
 message CurrentKnobSelected { int32 currentKnobSelected = 1; }
 
-message SelectGate {
-  enum CategoryGate {
-    NOISE_GATE = 0;
-  }
-  CategoryGate target = 1;
-  bool isOn = 2;
-}
-
-message SelectEfx {
-  enum CategoryEfx {
-    OVERDRIVE = 0;
-    DISTORTION = 1;
-    FUZZ = 2;
-    ACOUSTIC = 3;
-  }
-  CategoryEfx target = 1;
-  bool isOn = 2;
-}
-
-message SelectAmp {
-  enum CategoryAmp {
-    F = 0;
-    MA = 1;
-    V = 2;
-    ME = 3;
-    B = 4;
-  }
-  CategoryAmp target = 1;
-  bool isOn = 2;
-}
-
-message SelectCab {
-  enum CategoryCab {
-    A = 0;
-    B = 1;
-    C = 2;
-    D = 3;
-    E = 4;
-  }
-  CategoryCab target = 1;
-  bool isOn = 2;
-}
-
-message SelectMod {
-  enum CategoryMod {
-    FLANGE = 0;
-    CHORUS = 1;
-    TREMOLO = 2;
-    PHASER = 3;
-    VIBRATO = 4;
-  }
-  CategoryMod target = 1;
-  bool isOn = 2;
-}
-
-message SelectDelay {
-  enum CategoryDelay {
-    DELAY = 0;
-  }
-  CategoryDelay target = 1;
-  bool isOn = 2;
-}
-
-message SelectReverb {
-  enum CategoryReverb {
-    ROOM = 0;
-    HALL = 1;
-    PLATE = 2;
-    SPRING = 3;
-  }
-  CategoryReverb target = 1;
-  bool isOn = 2;
-}
-
 message ParamGate {
-  int32 noiseGateThreshold = 1;
-  int32 noiseGateOpeningTime = 2;
-  int32 noiseGateClosingTime = 3;
-  int32 noiseGateHoldTime = 4;
-  int32 compressorThreshold = 5;
-  int32 compressorAttack = 6;
-  int32 compressorRelease = 7;
-  int32 compressorGain = 8;
-  int32 compressorRatio = 9;
-  int32 compressorHysteresis = 10;
-  int32 autowahDepth = 11;
-  int32 autowahMix = 12;
+  bool isOn = 1;
+  int32 noiseGateThreshold = 2;
+  int32 noiseGateOpeningTime = 3;
+  int32 noiseGateClosingTime = 4;
+  int32 noiseGateHoldTime = 5;
+  int32 compressorThreshold = 6;
+  int32 compressorAttack = 7;
+  int32 compressorRelease = 8;
+  int32 compressorGain = 9;
+  int32 compressorRatio = 10;
+  int32 compressorHysteresis = 111;
+  int32 autowahDepth = 112;
+  int32 autowahMix = 113;
 }
 
 message ParamEfxOverdrive {
-  int32 gain = 1;
-  int32 tone = 2;
-  int32 level = 3;
+  bool isOn = 1;
+  int32 gain = 2;
+  int32 tone = 3;
+  int32 level = 4;
 }
 
 message ParamEfxDistortion {
-  int32 gain = 1;
-  int32 tone = 2;
-  int32 level = 3;
+  bool isOn = 1;
+  int32 gain = 2;
+  int32 tone = 3;
+  int32 level = 4;
 }
 
 message ParamEfxFuzz {
-  int32 gain = 1;
-  int32 tone = 2;
-  int32 level = 3;
+  bool isOn = 1;
+  int32 gain = 2;
+  int32 tone = 3;
+  int32 level = 4;
 }
 
 message ParamEfxAcoustic {
-  int32 bass = 1;
-  int32 middle = 2;
-  int32 treble = 3;
+  bool isOn = 1;
+  int32 bass = 2;
+  int32 middle = 3;
+  int32 treble = 4;
 }
 
 message ParamAmpF {
-  int32 gain = 1;
-  int32 bass = 2;
-  int32 middle = 3;
-  int32 treble = 4;
+  bool isOn = 1;
+  int32 gain = 2;
+  int32 bass = 3;
+  int32 middle = 4;
+  int32 treble = 5;
 }
 
 message ParamAmpMa {
-  int32 gain = 1;
-  int32 bass = 2;
-  int32 middle = 3;
-  int32 treble = 4;
+  bool isOn = 1;
+  int32 gain = 2;
+  int32 bass = 3;
+  int32 middle = 4;
+  int32 treble = 5;
 }
 message ParamAmpMe {
-  int32 gain = 1;
-  int32 bass = 2;
-  int32 middle = 3;
-  int32 treble = 4;
+  bool isOn = 1;
+  int32 gain = 2;
+  int32 bass = 3;
+  int32 middle = 4;
+  int32 treble = 5;
 }
 
 message ParamAmpV {
-  int32 gain = 1;
-  int32 bass = 2;
-  int32 middle = 3;
-  int32 treble = 4;
+  bool isOn = 1;
+  int32 gain = 2;
+  int32 bass = 3;
+  int32 middle = 4;
+  int32 treble = 5;
 }
 
 message ParamAmpB {
-  int32 gain = 1;
-  int32 bass = 2;
-  int32 middle = 3;
-  int32 treble = 4;
+  bool isOn = 1;
+  int32 gain = 2;
+  int32 bass = 3;
+  int32 middle = 4;
+  int32 treble = 5;
 }
 
-message ParamCabA { int32 level = 1; }
-message ParamCabB { int32 level = 1; }
-message ParamCabC { int32 level = 1; }
-message ParamCabD { int32 level = 1; }
-message ParamCabE { int32 level = 1; }
+message ParamCabA {
+  bool isOn = 1;
+  int32 level = 2;
+}
+message ParamCabB {
+  bool isOn = 1;
+  int32 level = 2;
+}
+message ParamCabC {
+  bool isOn = 1;
+  int32 level = 2;
+}
+message ParamCabD {
+  bool isOn = 1;
+  int32 level = 2;
+}
+message ParamCabE {
+  bool isOn = 1;
+  int32 level = 2;
+}
 
 message ParamModFlange {
-  int32 manual = 1;
+  bool isOn = 1;
+  int32 manual = 2;
+  int32 depth = 3;
+  int32 rate = 4;
+}
+
+message ParamModChorus {
+  bool isOn = 1;
+  int32 rate = 2;
+}
+
+message ParamModTremolo {
+  bool isOn = 1;
   int32 depth = 2;
   int32 rate = 3;
 }
 
-message ParamModChorus { int32 rate = 1; }
-
-message ParamModTremolo {
-  int32 depth = 1;
-  int32 rate = 2;
-}
-
 message ParamModPhaser {
-  int32 rate = 1;
+  bool isOn = 1;
   int32 depth = 2;
+  int32 rate = 3;
 }
 
 message ParamModVibrato {
-  int32 rate = 1;
+  bool isOn = 1;
   int32 depth = 2;
+  int32 rate = 3;
 }
 
 message ParamDelayDelay {
-  int32 time = 1;
-  int32 level = 2;
-  int32 feedback = 3;
+  bool isOn = 1;
+  int32 time = 2;
+  int32 level = 3;
+  int32 feedback = 4;
 }
 
 message ParamReverbRoom {
-  int32 roomsize = 1;
-  int32 tone = 2;
-  int32 mix = 3;
+  bool isOn = 1;
+  int32 roomsize = 2;
+  int32 tone = 3;
+  int32 mix = 4;
 }
 
 message ParamReverbHall {
-  int32 roomsize = 1;
-  int32 tone = 2;
-  int32 mix = 3;
+  bool isOn = 1;
+  int32 roomsize = 2;
+  int32 tone = 3;
+  int32 mix = 4;
 }
 
 message ParamReverbPlate {
-  int32 roomsize = 1;
-  int32 tone = 2;
-  int32 mix = 3;
+  bool isOn = 1;
+  int32 roomsize = 2;
+  int32 tone = 3;
+  int32 mix = 4;
 }
 
 message ParamReverbSpring {
-  int32 roomsize = 1;
-  int32 tone = 2;
-  int32 mix = 3;
+  bool isOn = 1;
+  int32 roomsize = 2;
+  int32 tone = 3;
+  int32 mix = 4;
 }
 
 // App -> Guitar

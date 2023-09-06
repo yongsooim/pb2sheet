@@ -12,9 +12,6 @@ PB_BIND(Ack, Ack, AUTO)
 PB_BIND(Nack, Nack, AUTO)
 
 
-PB_BIND(ReqSetupInfo, ReqSetupInfo, AUTO)
-
-
 PB_BIND(InitFromApp, InitFromApp, AUTO)
 
 
@@ -42,28 +39,7 @@ PB_BIND(BatteryLevel, BatteryLevel, AUTO)
 PB_BIND(CurrentKnobSelected, CurrentKnobSelected, AUTO)
 
 
-PB_BIND(SelectGate, SelectGate, AUTO)
-
-
-PB_BIND(SelectEfx, SelectEfx, AUTO)
-
-
-PB_BIND(SelectAmp, SelectAmp, AUTO)
-
-
-PB_BIND(SelectCab, SelectCab, AUTO)
-
-
-PB_BIND(SelectMod, SelectMod, AUTO)
-
-
-PB_BIND(SelectDelay, SelectDelay, AUTO)
-
-
-PB_BIND(SelectReverb, SelectReverb, AUTO)
-
-
-PB_BIND(ParamGate, ParamGate, AUTO)
+PB_BIND(ParamGate, ParamGate, 2)
 
 
 PB_BIND(ParamEfxOverdrive, ParamEfxOverdrive, AUTO)
@@ -160,13 +136,6 @@ PB_BIND(BulkIrEndReq, BulkIrEndReq, AUTO)
 
 
 PB_BIND(BulkIrRes, BulkIrRes, AUTO)
-
-
-
-
-
-
-
 
 
 
