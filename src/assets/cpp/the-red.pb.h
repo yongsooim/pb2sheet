@@ -90,6 +90,7 @@ typedef struct _Nack {
 
 typedef struct _InitFromApp {
     char appVersion[55];
+    int32_t KnobClicked;
 } InitFromApp;
 
 typedef struct _InitFromGuitar {
@@ -97,6 +98,7 @@ typedef struct _InitFromGuitar {
     char guitarModelName[55];
     char firmwareVersion[55];
     int32_t batteryLevel;
+    bool isCharging;
 } InitFromGuitar;
 
 typedef struct _ChangeGuitarName {
@@ -303,6 +305,10 @@ typedef struct _ParamReverbSpring {
     int32_t mix;
 } ParamReverbSpring;
 
+typedef struct _ClearEffects {
+    bool clear;
+} ClearEffects;
+
 typedef struct _DiagReq {
     DiagCode code;
 } DiagReq;
@@ -404,6 +410,7 @@ extern "C" {
 
 
 
+
 #define DiagReq_code_ENUMTYPE DiagCode
 
 
@@ -417,8 +424,8 @@ extern "C" {
 /* Initializer values for message structs */
 #define Ack_init_default                         {0}
 #define Nack_init_default                        {_Nack_ERROR_CODE_MIN}
-#define InitFromApp_init_default                 {""}
-#define InitFromGuitar_init_default              {"", "", "", 0}
+#define InitFromApp_init_default                 {"", 0}
+#define InitFromGuitar_init_default              {"", "", "", 0, 0}
 #define ChangeGuitarName_init_default            {""}
 #define TunerOnOff_init_default                  {0}
 #define TunerFrequency_init_default              {0}
@@ -451,6 +458,7 @@ extern "C" {
 #define ParamReverbHall_init_default             {0, 0, 0, 0}
 #define ParamReverbPlate_init_default            {0, 0, 0, 0}
 #define ParamReverbSpring_init_default           {0, 0, 0, 0}
+#define ClearEffects_init_default                {0}
 #define DiagReq_init_default                     {_DiagCode_MIN}
 #define DiagRespPOC_init_default                 {0}
 #define DiagRespFirstParing_init_default         {0}
@@ -461,8 +469,8 @@ extern "C" {
 #define BulkIrRes_init_default                   {0, 0}
 #define Ack_init_zero                            {0}
 #define Nack_init_zero                           {_Nack_ERROR_CODE_MIN}
-#define InitFromApp_init_zero                    {""}
-#define InitFromGuitar_init_zero                 {"", "", "", 0}
+#define InitFromApp_init_zero                    {"", 0}
+#define InitFromGuitar_init_zero                 {"", "", "", 0, 0}
 #define ChangeGuitarName_init_zero               {""}
 #define TunerOnOff_init_zero                     {0}
 #define TunerFrequency_init_zero                 {0}
@@ -495,6 +503,7 @@ extern "C" {
 #define ParamReverbHall_init_zero                {0, 0, 0, 0}
 #define ParamReverbPlate_init_zero               {0, 0, 0, 0}
 #define ParamReverbSpring_init_zero              {0, 0, 0, 0}
+#define ClearEffects_init_zero                   {0}
 #define DiagReq_init_zero                        {_DiagCode_MIN}
 #define DiagRespPOC_init_zero                    {0}
 #define DiagRespFirstParing_init_zero            {0}
@@ -508,10 +517,12 @@ extern "C" {
 #define Ack_receivedMessageLength_tag            1
 #define Nack_errorCode_tag                       1
 #define InitFromApp_appVersion_tag               1
+#define InitFromApp_KnobClicked_tag              2
 #define InitFromGuitar_guitarName_tag            1
 #define InitFromGuitar_guitarModelName_tag       2
 #define InitFromGuitar_firmwareVersion_tag       3
 #define InitFromGuitar_batteryLevel_tag          4
+#define InitFromGuitar_isCharging_tag            5
 #define ChangeGuitarName_guitarName_tag          1
 #define TunerOnOff_isOn_tag                      1
 #define TunerFrequency_tunerFrequency_tag        1
@@ -619,6 +630,7 @@ extern "C" {
 #define ParamReverbSpring_roomsize_tag           2
 #define ParamReverbSpring_tone_tag               3
 #define ParamReverbSpring_mix_tag                4
+#define ClearEffects_clear_tag                   1
 #define DiagReq_code_tag                         1
 #define DiagRespPOC_powerOnCount_tag             1
 #define DiagRespFirstParing_FirstParingTimeEpoch_tag 1
@@ -645,7 +657,8 @@ X(a, STATIC,   SINGULAR, UENUM,    errorCode,         1)
 #define Nack_DEFAULT NULL
 
 #define InitFromApp_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, STRING,   appVersion,        1)
+X(a, STATIC,   SINGULAR, STRING,   appVersion,        1) \
+X(a, STATIC,   SINGULAR, INT32,    KnobClicked,       2)
 #define InitFromApp_CALLBACK NULL
 #define InitFromApp_DEFAULT NULL
 
@@ -653,7 +666,8 @@ X(a, STATIC,   SINGULAR, STRING,   appVersion,        1)
 X(a, STATIC,   SINGULAR, STRING,   guitarName,        1) \
 X(a, STATIC,   SINGULAR, STRING,   guitarModelName,   2) \
 X(a, STATIC,   SINGULAR, STRING,   firmwareVersion,   3) \
-X(a, STATIC,   SINGULAR, INT32,    batteryLevel,      4)
+X(a, STATIC,   SINGULAR, INT32,    batteryLevel,      4) \
+X(a, STATIC,   SINGULAR, BOOL,     isCharging,        5)
 #define InitFromGuitar_CALLBACK NULL
 #define InitFromGuitar_DEFAULT NULL
 
@@ -892,6 +906,11 @@ X(a, STATIC,   SINGULAR, INT32,    mix,               4)
 #define ParamReverbSpring_CALLBACK NULL
 #define ParamReverbSpring_DEFAULT NULL
 
+#define ClearEffects_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, BOOL,     clear,             1)
+#define ClearEffects_CALLBACK NULL
+#define ClearEffects_DEFAULT NULL
+
 #define DiagReq_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, UENUM,    code,              1)
 #define DiagReq_CALLBACK NULL
@@ -973,6 +992,7 @@ extern const pb_msgdesc_t ParamReverbRoom_msg;
 extern const pb_msgdesc_t ParamReverbHall_msg;
 extern const pb_msgdesc_t ParamReverbPlate_msg;
 extern const pb_msgdesc_t ParamReverbSpring_msg;
+extern const pb_msgdesc_t ClearEffects_msg;
 extern const pb_msgdesc_t DiagReq_msg;
 extern const pb_msgdesc_t DiagRespPOC_msg;
 extern const pb_msgdesc_t DiagRespFirstParing_msg;
@@ -1019,6 +1039,7 @@ extern const pb_msgdesc_t BulkIrRes_msg;
 #define ParamReverbHall_fields &ParamReverbHall_msg
 #define ParamReverbPlate_fields &ParamReverbPlate_msg
 #define ParamReverbSpring_fields &ParamReverbSpring_msg
+#define ClearEffects_fields &ClearEffects_msg
 #define DiagReq_fields &DiagReq_msg
 #define DiagRespPOC_fields &DiagRespPOC_msg
 #define DiagRespFirstParing_fields &DiagRespFirstParing_msg
@@ -1036,13 +1057,14 @@ extern const pb_msgdesc_t BulkIrRes_msg;
 #define BulkIrRes_size                           13
 #define BulkIrStartReq_size                      117
 #define ChangeGuitarName_size                    56
+#define ClearEffects_size                        2
 #define CurrentKnobSelected_size                 11
 #define DiagReq_size                             2
 #define DiagRespErrCode_size                     11
 #define DiagRespFirstParing_size                 11
 #define DiagRespPOC_size                         11
-#define InitFromApp_size                         56
-#define InitFromGuitar_size                      179
+#define InitFromApp_size                         67
+#define InitFromGuitar_size                      181
 #define KnobClicked_size                         11
 #define KnobMatchingStart_size                   11
 #define Nack_size                                2

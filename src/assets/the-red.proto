@@ -1,10 +1,15 @@
 // the-red.proto
 
 /*
+ 2023-09-07 jason:
+  - add field : InitFromApp.knobClicked
+  - add field : InitFromGuitar.isCharging
+  - add message : ClearEffects
+
  2023-09-06 jason:
   - delete messages : Select XXX
   - add fields in Param XXX : bool isOn
-  - add enum : ERRORCODE::INVALID_PACKET_LENGTH
+  - add enum : ERROR_CODE::INVALID_PACKET_LENGTH
 
  2023-09-05 jason:
   - delete message : EffectEod
@@ -89,7 +94,7 @@ enum MessageID {
   BULK_IR_START_REQ = 40;
   BULK_IR_REQ = 41;
   BULK_IR_END_REQ = 42;
-  BULK_IR_RES   = 43;
+  BULK_IR_RES = 43;
 }
 
 message Ack { int32 receivedMessageLength = 1; }
@@ -107,13 +112,17 @@ message Nack {
   ERROR_CODE errorCode = 1;
 }
 
-message InitFromApp { string appVersion = 1; }
+message InitFromApp {
+  string appVersion = 1;
+  int32 KnobClicked = 2;
+}
 
 message InitFromGuitar {
   string guitarName = 1;
   string guitarModelName = 2;
   string firmwareVersion = 3;
   int32 batteryLevel = 4;
+  bool isCharging = 5;
 }
 
 message ChangeGuitarName { string guitarName = 1; }
@@ -301,6 +310,8 @@ message ParamReverbSpring {
   int32 tone = 3;
   int32 mix = 4;
 }
+
+message ClearEffects { bool clear = 1; }
 
 // App -> Guitar
 enum DiagCode {

@@ -110,6 +110,7 @@ class InitFromApp extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'InitFromApp', createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'appVersion', protoName: 'appVersion')
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'KnobClicked', $pb.PbFieldType.O3, protoName: 'KnobClicked')
     ..hasRequiredFields = false
   ;
 
@@ -142,6 +143,15 @@ class InitFromApp extends $pb.GeneratedMessage {
   $core.bool hasAppVersion() => $_has(0);
   @$pb.TagNumber(1)
   void clearAppVersion() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.int get knobClicked => $_getIZ(1);
+  @$pb.TagNumber(2)
+  set knobClicked($core.int v) { $_setSignedInt32(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasKnobClicked() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearKnobClicked() => clearField(2);
 }
 
 class InitFromGuitar extends $pb.GeneratedMessage {
@@ -155,6 +165,7 @@ class InitFromGuitar extends $pb.GeneratedMessage {
     ..aOS(2, _omitFieldNames ? '' : 'guitarModelName', protoName: 'guitarModelName')
     ..aOS(3, _omitFieldNames ? '' : 'firmwareVersion', protoName: 'firmwareVersion')
     ..a<$core.int>(4, _omitFieldNames ? '' : 'batteryLevel', $pb.PbFieldType.O3, protoName: 'batteryLevel')
+    ..aOB(5, _omitFieldNames ? '' : 'isCharging', protoName: 'isCharging')
     ..hasRequiredFields = false
   ;
 
@@ -214,6 +225,15 @@ class InitFromGuitar extends $pb.GeneratedMessage {
   $core.bool hasBatteryLevel() => $_has(3);
   @$pb.TagNumber(4)
   void clearBatteryLevel() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.bool get isCharging => $_getBF(4);
+  @$pb.TagNumber(5)
+  set isCharging($core.bool v) { $_setBool(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasIsCharging() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearIsCharging() => clearField(5);
 }
 
 class ChangeGuitarName extends $pb.GeneratedMessage {
@@ -2308,6 +2328,48 @@ class ParamReverbSpring extends $pb.GeneratedMessage {
   $core.bool hasMix() => $_has(3);
   @$pb.TagNumber(4)
   void clearMix() => clearField(4);
+}
+
+class ClearEffects extends $pb.GeneratedMessage {
+  factory ClearEffects() => create();
+  ClearEffects._() : super();
+  factory ClearEffects.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ClearEffects.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ClearEffects', createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'clear')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ClearEffects clone() => ClearEffects()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ClearEffects copyWith(void Function(ClearEffects) updates) => super.copyWith((message) => updates(message as ClearEffects)) as ClearEffects;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ClearEffects create() => ClearEffects._();
+  ClearEffects createEmptyInstance() => create();
+  static $pb.PbList<ClearEffects> createRepeated() => $pb.PbList<ClearEffects>();
+  @$core.pragma('dart2js:noInline')
+  static ClearEffects getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ClearEffects>(create);
+  static ClearEffects? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get clear_1 => $_getBF(0);
+  @$pb.TagNumber(1)
+  set clear_1($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasClear_1() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearClear_1() => clearField(1);
 }
 
 class DiagReq extends $pb.GeneratedMessage {

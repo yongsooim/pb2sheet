@@ -114,6 +114,9 @@ PB_BIND(ParamReverbPlate, ParamReverbPlate, AUTO)
 PB_BIND(ParamReverbSpring, ParamReverbSpring, AUTO)
 
 
+PB_BIND(ClearEffects, ClearEffects, AUTO)
+
+
 PB_BIND(DiagReq, DiagReq, AUTO)
 
 

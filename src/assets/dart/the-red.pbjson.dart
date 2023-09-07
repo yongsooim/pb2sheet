@@ -148,12 +148,14 @@ const InitFromApp$json = {
   '1': 'InitFromApp',
   '2': [
     {'1': 'appVersion', '3': 1, '4': 1, '5': 9, '10': 'appVersion'},
+    {'1': 'KnobClicked', '3': 2, '4': 1, '5': 5, '10': 'KnobClicked'},
   ],
 };
 
 /// Descriptor for `InitFromApp`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List initFromAppDescriptor = $convert.base64Decode(
-    'CgtJbml0RnJvbUFwcBIeCgphcHBWZXJzaW9uGAEgASgJUgphcHBWZXJzaW9u');
+    'CgtJbml0RnJvbUFwcBIeCgphcHBWZXJzaW9uGAEgASgJUgphcHBWZXJzaW9uEiAKC0tub2JDbG'
+    'lja2VkGAIgASgFUgtLbm9iQ2xpY2tlZA==');
 
 @$core.Deprecated('Use initFromGuitarDescriptor instead')
 const InitFromGuitar$json = {
@@ -163,6 +165,7 @@ const InitFromGuitar$json = {
     {'1': 'guitarModelName', '3': 2, '4': 1, '5': 9, '10': 'guitarModelName'},
     {'1': 'firmwareVersion', '3': 3, '4': 1, '5': 9, '10': 'firmwareVersion'},
     {'1': 'batteryLevel', '3': 4, '4': 1, '5': 5, '10': 'batteryLevel'},
+    {'1': 'isCharging', '3': 5, '4': 1, '5': 8, '10': 'isCharging'},
   ],
 };
 
@@ -171,7 +174,7 @@ final $typed_data.Uint8List initFromGuitarDescriptor = $convert.base64Decode(
     'Cg5Jbml0RnJvbUd1aXRhchIeCgpndWl0YXJOYW1lGAEgASgJUgpndWl0YXJOYW1lEigKD2d1aX'
     'Rhck1vZGVsTmFtZRgCIAEoCVIPZ3VpdGFyTW9kZWxOYW1lEigKD2Zpcm13YXJlVmVyc2lvbhgD'
     'IAEoCVIPZmlybXdhcmVWZXJzaW9uEiIKDGJhdHRlcnlMZXZlbBgEIAEoBVIMYmF0dGVyeUxldm'
-    'Vs');
+    'VsEh4KCmlzQ2hhcmdpbmcYBSABKAhSCmlzQ2hhcmdpbmc=');
 
 @$core.Deprecated('Use changeGuitarNameDescriptor instead')
 const ChangeGuitarName$json = {
@@ -668,6 +671,18 @@ const ParamReverbSpring$json = {
 final $typed_data.Uint8List paramReverbSpringDescriptor = $convert.base64Decode(
     'ChFQYXJhbVJldmVyYlNwcmluZxISCgRpc09uGAEgASgIUgRpc09uEhoKCHJvb21zaXplGAIgAS'
     'gFUghyb29tc2l6ZRISCgR0b25lGAMgASgFUgR0b25lEhAKA21peBgEIAEoBVIDbWl4');
+
+@$core.Deprecated('Use clearEffectsDescriptor instead')
+const ClearEffects$json = {
+  '1': 'ClearEffects',
+  '2': [
+    {'1': 'clear', '3': 1, '4': 1, '5': 8, '10': 'clear'},
+  ],
+};
+
+/// Descriptor for `ClearEffects`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List clearEffectsDescriptor = $convert.base64Decode(
+    'CgxDbGVhckVmZmVjdHMSFAoFY2xlYXIYASABKAhSBWNsZWFy');
 
 @$core.Deprecated('Use diagReqDescriptor instead')
 const DiagReq$json = {
