@@ -104,13 +104,14 @@ const Ack$json = {
   '1': 'Ack',
   '2': [
     {'1': 'receivedMessageLength', '3': 1, '4': 1, '5': 5, '10': 'receivedMessageLength'},
+    {'1': 'receivedMessageId', '3': 2, '4': 1, '5': 5, '10': 'receivedMessageId'},
   ],
 };
 
 /// Descriptor for `Ack`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List ackDescriptor = $convert.base64Decode(
     'CgNBY2sSNAoVcmVjZWl2ZWRNZXNzYWdlTGVuZ3RoGAEgASgFUhVyZWNlaXZlZE1lc3NhZ2VMZW'
-    '5ndGg=');
+    '5ndGgSLAoRcmVjZWl2ZWRNZXNzYWdlSWQYAiABKAVSEXJlY2VpdmVkTWVzc2FnZUlk');
 
 @$core.Deprecated('Use nackDescriptor instead')
 const Nack$json = {

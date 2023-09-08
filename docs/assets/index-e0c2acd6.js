@@ -2,6 +2,9 @@ var Ei=Object.defineProperty;var Li=(h,w,g)=>w in h?Ei(h,w,{enumerable:!0,config
 
 /*
  2023-09-07 jason:
+  - add field : Ack.receivedMessageId
+
+ 2023-09-07 jason:
   - add field : InitFromApp.knobClicked
   - add field : InitFromGuitar.isCharging
   - add message : ClearEffects
@@ -97,7 +100,10 @@ enum MessageID {
   BULK_IR_RES = 43;
 }
 
-message Ack { int32 receivedMessageLength = 1; }
+message Ack { 
+  int32 receivedMessageLength = 1; 
+  int32 receivedMessageId = 2;
+}
 
 message Nack {
   enum ERROR_CODE {

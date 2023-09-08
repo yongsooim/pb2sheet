@@ -26,6 +26,7 @@ class Ack extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Ack', createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'receivedMessageLength', $pb.PbFieldType.O3, protoName: 'receivedMessageLength')
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'receivedMessageId', $pb.PbFieldType.O3, protoName: 'receivedMessageId')
     ..hasRequiredFields = false
   ;
 
@@ -58,6 +59,15 @@ class Ack extends $pb.GeneratedMessage {
   $core.bool hasReceivedMessageLength() => $_has(0);
   @$pb.TagNumber(1)
   void clearReceivedMessageLength() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.int get receivedMessageId => $_getIZ(1);
+  @$pb.TagNumber(2)
+  set receivedMessageId($core.int v) { $_setSignedInt32(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasReceivedMessageId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearReceivedMessageId() => clearField(2);
 }
 
 class Nack extends $pb.GeneratedMessage {

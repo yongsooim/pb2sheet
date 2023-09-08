@@ -82,6 +82,7 @@ typedef enum _DiagRespErrCode_ErrorCode {
 /* Struct definitions */
 typedef struct _Ack {
     int32_t receivedMessageLength;
+    int32_t receivedMessageId;
 } Ack;
 
 typedef struct _Nack {
@@ -422,7 +423,7 @@ extern "C" {
 
 
 /* Initializer values for message structs */
-#define Ack_init_default                         {0}
+#define Ack_init_default                         {0, 0}
 #define Nack_init_default                        {_Nack_ERROR_CODE_MIN}
 #define InitFromApp_init_default                 {"", 0}
 #define InitFromGuitar_init_default              {"", "", "", 0, 0}
@@ -467,7 +468,7 @@ extern "C" {
 #define BulkIrReq_init_default                   {0, 0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}
 #define BulkIrEndReq_init_default                {0, 0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}
 #define BulkIrRes_init_default                   {0, 0}
-#define Ack_init_zero                            {0}
+#define Ack_init_zero                            {0, 0}
 #define Nack_init_zero                           {_Nack_ERROR_CODE_MIN}
 #define InitFromApp_init_zero                    {"", 0}
 #define InitFromGuitar_init_zero                 {"", "", "", 0, 0}
@@ -515,6 +516,7 @@ extern "C" {
 
 /* Field tags (for use in manual encoding/decoding) */
 #define Ack_receivedMessageLength_tag            1
+#define Ack_receivedMessageId_tag                2
 #define Nack_errorCode_tag                       1
 #define InitFromApp_appVersion_tag               1
 #define InitFromApp_KnobClicked_tag              2
@@ -647,7 +649,8 @@ extern "C" {
 
 /* Struct field encoding specification for nanopb */
 #define Ack_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, INT32,    receivedMessageLength,   1)
+X(a, STATIC,   SINGULAR, INT32,    receivedMessageLength,   1) \
+X(a, STATIC,   SINGULAR, INT32,    receivedMessageId,   2)
 #define Ack_CALLBACK NULL
 #define Ack_DEFAULT NULL
 
@@ -1050,7 +1053,7 @@ extern const pb_msgdesc_t BulkIrRes_msg;
 #define BulkIrRes_fields &BulkIrRes_msg
 
 /* Maximum encoded size of messages (where known) */
-#define Ack_size                                 11
+#define Ack_size                                 22
 #define BatteryLevel_size                        13
 #define BulkIrEndReq_size                        61
 #define BulkIrReq_size                           61
