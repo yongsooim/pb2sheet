@@ -1,7 +1,13 @@
 // the-red.proto
 
 /*
- 2023-09-07 jason:
+
+ 2023-09-11 jason:
+  - add field : InitFromGuitar.receivedMessageLength
+  - add field : InitFromGuitar.receivedMessageId
+  - add enum : MessageID::CLEAR_EFFECTS
+
+ 2023-09-08 jason:
   - add field : Ack.receivedMessageId
 
  2023-09-07 jason:
@@ -18,7 +24,7 @@
   - delete message : EffectEod
   - delete message : ChangeSsid
   - delete field : InitFromApp.currentTime
-  - add field : InitFromGuitar.batteryLevel
+  - add field : InitFromGuitar.batteryLeve
   - add field : BatteryLevel.isCharging
 
  2023-08-30 jason:
@@ -90,18 +96,19 @@ enum MessageID {
   PARAM_REVERB_HALL = 33;
   PARAM_REVERB_PLATE = 34;
   PARAM_REVERB_SPRING = 35;
-  DIAG_REQ = 36;
-  DIAG_RESP_POC = 37;
-  DIAG_RESP_FIRST_PARING = 38;
-  DIAG_RESP_ERR_CODE = 39;
-  BULK_IR_START_REQ = 40;
-  BULK_IR_REQ = 41;
-  BULK_IR_END_REQ = 42;
-  BULK_IR_RES = 43;
+  CLEAR_EFFECTS = 36;
+  DIAG_REQ = 37;
+  DIAG_RESP_POC = 38;
+  DIAG_RESP_FIRST_PARING = 39;
+  DIAG_RESP_ERR_CODE = 40;
+  BULK_IR_START_REQ = 41;
+  BULK_IR_REQ = 42;
+  BULK_IR_END_REQ = 43;
+  BULK_IR_RES = 44;
 }
 
-message Ack { 
-  int32 receivedMessageLength = 1; 
+message Ack {
+  int32 receivedMessageLength = 1;
   int32 receivedMessageId = 2;
 }
 
@@ -124,11 +131,13 @@ message InitFromApp {
 }
 
 message InitFromGuitar {
-  string guitarName = 1;
-  string guitarModelName = 2;
-  string firmwareVersion = 3;
-  int32 batteryLevel = 4;
-  bool isCharging = 5;
+  int32 receivedMessageLength = 1;
+  int32 receivedMessageId = 2;
+  string guitarName = 3;
+  string guitarModelName = 4;
+  string firmwareVersion = 5;
+  int32 batteryLevel = 6;
+  bool isCharging = 7;
 }
 
 message ChangeGuitarName { string guitarName = 1; }
@@ -207,6 +216,7 @@ message ParamAmpMa {
   int32 middle = 4;
   int32 treble = 5;
 }
+
 message ParamAmpMe {
   bool isOn = 1;
   int32 gain = 2;

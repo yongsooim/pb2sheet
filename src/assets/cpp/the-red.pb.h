@@ -47,14 +47,15 @@ typedef enum _MessageID {
     MessageID_PARAM_REVERB_HALL = 33,
     MessageID_PARAM_REVERB_PLATE = 34,
     MessageID_PARAM_REVERB_SPRING = 35,
-    MessageID_DIAG_REQ = 36,
-    MessageID_DIAG_RESP_POC = 37,
-    MessageID_DIAG_RESP_FIRST_PARING = 38,
-    MessageID_DIAG_RESP_ERR_CODE = 39,
-    MessageID_BULK_IR_START_REQ = 40,
-    MessageID_BULK_IR_REQ = 41,
-    MessageID_BULK_IR_END_REQ = 42,
-    MessageID_BULK_IR_RES = 43
+    MessageID_CLEAR_EFFECTS = 36,
+    MessageID_DIAG_REQ = 37,
+    MessageID_DIAG_RESP_POC = 38,
+    MessageID_DIAG_RESP_FIRST_PARING = 39,
+    MessageID_DIAG_RESP_ERR_CODE = 40,
+    MessageID_BULK_IR_START_REQ = 41,
+    MessageID_BULK_IR_REQ = 42,
+    MessageID_BULK_IR_END_REQ = 43,
+    MessageID_BULK_IR_RES = 44
 } MessageID;
 
 /* App -> Guitar */
@@ -95,6 +96,8 @@ typedef struct _InitFromApp {
 } InitFromApp;
 
 typedef struct _InitFromGuitar {
+    int32_t receivedMessageLength;
+    int32_t receivedMessageId;
     char guitarName[55];
     char guitarModelName[55];
     char firmwareVersion[55];
@@ -426,7 +429,7 @@ extern "C" {
 #define Ack_init_default                         {0, 0}
 #define Nack_init_default                        {_Nack_ERROR_CODE_MIN}
 #define InitFromApp_init_default                 {"", 0}
-#define InitFromGuitar_init_default              {"", "", "", 0, 0}
+#define InitFromGuitar_init_default              {0, 0, "", "", "", 0, 0}
 #define ChangeGuitarName_init_default            {""}
 #define TunerOnOff_init_default                  {0}
 #define TunerFrequency_init_default              {0}
@@ -471,7 +474,7 @@ extern "C" {
 #define Ack_init_zero                            {0, 0}
 #define Nack_init_zero                           {_Nack_ERROR_CODE_MIN}
 #define InitFromApp_init_zero                    {"", 0}
-#define InitFromGuitar_init_zero                 {"", "", "", 0, 0}
+#define InitFromGuitar_init_zero                 {0, 0, "", "", "", 0, 0}
 #define ChangeGuitarName_init_zero               {""}
 #define TunerOnOff_init_zero                     {0}
 #define TunerFrequency_init_zero                 {0}
@@ -520,11 +523,13 @@ extern "C" {
 #define Nack_errorCode_tag                       1
 #define InitFromApp_appVersion_tag               1
 #define InitFromApp_KnobClicked_tag              2
-#define InitFromGuitar_guitarName_tag            1
-#define InitFromGuitar_guitarModelName_tag       2
-#define InitFromGuitar_firmwareVersion_tag       3
-#define InitFromGuitar_batteryLevel_tag          4
-#define InitFromGuitar_isCharging_tag            5
+#define InitFromGuitar_receivedMessageLength_tag 1
+#define InitFromGuitar_receivedMessageId_tag     2
+#define InitFromGuitar_guitarName_tag            3
+#define InitFromGuitar_guitarModelName_tag       4
+#define InitFromGuitar_firmwareVersion_tag       5
+#define InitFromGuitar_batteryLevel_tag          6
+#define InitFromGuitar_isCharging_tag            7
 #define ChangeGuitarName_guitarName_tag          1
 #define TunerOnOff_isOn_tag                      1
 #define TunerFrequency_tunerFrequency_tag        1
@@ -666,11 +671,13 @@ X(a, STATIC,   SINGULAR, INT32,    KnobClicked,       2)
 #define InitFromApp_DEFAULT NULL
 
 #define InitFromGuitar_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, STRING,   guitarName,        1) \
-X(a, STATIC,   SINGULAR, STRING,   guitarModelName,   2) \
-X(a, STATIC,   SINGULAR, STRING,   firmwareVersion,   3) \
-X(a, STATIC,   SINGULAR, INT32,    batteryLevel,      4) \
-X(a, STATIC,   SINGULAR, BOOL,     isCharging,        5)
+X(a, STATIC,   SINGULAR, INT32,    receivedMessageLength,   1) \
+X(a, STATIC,   SINGULAR, INT32,    receivedMessageId,   2) \
+X(a, STATIC,   SINGULAR, STRING,   guitarName,        3) \
+X(a, STATIC,   SINGULAR, STRING,   guitarModelName,   4) \
+X(a, STATIC,   SINGULAR, STRING,   firmwareVersion,   5) \
+X(a, STATIC,   SINGULAR, INT32,    batteryLevel,      6) \
+X(a, STATIC,   SINGULAR, BOOL,     isCharging,        7)
 #define InitFromGuitar_CALLBACK NULL
 #define InitFromGuitar_DEFAULT NULL
 
@@ -1067,7 +1074,7 @@ extern const pb_msgdesc_t BulkIrRes_msg;
 #define DiagRespFirstParing_size                 11
 #define DiagRespPOC_size                         11
 #define InitFromApp_size                         67
-#define InitFromGuitar_size                      181
+#define InitFromGuitar_size                      203
 #define KnobClicked_size                         11
 #define KnobMatchingStart_size                   11
 #define Nack_size                                2

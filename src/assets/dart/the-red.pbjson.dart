@@ -53,14 +53,15 @@ const MessageID$json = {
     {'1': 'PARAM_REVERB_HALL', '2': 33},
     {'1': 'PARAM_REVERB_PLATE', '2': 34},
     {'1': 'PARAM_REVERB_SPRING', '2': 35},
-    {'1': 'DIAG_REQ', '2': 36},
-    {'1': 'DIAG_RESP_POC', '2': 37},
-    {'1': 'DIAG_RESP_FIRST_PARING', '2': 38},
-    {'1': 'DIAG_RESP_ERR_CODE', '2': 39},
-    {'1': 'BULK_IR_START_REQ', '2': 40},
-    {'1': 'BULK_IR_REQ', '2': 41},
-    {'1': 'BULK_IR_END_REQ', '2': 42},
-    {'1': 'BULK_IR_RES', '2': 43},
+    {'1': 'CLEAR_EFFECTS', '2': 36},
+    {'1': 'DIAG_REQ', '2': 37},
+    {'1': 'DIAG_RESP_POC', '2': 38},
+    {'1': 'DIAG_RESP_FIRST_PARING', '2': 39},
+    {'1': 'DIAG_RESP_ERR_CODE', '2': 40},
+    {'1': 'BULK_IR_START_REQ', '2': 41},
+    {'1': 'BULK_IR_REQ', '2': 42},
+    {'1': 'BULK_IR_END_REQ', '2': 43},
+    {'1': 'BULK_IR_RES', '2': 44},
   ],
 };
 
@@ -79,10 +80,10 @@ final $typed_data.Uint8List messageIDDescriptor = $convert.base64Decode(
     'QVJBTV9NT0RfVFJFTU9MTxAcEhQKEFBBUkFNX01PRF9QSEFTRVIQHRIVChFQQVJBTV9NT0RfVk'
     'lCUkFUTxAeEhUKEVBBUkFNX0RFTEFZX0RFTEFZEB8SFQoRUEFSQU1fUkVWRVJCX1JPT00QIBIV'
     'ChFQQVJBTV9SRVZFUkJfSEFMTBAhEhYKElBBUkFNX1JFVkVSQl9QTEFURRAiEhcKE1BBUkFNX1'
-    'JFVkVSQl9TUFJJTkcQIxIMCghESUFHX1JFURAkEhEKDURJQUdfUkVTUF9QT0MQJRIaChZESUFH'
-    'X1JFU1BfRklSU1RfUEFSSU5HECYSFgoSRElBR19SRVNQX0VSUl9DT0RFECcSFQoRQlVMS19JUl'
-    '9TVEFSVF9SRVEQKBIPCgtCVUxLX0lSX1JFURApEhMKD0JVTEtfSVJfRU5EX1JFURAqEg8KC0JV'
-    'TEtfSVJfUkVTECs=');
+    'JFVkVSQl9TUFJJTkcQIxIRCg1DTEVBUl9FRkZFQ1RTECQSDAoIRElBR19SRVEQJRIRCg1ESUFH'
+    'X1JFU1BfUE9DECYSGgoWRElBR19SRVNQX0ZJUlNUX1BBUklORxAnEhYKEkRJQUdfUkVTUF9FUl'
+    'JfQ09ERRAoEhUKEUJVTEtfSVJfU1RBUlRfUkVRECkSDwoLQlVMS19JUl9SRVEQKhITCg9CVUxL'
+    'X0lSX0VORF9SRVEQKxIPCgtCVUxLX0lSX1JFUxAs');
 
 @$core.Deprecated('Use diagCodeDescriptor instead')
 const DiagCode$json = {
@@ -162,20 +163,24 @@ final $typed_data.Uint8List initFromAppDescriptor = $convert.base64Decode(
 const InitFromGuitar$json = {
   '1': 'InitFromGuitar',
   '2': [
-    {'1': 'guitarName', '3': 1, '4': 1, '5': 9, '10': 'guitarName'},
-    {'1': 'guitarModelName', '3': 2, '4': 1, '5': 9, '10': 'guitarModelName'},
-    {'1': 'firmwareVersion', '3': 3, '4': 1, '5': 9, '10': 'firmwareVersion'},
-    {'1': 'batteryLevel', '3': 4, '4': 1, '5': 5, '10': 'batteryLevel'},
-    {'1': 'isCharging', '3': 5, '4': 1, '5': 8, '10': 'isCharging'},
+    {'1': 'receivedMessageLength', '3': 1, '4': 1, '5': 5, '10': 'receivedMessageLength'},
+    {'1': 'receivedMessageId', '3': 2, '4': 1, '5': 5, '10': 'receivedMessageId'},
+    {'1': 'guitarName', '3': 3, '4': 1, '5': 9, '10': 'guitarName'},
+    {'1': 'guitarModelName', '3': 4, '4': 1, '5': 9, '10': 'guitarModelName'},
+    {'1': 'firmwareVersion', '3': 5, '4': 1, '5': 9, '10': 'firmwareVersion'},
+    {'1': 'batteryLevel', '3': 6, '4': 1, '5': 5, '10': 'batteryLevel'},
+    {'1': 'isCharging', '3': 7, '4': 1, '5': 8, '10': 'isCharging'},
   ],
 };
 
 /// Descriptor for `InitFromGuitar`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List initFromGuitarDescriptor = $convert.base64Decode(
-    'Cg5Jbml0RnJvbUd1aXRhchIeCgpndWl0YXJOYW1lGAEgASgJUgpndWl0YXJOYW1lEigKD2d1aX'
-    'Rhck1vZGVsTmFtZRgCIAEoCVIPZ3VpdGFyTW9kZWxOYW1lEigKD2Zpcm13YXJlVmVyc2lvbhgD'
-    'IAEoCVIPZmlybXdhcmVWZXJzaW9uEiIKDGJhdHRlcnlMZXZlbBgEIAEoBVIMYmF0dGVyeUxldm'
-    'VsEh4KCmlzQ2hhcmdpbmcYBSABKAhSCmlzQ2hhcmdpbmc=');
+    'Cg5Jbml0RnJvbUd1aXRhchI0ChVyZWNlaXZlZE1lc3NhZ2VMZW5ndGgYASABKAVSFXJlY2Vpdm'
+    'VkTWVzc2FnZUxlbmd0aBIsChFyZWNlaXZlZE1lc3NhZ2VJZBgCIAEoBVIRcmVjZWl2ZWRNZXNz'
+    'YWdlSWQSHgoKZ3VpdGFyTmFtZRgDIAEoCVIKZ3VpdGFyTmFtZRIoCg9ndWl0YXJNb2RlbE5hbW'
+    'UYBCABKAlSD2d1aXRhck1vZGVsTmFtZRIoCg9maXJtd2FyZVZlcnNpb24YBSABKAlSD2Zpcm13'
+    'YXJlVmVyc2lvbhIiCgxiYXR0ZXJ5TGV2ZWwYBiABKAVSDGJhdHRlcnlMZXZlbBIeCgppc0NoYX'
+    'JnaW5nGAcgASgIUgppc0NoYXJnaW5n');
 
 @$core.Deprecated('Use changeGuitarNameDescriptor instead')
 const ChangeGuitarName$json = {

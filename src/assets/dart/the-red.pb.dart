@@ -171,11 +171,13 @@ class InitFromGuitar extends $pb.GeneratedMessage {
   factory InitFromGuitar.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'InitFromGuitar', createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'guitarName', protoName: 'guitarName')
-    ..aOS(2, _omitFieldNames ? '' : 'guitarModelName', protoName: 'guitarModelName')
-    ..aOS(3, _omitFieldNames ? '' : 'firmwareVersion', protoName: 'firmwareVersion')
-    ..a<$core.int>(4, _omitFieldNames ? '' : 'batteryLevel', $pb.PbFieldType.O3, protoName: 'batteryLevel')
-    ..aOB(5, _omitFieldNames ? '' : 'isCharging', protoName: 'isCharging')
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'receivedMessageLength', $pb.PbFieldType.O3, protoName: 'receivedMessageLength')
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'receivedMessageId', $pb.PbFieldType.O3, protoName: 'receivedMessageId')
+    ..aOS(3, _omitFieldNames ? '' : 'guitarName', protoName: 'guitarName')
+    ..aOS(4, _omitFieldNames ? '' : 'guitarModelName', protoName: 'guitarModelName')
+    ..aOS(5, _omitFieldNames ? '' : 'firmwareVersion', protoName: 'firmwareVersion')
+    ..a<$core.int>(6, _omitFieldNames ? '' : 'batteryLevel', $pb.PbFieldType.O3, protoName: 'batteryLevel')
+    ..aOB(7, _omitFieldNames ? '' : 'isCharging', protoName: 'isCharging')
     ..hasRequiredFields = false
   ;
 
@@ -201,49 +203,67 @@ class InitFromGuitar extends $pb.GeneratedMessage {
   static InitFromGuitar? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.String get guitarName => $_getSZ(0);
+  $core.int get receivedMessageLength => $_getIZ(0);
   @$pb.TagNumber(1)
-  set guitarName($core.String v) { $_setString(0, v); }
+  set receivedMessageLength($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasGuitarName() => $_has(0);
+  $core.bool hasReceivedMessageLength() => $_has(0);
   @$pb.TagNumber(1)
-  void clearGuitarName() => clearField(1);
+  void clearReceivedMessageLength() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get guitarModelName => $_getSZ(1);
+  $core.int get receivedMessageId => $_getIZ(1);
   @$pb.TagNumber(2)
-  set guitarModelName($core.String v) { $_setString(1, v); }
+  set receivedMessageId($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasGuitarModelName() => $_has(1);
+  $core.bool hasReceivedMessageId() => $_has(1);
   @$pb.TagNumber(2)
-  void clearGuitarModelName() => clearField(2);
+  void clearReceivedMessageId() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.String get firmwareVersion => $_getSZ(2);
+  $core.String get guitarName => $_getSZ(2);
   @$pb.TagNumber(3)
-  set firmwareVersion($core.String v) { $_setString(2, v); }
+  set guitarName($core.String v) { $_setString(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasFirmwareVersion() => $_has(2);
+  $core.bool hasGuitarName() => $_has(2);
   @$pb.TagNumber(3)
-  void clearFirmwareVersion() => clearField(3);
+  void clearGuitarName() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.int get batteryLevel => $_getIZ(3);
+  $core.String get guitarModelName => $_getSZ(3);
   @$pb.TagNumber(4)
-  set batteryLevel($core.int v) { $_setSignedInt32(3, v); }
+  set guitarModelName($core.String v) { $_setString(3, v); }
   @$pb.TagNumber(4)
-  $core.bool hasBatteryLevel() => $_has(3);
+  $core.bool hasGuitarModelName() => $_has(3);
   @$pb.TagNumber(4)
-  void clearBatteryLevel() => clearField(4);
+  void clearGuitarModelName() => clearField(4);
 
   @$pb.TagNumber(5)
-  $core.bool get isCharging => $_getBF(4);
+  $core.String get firmwareVersion => $_getSZ(4);
   @$pb.TagNumber(5)
-  set isCharging($core.bool v) { $_setBool(4, v); }
+  set firmwareVersion($core.String v) { $_setString(4, v); }
   @$pb.TagNumber(5)
-  $core.bool hasIsCharging() => $_has(4);
+  $core.bool hasFirmwareVersion() => $_has(4);
   @$pb.TagNumber(5)
-  void clearIsCharging() => clearField(5);
+  void clearFirmwareVersion() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.int get batteryLevel => $_getIZ(5);
+  @$pb.TagNumber(6)
+  set batteryLevel($core.int v) { $_setSignedInt32(5, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasBatteryLevel() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearBatteryLevel() => clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.bool get isCharging => $_getBF(6);
+  @$pb.TagNumber(7)
+  set isCharging($core.bool v) { $_setBool(6, v); }
+  @$pb.TagNumber(7)
+  $core.bool hasIsCharging() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearIsCharging() => clearField(7);
 }
 
 class ChangeGuitarName extends $pb.GeneratedMessage {
