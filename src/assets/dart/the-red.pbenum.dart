@@ -51,15 +51,16 @@ class MessageID extends $pb.ProtobufEnum {
   static const MessageID PARAM_REVERB_SPRING = MessageID._(34, _omitEnumNames ? '' : 'PARAM_REVERB_SPRING');
   static const MessageID CATEGORY_DATA = MessageID._(35, _omitEnumNames ? '' : 'CATEGORY_DATA');
   static const MessageID BANK_DATA = MessageID._(36, _omitEnumNames ? '' : 'BANK_DATA');
-  static const MessageID CLEAR_EFFECTS = MessageID._(37, _omitEnumNames ? '' : 'CLEAR_EFFECTS');
-  static const MessageID DIAG_REQ = MessageID._(38, _omitEnumNames ? '' : 'DIAG_REQ');
-  static const MessageID DIAG_RESP_POC = MessageID._(39, _omitEnumNames ? '' : 'DIAG_RESP_POC');
-  static const MessageID DIAG_RESP_FIRST_PARING = MessageID._(40, _omitEnumNames ? '' : 'DIAG_RESP_FIRST_PARING');
-  static const MessageID DIAG_RESP_ERR_CODE = MessageID._(41, _omitEnumNames ? '' : 'DIAG_RESP_ERR_CODE');
-  static const MessageID BULK_IR_START_REQ = MessageID._(42, _omitEnumNames ? '' : 'BULK_IR_START_REQ');
-  static const MessageID BULK_IR_REQ = MessageID._(43, _omitEnumNames ? '' : 'BULK_IR_REQ');
-  static const MessageID BULK_IR_END_REQ = MessageID._(44, _omitEnumNames ? '' : 'BULK_IR_END_REQ');
-  static const MessageID BULK_IR_RES = MessageID._(45, _omitEnumNames ? '' : 'BULK_IR_RES');
+  static const MessageID KNOB_MATCHING = MessageID._(37, _omitEnumNames ? '' : 'KNOB_MATCHING');
+  static const MessageID CLEAR_EFFECTS = MessageID._(38, _omitEnumNames ? '' : 'CLEAR_EFFECTS');
+  static const MessageID DIAG_REQ = MessageID._(39, _omitEnumNames ? '' : 'DIAG_REQ');
+  static const MessageID DIAG_RESP_POC = MessageID._(40, _omitEnumNames ? '' : 'DIAG_RESP_POC');
+  static const MessageID DIAG_RESP_FIRST_PARING = MessageID._(41, _omitEnumNames ? '' : 'DIAG_RESP_FIRST_PARING');
+  static const MessageID DIAG_RESP_ERR_CODE = MessageID._(42, _omitEnumNames ? '' : 'DIAG_RESP_ERR_CODE');
+  static const MessageID BULK_IR_START_REQ = MessageID._(43, _omitEnumNames ? '' : 'BULK_IR_START_REQ');
+  static const MessageID BULK_IR_REQ = MessageID._(44, _omitEnumNames ? '' : 'BULK_IR_REQ');
+  static const MessageID BULK_IR_END_REQ = MessageID._(45, _omitEnumNames ? '' : 'BULK_IR_END_REQ');
+  static const MessageID BULK_IR_RES = MessageID._(46, _omitEnumNames ? '' : 'BULK_IR_RES');
 
   static const $core.List<MessageID> values = <MessageID> [
     ACK,
@@ -99,6 +100,7 @@ class MessageID extends $pb.ProtobufEnum {
     PARAM_REVERB_SPRING,
     CATEGORY_DATA,
     BANK_DATA,
+    KNOB_MATCHING,
     CLEAR_EFFECTS,
     DIAG_REQ,
     DIAG_RESP_POC,
