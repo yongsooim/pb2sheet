@@ -832,6 +832,20 @@ const BankData$json = {
 final $typed_data.Uint8List bankDataDescriptor = $convert.base64Decode(
     'CghCYW5rRGF0YRIhCgRkYXRhGAEgAygLMg0uQ2F0ZWdvcnlEYXRhUgRkYXRh');
 
+@$core.Deprecated('Use knobMatchingDescriptor instead')
+const KnobMatching$json = {
+  '1': 'KnobMatching',
+  '2': [
+    {'1': 'knobNumber', '3': 1, '4': 1, '5': 5, '10': 'knobNumber'},
+    {'1': 'data', '3': 2, '4': 1, '5': 11, '6': '.BankData', '10': 'data'},
+  ],
+};
+
+/// Descriptor for `KnobMatching`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List knobMatchingDescriptor = $convert.base64Decode(
+    'CgxLbm9iTWF0Y2hpbmcSHgoKa25vYk51bWJlchgBIAEoBVIKa25vYk51bWJlchIdCgRkYXRhGA'
+    'IgASgLMgkuQmFua0RhdGFSBGRhdGE=');
+
 @$core.Deprecated('Use clearEffectsDescriptor instead')
 const ClearEffects$json = {
   '1': 'ClearEffects',

@@ -2410,6 +2410,60 @@ class BankData extends $pb.GeneratedMessage {
   $core.List<CategoryData> get data => $_getList(0);
 }
 
+class KnobMatching extends $pb.GeneratedMessage {
+  factory KnobMatching() => create();
+  KnobMatching._() : super();
+  factory KnobMatching.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory KnobMatching.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'KnobMatching', createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'knobNumber', $pb.PbFieldType.O3, protoName: 'knobNumber')
+    ..aOM<BankData>(2, _omitFieldNames ? '' : 'data', subBuilder: BankData.create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  KnobMatching clone() => KnobMatching()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  KnobMatching copyWith(void Function(KnobMatching) updates) => super.copyWith((message) => updates(message as KnobMatching)) as KnobMatching;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static KnobMatching create() => KnobMatching._();
+  KnobMatching createEmptyInstance() => create();
+  static $pb.PbList<KnobMatching> createRepeated() => $pb.PbList<KnobMatching>();
+  @$core.pragma('dart2js:noInline')
+  static KnobMatching getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<KnobMatching>(create);
+  static KnobMatching? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.int get knobNumber => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set knobNumber($core.int v) { $_setSignedInt32(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasKnobNumber() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearKnobNumber() => clearField(1);
+
+  @$pb.TagNumber(2)
+  BankData get data => $_getN(1);
+  @$pb.TagNumber(2)
+  set data(BankData v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasData() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearData() => clearField(2);
+  @$pb.TagNumber(2)
+  BankData ensureData() => $_ensure(1);
+}
+
 class ClearEffects extends $pb.GeneratedMessage {
   factory ClearEffects() => create();
   ClearEffects._() : super();

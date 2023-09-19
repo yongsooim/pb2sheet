@@ -117,6 +117,9 @@ PB_BIND(CategoryData, CategoryData, AUTO)
 PB_BIND(BankData, BankData, 2)
 
 
+PB_BIND(KnobMatching, KnobMatching, 2)
+
+
 PB_BIND(ClearEffects, ClearEffects, AUTO)
 
 

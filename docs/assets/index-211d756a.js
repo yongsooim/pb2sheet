@@ -3,7 +3,7 @@ var Ei=Object.defineProperty;var Li=(h,w,g)=>w in h?Ei(h,w,{enumerable:!0,config
 /*
 
  2023-09-19 jason:
-  - temp add message : CategoryData, BankData
+  - temp add message : CategoryData, BankData, KnobMatching
 
  2023-09-14 jason:
   - delete message & message ID : CurrentKnobSelected
@@ -403,6 +403,11 @@ message CategoryData {
 
 message BankData {
   repeated CategoryData data = 1;
+}
+
+message KnobMatching {
+  int32 knobNumber = 1;
+  BankData data = 2;
 }
 
 message ClearEffects { bool clear = 1; }
