@@ -370,7 +370,7 @@ typedef struct _ParamReverbSpring {
 } ParamReverbSpring;
 
 typedef struct _CategoryData {
-    bool isOn;
+    int32_t categoryNumber;
     int32_t select;
     pb_size_t params_count;
     int32_t params[16];
@@ -743,7 +743,7 @@ extern "C" {
 #define ParamReverbSpring_roomsize_tag           2
 #define ParamReverbSpring_tone_tag               3
 #define ParamReverbSpring_mix_tag                4
-#define CategoryData_isOn_tag                    1
+#define CategoryData_categoryNumber_tag          1
 #define CategoryData_select_tag                  2
 #define CategoryData_params_tag                  3
 #define BankData_data_tag                        1
@@ -1022,7 +1022,7 @@ X(a, STATIC,   SINGULAR, INT32,    mix,               4)
 #define ParamReverbSpring_DEFAULT NULL
 
 #define CategoryData_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
+X(a, STATIC,   SINGULAR, INT32,    categoryNumber,    1) \
 X(a, STATIC,   SINGULAR, INT32,    select,            2) \
 X(a, STATIC,   REPEATED, INT32,    params,            3)
 #define CategoryData_CALLBACK NULL
@@ -1181,13 +1181,13 @@ extern const pb_msgdesc_t BulkIrRes_msg;
 
 /* Maximum encoded size of messages (where known) */
 #define Ack_size                                 22
-#define BankData_size                            1344
+#define BankData_size                            1407
 #define BatteryLevel_size                        13
 #define BulkIrEndReq_size                        61
 #define BulkIrReq_size                           61
 #define BulkIrRes_size                           13
 #define BulkIrStartReq_size                      126
-#define CategoryData_size                        189
+#define CategoryData_size                        198
 #define ChangeGuitarName_size                    65
 #define ClearEffects_size                        2
 #define DiagReq_size                             2

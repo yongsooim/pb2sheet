@@ -2325,7 +2325,7 @@ class CategoryData extends $pb.GeneratedMessage {
   factory CategoryData.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CategoryData', createEmptyInstance: create)
-    ..aOB(1, _omitFieldNames ? '' : 'isOn', protoName: 'isOn')
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'categoryNumber', $pb.PbFieldType.O3, protoName: 'categoryNumber')
     ..a<$core.int>(2, _omitFieldNames ? '' : 'select', $pb.PbFieldType.O3)
     ..p<$core.int>(3, _omitFieldNames ? '' : 'params', $pb.PbFieldType.K3)
     ..hasRequiredFields = false
@@ -2353,13 +2353,13 @@ class CategoryData extends $pb.GeneratedMessage {
   static CategoryData? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.bool get isOn => $_getBF(0);
+  $core.int get categoryNumber => $_getIZ(0);
   @$pb.TagNumber(1)
-  set isOn($core.bool v) { $_setBool(0, v); }
+  set categoryNumber($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasIsOn() => $_has(0);
+  $core.bool hasCategoryNumber() => $_has(0);
   @$pb.TagNumber(1)
-  void clearIsOn() => clearField(1);
+  void clearCategoryNumber() => clearField(1);
 
   @$pb.TagNumber(2)
   $core.int get select => $_getIZ(1);

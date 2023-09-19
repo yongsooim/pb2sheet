@@ -397,9 +397,8 @@ message ParamReverbSpring {
 
 message CategoryData {
   int32 categoryNumber = 1;
-  bool isOn = 2;
-  int32 select = 3;
-  repeated int32 params = 4;
+  int32 select = 2;
+  repeated int32 params = 3;
 }
 
 message BankData {

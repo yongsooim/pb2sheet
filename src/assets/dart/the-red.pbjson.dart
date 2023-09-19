@@ -809,7 +809,7 @@ final $typed_data.Uint8List paramReverbSpringDescriptor = $convert.base64Decode(
 const CategoryData$json = {
   '1': 'CategoryData',
   '2': [
-    {'1': 'isOn', '3': 1, '4': 1, '5': 8, '10': 'isOn'},
+    {'1': 'categoryNumber', '3': 1, '4': 1, '5': 5, '10': 'categoryNumber'},
     {'1': 'select', '3': 2, '4': 1, '5': 5, '10': 'select'},
     {'1': 'params', '3': 3, '4': 3, '5': 5, '10': 'params'},
   ],
@@ -817,8 +817,8 @@ const CategoryData$json = {
 
 /// Descriptor for `CategoryData`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List categoryDataDescriptor = $convert.base64Decode(
-    'CgxDYXRlZ29yeURhdGESEgoEaXNPbhgBIAEoCFIEaXNPbhIWCgZzZWxlY3QYAiABKAVSBnNlbG'
-    'VjdBIWCgZwYXJhbXMYAyADKAVSBnBhcmFtcw==');
+    'CgxDYXRlZ29yeURhdGESJgoOY2F0ZWdvcnlOdW1iZXIYASABKAVSDmNhdGVnb3J5TnVtYmVyEh'
+    'YKBnNlbGVjdBgCIAEoBVIGc2VsZWN0EhYKBnBhcmFtcxgDIAMoBVIGcGFyYW1z');
 
 @$core.Deprecated('Use bankDataDescriptor instead')
 const BankData$json = {
