@@ -528,48 +528,6 @@ class BatteryLevel extends $pb.GeneratedMessage {
   void clearIsCharging() => clearField(2);
 }
 
-class CurrentKnobSelected extends $pb.GeneratedMessage {
-  factory CurrentKnobSelected() => create();
-  CurrentKnobSelected._() : super();
-  factory CurrentKnobSelected.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory CurrentKnobSelected.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CurrentKnobSelected', createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'currentKnobSelected', $pb.PbFieldType.O3, protoName: 'currentKnobSelected')
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  CurrentKnobSelected clone() => CurrentKnobSelected()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  CurrentKnobSelected copyWith(void Function(CurrentKnobSelected) updates) => super.copyWith((message) => updates(message as CurrentKnobSelected)) as CurrentKnobSelected;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static CurrentKnobSelected create() => CurrentKnobSelected._();
-  CurrentKnobSelected createEmptyInstance() => create();
-  static $pb.PbList<CurrentKnobSelected> createRepeated() => $pb.PbList<CurrentKnobSelected>();
-  @$core.pragma('dart2js:noInline')
-  static CurrentKnobSelected getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CurrentKnobSelected>(create);
-  static CurrentKnobSelected? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.int get currentKnobSelected => $_getIZ(0);
-  @$pb.TagNumber(1)
-  set currentKnobSelected($core.int v) { $_setSignedInt32(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasCurrentKnobSelected() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearCurrentKnobSelected() => clearField(1);
-}
-
 class ParamGate extends $pb.GeneratedMessage {
   factory ParamGate() => create();
   ParamGate._() : super();
@@ -2358,6 +2316,98 @@ class ParamReverbSpring extends $pb.GeneratedMessage {
   $core.bool hasMix() => $_has(3);
   @$pb.TagNumber(4)
   void clearMix() => clearField(4);
+}
+
+class CategoryData extends $pb.GeneratedMessage {
+  factory CategoryData() => create();
+  CategoryData._() : super();
+  factory CategoryData.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CategoryData.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CategoryData', createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'isOn', protoName: 'isOn')
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'select', $pb.PbFieldType.O3)
+    ..p<$core.int>(3, _omitFieldNames ? '' : 'params', $pb.PbFieldType.K3)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  CategoryData clone() => CategoryData()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  CategoryData copyWith(void Function(CategoryData) updates) => super.copyWith((message) => updates(message as CategoryData)) as CategoryData;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static CategoryData create() => CategoryData._();
+  CategoryData createEmptyInstance() => create();
+  static $pb.PbList<CategoryData> createRepeated() => $pb.PbList<CategoryData>();
+  @$core.pragma('dart2js:noInline')
+  static CategoryData getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CategoryData>(create);
+  static CategoryData? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get isOn => $_getBF(0);
+  @$pb.TagNumber(1)
+  set isOn($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasIsOn() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearIsOn() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.int get select => $_getIZ(1);
+  @$pb.TagNumber(2)
+  set select($core.int v) { $_setSignedInt32(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasSelect() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearSelect() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.List<$core.int> get params => $_getList(2);
+}
+
+class BankData extends $pb.GeneratedMessage {
+  factory BankData() => create();
+  BankData._() : super();
+  factory BankData.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory BankData.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BankData', createEmptyInstance: create)
+    ..pc<CategoryData>(1, _omitFieldNames ? '' : 'data', $pb.PbFieldType.PM, subBuilder: CategoryData.create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  BankData clone() => BankData()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  BankData copyWith(void Function(BankData) updates) => super.copyWith((message) => updates(message as BankData)) as BankData;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static BankData create() => BankData._();
+  BankData createEmptyInstance() => create();
+  static $pb.PbList<BankData> createRepeated() => $pb.PbList<BankData>();
+  @$core.pragma('dart2js:noInline')
+  static BankData getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BankData>(create);
+  static BankData? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<CategoryData> get data => $_getList(0);
 }
 
 class ClearEffects extends $pb.GeneratedMessage {

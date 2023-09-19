@@ -21,42 +21,106 @@ typedef enum _MessageID {
     MessageID_KNOB_CLICKED = 7,
     MessageID_KNOB_MATCHING_START = 8,
     MessageID_BATTERY_LEVEL = 9,
-    MessageID_CURRENT_KNOB_SELECTED = 10,
-    MessageID_PARAM_GATE = 11,
-    MessageID_PARAM_EFX_OVERDRIVE = 12,
-    MessageID_PARAM_EFX_DISTORTION = 13,
-    MessageID_PARAM_EFX_FUZZ = 14,
-    MessageID_PARAM_EFX_ACOUSTIC = 15,
-    MessageID_PARAM_AMP_F = 16,
-    MessageID_PARAM_AMP_MA = 17,
-    MessageID_PARAM_AMP_ME = 18,
-    MessageID_PARAM_AMP_V = 19,
-    MessageID_PARAM_AMP_B = 20,
-    MessageID_PARAM_CAB_A = 21,
-    MessageID_PARAM_CAB_B = 22,
-    MessageID_PARAM_CAB_C = 23,
-    MessageID_PARAM_CAB_D = 24,
-    MessageID_PARAM_CAB_E = 25,
-    MessageID_PARAM_MOD_FLANGE = 26,
-    MessageID_PARAM_MOD_CHORUS = 27,
-    MessageID_PARAM_MOD_TREMOLO = 28,
-    MessageID_PARAM_MOD_PHASER = 29,
-    MessageID_PARAM_MOD_VIBRATO = 30,
-    MessageID_PARAM_DELAY_DELAY = 31,
-    MessageID_PARAM_REVERB_ROOM = 32,
-    MessageID_PARAM_REVERB_HALL = 33,
-    MessageID_PARAM_REVERB_PLATE = 34,
-    MessageID_PARAM_REVERB_SPRING = 35,
-    MessageID_CLEAR_EFFECTS = 36,
-    MessageID_DIAG_REQ = 37,
-    MessageID_DIAG_RESP_POC = 38,
-    MessageID_DIAG_RESP_FIRST_PARING = 39,
-    MessageID_DIAG_RESP_ERR_CODE = 40,
-    MessageID_BULK_IR_START_REQ = 41,
-    MessageID_BULK_IR_REQ = 42,
-    MessageID_BULK_IR_END_REQ = 43,
-    MessageID_BULK_IR_RES = 44
+    MessageID_PARAM_GATE = 10,
+    MessageID_PARAM_EFX_OVERDRIVE = 11,
+    MessageID_PARAM_EFX_DISTORTION = 12,
+    MessageID_PARAM_EFX_FUZZ = 13,
+    MessageID_PARAM_EFX_ACOUSTIC = 14,
+    MessageID_PARAM_AMP_F = 15,
+    MessageID_PARAM_AMP_MA = 16,
+    MessageID_PARAM_AMP_ME = 17,
+    MessageID_PARAM_AMP_V = 18,
+    MessageID_PARAM_AMP_B = 19,
+    MessageID_PARAM_CAB_A = 20,
+    MessageID_PARAM_CAB_B = 21,
+    MessageID_PARAM_CAB_C = 22,
+    MessageID_PARAM_CAB_D = 23,
+    MessageID_PARAM_CAB_E = 24,
+    MessageID_PARAM_MOD_FLANGE = 25,
+    MessageID_PARAM_MOD_CHORUS = 26,
+    MessageID_PARAM_MOD_TREMOLO = 27,
+    MessageID_PARAM_MOD_PHASER = 28,
+    MessageID_PARAM_MOD_VIBRATO = 29,
+    MessageID_PARAM_DELAY_DELAY = 30,
+    MessageID_PARAM_REVERB_ROOM = 31,
+    MessageID_PARAM_REVERB_HALL = 32,
+    MessageID_PARAM_REVERB_PLATE = 33,
+    MessageID_PARAM_REVERB_SPRING = 34,
+    MessageID_CATEGORY_DATA = 35,
+    MessageID_BANK_DATA = 36,
+    MessageID_CLEAR_EFFECTS = 37,
+    MessageID_DIAG_REQ = 38,
+    MessageID_DIAG_RESP_POC = 39,
+    MessageID_DIAG_RESP_FIRST_PARING = 40,
+    MessageID_DIAG_RESP_ERR_CODE = 41,
+    MessageID_BULK_IR_START_REQ = 42,
+    MessageID_BULK_IR_REQ = 43,
+    MessageID_BULK_IR_END_REQ = 44,
+    MessageID_BULK_IR_RES = 45
 } MessageID;
+
+typedef enum _CATEGORY_NUMBER {
+    CATEGORY_NUMBER_CAT_NO1_GATE = 0,
+    CATEGORY_NUMBER_CAT_NO2_EFX = 1,
+    CATEGORY_NUMBER_CAT_NO3_AMP = 2,
+    CATEGORY_NUMBER_CAT_NO4_CAB = 3,
+    CATEGORY_NUMBER_CAT_NO5_MOD = 4,
+    CATEGORY_NUMBER_CAT_NO6_DELAY = 5,
+    CATEGORY_NUMBER_CAT_NO7_REVERB = 6
+} CATEGORY_NUMBER;
+
+typedef enum _CATEGORY1_GATE_SELECT {
+    CATEGORY1_GATE_SELECT_GATE_GATE = 0,
+    CATEGORY1_GATE_SELECT_NUMBER_OF_GATE = 1
+} CATEGORY1_GATE_SELECT;
+
+typedef enum _CATEGORY2_EFX_SELECT {
+    CATEGORY2_EFX_SELECT_EFX_OVERDRIVE = 0,
+    CATEGORY2_EFX_SELECT_EFX_DISTORTION = 1,
+    CATEGORY2_EFX_SELECT_EFX_FUZZ = 2,
+    CATEGORY2_EFX_SELECT_EFX_ACOUSTIC = 3,
+    CATEGORY2_EFX_SELECT_NUMBER_OF_EFX = 4
+} CATEGORY2_EFX_SELECT;
+
+typedef enum _CATEGORY3_AMP_SELECT {
+    CATEGORY3_AMP_SELECT_AMP_F = 0,
+    CATEGORY3_AMP_SELECT_AMP_MA = 1,
+    CATEGORY3_AMP_SELECT_AMP_ME = 2,
+    CATEGORY3_AMP_SELECT_AMP_V = 3,
+    CATEGORY3_AMP_SELECT_AMP_B = 4,
+    CATEGORY3_AMP_SELECT_NUMBER_OF_AMP = 5
+} CATEGORY3_AMP_SELECT;
+
+typedef enum _CATEGORY4_CAB_SELECT {
+    CATEGORY4_CAB_SELECT_CAB_A = 0,
+    CATEGORY4_CAB_SELECT_CAB_B = 1,
+    CATEGORY4_CAB_SELECT_CAB_C = 2,
+    CATEGORY4_CAB_SELECT_CAB_D = 3,
+    CATEGORY4_CAB_SELECT_CAB_E = 4,
+    CATEGORY4_CAB_SELECT_NUMBER_OF_CAB = 5
+} CATEGORY4_CAB_SELECT;
+
+typedef enum _CATEGORY5_MOD_SELECT {
+    CATEGORY5_MOD_SELECT_MOD_FLANGE = 0,
+    CATEGORY5_MOD_SELECT_MOD_CHORUS = 1,
+    CATEGORY5_MOD_SELECT_MOD_TREMOLO = 2,
+    CATEGORY5_MOD_SELECT_MOD_PHASER = 3,
+    CATEGORY5_MOD_SELECT_MOD_VIBRATO = 4,
+    CATEGORY5_MOD_SELECT_NUMBER_OF_MOD = 5
+} CATEGORY5_MOD_SELECT;
+
+typedef enum _CATEGORY6_DELAY_SELECT {
+    CATEGORY6_DELAY_SELECT_DELAY_DELAY = 0,
+    CATEGORY6_DELAY_SELECT_NUMBER_OF_DELAY = 1
+} CATEGORY6_DELAY_SELECT;
+
+typedef enum _CATEGORY7_REVERB_SELECT {
+    CATEGORY7_REVERB_SELECT_REVERB_ROOM = 0,
+    CATEGORY7_REVERB_SELECT_REVERB_HALL = 1,
+    CATEGORY7_REVERB_SELECT_REVERB_PLATE = 2,
+    CATEGORY7_REVERB_SELECT_REVERB_SPRING = 3,
+    CATEGORY7_REVERB_SELECT_NUMBER_OF_REVERB = 4
+} CATEGORY7_REVERB_SELECT;
 
 /* App -> Guitar */
 typedef enum _DiagCode {
@@ -91,22 +155,22 @@ typedef struct _Nack {
 } Nack;
 
 typedef struct _InitFromApp {
-    char appVersion[55];
+    char appVersion[64];
     int32_t KnobClicked;
 } InitFromApp;
 
 typedef struct _InitFromGuitar {
     int32_t receivedMessageLength;
     int32_t receivedMessageId;
-    char guitarName[55];
-    char guitarModelName[55];
-    char firmwareVersion[55];
+    char guitarName[64];
+    char guitarModelName[64];
+    char firmwareVersion[64];
     int32_t batteryLevel;
     bool isCharging;
 } InitFromGuitar;
 
 typedef struct _ChangeGuitarName {
-    char guitarName[55];
+    char guitarName[64];
 } ChangeGuitarName;
 
 typedef struct _TunerOnOff {
@@ -130,10 +194,6 @@ typedef struct _BatteryLevel {
     int32_t batteryLevel;
     bool isCharging;
 } BatteryLevel;
-
-typedef struct _CurrentKnobSelected {
-    int32_t currentKnobSelected;
-} CurrentKnobSelected;
 
 typedef struct _ParamGate {
     bool isOn;
@@ -309,6 +369,18 @@ typedef struct _ParamReverbSpring {
     int32_t mix;
 } ParamReverbSpring;
 
+typedef struct _CategoryData {
+    bool isOn;
+    int32_t select;
+    pb_size_t params_count;
+    int32_t params[16];
+} CategoryData;
+
+typedef struct _BankData {
+    pb_size_t data_count;
+    CategoryData data[7];
+} BankData;
+
 typedef struct _ClearEffects {
     bool clear;
 } ClearEffects;
@@ -331,7 +403,7 @@ typedef struct _DiagRespErrCode {
 
 /* Save IR Request */
 typedef struct _BulkIrStartReq {
-    char irName[55];
+    char irName[64];
     int32_t sequenceNumber;
     pb_size_t data_count;
     float data[10];
@@ -365,6 +437,38 @@ extern "C" {
 #define _MessageID_MAX MessageID_BULK_IR_RES
 #define _MessageID_ARRAYSIZE ((MessageID)(MessageID_BULK_IR_RES+1))
 
+#define _CATEGORY_NUMBER_MIN CATEGORY_NUMBER_CAT_NO1_GATE
+#define _CATEGORY_NUMBER_MAX CATEGORY_NUMBER_CAT_NO7_REVERB
+#define _CATEGORY_NUMBER_ARRAYSIZE ((CATEGORY_NUMBER)(CATEGORY_NUMBER_CAT_NO7_REVERB+1))
+
+#define _CATEGORY1_GATE_SELECT_MIN CATEGORY1_GATE_SELECT_GATE_GATE
+#define _CATEGORY1_GATE_SELECT_MAX CATEGORY1_GATE_SELECT_NUMBER_OF_GATE
+#define _CATEGORY1_GATE_SELECT_ARRAYSIZE ((CATEGORY1_GATE_SELECT)(CATEGORY1_GATE_SELECT_NUMBER_OF_GATE+1))
+
+#define _CATEGORY2_EFX_SELECT_MIN CATEGORY2_EFX_SELECT_EFX_OVERDRIVE
+#define _CATEGORY2_EFX_SELECT_MAX CATEGORY2_EFX_SELECT_NUMBER_OF_EFX
+#define _CATEGORY2_EFX_SELECT_ARRAYSIZE ((CATEGORY2_EFX_SELECT)(CATEGORY2_EFX_SELECT_NUMBER_OF_EFX+1))
+
+#define _CATEGORY3_AMP_SELECT_MIN CATEGORY3_AMP_SELECT_AMP_F
+#define _CATEGORY3_AMP_SELECT_MAX CATEGORY3_AMP_SELECT_NUMBER_OF_AMP
+#define _CATEGORY3_AMP_SELECT_ARRAYSIZE ((CATEGORY3_AMP_SELECT)(CATEGORY3_AMP_SELECT_NUMBER_OF_AMP+1))
+
+#define _CATEGORY4_CAB_SELECT_MIN CATEGORY4_CAB_SELECT_CAB_A
+#define _CATEGORY4_CAB_SELECT_MAX CATEGORY4_CAB_SELECT_NUMBER_OF_CAB
+#define _CATEGORY4_CAB_SELECT_ARRAYSIZE ((CATEGORY4_CAB_SELECT)(CATEGORY4_CAB_SELECT_NUMBER_OF_CAB+1))
+
+#define _CATEGORY5_MOD_SELECT_MIN CATEGORY5_MOD_SELECT_MOD_FLANGE
+#define _CATEGORY5_MOD_SELECT_MAX CATEGORY5_MOD_SELECT_NUMBER_OF_MOD
+#define _CATEGORY5_MOD_SELECT_ARRAYSIZE ((CATEGORY5_MOD_SELECT)(CATEGORY5_MOD_SELECT_NUMBER_OF_MOD+1))
+
+#define _CATEGORY6_DELAY_SELECT_MIN CATEGORY6_DELAY_SELECT_DELAY_DELAY
+#define _CATEGORY6_DELAY_SELECT_MAX CATEGORY6_DELAY_SELECT_NUMBER_OF_DELAY
+#define _CATEGORY6_DELAY_SELECT_ARRAYSIZE ((CATEGORY6_DELAY_SELECT)(CATEGORY6_DELAY_SELECT_NUMBER_OF_DELAY+1))
+
+#define _CATEGORY7_REVERB_SELECT_MIN CATEGORY7_REVERB_SELECT_REVERB_ROOM
+#define _CATEGORY7_REVERB_SELECT_MAX CATEGORY7_REVERB_SELECT_NUMBER_OF_REVERB
+#define _CATEGORY7_REVERB_SELECT_ARRAYSIZE ((CATEGORY7_REVERB_SELECT)(CATEGORY7_REVERB_SELECT_NUMBER_OF_REVERB+1))
+
 #define _DiagCode_MIN DiagCode_POWER_ON_COUNT
 #define _DiagCode_MAX DiagCode_ERROR_CODE
 #define _DiagCode_ARRAYSIZE ((DiagCode)(DiagCode_ERROR_CODE+1))
@@ -379,6 +483,7 @@ extern "C" {
 
 
 #define Nack_errorCode_ENUMTYPE Nack_ERROR_CODE
+
 
 
 
@@ -436,7 +541,6 @@ extern "C" {
 #define KnobClicked_init_default                 {0}
 #define KnobMatchingStart_init_default           {0}
 #define BatteryLevel_init_default                {0, 0}
-#define CurrentKnobSelected_init_default         {0}
 #define ParamGate_init_default                   {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 #define ParamEfxOverdrive_init_default           {0, 0, 0, 0}
 #define ParamEfxDistortion_init_default          {0, 0, 0, 0}
@@ -462,6 +566,8 @@ extern "C" {
 #define ParamReverbHall_init_default             {0, 0, 0, 0}
 #define ParamReverbPlate_init_default            {0, 0, 0, 0}
 #define ParamReverbSpring_init_default           {0, 0, 0, 0}
+#define CategoryData_init_default                {0, 0, 0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}
+#define BankData_init_default                    {0, {CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default}}
 #define ClearEffects_init_default                {0}
 #define DiagReq_init_default                     {_DiagCode_MIN}
 #define DiagRespPOC_init_default                 {0}
@@ -481,7 +587,6 @@ extern "C" {
 #define KnobClicked_init_zero                    {0}
 #define KnobMatchingStart_init_zero              {0}
 #define BatteryLevel_init_zero                   {0, 0}
-#define CurrentKnobSelected_init_zero            {0}
 #define ParamGate_init_zero                      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 #define ParamEfxOverdrive_init_zero              {0, 0, 0, 0}
 #define ParamEfxDistortion_init_zero             {0, 0, 0, 0}
@@ -507,6 +612,8 @@ extern "C" {
 #define ParamReverbHall_init_zero                {0, 0, 0, 0}
 #define ParamReverbPlate_init_zero               {0, 0, 0, 0}
 #define ParamReverbSpring_init_zero              {0, 0, 0, 0}
+#define CategoryData_init_zero                   {0, 0, 0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}
+#define BankData_init_zero                       {0, {CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero}}
 #define ClearEffects_init_zero                   {0}
 #define DiagReq_init_zero                        {_DiagCode_MIN}
 #define DiagRespPOC_init_zero                    {0}
@@ -537,7 +644,6 @@ extern "C" {
 #define KnobMatchingStart_knobNumber_tag         1
 #define BatteryLevel_batteryLevel_tag            1
 #define BatteryLevel_isCharging_tag              2
-#define CurrentKnobSelected_currentKnobSelected_tag 1
 #define ParamGate_isOn_tag                       1
 #define ParamGate_noiseGateThreshold_tag         2
 #define ParamGate_noiseGateOpeningTime_tag       3
@@ -637,6 +743,10 @@ extern "C" {
 #define ParamReverbSpring_roomsize_tag           2
 #define ParamReverbSpring_tone_tag               3
 #define ParamReverbSpring_mix_tag                4
+#define CategoryData_isOn_tag                    1
+#define CategoryData_select_tag                  2
+#define CategoryData_params_tag                  3
+#define BankData_data_tag                        1
 #define ClearEffects_clear_tag                   1
 #define DiagReq_code_tag                         1
 #define DiagRespPOC_powerOnCount_tag             1
@@ -711,11 +821,6 @@ X(a, STATIC,   SINGULAR, INT32,    batteryLevel,      1) \
 X(a, STATIC,   SINGULAR, BOOL,     isCharging,        2)
 #define BatteryLevel_CALLBACK NULL
 #define BatteryLevel_DEFAULT NULL
-
-#define CurrentKnobSelected_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, INT32,    currentKnobSelected,   1)
-#define CurrentKnobSelected_CALLBACK NULL
-#define CurrentKnobSelected_DEFAULT NULL
 
 #define ParamGate_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
@@ -916,6 +1021,19 @@ X(a, STATIC,   SINGULAR, INT32,    mix,               4)
 #define ParamReverbSpring_CALLBACK NULL
 #define ParamReverbSpring_DEFAULT NULL
 
+#define CategoryData_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
+X(a, STATIC,   SINGULAR, INT32,    select,            2) \
+X(a, STATIC,   REPEATED, INT32,    params,            3)
+#define CategoryData_CALLBACK NULL
+#define CategoryData_DEFAULT NULL
+
+#define BankData_FIELDLIST(X, a) \
+X(a, STATIC,   REPEATED, MESSAGE,  data,              1)
+#define BankData_CALLBACK NULL
+#define BankData_DEFAULT NULL
+#define BankData_data_MSGTYPE CategoryData
+
 #define ClearEffects_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, BOOL,     clear,             1)
 #define ClearEffects_CALLBACK NULL
@@ -976,7 +1094,6 @@ extern const pb_msgdesc_t TunerFrequency_msg;
 extern const pb_msgdesc_t KnobClicked_msg;
 extern const pb_msgdesc_t KnobMatchingStart_msg;
 extern const pb_msgdesc_t BatteryLevel_msg;
-extern const pb_msgdesc_t CurrentKnobSelected_msg;
 extern const pb_msgdesc_t ParamGate_msg;
 extern const pb_msgdesc_t ParamEfxOverdrive_msg;
 extern const pb_msgdesc_t ParamEfxDistortion_msg;
@@ -1002,6 +1119,8 @@ extern const pb_msgdesc_t ParamReverbRoom_msg;
 extern const pb_msgdesc_t ParamReverbHall_msg;
 extern const pb_msgdesc_t ParamReverbPlate_msg;
 extern const pb_msgdesc_t ParamReverbSpring_msg;
+extern const pb_msgdesc_t CategoryData_msg;
+extern const pb_msgdesc_t BankData_msg;
 extern const pb_msgdesc_t ClearEffects_msg;
 extern const pb_msgdesc_t DiagReq_msg;
 extern const pb_msgdesc_t DiagRespPOC_msg;
@@ -1023,7 +1142,6 @@ extern const pb_msgdesc_t BulkIrRes_msg;
 #define KnobClicked_fields &KnobClicked_msg
 #define KnobMatchingStart_fields &KnobMatchingStart_msg
 #define BatteryLevel_fields &BatteryLevel_msg
-#define CurrentKnobSelected_fields &CurrentKnobSelected_msg
 #define ParamGate_fields &ParamGate_msg
 #define ParamEfxOverdrive_fields &ParamEfxOverdrive_msg
 #define ParamEfxDistortion_fields &ParamEfxDistortion_msg
@@ -1049,6 +1167,8 @@ extern const pb_msgdesc_t BulkIrRes_msg;
 #define ParamReverbHall_fields &ParamReverbHall_msg
 #define ParamReverbPlate_fields &ParamReverbPlate_msg
 #define ParamReverbSpring_fields &ParamReverbSpring_msg
+#define CategoryData_fields &CategoryData_msg
+#define BankData_fields &BankData_msg
 #define ClearEffects_fields &ClearEffects_msg
 #define DiagReq_fields &DiagReq_msg
 #define DiagRespPOC_fields &DiagRespPOC_msg
@@ -1061,20 +1181,21 @@ extern const pb_msgdesc_t BulkIrRes_msg;
 
 /* Maximum encoded size of messages (where known) */
 #define Ack_size                                 22
+#define BankData_size                            1344
 #define BatteryLevel_size                        13
 #define BulkIrEndReq_size                        61
 #define BulkIrReq_size                           61
 #define BulkIrRes_size                           13
-#define BulkIrStartReq_size                      117
-#define ChangeGuitarName_size                    56
+#define BulkIrStartReq_size                      126
+#define CategoryData_size                        189
+#define ChangeGuitarName_size                    65
 #define ClearEffects_size                        2
-#define CurrentKnobSelected_size                 11
 #define DiagReq_size                             2
 #define DiagRespErrCode_size                     11
 #define DiagRespFirstParing_size                 11
 #define DiagRespPOC_size                         11
-#define InitFromApp_size                         67
-#define InitFromGuitar_size                      203
+#define InitFromApp_size                         76
+#define InitFromGuitar_size                      230
 #define KnobClicked_size                         11
 #define KnobMatchingStart_size                   11
 #define Nack_size                                2

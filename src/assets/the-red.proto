@@ -2,6 +2,12 @@
 
 /*
 
+ 2023-09-19 jason:
+  - temp add message : CategoryData, BankData
+
+ 2023-09-14 jason:
+  - delete message & message ID : CurrentKnobSelected
+
  2023-09-11 jason:
   - add field : InitFromGuitar.receivedMessageLength
   - add field : InitFromGuitar.receivedMessageId
@@ -70,41 +76,105 @@ enum MessageID {
   KNOB_CLICKED = 7;
   KNOB_MATCHING_START = 8;
   BATTERY_LEVEL = 9;
-  CURRENT_KNOB_SELECTED = 10;
-  PARAM_GATE = 11;
-  PARAM_EFX_OVERDRIVE = 12;
-  PARAM_EFX_DISTORTION = 13;
-  PARAM_EFX_FUZZ = 14;
-  PARAM_EFX_ACOUSTIC = 15;
-  PARAM_AMP_F = 16;
-  PARAM_AMP_MA = 17;
-  PARAM_AMP_ME = 18;
-  PARAM_AMP_V = 19;
-  PARAM_AMP_B = 20;
-  PARAM_CAB_A = 21;
-  PARAM_CAB_B = 22;
-  PARAM_CAB_C = 23;
-  PARAM_CAB_D = 24;
-  PARAM_CAB_E = 25;
-  PARAM_MOD_FLANGE = 26;
-  PARAM_MOD_CHORUS = 27;
-  PARAM_MOD_TREMOLO = 28;
-  PARAM_MOD_PHASER = 29;
-  PARAM_MOD_VIBRATO = 30;
-  PARAM_DELAY_DELAY = 31;
-  PARAM_REVERB_ROOM = 32;
-  PARAM_REVERB_HALL = 33;
-  PARAM_REVERB_PLATE = 34;
-  PARAM_REVERB_SPRING = 35;
-  CLEAR_EFFECTS = 36;
-  DIAG_REQ = 37;
-  DIAG_RESP_POC = 38;
-  DIAG_RESP_FIRST_PARING = 39;
-  DIAG_RESP_ERR_CODE = 40;
-  BULK_IR_START_REQ = 41;
-  BULK_IR_REQ = 42;
-  BULK_IR_END_REQ = 43;
-  BULK_IR_RES = 44;
+  PARAM_GATE = 10;
+  PARAM_EFX_OVERDRIVE = 11;
+  PARAM_EFX_DISTORTION = 12;
+  PARAM_EFX_FUZZ = 13;
+  PARAM_EFX_ACOUSTIC = 14;
+  PARAM_AMP_F = 15;
+  PARAM_AMP_MA = 16;
+  PARAM_AMP_ME = 17;
+  PARAM_AMP_V = 18;
+  PARAM_AMP_B = 19;
+  PARAM_CAB_A = 20;
+  PARAM_CAB_B = 21;
+  PARAM_CAB_C = 22;
+  PARAM_CAB_D = 23;
+  PARAM_CAB_E = 24;
+  PARAM_MOD_FLANGE = 25;
+  PARAM_MOD_CHORUS = 26;
+  PARAM_MOD_TREMOLO = 27;
+  PARAM_MOD_PHASER = 28;
+  PARAM_MOD_VIBRATO = 29;
+  PARAM_DELAY_DELAY = 30;
+  PARAM_REVERB_ROOM = 31;
+  PARAM_REVERB_HALL = 32;
+  PARAM_REVERB_PLATE = 33;
+  PARAM_REVERB_SPRING = 34;
+  CATEGORY_DATA = 35;
+  BANK_DATA = 36;
+  CLEAR_EFFECTS = 37;
+  DIAG_REQ = 38;
+  DIAG_RESP_POC = 39;
+  DIAG_RESP_FIRST_PARING = 40;
+  DIAG_RESP_ERR_CODE = 41;
+  BULK_IR_START_REQ = 42;
+  BULK_IR_REQ = 43;
+  BULK_IR_END_REQ = 44;
+  BULK_IR_RES = 45;
+}
+
+enum CATEGORY_NUMBER {
+  CAT_NO1_GATE = 0;
+  CAT_NO2_EFX = 1;
+  CAT_NO3_AMP = 2;
+  CAT_NO4_CAB = 3;
+  CAT_NO5_MOD = 4;
+  CAT_NO6_DELAY = 5;
+  CAT_NO7_REVERB = 6;
+}
+
+enum CATEGORY1_GATE_SELECT {
+  GATE_GATE = 0;
+  NUMBER_OF_GATE = 1;
+}
+
+enum CATEGORY2_EFX_SELECT {
+  EFX_OVERDRIVE = 0;
+  EFX_DISTORTION = 1;
+  EFX_FUZZ = 2;
+  EFX_ACOUSTIC = 3;
+  NUMBER_OF_EFX = 4;
+}
+
+enum CATEGORY3_AMP_SELECT {
+  AMP_F = 0;
+  AMP_MA = 1;
+  AMP_ME = 2;
+  AMP_V = 3;
+  AMP_B = 4;
+  NUMBER_OF_AMP = 5;
+}
+
+enum CATEGORY4_CAB_SELECT {
+  CAB_A = 0;
+  CAB_B = 1;
+  CAB_C = 2;
+  CAB_D = 3;
+  CAB_E = 4;
+  NUMBER_OF_CAB = 5;
+}
+
+enum CATEGORY5_MOD_SELECT {
+  MOD_FLANGE = 0;
+  MOD_CHORUS = 1;
+  MOD_TREMOLO = 2;
+  MOD_PHASER = 3;
+  MOD_VIBRATO = 4;
+  NUMBER_OF_MOD = 5;
+}
+
+enum CATEGORY6_DELAY_SELECT {
+  DELAY_DELAY = 0;
+  NUMBER_OF_DELAY = 1;
+}
+
+enum CATEGORY7_REVERB_SELECT {
+  REVERB_ROOM = 0;
+  REVERB_HALL = 1;
+  REVERB_PLATE = 2;
+  REVERB_SPRING = 3;
+  NUMBER_OF_REVERB = 4;
 }
 
 message Ack {
@@ -154,8 +224,6 @@ message BatteryLevel {
   int32 batteryLevel = 1;
   bool isCharging = 2;
 }
-
-message CurrentKnobSelected { int32 currentKnobSelected = 1; }
 
 message ParamGate {
   bool isOn = 1;
@@ -325,6 +393,17 @@ message ParamReverbSpring {
   int32 roomsize = 2;
   int32 tone = 3;
   int32 mix = 4;
+}
+
+message CategoryData {
+  int32 categoryNumber = 1;
+  bool isOn = 2;
+  int32 select = 3;
+  repeated int32 params = 4;
+}
+
+message BankData {
+  repeated CategoryData data = 1;
 }
 
 message ClearEffects { bool clear = 1; }

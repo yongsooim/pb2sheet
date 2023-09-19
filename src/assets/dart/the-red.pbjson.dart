@@ -27,41 +27,42 @@ const MessageID$json = {
     {'1': 'KNOB_CLICKED', '2': 7},
     {'1': 'KNOB_MATCHING_START', '2': 8},
     {'1': 'BATTERY_LEVEL', '2': 9},
-    {'1': 'CURRENT_KNOB_SELECTED', '2': 10},
-    {'1': 'PARAM_GATE', '2': 11},
-    {'1': 'PARAM_EFX_OVERDRIVE', '2': 12},
-    {'1': 'PARAM_EFX_DISTORTION', '2': 13},
-    {'1': 'PARAM_EFX_FUZZ', '2': 14},
-    {'1': 'PARAM_EFX_ACOUSTIC', '2': 15},
-    {'1': 'PARAM_AMP_F', '2': 16},
-    {'1': 'PARAM_AMP_MA', '2': 17},
-    {'1': 'PARAM_AMP_ME', '2': 18},
-    {'1': 'PARAM_AMP_V', '2': 19},
-    {'1': 'PARAM_AMP_B', '2': 20},
-    {'1': 'PARAM_CAB_A', '2': 21},
-    {'1': 'PARAM_CAB_B', '2': 22},
-    {'1': 'PARAM_CAB_C', '2': 23},
-    {'1': 'PARAM_CAB_D', '2': 24},
-    {'1': 'PARAM_CAB_E', '2': 25},
-    {'1': 'PARAM_MOD_FLANGE', '2': 26},
-    {'1': 'PARAM_MOD_CHORUS', '2': 27},
-    {'1': 'PARAM_MOD_TREMOLO', '2': 28},
-    {'1': 'PARAM_MOD_PHASER', '2': 29},
-    {'1': 'PARAM_MOD_VIBRATO', '2': 30},
-    {'1': 'PARAM_DELAY_DELAY', '2': 31},
-    {'1': 'PARAM_REVERB_ROOM', '2': 32},
-    {'1': 'PARAM_REVERB_HALL', '2': 33},
-    {'1': 'PARAM_REVERB_PLATE', '2': 34},
-    {'1': 'PARAM_REVERB_SPRING', '2': 35},
-    {'1': 'CLEAR_EFFECTS', '2': 36},
-    {'1': 'DIAG_REQ', '2': 37},
-    {'1': 'DIAG_RESP_POC', '2': 38},
-    {'1': 'DIAG_RESP_FIRST_PARING', '2': 39},
-    {'1': 'DIAG_RESP_ERR_CODE', '2': 40},
-    {'1': 'BULK_IR_START_REQ', '2': 41},
-    {'1': 'BULK_IR_REQ', '2': 42},
-    {'1': 'BULK_IR_END_REQ', '2': 43},
-    {'1': 'BULK_IR_RES', '2': 44},
+    {'1': 'PARAM_GATE', '2': 10},
+    {'1': 'PARAM_EFX_OVERDRIVE', '2': 11},
+    {'1': 'PARAM_EFX_DISTORTION', '2': 12},
+    {'1': 'PARAM_EFX_FUZZ', '2': 13},
+    {'1': 'PARAM_EFX_ACOUSTIC', '2': 14},
+    {'1': 'PARAM_AMP_F', '2': 15},
+    {'1': 'PARAM_AMP_MA', '2': 16},
+    {'1': 'PARAM_AMP_ME', '2': 17},
+    {'1': 'PARAM_AMP_V', '2': 18},
+    {'1': 'PARAM_AMP_B', '2': 19},
+    {'1': 'PARAM_CAB_A', '2': 20},
+    {'1': 'PARAM_CAB_B', '2': 21},
+    {'1': 'PARAM_CAB_C', '2': 22},
+    {'1': 'PARAM_CAB_D', '2': 23},
+    {'1': 'PARAM_CAB_E', '2': 24},
+    {'1': 'PARAM_MOD_FLANGE', '2': 25},
+    {'1': 'PARAM_MOD_CHORUS', '2': 26},
+    {'1': 'PARAM_MOD_TREMOLO', '2': 27},
+    {'1': 'PARAM_MOD_PHASER', '2': 28},
+    {'1': 'PARAM_MOD_VIBRATO', '2': 29},
+    {'1': 'PARAM_DELAY_DELAY', '2': 30},
+    {'1': 'PARAM_REVERB_ROOM', '2': 31},
+    {'1': 'PARAM_REVERB_HALL', '2': 32},
+    {'1': 'PARAM_REVERB_PLATE', '2': 33},
+    {'1': 'PARAM_REVERB_SPRING', '2': 34},
+    {'1': 'CATEGORY_DATA', '2': 35},
+    {'1': 'BANK_DATA', '2': 36},
+    {'1': 'CLEAR_EFFECTS', '2': 37},
+    {'1': 'DIAG_REQ', '2': 38},
+    {'1': 'DIAG_RESP_POC', '2': 39},
+    {'1': 'DIAG_RESP_FIRST_PARING', '2': 40},
+    {'1': 'DIAG_RESP_ERR_CODE', '2': 41},
+    {'1': 'BULK_IR_START_REQ', '2': 42},
+    {'1': 'BULK_IR_REQ', '2': 43},
+    {'1': 'BULK_IR_END_REQ', '2': 44},
+    {'1': 'BULK_IR_RES', '2': 45},
   ],
 };
 
@@ -70,20 +71,159 @@ final $typed_data.Uint8List messageIDDescriptor = $convert.base64Decode(
     'CglNZXNzYWdlSUQSBwoDQUNLEAASCAoETkFDSxABEhEKDUlOSVRfRlJPTV9BUFAQAhIUChBJTk'
     'lUX0ZST01fR1VJVEFSEAMSFgoSQ0hBTkdFX0dVSVRBUl9OQU1FEAQSEAoMVFVORVJfT05fT0ZG'
     'EAUSEwoPVFVORVJfRlJFUVVFTkNZEAYSEAoMS05PQl9DTElDS0VEEAcSFwoTS05PQl9NQVRDSE'
-    'lOR19TVEFSVBAIEhEKDUJBVFRFUllfTEVWRUwQCRIZChVDVVJSRU5UX0tOT0JfU0VMRUNURUQQ'
-    'ChIOCgpQQVJBTV9HQVRFEAsSFwoTUEFSQU1fRUZYX09WRVJEUklWRRAMEhgKFFBBUkFNX0VGWF'
-    '9ESVNUT1JUSU9OEA0SEgoOUEFSQU1fRUZYX0ZVWloQDhIWChJQQVJBTV9FRlhfQUNPVVNUSUMQ'
-    'DxIPCgtQQVJBTV9BTVBfRhAQEhAKDFBBUkFNX0FNUF9NQRAREhAKDFBBUkFNX0FNUF9NRRASEg'
-    '8KC1BBUkFNX0FNUF9WEBMSDwoLUEFSQU1fQU1QX0IQFBIPCgtQQVJBTV9DQUJfQRAVEg8KC1BB'
-    'UkFNX0NBQl9CEBYSDwoLUEFSQU1fQ0FCX0MQFxIPCgtQQVJBTV9DQUJfRBAYEg8KC1BBUkFNX0'
-    'NBQl9FEBkSFAoQUEFSQU1fTU9EX0ZMQU5HRRAaEhQKEFBBUkFNX01PRF9DSE9SVVMQGxIVChFQ'
-    'QVJBTV9NT0RfVFJFTU9MTxAcEhQKEFBBUkFNX01PRF9QSEFTRVIQHRIVChFQQVJBTV9NT0RfVk'
-    'lCUkFUTxAeEhUKEVBBUkFNX0RFTEFZX0RFTEFZEB8SFQoRUEFSQU1fUkVWRVJCX1JPT00QIBIV'
-    'ChFQQVJBTV9SRVZFUkJfSEFMTBAhEhYKElBBUkFNX1JFVkVSQl9QTEFURRAiEhcKE1BBUkFNX1'
-    'JFVkVSQl9TUFJJTkcQIxIRCg1DTEVBUl9FRkZFQ1RTECQSDAoIRElBR19SRVEQJRIRCg1ESUFH'
-    'X1JFU1BfUE9DECYSGgoWRElBR19SRVNQX0ZJUlNUX1BBUklORxAnEhYKEkRJQUdfUkVTUF9FUl'
-    'JfQ09ERRAoEhUKEUJVTEtfSVJfU1RBUlRfUkVRECkSDwoLQlVMS19JUl9SRVEQKhITCg9CVUxL'
-    'X0lSX0VORF9SRVEQKxIPCgtCVUxLX0lSX1JFUxAs');
+    'lOR19TVEFSVBAIEhEKDUJBVFRFUllfTEVWRUwQCRIOCgpQQVJBTV9HQVRFEAoSFwoTUEFSQU1f'
+    'RUZYX09WRVJEUklWRRALEhgKFFBBUkFNX0VGWF9ESVNUT1JUSU9OEAwSEgoOUEFSQU1fRUZYX0'
+    'ZVWloQDRIWChJQQVJBTV9FRlhfQUNPVVNUSUMQDhIPCgtQQVJBTV9BTVBfRhAPEhAKDFBBUkFN'
+    'X0FNUF9NQRAQEhAKDFBBUkFNX0FNUF9NRRAREg8KC1BBUkFNX0FNUF9WEBISDwoLUEFSQU1fQU'
+    '1QX0IQExIPCgtQQVJBTV9DQUJfQRAUEg8KC1BBUkFNX0NBQl9CEBUSDwoLUEFSQU1fQ0FCX0MQ'
+    'FhIPCgtQQVJBTV9DQUJfRBAXEg8KC1BBUkFNX0NBQl9FEBgSFAoQUEFSQU1fTU9EX0ZMQU5HRR'
+    'AZEhQKEFBBUkFNX01PRF9DSE9SVVMQGhIVChFQQVJBTV9NT0RfVFJFTU9MTxAbEhQKEFBBUkFN'
+    'X01PRF9QSEFTRVIQHBIVChFQQVJBTV9NT0RfVklCUkFUTxAdEhUKEVBBUkFNX0RFTEFZX0RFTE'
+    'FZEB4SFQoRUEFSQU1fUkVWRVJCX1JPT00QHxIVChFQQVJBTV9SRVZFUkJfSEFMTBAgEhYKElBB'
+    'UkFNX1JFVkVSQl9QTEFURRAhEhcKE1BBUkFNX1JFVkVSQl9TUFJJTkcQIhIRCg1DQVRFR09SWV'
+    '9EQVRBECMSDQoJQkFOS19EQVRBECQSEQoNQ0xFQVJfRUZGRUNUUxAlEgwKCERJQUdfUkVRECYS'
+    'EQoNRElBR19SRVNQX1BPQxAnEhoKFkRJQUdfUkVTUF9GSVJTVF9QQVJJTkcQKBIWChJESUFHX1'
+    'JFU1BfRVJSX0NPREUQKRIVChFCVUxLX0lSX1NUQVJUX1JFURAqEg8KC0JVTEtfSVJfUkVRECsS'
+    'EwoPQlVMS19JUl9FTkRfUkVRECwSDwoLQlVMS19JUl9SRVMQLQ==');
+
+@$core.Deprecated('Use cATEGORY_NUMBERDescriptor instead')
+const CATEGORY_NUMBER$json = {
+  '1': 'CATEGORY_NUMBER',
+  '2': [
+    {'1': 'CAT_NO1_GATE', '2': 0},
+    {'1': 'CAT_NO2_EFX', '2': 1},
+    {'1': 'CAT_NO3_AMP', '2': 2},
+    {'1': 'CAT_NO4_CAB', '2': 3},
+    {'1': 'CAT_NO5_MOD', '2': 4},
+    {'1': 'CAT_NO6_DELAY', '2': 5},
+    {'1': 'CAT_NO7_REVERB', '2': 6},
+  ],
+};
+
+/// Descriptor for `CATEGORY_NUMBER`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List cATEGORY_NUMBERDescriptor = $convert.base64Decode(
+    'Cg9DQVRFR09SWV9OVU1CRVISEAoMQ0FUX05PMV9HQVRFEAASDwoLQ0FUX05PMl9FRlgQARIPCg'
+    'tDQVRfTk8zX0FNUBACEg8KC0NBVF9OTzRfQ0FCEAMSDwoLQ0FUX05PNV9NT0QQBBIRCg1DQVRf'
+    'Tk82X0RFTEFZEAUSEgoOQ0FUX05PN19SRVZFUkIQBg==');
+
+@$core.Deprecated('Use cATEGORY1_GATE_SELECTDescriptor instead')
+const CATEGORY1_GATE_SELECT$json = {
+  '1': 'CATEGORY1_GATE_SELECT',
+  '2': [
+    {'1': 'GATE_GATE', '2': 0},
+    {'1': 'NUMBER_OF_GATE', '2': 1},
+  ],
+};
+
+/// Descriptor for `CATEGORY1_GATE_SELECT`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List cATEGORY1_GATE_SELECTDescriptor = $convert.base64Decode(
+    'ChVDQVRFR09SWTFfR0FURV9TRUxFQ1QSDQoJR0FURV9HQVRFEAASEgoOTlVNQkVSX09GX0dBVE'
+    'UQAQ==');
+
+@$core.Deprecated('Use cATEGORY2_EFX_SELECTDescriptor instead')
+const CATEGORY2_EFX_SELECT$json = {
+  '1': 'CATEGORY2_EFX_SELECT',
+  '2': [
+    {'1': 'EFX_OVERDRIVE', '2': 0},
+    {'1': 'EFX_DISTORTION', '2': 1},
+    {'1': 'EFX_FUZZ', '2': 2},
+    {'1': 'EFX_ACOUSTIC', '2': 3},
+    {'1': 'NUMBER_OF_EFX', '2': 4},
+  ],
+};
+
+/// Descriptor for `CATEGORY2_EFX_SELECT`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List cATEGORY2_EFX_SELECTDescriptor = $convert.base64Decode(
+    'ChRDQVRFR09SWTJfRUZYX1NFTEVDVBIRCg1FRlhfT1ZFUkRSSVZFEAASEgoORUZYX0RJU1RPUl'
+    'RJT04QARIMCghFRlhfRlVaWhACEhAKDEVGWF9BQ09VU1RJQxADEhEKDU5VTUJFUl9PRl9FRlgQ'
+    'BA==');
+
+@$core.Deprecated('Use cATEGORY3_AMP_SELECTDescriptor instead')
+const CATEGORY3_AMP_SELECT$json = {
+  '1': 'CATEGORY3_AMP_SELECT',
+  '2': [
+    {'1': 'AMP_F', '2': 0},
+    {'1': 'AMP_MA', '2': 1},
+    {'1': 'AMP_ME', '2': 2},
+    {'1': 'AMP_V', '2': 3},
+    {'1': 'AMP_B', '2': 4},
+    {'1': 'NUMBER_OF_AMP', '2': 5},
+  ],
+};
+
+/// Descriptor for `CATEGORY3_AMP_SELECT`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List cATEGORY3_AMP_SELECTDescriptor = $convert.base64Decode(
+    'ChRDQVRFR09SWTNfQU1QX1NFTEVDVBIJCgVBTVBfRhAAEgoKBkFNUF9NQRABEgoKBkFNUF9NRR'
+    'ACEgkKBUFNUF9WEAMSCQoFQU1QX0IQBBIRCg1OVU1CRVJfT0ZfQU1QEAU=');
+
+@$core.Deprecated('Use cATEGORY4_CAB_SELECTDescriptor instead')
+const CATEGORY4_CAB_SELECT$json = {
+  '1': 'CATEGORY4_CAB_SELECT',
+  '2': [
+    {'1': 'CAB_A', '2': 0},
+    {'1': 'CAB_B', '2': 1},
+    {'1': 'CAB_C', '2': 2},
+    {'1': 'CAB_D', '2': 3},
+    {'1': 'CAB_E', '2': 4},
+    {'1': 'NUMBER_OF_CAB', '2': 5},
+  ],
+};
+
+/// Descriptor for `CATEGORY4_CAB_SELECT`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List cATEGORY4_CAB_SELECTDescriptor = $convert.base64Decode(
+    'ChRDQVRFR09SWTRfQ0FCX1NFTEVDVBIJCgVDQUJfQRAAEgkKBUNBQl9CEAESCQoFQ0FCX0MQAh'
+    'IJCgVDQUJfRBADEgkKBUNBQl9FEAQSEQoNTlVNQkVSX09GX0NBQhAF');
+
+@$core.Deprecated('Use cATEGORY5_MOD_SELECTDescriptor instead')
+const CATEGORY5_MOD_SELECT$json = {
+  '1': 'CATEGORY5_MOD_SELECT',
+  '2': [
+    {'1': 'MOD_FLANGE', '2': 0},
+    {'1': 'MOD_CHORUS', '2': 1},
+    {'1': 'MOD_TREMOLO', '2': 2},
+    {'1': 'MOD_PHASER', '2': 3},
+    {'1': 'MOD_VIBRATO', '2': 4},
+    {'1': 'NUMBER_OF_MOD', '2': 5},
+  ],
+};
+
+/// Descriptor for `CATEGORY5_MOD_SELECT`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List cATEGORY5_MOD_SELECTDescriptor = $convert.base64Decode(
+    'ChRDQVRFR09SWTVfTU9EX1NFTEVDVBIOCgpNT0RfRkxBTkdFEAASDgoKTU9EX0NIT1JVUxABEg'
+    '8KC01PRF9UUkVNT0xPEAISDgoKTU9EX1BIQVNFUhADEg8KC01PRF9WSUJSQVRPEAQSEQoNTlVN'
+    'QkVSX09GX01PRBAF');
+
+@$core.Deprecated('Use cATEGORY6_DELAY_SELECTDescriptor instead')
+const CATEGORY6_DELAY_SELECT$json = {
+  '1': 'CATEGORY6_DELAY_SELECT',
+  '2': [
+    {'1': 'DELAY_DELAY', '2': 0},
+    {'1': 'NUMBER_OF_DELAY', '2': 1},
+  ],
+};
+
+/// Descriptor for `CATEGORY6_DELAY_SELECT`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List cATEGORY6_DELAY_SELECTDescriptor = $convert.base64Decode(
+    'ChZDQVRFR09SWTZfREVMQVlfU0VMRUNUEg8KC0RFTEFZX0RFTEFZEAASEwoPTlVNQkVSX09GX0'
+    'RFTEFZEAE=');
+
+@$core.Deprecated('Use cATEGORY7_REVERB_SELECTDescriptor instead')
+const CATEGORY7_REVERB_SELECT$json = {
+  '1': 'CATEGORY7_REVERB_SELECT',
+  '2': [
+    {'1': 'REVERB_ROOM', '2': 0},
+    {'1': 'REVERB_HALL', '2': 1},
+    {'1': 'REVERB_PLATE', '2': 2},
+    {'1': 'REVERB_SPRING', '2': 3},
+    {'1': 'NUMBER_OF_REVERB', '2': 4},
+  ],
+};
+
+/// Descriptor for `CATEGORY7_REVERB_SELECT`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List cATEGORY7_REVERB_SELECTDescriptor = $convert.base64Decode(
+    'ChdDQVRFR09SWTdfUkVWRVJCX1NFTEVDVBIPCgtSRVZFUkJfUk9PTRAAEg8KC1JFVkVSQl9IQU'
+    'xMEAESEAoMUkVWRVJCX1BMQVRFEAISEQoNUkVWRVJCX1NQUklORxADEhQKEE5VTUJFUl9PRl9S'
+    'RVZFUkIQBA==');
 
 @$core.Deprecated('Use diagCodeDescriptor instead')
 const DiagCode$json = {
@@ -256,19 +396,6 @@ const BatteryLevel$json = {
 final $typed_data.Uint8List batteryLevelDescriptor = $convert.base64Decode(
     'CgxCYXR0ZXJ5TGV2ZWwSIgoMYmF0dGVyeUxldmVsGAEgASgFUgxiYXR0ZXJ5TGV2ZWwSHgoKaX'
     'NDaGFyZ2luZxgCIAEoCFIKaXNDaGFyZ2luZw==');
-
-@$core.Deprecated('Use currentKnobSelectedDescriptor instead')
-const CurrentKnobSelected$json = {
-  '1': 'CurrentKnobSelected',
-  '2': [
-    {'1': 'currentKnobSelected', '3': 1, '4': 1, '5': 5, '10': 'currentKnobSelected'},
-  ],
-};
-
-/// Descriptor for `CurrentKnobSelected`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List currentKnobSelectedDescriptor = $convert.base64Decode(
-    'ChNDdXJyZW50S25vYlNlbGVjdGVkEjAKE2N1cnJlbnRLbm9iU2VsZWN0ZWQYASABKAVSE2N1cn'
-    'JlbnRLbm9iU2VsZWN0ZWQ=');
 
 @$core.Deprecated('Use paramGateDescriptor instead')
 const ParamGate$json = {
@@ -677,6 +804,33 @@ const ParamReverbSpring$json = {
 final $typed_data.Uint8List paramReverbSpringDescriptor = $convert.base64Decode(
     'ChFQYXJhbVJldmVyYlNwcmluZxISCgRpc09uGAEgASgIUgRpc09uEhoKCHJvb21zaXplGAIgAS'
     'gFUghyb29tc2l6ZRISCgR0b25lGAMgASgFUgR0b25lEhAKA21peBgEIAEoBVIDbWl4');
+
+@$core.Deprecated('Use categoryDataDescriptor instead')
+const CategoryData$json = {
+  '1': 'CategoryData',
+  '2': [
+    {'1': 'isOn', '3': 1, '4': 1, '5': 8, '10': 'isOn'},
+    {'1': 'select', '3': 2, '4': 1, '5': 5, '10': 'select'},
+    {'1': 'params', '3': 3, '4': 3, '5': 5, '10': 'params'},
+  ],
+};
+
+/// Descriptor for `CategoryData`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List categoryDataDescriptor = $convert.base64Decode(
+    'CgxDYXRlZ29yeURhdGESEgoEaXNPbhgBIAEoCFIEaXNPbhIWCgZzZWxlY3QYAiABKAVSBnNlbG'
+    'VjdBIWCgZwYXJhbXMYAyADKAVSBnBhcmFtcw==');
+
+@$core.Deprecated('Use bankDataDescriptor instead')
+const BankData$json = {
+  '1': 'BankData',
+  '2': [
+    {'1': 'data', '3': 1, '4': 3, '5': 11, '6': '.CategoryData', '10': 'data'},
+  ],
+};
+
+/// Descriptor for `BankData`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List bankDataDescriptor = $convert.base64Decode(
+    'CghCYW5rRGF0YRIhCgRkYXRhGAEgAygLMg0uQ2F0ZWdvcnlEYXRhUgRkYXRh');
 
 @$core.Deprecated('Use clearEffectsDescriptor instead')
 const ClearEffects$json = {

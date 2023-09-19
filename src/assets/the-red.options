@@ -1,14 +1,17 @@
-BulkIrStartReq.irName             max_size: 55
+BulkIrStartReq.irName             max_size: 64
 BulkIrStartReq.data               max_count:10
 
 BulkIrReq.data                    max_count:10
 
 BulkIrEndReq.data                 max_count:10
 
-InitFromApp.appVersion           max_size: 55
+InitFromApp.appVersion           max_size: 64
 
-InitFromGuitar.guitarName       max_size: 55
-InitFromGuitar.guitarModelName  max_size: 55
-InitFromGuitar.firmwareVersion  max_size: 55
+InitFromGuitar.guitarName       max_size: 64
+InitFromGuitar.guitarModelName  max_size: 64
+InitFromGuitar.firmwareVersion  max_size: 64
 
-ChangeGuitarName.guitarName  max_size: 55
+ChangeGuitarName.guitarName  max_size: 64
+
+CategoryData.params  max_count: 16
+BankData.data max_count: 7

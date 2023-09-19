@@ -36,9 +36,6 @@ PB_BIND(KnobMatchingStart, KnobMatchingStart, AUTO)
 PB_BIND(BatteryLevel, BatteryLevel, AUTO)
 
 
-PB_BIND(CurrentKnobSelected, CurrentKnobSelected, AUTO)
-
-
 PB_BIND(ParamGate, ParamGate, 2)
 
 
@@ -114,6 +111,12 @@ PB_BIND(ParamReverbPlate, ParamReverbPlate, AUTO)
 PB_BIND(ParamReverbSpring, ParamReverbSpring, AUTO)
 
 
+PB_BIND(CategoryData, CategoryData, AUTO)
+
+
+PB_BIND(BankData, BankData, 2)
+
+
 PB_BIND(ClearEffects, ClearEffects, AUTO)
 
 
@@ -139,6 +142,14 @@ PB_BIND(BulkIrEndReq, BulkIrEndReq, AUTO)
 
 
 PB_BIND(BulkIrRes, BulkIrRes, AUTO)
+
+
+
+
+
+
+
+
 
 
 
