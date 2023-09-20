@@ -120,6 +120,9 @@ PB_BIND(BankData, BankData, 2)
 PB_BIND(KnobMatching, KnobMatching, 2)
 
 
+PB_BIND(KnobMatchingAll, KnobMatchingAll, 2)
+
+
 PB_BIND(ClearEffects, ClearEffects, AUTO)
 
 

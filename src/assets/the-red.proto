@@ -1,9 +1,13 @@
-// the-red.proto
-
 /*
+ the-red.proto
+
+ 2023-09-20 jason:
+  - add message : KnobMatchingAll
+  - change field names : BankData.data -> categoryData
+  - change field names : KnobMatching.data -> knobMatchingData
 
  2023-09-19 jason:
-  - temp add message : CategoryData, BankData, KnobMatching
+  - add messages : CategoryData, BankData, KnobMatching
 
  2023-09-14 jason:
   - delete message & message ID : CurrentKnobSelected
@@ -104,15 +108,16 @@ enum MessageID {
   CATEGORY_DATA = 35;
   BANK_DATA = 36;
   KNOB_MATCHING = 37;
-  CLEAR_EFFECTS = 38;
-  DIAG_REQ = 39;
-  DIAG_RESP_POC = 40;
-  DIAG_RESP_FIRST_PARING = 41;
-  DIAG_RESP_ERR_CODE = 42;
-  BULK_IR_START_REQ = 43;
-  BULK_IR_REQ = 44;
-  BULK_IR_END_REQ = 45;
-  BULK_IR_RES = 46;
+  KNOB_MATCHING_ALL = 38;
+  CLEAR_EFFECTS = 39;
+  DIAG_REQ = 40;
+  DIAG_RESP_POC = 41;
+  DIAG_RESP_FIRST_PARING = 42;
+  DIAG_RESP_ERR_CODE = 43;
+  BULK_IR_START_REQ = 44;
+  BULK_IR_REQ = 45;
+  BULK_IR_END_REQ = 46;
+  BULK_IR_RES = 47;
 }
 
 enum CATEGORY_NUMBER {
@@ -403,12 +408,16 @@ message CategoryData {
 }
 
 message BankData {
-  repeated CategoryData data = 1;
+  repeated CategoryData categoryData = 1;
 }
 
 message KnobMatching {
   int32 knobNumber = 1;
-  BankData data = 2;
+  BankData bankData = 2;
+}
+
+message KnobMatchingAll {
+  repeated KnobMatching knobMatchingData = 1;
 }
 
 message ClearEffects { bool clear = 1; }

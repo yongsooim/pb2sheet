@@ -2381,7 +2381,7 @@ class BankData extends $pb.GeneratedMessage {
   factory BankData.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BankData', createEmptyInstance: create)
-    ..pc<CategoryData>(1, _omitFieldNames ? '' : 'data', $pb.PbFieldType.PM, subBuilder: CategoryData.create)
+    ..pc<CategoryData>(1, _omitFieldNames ? '' : 'categoryData', $pb.PbFieldType.PM, protoName: 'categoryData', subBuilder: CategoryData.create)
     ..hasRequiredFields = false
   ;
 
@@ -2407,7 +2407,7 @@ class BankData extends $pb.GeneratedMessage {
   static BankData? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.List<CategoryData> get data => $_getList(0);
+  $core.List<CategoryData> get categoryData => $_getList(0);
 }
 
 class KnobMatching extends $pb.GeneratedMessage {
@@ -2418,7 +2418,7 @@ class KnobMatching extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'KnobMatching', createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'knobNumber', $pb.PbFieldType.O3, protoName: 'knobNumber')
-    ..aOM<BankData>(2, _omitFieldNames ? '' : 'data', subBuilder: BankData.create)
+    ..aOM<BankData>(2, _omitFieldNames ? '' : 'bankData', protoName: 'bankData', subBuilder: BankData.create)
     ..hasRequiredFields = false
   ;
 
@@ -2453,15 +2453,51 @@ class KnobMatching extends $pb.GeneratedMessage {
   void clearKnobNumber() => clearField(1);
 
   @$pb.TagNumber(2)
-  BankData get data => $_getN(1);
+  BankData get bankData => $_getN(1);
   @$pb.TagNumber(2)
-  set data(BankData v) { setField(2, v); }
+  set bankData(BankData v) { setField(2, v); }
   @$pb.TagNumber(2)
-  $core.bool hasData() => $_has(1);
+  $core.bool hasBankData() => $_has(1);
   @$pb.TagNumber(2)
-  void clearData() => clearField(2);
+  void clearBankData() => clearField(2);
   @$pb.TagNumber(2)
-  BankData ensureData() => $_ensure(1);
+  BankData ensureBankData() => $_ensure(1);
+}
+
+class KnobMatchingAll extends $pb.GeneratedMessage {
+  factory KnobMatchingAll() => create();
+  KnobMatchingAll._() : super();
+  factory KnobMatchingAll.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory KnobMatchingAll.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'KnobMatchingAll', createEmptyInstance: create)
+    ..pc<KnobMatching>(1, _omitFieldNames ? '' : 'knobMatchingData', $pb.PbFieldType.PM, protoName: 'knobMatchingData', subBuilder: KnobMatching.create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  KnobMatchingAll clone() => KnobMatchingAll()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  KnobMatchingAll copyWith(void Function(KnobMatchingAll) updates) => super.copyWith((message) => updates(message as KnobMatchingAll)) as KnobMatchingAll;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static KnobMatchingAll create() => KnobMatchingAll._();
+  KnobMatchingAll createEmptyInstance() => create();
+  static $pb.PbList<KnobMatchingAll> createRepeated() => $pb.PbList<KnobMatchingAll>();
+  @$core.pragma('dart2js:noInline')
+  static KnobMatchingAll getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<KnobMatchingAll>(create);
+  static KnobMatchingAll? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<KnobMatching> get knobMatchingData => $_getList(0);
 }
 
 class ClearEffects extends $pb.GeneratedMessage {

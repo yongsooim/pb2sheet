@@ -14,4 +14,5 @@ InitFromGuitar.firmwareVersion  max_size: 64
 ChangeGuitarName.guitarName  max_size: 64
 
 CategoryData.params  max_count: 16
-BankData.data max_count: 7
+BankData.categoryData max_count: 7
+KnobMatchingAll.knobMatchingData max_count: 3

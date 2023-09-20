@@ -55,15 +55,16 @@ const MessageID$json = {
     {'1': 'CATEGORY_DATA', '2': 35},
     {'1': 'BANK_DATA', '2': 36},
     {'1': 'KNOB_MATCHING', '2': 37},
-    {'1': 'CLEAR_EFFECTS', '2': 38},
-    {'1': 'DIAG_REQ', '2': 39},
-    {'1': 'DIAG_RESP_POC', '2': 40},
-    {'1': 'DIAG_RESP_FIRST_PARING', '2': 41},
-    {'1': 'DIAG_RESP_ERR_CODE', '2': 42},
-    {'1': 'BULK_IR_START_REQ', '2': 43},
-    {'1': 'BULK_IR_REQ', '2': 44},
-    {'1': 'BULK_IR_END_REQ', '2': 45},
-    {'1': 'BULK_IR_RES', '2': 46},
+    {'1': 'KNOB_MATCHING_ALL', '2': 38},
+    {'1': 'CLEAR_EFFECTS', '2': 39},
+    {'1': 'DIAG_REQ', '2': 40},
+    {'1': 'DIAG_RESP_POC', '2': 41},
+    {'1': 'DIAG_RESP_FIRST_PARING', '2': 42},
+    {'1': 'DIAG_RESP_ERR_CODE', '2': 43},
+    {'1': 'BULK_IR_START_REQ', '2': 44},
+    {'1': 'BULK_IR_REQ', '2': 45},
+    {'1': 'BULK_IR_END_REQ', '2': 46},
+    {'1': 'BULK_IR_RES', '2': 47},
   ],
 };
 
@@ -82,11 +83,11 @@ final $typed_data.Uint8List messageIDDescriptor = $convert.base64Decode(
     'X01PRF9QSEFTRVIQHBIVChFQQVJBTV9NT0RfVklCUkFUTxAdEhUKEVBBUkFNX0RFTEFZX0RFTE'
     'FZEB4SFQoRUEFSQU1fUkVWRVJCX1JPT00QHxIVChFQQVJBTV9SRVZFUkJfSEFMTBAgEhYKElBB'
     'UkFNX1JFVkVSQl9QTEFURRAhEhcKE1BBUkFNX1JFVkVSQl9TUFJJTkcQIhIRCg1DQVRFR09SWV'
-    '9EQVRBECMSDQoJQkFOS19EQVRBECQSEQoNS05PQl9NQVRDSElORxAlEhEKDUNMRUFSX0VGRkVD'
-    'VFMQJhIMCghESUFHX1JFURAnEhEKDURJQUdfUkVTUF9QT0MQKBIaChZESUFHX1JFU1BfRklSU1'
-    'RfUEFSSU5HECkSFgoSRElBR19SRVNQX0VSUl9DT0RFECoSFQoRQlVMS19JUl9TVEFSVF9SRVEQ'
-    'KxIPCgtCVUxLX0lSX1JFURAsEhMKD0JVTEtfSVJfRU5EX1JFURAtEg8KC0JVTEtfSVJfUkVTEC'
-    '4=');
+    '9EQVRBECMSDQoJQkFOS19EQVRBECQSEQoNS05PQl9NQVRDSElORxAlEhUKEUtOT0JfTUFUQ0hJ'
+    'TkdfQUxMECYSEQoNQ0xFQVJfRUZGRUNUUxAnEgwKCERJQUdfUkVRECgSEQoNRElBR19SRVNQX1'
+    'BPQxApEhoKFkRJQUdfUkVTUF9GSVJTVF9QQVJJTkcQKhIWChJESUFHX1JFU1BfRVJSX0NPREUQ'
+    'KxIVChFCVUxLX0lSX1NUQVJUX1JFURAsEg8KC0JVTEtfSVJfUkVREC0SEwoPQlVMS19JUl9FTk'
+    'RfUkVREC4SDwoLQlVMS19JUl9SRVMQLw==');
 
 @$core.Deprecated('Use cATEGORY_NUMBERDescriptor instead')
 const CATEGORY_NUMBER$json = {
@@ -826,27 +827,41 @@ final $typed_data.Uint8List categoryDataDescriptor = $convert.base64Decode(
 const BankData$json = {
   '1': 'BankData',
   '2': [
-    {'1': 'data', '3': 1, '4': 3, '5': 11, '6': '.CategoryData', '10': 'data'},
+    {'1': 'categoryData', '3': 1, '4': 3, '5': 11, '6': '.CategoryData', '10': 'categoryData'},
   ],
 };
 
 /// Descriptor for `BankData`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List bankDataDescriptor = $convert.base64Decode(
-    'CghCYW5rRGF0YRIhCgRkYXRhGAEgAygLMg0uQ2F0ZWdvcnlEYXRhUgRkYXRh');
+    'CghCYW5rRGF0YRIxCgxjYXRlZ29yeURhdGEYASADKAsyDS5DYXRlZ29yeURhdGFSDGNhdGVnb3'
+    'J5RGF0YQ==');
 
 @$core.Deprecated('Use knobMatchingDescriptor instead')
 const KnobMatching$json = {
   '1': 'KnobMatching',
   '2': [
     {'1': 'knobNumber', '3': 1, '4': 1, '5': 5, '10': 'knobNumber'},
-    {'1': 'data', '3': 2, '4': 1, '5': 11, '6': '.BankData', '10': 'data'},
+    {'1': 'bankData', '3': 2, '4': 1, '5': 11, '6': '.BankData', '10': 'bankData'},
   ],
 };
 
 /// Descriptor for `KnobMatching`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List knobMatchingDescriptor = $convert.base64Decode(
-    'CgxLbm9iTWF0Y2hpbmcSHgoKa25vYk51bWJlchgBIAEoBVIKa25vYk51bWJlchIdCgRkYXRhGA'
-    'IgASgLMgkuQmFua0RhdGFSBGRhdGE=');
+    'CgxLbm9iTWF0Y2hpbmcSHgoKa25vYk51bWJlchgBIAEoBVIKa25vYk51bWJlchIlCghiYW5rRG'
+    'F0YRgCIAEoCzIJLkJhbmtEYXRhUghiYW5rRGF0YQ==');
+
+@$core.Deprecated('Use knobMatchingAllDescriptor instead')
+const KnobMatchingAll$json = {
+  '1': 'KnobMatchingAll',
+  '2': [
+    {'1': 'knobMatchingData', '3': 1, '4': 3, '5': 11, '6': '.KnobMatching', '10': 'knobMatchingData'},
+  ],
+};
+
+/// Descriptor for `KnobMatchingAll`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List knobMatchingAllDescriptor = $convert.base64Decode(
+    'Cg9Lbm9iTWF0Y2hpbmdBbGwSOQoQa25vYk1hdGNoaW5nRGF0YRgBIAMoCzINLktub2JNYXRjaG'
+    'luZ1IQa25vYk1hdGNoaW5nRGF0YQ==');
 
 @$core.Deprecated('Use clearEffectsDescriptor instead')
 const ClearEffects$json = {
