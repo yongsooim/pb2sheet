@@ -48,6 +48,15 @@ PB_BIND(ParamEfxDistortion, ParamEfxDistortion, AUTO)
 PB_BIND(ParamEfxFuzz, ParamEfxFuzz, AUTO)
 
 
+PB_BIND(ParamEfxTScreamer, ParamEfxTScreamer, AUTO)
+
+
+PB_BIND(ParamEfxSupremeOverdrive, ParamEfxSupremeOverdrive, AUTO)
+
+
+PB_BIND(ParamEfxRatt, ParamEfxRatt, AUTO)
+
+
 PB_BIND(ParamEfxAcoustic, ParamEfxAcoustic, AUTO)
 
 

@@ -1,6 +1,18 @@
 /*
  the-red.proto
 
+ 2023-09-27 jason:
+  - add message : ParamEfxTScreamer
+  - add message : ParamEfxRatt
+  - add message : ParamEfxSupremeOverdrive
+  - add fields : level in ParamAmp*
+  - delete fields : level in ParamCab*
+
+ 2023-09-20 jason:
+  - add message : KnobMatchingAll
+  - change field names : BankData.data -> categoryData
+  - change field names : KnobMatching.data -> knobMatchingData
+
  2023-09-20 jason:
   - add message : KnobMatchingAll
   - change field names : BankData.data -> categoryData
@@ -84,40 +96,43 @@ enum MessageID {
   PARAM_EFX_OVERDRIVE = 11;
   PARAM_EFX_DISTORTION = 12;
   PARAM_EFX_FUZZ = 13;
-  PARAM_EFX_ACOUSTIC = 14;
-  PARAM_AMP_F = 15;
-  PARAM_AMP_MA = 16;
-  PARAM_AMP_ME = 17;
-  PARAM_AMP_V = 18;
-  PARAM_AMP_B = 19;
-  PARAM_CAB_A = 20;
-  PARAM_CAB_B = 21;
-  PARAM_CAB_C = 22;
-  PARAM_CAB_D = 23;
-  PARAM_CAB_E = 24;
-  PARAM_MOD_FLANGE = 25;
-  PARAM_MOD_CHORUS = 26;
-  PARAM_MOD_TREMOLO = 27;
-  PARAM_MOD_PHASER = 28;
-  PARAM_MOD_VIBRATO = 29;
-  PARAM_DELAY_DELAY = 30;
-  PARAM_REVERB_ROOM = 31;
-  PARAM_REVERB_HALL = 32;
-  PARAM_REVERB_PLATE = 33;
-  PARAM_REVERB_SPRING = 34;
-  CATEGORY_DATA = 35;
-  BANK_DATA = 36;
-  KNOB_MATCHING = 37;
-  KNOB_MATCHING_ALL = 38;
-  CLEAR_EFFECTS = 39;
-  DIAG_REQ = 40;
-  DIAG_RESP_POC = 41;
-  DIAG_RESP_FIRST_PARING = 42;
-  DIAG_RESP_ERR_CODE = 43;
-  BULK_IR_START_REQ = 44;
-  BULK_IR_REQ = 45;
-  BULK_IR_END_REQ = 46;
-  BULK_IR_RES = 47;
+  PARAM_EFX_T_SCREAMER = 14;
+  PARAM_EFX_SUPREME_OVERDRIVE = 15;
+  PARAM_EFX_RATT = 16;
+  PARAM_EFX_ACOUSTIC = 17;
+  PARAM_AMP_F = 18;
+  PARAM_AMP_MA = 19;
+  PARAM_AMP_ME = 20;
+  PARAM_AMP_V = 21;
+  PARAM_AMP_B = 22;
+  PARAM_CAB_A = 23;
+  PARAM_CAB_B = 24;
+  PARAM_CAB_C = 25;
+  PARAM_CAB_D = 26;
+  PARAM_CAB_E = 27;
+  PARAM_MOD_FLANGE = 28;
+  PARAM_MOD_CHORUS = 29;
+  PARAM_MOD_TREMOLO = 30;
+  PARAM_MOD_PHASER = 31;
+  PARAM_MOD_VIBRATO = 32;
+  PARAM_DELAY_DELAY = 33;
+  PARAM_REVERB_ROOM = 34;
+  PARAM_REVERB_HALL = 35;
+  PARAM_REVERB_PLATE = 36;
+  PARAM_REVERB_SPRING = 37;
+  CATEGORY_DATA = 38;
+  BANK_DATA = 39;
+  KNOB_MATCHING = 40;
+  KNOB_MATCHING_ALL = 41;
+  CLEAR_EFFECTS = 42;
+  DIAG_REQ = 43;
+  DIAG_RESP_POC = 44;
+  DIAG_RESP_FIRST_PARING = 45;
+  DIAG_RESP_ERR_CODE = 46;
+  BULK_IR_START_REQ = 47;
+  BULK_IR_REQ = 48;
+  BULK_IR_END_REQ = 49;
+  BULK_IR_RES = 50;
 }
 
 enum CATEGORY_NUMBER {
@@ -268,6 +283,27 @@ message ParamEfxFuzz {
   int32 level = 4;
 }
 
+message ParamEfxTScreamer {
+  bool isOn = 1;
+  int32 gain = 2;
+  int32 tone = 3;
+  int32 level = 4;
+}
+
+message ParamEfxSupremeOverdrive {
+  bool isOn = 1;
+  int32 gain = 2;
+  int32 tone = 3;
+  int32 level = 4;
+}
+
+message ParamEfxRatt {
+  bool isOn = 1;
+  int32 gain = 2;
+  int32 tone = 3;
+  int32 level = 4;
+}
+
 message ParamEfxAcoustic {
   bool isOn = 1;
   int32 bass = 2;
@@ -281,6 +317,7 @@ message ParamAmpF {
   int32 bass = 3;
   int32 middle = 4;
   int32 treble = 5;
+  int32 level = 6;
 }
 
 message ParamAmpMa {
@@ -289,6 +326,7 @@ message ParamAmpMa {
   int32 bass = 3;
   int32 middle = 4;
   int32 treble = 5;
+  int32 level = 6;
 }
 
 message ParamAmpMe {
@@ -297,6 +335,7 @@ message ParamAmpMe {
   int32 bass = 3;
   int32 middle = 4;
   int32 treble = 5;
+  int32 level = 6;
 }
 
 message ParamAmpV {
@@ -305,6 +344,7 @@ message ParamAmpV {
   int32 bass = 3;
   int32 middle = 4;
   int32 treble = 5;
+  int32 level = 6;
 }
 
 message ParamAmpB {
@@ -313,27 +353,23 @@ message ParamAmpB {
   int32 bass = 3;
   int32 middle = 4;
   int32 treble = 5;
+  int32 level = 6;
 }
 
 message ParamCabA {
   bool isOn = 1;
-  int32 level = 2;
 }
 message ParamCabB {
   bool isOn = 1;
-  int32 level = 2;
 }
 message ParamCabC {
   bool isOn = 1;
-  int32 level = 2;
 }
 message ParamCabD {
   bool isOn = 1;
-  int32 level = 2;
 }
 message ParamCabE {
   bool isOn = 1;
-  int32 level = 2;
 }
 
 message ParamModFlange {
