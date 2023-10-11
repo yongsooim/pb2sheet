@@ -1133,6 +1133,7 @@ class ParamEfxAcoustic extends $pb.GeneratedMessage {
     ..a<$core.int>(2, _omitFieldNames ? '' : 'bass', $pb.PbFieldType.O3)
     ..a<$core.int>(3, _omitFieldNames ? '' : 'middle', $pb.PbFieldType.O3)
     ..a<$core.int>(4, _omitFieldNames ? '' : 'treble', $pb.PbFieldType.O3)
+    ..a<$core.int>(5, _omitFieldNames ? '' : 'level', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -1192,6 +1193,15 @@ class ParamEfxAcoustic extends $pb.GeneratedMessage {
   $core.bool hasTreble() => $_has(3);
   @$pb.TagNumber(4)
   void clearTreble() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.int get level => $_getIZ(4);
+  @$pb.TagNumber(5)
+  set level($core.int v) { $_setSignedInt32(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasLevel() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearLevel() => clearField(5);
 }
 
 class ParamAmpF extends $pb.GeneratedMessage {

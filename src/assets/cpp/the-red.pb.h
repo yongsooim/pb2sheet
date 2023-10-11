@@ -263,6 +263,7 @@ typedef struct _ParamEfxAcoustic {
     int32_t bass;
     int32_t middle;
     int32_t treble;
+    int32_t level;
 } ParamEfxAcoustic;
 
 typedef struct _ParamAmpF {
@@ -590,7 +591,7 @@ extern "C" {
 #define ParamEfxTScreamer_init_default           {0, 0, 0, 0}
 #define ParamEfxSupremeOverdrive_init_default    {0, 0, 0, 0}
 #define ParamEfxRatt_init_default                {0, 0, 0, 0}
-#define ParamEfxAcoustic_init_default            {0, 0, 0, 0}
+#define ParamEfxAcoustic_init_default            {0, 0, 0, 0, 0}
 #define ParamAmpF_init_default                   {0, 0, 0, 0, 0, 0}
 #define ParamAmpMa_init_default                  {0, 0, 0, 0, 0, 0}
 #define ParamAmpMe_init_default                  {0, 0, 0, 0, 0, 0}
@@ -641,7 +642,7 @@ extern "C" {
 #define ParamEfxTScreamer_init_zero              {0, 0, 0, 0}
 #define ParamEfxSupremeOverdrive_init_zero       {0, 0, 0, 0}
 #define ParamEfxRatt_init_zero                   {0, 0, 0, 0}
-#define ParamEfxAcoustic_init_zero               {0, 0, 0, 0}
+#define ParamEfxAcoustic_init_zero               {0, 0, 0, 0, 0}
 #define ParamAmpF_init_zero                      {0, 0, 0, 0, 0, 0}
 #define ParamAmpMa_init_zero                     {0, 0, 0, 0, 0, 0}
 #define ParamAmpMe_init_zero                     {0, 0, 0, 0, 0, 0}
@@ -737,6 +738,7 @@ extern "C" {
 #define ParamEfxAcoustic_bass_tag                2
 #define ParamEfxAcoustic_middle_tag              3
 #define ParamEfxAcoustic_treble_tag              4
+#define ParamEfxAcoustic_level_tag               5
 #define ParamAmpF_isOn_tag                       1
 #define ParamAmpF_gain_tag                       2
 #define ParamAmpF_bass_tag                       3
@@ -958,7 +960,8 @@ X(a, STATIC,   SINGULAR, INT32,    level,             4)
 X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
 X(a, STATIC,   SINGULAR, INT32,    bass,              2) \
 X(a, STATIC,   SINGULAR, INT32,    middle,            3) \
-X(a, STATIC,   SINGULAR, INT32,    treble,            4)
+X(a, STATIC,   SINGULAR, INT32,    treble,            4) \
+X(a, STATIC,   SINGULAR, INT32,    level,             5)
 #define ParamEfxAcoustic_CALLBACK NULL
 #define ParamEfxAcoustic_DEFAULT NULL
 
@@ -1326,7 +1329,7 @@ extern const pb_msgdesc_t BulkIrRes_msg;
 #define ParamCabD_size                           2
 #define ParamCabE_size                           2
 #define ParamDelayDelay_size                     35
-#define ParamEfxAcoustic_size                    35
+#define ParamEfxAcoustic_size                    46
 #define ParamEfxDistortion_size                  35
 #define ParamEfxFuzz_size                        35
 #define ParamEfxOverdrive_size                   35

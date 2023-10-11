@@ -542,13 +542,15 @@ const ParamEfxAcoustic$json = {
     {'1': 'bass', '3': 2, '4': 1, '5': 5, '10': 'bass'},
     {'1': 'middle', '3': 3, '4': 1, '5': 5, '10': 'middle'},
     {'1': 'treble', '3': 4, '4': 1, '5': 5, '10': 'treble'},
+    {'1': 'level', '3': 5, '4': 1, '5': 5, '10': 'level'},
   ],
 };
 
 /// Descriptor for `ParamEfxAcoustic`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List paramEfxAcousticDescriptor = $convert.base64Decode(
     'ChBQYXJhbUVmeEFjb3VzdGljEhIKBGlzT24YASABKAhSBGlzT24SEgoEYmFzcxgCIAEoBVIEYm'
-    'FzcxIWCgZtaWRkbGUYAyABKAVSBm1pZGRsZRIWCgZ0cmVibGUYBCABKAVSBnRyZWJsZQ==');
+    'FzcxIWCgZtaWRkbGUYAyABKAVSBm1pZGRsZRIWCgZ0cmVibGUYBCABKAVSBnRyZWJsZRIUCgVs'
+    'ZXZlbBgFIAEoBVIFbGV2ZWw=');
 
 @$core.Deprecated('Use paramAmpFDescriptor instead')
 const ParamAmpF$json = {

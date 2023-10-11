@@ -1,17 +1,15 @@
 /*
  the-red.proto
 
+ 2023-10-10 jason:
+  - add field : ParamEfxAcoustic.level
+
  2023-09-27 jason:
   - add message : ParamEfxTScreamer
   - add message : ParamEfxRatt
   - add message : ParamEfxSupremeOverdrive
   - add fields : level in ParamAmp*
   - delete fields : level in ParamCab*
-
- 2023-09-20 jason:
-  - add message : KnobMatchingAll
-  - change field names : BankData.data -> categoryData
-  - change field names : KnobMatching.data -> knobMatchingData
 
  2023-09-20 jason:
   - add message : KnobMatchingAll
@@ -309,6 +307,7 @@ message ParamEfxAcoustic {
   int32 bass = 2;
   int32 middle = 3;
   int32 treble = 4;
+  int32 level = 5;
 }
 
 message ParamAmpF {
