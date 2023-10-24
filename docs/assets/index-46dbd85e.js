@@ -3,6 +3,7 @@ var Ei=Object.defineProperty;var Li=(h,w,g)=>w in h?Ei(h,w,{enumerable:!0,config
 
  2023-10-10 jason:
   - add message : SingleParam
+  - add field : CategoryData.isOn
 
  2023-10-10 jason:
   - add field : ParamEfxAcoustic.level
