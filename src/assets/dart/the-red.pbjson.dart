@@ -929,6 +929,22 @@ const ClearEffects$json = {
 final $typed_data.Uint8List clearEffectsDescriptor = $convert.base64Decode(
     'CgxDbGVhckVmZmVjdHMSFAoFY2xlYXIYASABKAhSBWNsZWFy');
 
+@$core.Deprecated('Use singleParamDescriptor instead')
+const SingleParam$json = {
+  '1': 'SingleParam',
+  '2': [
+    {'1': 'categoryIndex', '3': 1, '4': 1, '5': 5, '10': 'categoryIndex'},
+    {'1': 'parameterIndex', '3': 2, '4': 1, '5': 5, '10': 'parameterIndex'},
+    {'1': 'value', '3': 3, '4': 1, '5': 5, '10': 'value'},
+  ],
+};
+
+/// Descriptor for `SingleParam`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List singleParamDescriptor = $convert.base64Decode(
+    'CgtTaW5nbGVQYXJhbRIkCg1jYXRlZ29yeUluZGV4GAEgASgFUg1jYXRlZ29yeUluZGV4EiYKDn'
+    'BhcmFtZXRlckluZGV4GAIgASgFUg5wYXJhbWV0ZXJJbmRleBIUCgV2YWx1ZRgDIAEoBVIFdmFs'
+    'dWU=');
+
 @$core.Deprecated('Use diagReqDescriptor instead')
 const DiagReq$json = {
   '1': 'DiagReq',

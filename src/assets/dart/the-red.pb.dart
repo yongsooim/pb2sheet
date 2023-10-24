@@ -2768,6 +2768,68 @@ class ClearEffects extends $pb.GeneratedMessage {
   void clearClear_1() => clearField(1);
 }
 
+class SingleParam extends $pb.GeneratedMessage {
+  factory SingleParam() => create();
+  SingleParam._() : super();
+  factory SingleParam.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory SingleParam.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SingleParam', createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'categoryIndex', $pb.PbFieldType.O3, protoName: 'categoryIndex')
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'parameterIndex', $pb.PbFieldType.O3, protoName: 'parameterIndex')
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'value', $pb.PbFieldType.O3)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  SingleParam clone() => SingleParam()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  SingleParam copyWith(void Function(SingleParam) updates) => super.copyWith((message) => updates(message as SingleParam)) as SingleParam;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static SingleParam create() => SingleParam._();
+  SingleParam createEmptyInstance() => create();
+  static $pb.PbList<SingleParam> createRepeated() => $pb.PbList<SingleParam>();
+  @$core.pragma('dart2js:noInline')
+  static SingleParam getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SingleParam>(create);
+  static SingleParam? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.int get categoryIndex => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set categoryIndex($core.int v) { $_setSignedInt32(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCategoryIndex() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCategoryIndex() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.int get parameterIndex => $_getIZ(1);
+  @$pb.TagNumber(2)
+  set parameterIndex($core.int v) { $_setSignedInt32(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasParameterIndex() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearParameterIndex() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.int get value => $_getIZ(2);
+  @$pb.TagNumber(3)
+  set value($core.int v) { $_setSignedInt32(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasValue() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearValue() => clearField(3);
+}
+
 class DiagReq extends $pb.GeneratedMessage {
   factory DiagReq() => create();
   DiagReq._() : super();

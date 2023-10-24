@@ -423,6 +423,12 @@ typedef struct _ClearEffects {
     bool clear;
 } ClearEffects;
 
+typedef struct _SingleParam {
+    int32_t categoryIndex;
+    int32_t parameterIndex;
+    int32_t value;
+} SingleParam;
+
 typedef struct _DiagReq {
     DiagCode code;
 } DiagReq;
@@ -563,6 +569,7 @@ extern "C" {
 
 
 
+
 #define DiagReq_code_ENUMTYPE DiagCode
 
 
@@ -617,6 +624,7 @@ extern "C" {
 #define KnobMatching_init_default                {0, false, BankData_init_default}
 #define KnobMatchingAll_init_default             {0, {KnobMatching_init_default, KnobMatching_init_default, KnobMatching_init_default}}
 #define ClearEffects_init_default                {0}
+#define SingleParam_init_default                 {0, 0, 0}
 #define DiagReq_init_default                     {_DiagCode_MIN}
 #define DiagRespPOC_init_default                 {0}
 #define DiagRespFirstParing_init_default         {0}
@@ -668,6 +676,7 @@ extern "C" {
 #define KnobMatching_init_zero                   {0, false, BankData_init_zero}
 #define KnobMatchingAll_init_zero                {0, {KnobMatching_init_zero, KnobMatching_init_zero, KnobMatching_init_zero}}
 #define ClearEffects_init_zero                   {0}
+#define SingleParam_init_zero                    {0, 0, 0}
 #define DiagReq_init_zero                        {_DiagCode_MIN}
 #define DiagRespPOC_init_zero                    {0}
 #define DiagRespFirstParing_init_zero            {0}
@@ -817,6 +826,9 @@ extern "C" {
 #define KnobMatching_bankData_tag                2
 #define KnobMatchingAll_knobMatchingData_tag     1
 #define ClearEffects_clear_tag                   1
+#define SingleParam_categoryIndex_tag            1
+#define SingleParam_parameterIndex_tag           2
+#define SingleParam_value_tag                    3
 #define DiagReq_code_tag                         1
 #define DiagRespPOC_powerOnCount_tag             1
 #define DiagRespFirstParing_FirstParingTimeEpoch_tag 1
@@ -1146,6 +1158,13 @@ X(a, STATIC,   SINGULAR, BOOL,     clear,             1)
 #define ClearEffects_CALLBACK NULL
 #define ClearEffects_DEFAULT NULL
 
+#define SingleParam_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, INT32,    categoryIndex,     1) \
+X(a, STATIC,   SINGULAR, INT32,    parameterIndex,    2) \
+X(a, STATIC,   SINGULAR, INT32,    value,             3)
+#define SingleParam_CALLBACK NULL
+#define SingleParam_DEFAULT NULL
+
 #define DiagReq_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, UENUM,    code,              1)
 #define DiagReq_CALLBACK NULL
@@ -1234,6 +1253,7 @@ extern const pb_msgdesc_t BankData_msg;
 extern const pb_msgdesc_t KnobMatching_msg;
 extern const pb_msgdesc_t KnobMatchingAll_msg;
 extern const pb_msgdesc_t ClearEffects_msg;
+extern const pb_msgdesc_t SingleParam_msg;
 extern const pb_msgdesc_t DiagReq_msg;
 extern const pb_msgdesc_t DiagRespPOC_msg;
 extern const pb_msgdesc_t DiagRespFirstParing_msg;
@@ -1287,6 +1307,7 @@ extern const pb_msgdesc_t BulkIrRes_msg;
 #define KnobMatching_fields &KnobMatching_msg
 #define KnobMatchingAll_fields &KnobMatchingAll_msg
 #define ClearEffects_fields &ClearEffects_msg
+#define SingleParam_fields &SingleParam_msg
 #define DiagReq_fields &DiagReq_msg
 #define DiagRespPOC_fields &DiagRespPOC_msg
 #define DiagRespFirstParing_fields &DiagRespFirstParing_msg
@@ -1346,6 +1367,7 @@ extern const pb_msgdesc_t BulkIrRes_msg;
 #define ParamReverbPlate_size                    35
 #define ParamReverbRoom_size                     35
 #define ParamReverbSpring_size                   35
+#define SingleParam_size                         33
 #define TunerFrequency_size                      5
 #define TunerOnOff_size                          2
 

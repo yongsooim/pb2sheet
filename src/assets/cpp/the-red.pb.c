@@ -135,6 +135,9 @@ PB_BIND(KnobMatchingAll, KnobMatchingAll, 2)
 PB_BIND(ClearEffects, ClearEffects, AUTO)
 
 
+PB_BIND(SingleParam, SingleParam, AUTO)
+
+
 PB_BIND(DiagReq, DiagReq, AUTO)
 
 

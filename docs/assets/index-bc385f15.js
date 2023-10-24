@@ -2,6 +2,9 @@ var Ei=Object.defineProperty;var Li=(h,w,g)=>w in h?Ei(h,w,{enumerable:!0,config
  the-red.proto
 
  2023-10-10 jason:
+  - add message : SingleParam
+
+ 2023-10-10 jason:
   - add field : ParamEfxAcoustic.level
 
  2023-09-27 jason:
@@ -456,6 +459,12 @@ message KnobMatchingAll {
 }
 
 message ClearEffects { bool clear = 1; }
+
+message SingleParam {
+  int32 categoryIndex = 1;
+  int32 parameterIndex = 2;
+  int32 value = 3;
+}
 
 // App -> Guitar
 enum DiagCode {
