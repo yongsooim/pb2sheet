@@ -54,14 +54,15 @@ typedef enum _MessageID {
     MessageID_KNOB_MATCHING = 40,
     MessageID_KNOB_MATCHING_ALL = 41,
     MessageID_CLEAR_EFFECTS = 42,
-    MessageID_DIAG_REQ = 43,
-    MessageID_DIAG_RESP_POC = 44,
-    MessageID_DIAG_RESP_FIRST_PARING = 45,
-    MessageID_DIAG_RESP_ERR_CODE = 46,
-    MessageID_BULK_IR_START_REQ = 47,
-    MessageID_BULK_IR_REQ = 48,
-    MessageID_BULK_IR_END_REQ = 49,
-    MessageID_BULK_IR_RES = 50
+    MessageID_SINGLE_PARAM = 43,
+    MessageID_DIAG_REQ = 44,
+    MessageID_DIAG_RESP_POC = 45,
+    MessageID_DIAG_RESP_FIRST_PARING = 46,
+    MessageID_DIAG_RESP_ERR_CODE = 47,
+    MessageID_BULK_IR_START_REQ = 48,
+    MessageID_BULK_IR_REQ = 49,
+    MessageID_BULK_IR_END_REQ = 50,
+    MessageID_BULK_IR_RES = 51
 } MessageID;
 
 typedef enum _CATEGORY_NUMBER {

@@ -57,14 +57,15 @@ class MessageID extends $pb.ProtobufEnum {
   static const MessageID KNOB_MATCHING = MessageID._(40, _omitEnumNames ? '' : 'KNOB_MATCHING');
   static const MessageID KNOB_MATCHING_ALL = MessageID._(41, _omitEnumNames ? '' : 'KNOB_MATCHING_ALL');
   static const MessageID CLEAR_EFFECTS = MessageID._(42, _omitEnumNames ? '' : 'CLEAR_EFFECTS');
-  static const MessageID DIAG_REQ = MessageID._(43, _omitEnumNames ? '' : 'DIAG_REQ');
-  static const MessageID DIAG_RESP_POC = MessageID._(44, _omitEnumNames ? '' : 'DIAG_RESP_POC');
-  static const MessageID DIAG_RESP_FIRST_PARING = MessageID._(45, _omitEnumNames ? '' : 'DIAG_RESP_FIRST_PARING');
-  static const MessageID DIAG_RESP_ERR_CODE = MessageID._(46, _omitEnumNames ? '' : 'DIAG_RESP_ERR_CODE');
-  static const MessageID BULK_IR_START_REQ = MessageID._(47, _omitEnumNames ? '' : 'BULK_IR_START_REQ');
-  static const MessageID BULK_IR_REQ = MessageID._(48, _omitEnumNames ? '' : 'BULK_IR_REQ');
-  static const MessageID BULK_IR_END_REQ = MessageID._(49, _omitEnumNames ? '' : 'BULK_IR_END_REQ');
-  static const MessageID BULK_IR_RES = MessageID._(50, _omitEnumNames ? '' : 'BULK_IR_RES');
+  static const MessageID SINGLE_PARAM = MessageID._(43, _omitEnumNames ? '' : 'SINGLE_PARAM');
+  static const MessageID DIAG_REQ = MessageID._(44, _omitEnumNames ? '' : 'DIAG_REQ');
+  static const MessageID DIAG_RESP_POC = MessageID._(45, _omitEnumNames ? '' : 'DIAG_RESP_POC');
+  static const MessageID DIAG_RESP_FIRST_PARING = MessageID._(46, _omitEnumNames ? '' : 'DIAG_RESP_FIRST_PARING');
+  static const MessageID DIAG_RESP_ERR_CODE = MessageID._(47, _omitEnumNames ? '' : 'DIAG_RESP_ERR_CODE');
+  static const MessageID BULK_IR_START_REQ = MessageID._(48, _omitEnumNames ? '' : 'BULK_IR_START_REQ');
+  static const MessageID BULK_IR_REQ = MessageID._(49, _omitEnumNames ? '' : 'BULK_IR_REQ');
+  static const MessageID BULK_IR_END_REQ = MessageID._(50, _omitEnumNames ? '' : 'BULK_IR_END_REQ');
+  static const MessageID BULK_IR_RES = MessageID._(51, _omitEnumNames ? '' : 'BULK_IR_RES');
 
   static const $core.List<MessageID> values = <MessageID> [
     ACK,
@@ -110,6 +111,7 @@ class MessageID extends $pb.ProtobufEnum {
     KNOB_MATCHING,
     KNOB_MATCHING_ALL,
     CLEAR_EFFECTS,
+    SINGLE_PARAM,
     DIAG_REQ,
     DIAG_RESP_POC,
     DIAG_RESP_FIRST_PARING,
