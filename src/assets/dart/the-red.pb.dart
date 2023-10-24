@@ -2551,9 +2551,10 @@ class CategoryData extends $pb.GeneratedMessage {
   factory CategoryData.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CategoryData', createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'categoryNumber', $pb.PbFieldType.O3, protoName: 'categoryNumber')
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'select', $pb.PbFieldType.O3)
-    ..p<$core.int>(3, _omitFieldNames ? '' : 'params', $pb.PbFieldType.K3)
+    ..aOB(1, _omitFieldNames ? '' : 'isOn', protoName: 'isOn')
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'categoryNumber', $pb.PbFieldType.O3, protoName: 'categoryNumber')
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'select', $pb.PbFieldType.O3)
+    ..p<$core.int>(4, _omitFieldNames ? '' : 'params', $pb.PbFieldType.K3)
     ..hasRequiredFields = false
   ;
 
@@ -2579,25 +2580,34 @@ class CategoryData extends $pb.GeneratedMessage {
   static CategoryData? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get categoryNumber => $_getIZ(0);
+  $core.bool get isOn => $_getBF(0);
   @$pb.TagNumber(1)
-  set categoryNumber($core.int v) { $_setSignedInt32(0, v); }
+  set isOn($core.bool v) { $_setBool(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasCategoryNumber() => $_has(0);
+  $core.bool hasIsOn() => $_has(0);
   @$pb.TagNumber(1)
-  void clearCategoryNumber() => clearField(1);
+  void clearIsOn() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.int get select => $_getIZ(1);
+  $core.int get categoryNumber => $_getIZ(1);
   @$pb.TagNumber(2)
-  set select($core.int v) { $_setSignedInt32(1, v); }
+  set categoryNumber($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasSelect() => $_has(1);
+  $core.bool hasCategoryNumber() => $_has(1);
   @$pb.TagNumber(2)
-  void clearSelect() => clearField(2);
+  void clearCategoryNumber() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.List<$core.int> get params => $_getList(2);
+  $core.int get select => $_getIZ(2);
+  @$pb.TagNumber(3)
+  set select($core.int v) { $_setSignedInt32(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasSelect() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearSelect() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.List<$core.int> get params => $_getList(3);
 }
 
 class BankData extends $pb.GeneratedMessage {
@@ -2776,8 +2786,9 @@ class SingleParam extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SingleParam', createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'categoryIndex', $pb.PbFieldType.O3, protoName: 'categoryIndex')
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'parameterIndex', $pb.PbFieldType.O3, protoName: 'parameterIndex')
-    ..a<$core.int>(3, _omitFieldNames ? '' : 'value', $pb.PbFieldType.O3)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'selectIndex', $pb.PbFieldType.O3, protoName: 'selectIndex')
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'parameterIndex', $pb.PbFieldType.O3, protoName: 'parameterIndex')
+    ..a<$core.int>(4, _omitFieldNames ? '' : 'value', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -2812,22 +2823,31 @@ class SingleParam extends $pb.GeneratedMessage {
   void clearCategoryIndex() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.int get parameterIndex => $_getIZ(1);
+  $core.int get selectIndex => $_getIZ(1);
   @$pb.TagNumber(2)
-  set parameterIndex($core.int v) { $_setSignedInt32(1, v); }
+  set selectIndex($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasParameterIndex() => $_has(1);
+  $core.bool hasSelectIndex() => $_has(1);
   @$pb.TagNumber(2)
-  void clearParameterIndex() => clearField(2);
+  void clearSelectIndex() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.int get value => $_getIZ(2);
+  $core.int get parameterIndex => $_getIZ(2);
   @$pb.TagNumber(3)
-  set value($core.int v) { $_setSignedInt32(2, v); }
+  set parameterIndex($core.int v) { $_setSignedInt32(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasValue() => $_has(2);
+  $core.bool hasParameterIndex() => $_has(2);
   @$pb.TagNumber(3)
-  void clearValue() => clearField(3);
+  void clearParameterIndex() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.int get value => $_getIZ(3);
+  @$pb.TagNumber(4)
+  set value($core.int v) { $_setSignedInt32(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasValue() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearValue() => clearField(4);
 }
 
 class DiagReq extends $pb.GeneratedMessage {

@@ -3,6 +3,7 @@
 
  2023-10-10 jason:
   - add message : SingleParam
+  - add field : CategoryData.isOn
 
  2023-10-10 jason:
   - add field : ParamEfxAcoustic.level
@@ -441,9 +442,10 @@ message ParamReverbSpring {
 }
 
 message CategoryData {
-  int32 categoryNumber = 1;
-  int32 select = 2;
-  repeated int32 params = 3;
+  bool isOn = 1;
+  int32 categoryNumber = 2;
+  int32 select = 3;
+  repeated int32 params = 4;
 }
 
 message BankData {
@@ -463,8 +465,9 @@ message ClearEffects { bool clear = 1; }
 
 message SingleParam {
   int32 categoryIndex = 1;
-  int32 parameterIndex = 2;
-  int32 value = 3;
+  int32 selectIndex = 2;
+  int32 parameterIndex = 3;
+  int32 value = 4;
 }
 
 // App -> Guitar

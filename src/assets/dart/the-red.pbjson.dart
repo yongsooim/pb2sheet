@@ -868,16 +868,18 @@ final $typed_data.Uint8List paramReverbSpringDescriptor = $convert.base64Decode(
 const CategoryData$json = {
   '1': 'CategoryData',
   '2': [
-    {'1': 'categoryNumber', '3': 1, '4': 1, '5': 5, '10': 'categoryNumber'},
-    {'1': 'select', '3': 2, '4': 1, '5': 5, '10': 'select'},
-    {'1': 'params', '3': 3, '4': 3, '5': 5, '10': 'params'},
+    {'1': 'isOn', '3': 1, '4': 1, '5': 8, '10': 'isOn'},
+    {'1': 'categoryNumber', '3': 2, '4': 1, '5': 5, '10': 'categoryNumber'},
+    {'1': 'select', '3': 3, '4': 1, '5': 5, '10': 'select'},
+    {'1': 'params', '3': 4, '4': 3, '5': 5, '10': 'params'},
   ],
 };
 
 /// Descriptor for `CategoryData`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List categoryDataDescriptor = $convert.base64Decode(
-    'CgxDYXRlZ29yeURhdGESJgoOY2F0ZWdvcnlOdW1iZXIYASABKAVSDmNhdGVnb3J5TnVtYmVyEh'
-    'YKBnNlbGVjdBgCIAEoBVIGc2VsZWN0EhYKBnBhcmFtcxgDIAMoBVIGcGFyYW1z');
+    'CgxDYXRlZ29yeURhdGESEgoEaXNPbhgBIAEoCFIEaXNPbhImCg5jYXRlZ29yeU51bWJlchgCIA'
+    'EoBVIOY2F0ZWdvcnlOdW1iZXISFgoGc2VsZWN0GAMgASgFUgZzZWxlY3QSFgoGcGFyYW1zGAQg'
+    'AygFUgZwYXJhbXM=');
 
 @$core.Deprecated('Use bankDataDescriptor instead')
 const BankData$json = {
@@ -936,16 +938,17 @@ const SingleParam$json = {
   '1': 'SingleParam',
   '2': [
     {'1': 'categoryIndex', '3': 1, '4': 1, '5': 5, '10': 'categoryIndex'},
-    {'1': 'parameterIndex', '3': 2, '4': 1, '5': 5, '10': 'parameterIndex'},
-    {'1': 'value', '3': 3, '4': 1, '5': 5, '10': 'value'},
+    {'1': 'selectIndex', '3': 2, '4': 1, '5': 5, '10': 'selectIndex'},
+    {'1': 'parameterIndex', '3': 3, '4': 1, '5': 5, '10': 'parameterIndex'},
+    {'1': 'value', '3': 4, '4': 1, '5': 5, '10': 'value'},
   ],
 };
 
 /// Descriptor for `SingleParam`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List singleParamDescriptor = $convert.base64Decode(
-    'CgtTaW5nbGVQYXJhbRIkCg1jYXRlZ29yeUluZGV4GAEgASgFUg1jYXRlZ29yeUluZGV4EiYKDn'
-    'BhcmFtZXRlckluZGV4GAIgASgFUg5wYXJhbWV0ZXJJbmRleBIUCgV2YWx1ZRgDIAEoBVIFdmFs'
-    'dWU=');
+    'CgtTaW5nbGVQYXJhbRIkCg1jYXRlZ29yeUluZGV4GAEgASgFUg1jYXRlZ29yeUluZGV4EiAKC3'
+    'NlbGVjdEluZGV4GAIgASgFUgtzZWxlY3RJbmRleBImCg5wYXJhbWV0ZXJJbmRleBgDIAEoBVIO'
+    'cGFyYW1ldGVySW5kZXgSFAoFdmFsdWUYBCABKAVSBXZhbHVl');
 
 @$core.Deprecated('Use diagReqDescriptor instead')
 const DiagReq$json = {

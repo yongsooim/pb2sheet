@@ -398,6 +398,7 @@ typedef struct _ParamReverbSpring {
 } ParamReverbSpring;
 
 typedef struct _CategoryData {
+    bool isOn;
     int32_t categoryNumber;
     int32_t select;
     pb_size_t params_count;
@@ -426,6 +427,7 @@ typedef struct _ClearEffects {
 
 typedef struct _SingleParam {
     int32_t categoryIndex;
+    int32_t selectIndex;
     int32_t parameterIndex;
     int32_t value;
 } SingleParam;
@@ -620,12 +622,12 @@ extern "C" {
 #define ParamReverbHall_init_default             {0, 0, 0, 0}
 #define ParamReverbPlate_init_default            {0, 0, 0, 0}
 #define ParamReverbSpring_init_default           {0, 0, 0, 0}
-#define CategoryData_init_default                {0, 0, 0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}
+#define CategoryData_init_default                {0, 0, 0, 0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}
 #define BankData_init_default                    {0, {CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default}}
 #define KnobMatching_init_default                {0, false, BankData_init_default}
 #define KnobMatchingAll_init_default             {0, {KnobMatching_init_default, KnobMatching_init_default, KnobMatching_init_default}}
 #define ClearEffects_init_default                {0}
-#define SingleParam_init_default                 {0, 0, 0}
+#define SingleParam_init_default                 {0, 0, 0, 0}
 #define DiagReq_init_default                     {_DiagCode_MIN}
 #define DiagRespPOC_init_default                 {0}
 #define DiagRespFirstParing_init_default         {0}
@@ -672,12 +674,12 @@ extern "C" {
 #define ParamReverbHall_init_zero                {0, 0, 0, 0}
 #define ParamReverbPlate_init_zero               {0, 0, 0, 0}
 #define ParamReverbSpring_init_zero              {0, 0, 0, 0}
-#define CategoryData_init_zero                   {0, 0, 0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}
+#define CategoryData_init_zero                   {0, 0, 0, 0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}
 #define BankData_init_zero                       {0, {CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero}}
 #define KnobMatching_init_zero                   {0, false, BankData_init_zero}
 #define KnobMatchingAll_init_zero                {0, {KnobMatching_init_zero, KnobMatching_init_zero, KnobMatching_init_zero}}
 #define ClearEffects_init_zero                   {0}
-#define SingleParam_init_zero                    {0, 0, 0}
+#define SingleParam_init_zero                    {0, 0, 0, 0}
 #define DiagReq_init_zero                        {_DiagCode_MIN}
 #define DiagRespPOC_init_zero                    {0}
 #define DiagRespFirstParing_init_zero            {0}
@@ -819,17 +821,19 @@ extern "C" {
 #define ParamReverbSpring_roomsize_tag           2
 #define ParamReverbSpring_tone_tag               3
 #define ParamReverbSpring_mix_tag                4
-#define CategoryData_categoryNumber_tag          1
-#define CategoryData_select_tag                  2
-#define CategoryData_params_tag                  3
+#define CategoryData_isOn_tag                    1
+#define CategoryData_categoryNumber_tag          2
+#define CategoryData_select_tag                  3
+#define CategoryData_params_tag                  4
 #define BankData_categoryData_tag                1
 #define KnobMatching_knobNumber_tag              1
 #define KnobMatching_bankData_tag                2
 #define KnobMatchingAll_knobMatchingData_tag     1
 #define ClearEffects_clear_tag                   1
 #define SingleParam_categoryIndex_tag            1
-#define SingleParam_parameterIndex_tag           2
-#define SingleParam_value_tag                    3
+#define SingleParam_selectIndex_tag              2
+#define SingleParam_parameterIndex_tag           3
+#define SingleParam_value_tag                    4
 #define DiagReq_code_tag                         1
 #define DiagRespPOC_powerOnCount_tag             1
 #define DiagRespFirstParing_FirstParingTimeEpoch_tag 1
@@ -1129,9 +1133,10 @@ X(a, STATIC,   SINGULAR, INT32,    mix,               4)
 #define ParamReverbSpring_DEFAULT NULL
 
 #define CategoryData_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, INT32,    categoryNumber,    1) \
-X(a, STATIC,   SINGULAR, INT32,    select,            2) \
-X(a, STATIC,   REPEATED, INT32,    params,            3)
+X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
+X(a, STATIC,   SINGULAR, INT32,    categoryNumber,    2) \
+X(a, STATIC,   SINGULAR, INT32,    select,            3) \
+X(a, STATIC,   REPEATED, INT32,    params,            4)
 #define CategoryData_CALLBACK NULL
 #define CategoryData_DEFAULT NULL
 
@@ -1161,8 +1166,9 @@ X(a, STATIC,   SINGULAR, BOOL,     clear,             1)
 
 #define SingleParam_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, INT32,    categoryIndex,     1) \
-X(a, STATIC,   SINGULAR, INT32,    parameterIndex,    2) \
-X(a, STATIC,   SINGULAR, INT32,    value,             3)
+X(a, STATIC,   SINGULAR, INT32,    selectIndex,       2) \
+X(a, STATIC,   SINGULAR, INT32,    parameterIndex,    3) \
+X(a, STATIC,   SINGULAR, INT32,    value,             4)
 #define SingleParam_CALLBACK NULL
 #define SingleParam_DEFAULT NULL
 
@@ -1320,13 +1326,13 @@ extern const pb_msgdesc_t BulkIrRes_msg;
 
 /* Maximum encoded size of messages (where known) */
 #define Ack_size                                 22
-#define BankData_size                            1407
+#define BankData_size                            1421
 #define BatteryLevel_size                        13
 #define BulkIrEndReq_size                        61
 #define BulkIrReq_size                           61
 #define BulkIrRes_size                           13
 #define BulkIrStartReq_size                      126
-#define CategoryData_size                        198
+#define CategoryData_size                        200
 #define ChangeGuitarName_size                    65
 #define ClearEffects_size                        2
 #define DiagReq_size                             2
@@ -1336,9 +1342,9 @@ extern const pb_msgdesc_t BulkIrRes_msg;
 #define InitFromApp_size                         76
 #define InitFromGuitar_size                      230
 #define KnobClicked_size                         11
-#define KnobMatchingAll_size                     4272
+#define KnobMatchingAll_size                     4314
 #define KnobMatchingStart_size                   11
-#define KnobMatching_size                        1421
+#define KnobMatching_size                        1435
 #define Nack_size                                2
 #define ParamAmpB_size                           57
 #define ParamAmpF_size                           57
@@ -1368,7 +1374,7 @@ extern const pb_msgdesc_t BulkIrRes_msg;
 #define ParamReverbPlate_size                    35
 #define ParamReverbRoom_size                     35
 #define ParamReverbSpring_size                   35
-#define SingleParam_size                         33
+#define SingleParam_size                         44
 #define TunerFrequency_size                      5
 #define TunerOnOff_size                          2
 
