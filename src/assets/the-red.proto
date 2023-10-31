@@ -1,6 +1,12 @@
 /*
  the-red.proto
 
+ 2023-10-31 jason:
+  - edit param messages : update refer to the sheet
+    https://docs.google.com/spreadsheets/d/1QSmZDizQzOxEic-TGab6f1iLtOGOQspwF0OkpvGIPfM/edit#gid=0
+  - add fields: Nack.receivedMessageLength, Nack.receivedMessageId
+  - add messages: InitKnobMatching1/2/3, ReqInitFromGuitar
+
  2023-10-10 jason:
   - add message : SingleParam
   - add field : CategoryData.isOn
@@ -84,47 +90,47 @@
 syntax = "proto3";
 
 enum MessageID {
-  ACK = 0;
-  NACK = 1;
-  INIT_FROM_APP = 2;
-  INIT_FROM_GUITAR = 3;
-  CHANGE_GUITAR_NAME = 4;
-  TUNER_ON_OFF = 5;
-  TUNER_FREQUENCY = 6;
-  KNOB_CLICKED = 7;
-  KNOB_MATCHING_START = 8;
-  BATTERY_LEVEL = 9;
-  PARAM_GATE = 10;
-  PARAM_EFX_OVERDRIVE = 11;
-  PARAM_EFX_DISTORTION = 12;
-  PARAM_EFX_FUZZ = 13;
-  PARAM_EFX_T_SCREAMER = 14;
-  PARAM_EFX_SUPREME_OVERDRIVE = 15;
-  PARAM_EFX_RATT = 16;
-  PARAM_EFX_ACOUSTIC = 17;
-  PARAM_AMP_F = 18;
-  PARAM_AMP_MA = 19;
-  PARAM_AMP_ME = 20;
-  PARAM_AMP_V = 21;
-  PARAM_AMP_B = 22;
-  PARAM_CAB_A = 23;
-  PARAM_CAB_B = 24;
-  PARAM_CAB_C = 25;
-  PARAM_CAB_D = 26;
-  PARAM_CAB_E = 27;
-  PARAM_MOD_FLANGE = 28;
+  INVALID = 0;
+  ACK = 1;
+  NACK = 2;
+  INIT_FROM_APP = 3;
+  INIT_FROM_GUITAR = 4;
+  REQ_INIT_FROM_GUITAR = 5;
+  CHANGE_GUITAR_NAME = 6;
+  TUNER_ON_OFF = 7;
+  TUNER_FREQUENCY = 8;
+  KNOB_CLICKED = 9;
+  KNOB_MATCHING_START = 10;
+  BATTERY_LEVEL = 11;
+  PARAM_GATE = 12;
+  PARAM_EFX_TS90 = 13;
+  PARAM_EFX_SD10 = 14;
+  PARAM_EFX_RAT = 15;
+  PARAM_EFX_DISTORTION = 16;
+  PARAM_EFX_AUTOWAH = 17;
+  PARAM_EFX_ACOUSTIC = 18;
+  PARAM_AMP_FD = 19;
+  PARAM_AMP_MS = 20;
+  PARAM_AMP_MSBG = 21;
+  PARAM_AMP_VX = 22;
+  PARAM_AMP_BGN = 23;
+  PARAM_CAB_A = 24;
+  PARAM_CAB_B = 25;
+  PARAM_CAB_C = 26;
+  PARAM_CAB_D = 27;
+  PARAM_CAB_E = 28;
   PARAM_MOD_CHORUS = 29;
   PARAM_MOD_TREMOLO = 30;
   PARAM_MOD_PHASER = 31;
   PARAM_MOD_VIBRATO = 32;
   PARAM_DELAY_DELAY = 33;
-  PARAM_REVERB_ROOM = 34;
-  PARAM_REVERB_HALL = 35;
-  PARAM_REVERB_PLATE = 36;
-  PARAM_REVERB_SPRING = 37;
-  CATEGORY_DATA = 38;
-  BANK_DATA = 39;
-  KNOB_MATCHING = 40;
+  PARAM_REVERB = 34;
+  CATEGORY_DATA = 35;
+  BANK_DATA = 36;
+  KNOB_MATCHING = 37;
+  INIT_KNOB_MATCHING1 = 38;
+  INIT_KNOB_MATCHING2 = 39;
+  INIT_KNOB_MATCHING3 = 40;
   KNOB_MATCHING_ALL = 41;
   CLEAR_EFFECTS = 42;
   SINGLE_PARAM = 43;
@@ -154,19 +160,21 @@ enum CATEGORY1_GATE_SELECT {
 }
 
 enum CATEGORY2_EFX_SELECT {
-  EFX_OVERDRIVE = 0;
-  EFX_DISTORTION = 1;
-  EFX_FUZZ = 2;
-  EFX_ACOUSTIC = 3;
-  NUMBER_OF_EFX = 4;
+  EFX_TS90 = 0;
+  EFX_SD10 = 1;
+  EFX_RAT = 2;
+  EFX_DISTORTION = 4;
+  EFX_AUTOWAH = 5;
+  EFX_ACOUSTIC = 6;
+  NUMBER_OF_EFX = 7;
 }
 
 enum CATEGORY3_AMP_SELECT {
-  AMP_F = 0;
-  AMP_MA = 1;
-  AMP_ME = 2;
-  AMP_V = 3;
-  AMP_B = 4;
+  AMP_FD = 0;
+  AMP_MS = 1;
+  AMP_MSBG = 2;
+  AMP_VX = 3;
+  AMP_BGN = 4;
   NUMBER_OF_AMP = 5;
 }
 
@@ -180,12 +188,11 @@ enum CATEGORY4_CAB_SELECT {
 }
 
 enum CATEGORY5_MOD_SELECT {
-  MOD_FLANGE = 0;
-  MOD_CHORUS = 1;
-  MOD_TREMOLO = 2;
-  MOD_PHASER = 3;
-  MOD_VIBRATO = 4;
-  NUMBER_OF_MOD = 5;
+  MOD_CHORUS = 0;
+  MOD_TREMOLO = 1;
+  MOD_PHASER = 2;
+  MOD_VIBRATO = 3;
+  NUMBER_OF_MOD = 4;
 }
 
 enum CATEGORY6_DELAY_SELECT {
@@ -194,11 +201,8 @@ enum CATEGORY6_DELAY_SELECT {
 }
 
 enum CATEGORY7_REVERB_SELECT {
-  REVERB_ROOM = 0;
-  REVERB_HALL = 1;
-  REVERB_PLATE = 2;
-  REVERB_SPRING = 3;
-  NUMBER_OF_REVERB = 4;
+  REVERB_REVERB = 0;
+  NUMBER_OF_REVERB = 1;
 }
 
 message Ack {
@@ -216,7 +220,9 @@ message Nack {
     PROTOBUF_DECODE_ERROR = 5;
     TIMEOUT = 6;
   }
-  ERROR_CODE errorCode = 1;
+  int32 receivedMessageLength = 1;
+  int32 receivedMessageId = 2;
+  ERROR_CODE errorCode = 3;
 }
 
 message InitFromApp {
@@ -232,6 +238,10 @@ message InitFromGuitar {
   string firmwareVersion = 5;
   int32 batteryLevel = 6;
   bool isCharging = 7;
+}
+
+message ReqInitFromGuitar {
+  bool request = 1;
 }
 
 message ChangeGuitarName { string guitarName = 1; }
@@ -261,131 +271,104 @@ message ParamGate {
   int32 compressorGain = 9;
   int32 compressorRatio = 10;
   int32 compressorHysteresis = 111;
-  int32 autowahDepth = 112;
-  int32 autowahMix = 113;
 }
 
-message ParamEfxOverdrive {
+message ParamEfxTs90 {
   bool isOn = 1;
-  int32 gain = 2;
-  int32 tone = 3;
-  int32 level = 4;
+  int32 level = 2;
+  int32 gain = 3;
+  int32 tone = 4;
+}
+
+message ParamEfxSd10 {
+  bool isOn = 1;
+  int32 level = 2;
+  int32 gain = 3;
+  int32 tone = 4;
+}
+
+message ParamEfxRat {
+  bool isOn = 1;
+  int32 level = 2;
+  int32 gain = 3;
+  int32 tone = 4;
 }
 
 message ParamEfxDistortion {
   bool isOn = 1;
-  int32 gain = 2;
-  int32 tone = 3;
-  int32 level = 4;
+  int32 level = 2;
+  int32 gain = 3;
+  int32 tone = 4;
 }
 
-message ParamEfxFuzz {
+message ParamEfxAutowah {
   bool isOn = 1;
-  int32 gain = 2;
-  int32 tone = 3;
-  int32 level = 4;
-}
-
-message ParamEfxTScreamer {
-  bool isOn = 1;
-  int32 gain = 2;
-  int32 tone = 3;
-  int32 level = 4;
-}
-
-message ParamEfxSupremeOverdrive {
-  bool isOn = 1;
-  int32 gain = 2;
-  int32 tone = 3;
-  int32 level = 4;
-}
-
-message ParamEfxRatt {
-  bool isOn = 1;
-  int32 gain = 2;
-  int32 tone = 3;
-  int32 level = 4;
+  int32 level = 2;
 }
 
 message ParamEfxAcoustic {
   bool isOn = 1;
-  int32 bass = 2;
-  int32 middle = 3;
-  int32 treble = 4;
-  int32 level = 5;
-}
-
-message ParamAmpF {
-  bool isOn = 1;
-  int32 gain = 2;
+  int32 level = 2;
   int32 bass = 3;
   int32 middle = 4;
   int32 treble = 5;
-  int32 level = 6;
 }
 
-message ParamAmpMa {
+message ParamAmpFd {
   bool isOn = 1;
-  int32 gain = 2;
-  int32 bass = 3;
-  int32 middle = 4;
-  int32 treble = 5;
-  int32 level = 6;
+  int32 level = 2;
+  int32 gain = 3;
+  int32 bass = 4;
+  int32 middle = 5;
+  int32 treble = 6;
 }
 
-message ParamAmpMe {
+message ParamAmpMs {
   bool isOn = 1;
-  int32 gain = 2;
-  int32 bass = 3;
-  int32 middle = 4;
-  int32 treble = 5;
-  int32 level = 6;
+  int32 level = 2;
+  int32 gain = 3;
+  int32 bass = 4;
+  int32 middle = 5;
+  int32 treble = 6;
 }
 
-message ParamAmpV {
+message ParamAmpMsbg {
   bool isOn = 1;
-  int32 gain = 2;
-  int32 bass = 3;
-  int32 middle = 4;
-  int32 treble = 5;
-  int32 level = 6;
+  int32 level = 2;
+  int32 gain = 3;
+  int32 bass = 4;
+  int32 middle = 5;
+  int32 treble = 6;
 }
 
-message ParamAmpB {
+message ParamAmpVx {
   bool isOn = 1;
-  int32 gain = 2;
-  int32 bass = 3;
-  int32 middle = 4;
-  int32 treble = 5;
-  int32 level = 6;
+  int32 level = 2;
+  int32 gain = 3;
+  int32 bass = 4;
+  int32 middle = 5;
+  int32 treble = 6;
 }
 
-message ParamCabA {
+message ParamAmpBgn {
   bool isOn = 1;
-}
-message ParamCabB {
-  bool isOn = 1;
-}
-message ParamCabC {
-  bool isOn = 1;
-}
-message ParamCabD {
-  bool isOn = 1;
-}
-message ParamCabE {
-  bool isOn = 1;
+  int32 level = 2;
+  int32 gain = 3;
+  int32 bass = 4;
+  int32 middle = 5;
+  int32 treble = 6;
 }
 
-message ParamModFlange {
-  bool isOn = 1;
-  int32 manual = 2;
-  int32 depth = 3;
-  int32 rate = 4;
-}
+message ParamCabA { bool isOn = 1; }
+message ParamCabB { bool isOn = 1; }
+message ParamCabC { bool isOn = 1; }
+message ParamCabD { bool isOn = 1; }
+message ParamCabE { bool isOn = 1; }
 
 message ParamModChorus {
   bool isOn = 1;
-  int32 rate = 2;
+  int32 depth = 2;
+  int32 rate = 3;
 }
 
 message ParamModTremolo {
@@ -413,30 +396,9 @@ message ParamDelayDelay {
   int32 feedback = 4;
 }
 
-message ParamReverbRoom {
+message ParamReverb {
   bool isOn = 1;
-  int32 roomsize = 2;
-  int32 tone = 3;
-  int32 mix = 4;
-}
-
-message ParamReverbHall {
-  bool isOn = 1;
-  int32 roomsize = 2;
-  int32 tone = 3;
-  int32 mix = 4;
-}
-
-message ParamReverbPlate {
-  bool isOn = 1;
-  int32 roomsize = 2;
-  int32 tone = 3;
-  int32 mix = 4;
-}
-
-message ParamReverbSpring {
-  bool isOn = 1;
-  int32 roomsize = 2;
+  int32 decay = 2;
   int32 tone = 3;
   int32 mix = 4;
 }
@@ -448,18 +410,26 @@ message CategoryData {
   repeated int32 params = 4;
 }
 
-message BankData {
-  repeated CategoryData categoryData = 1;
-}
+message BankData { repeated CategoryData categoryData = 1; }
 
 message KnobMatching {
   int32 knobNumber = 1;
   BankData bankData = 2;
 }
 
-message KnobMatchingAll {
-  repeated KnobMatching knobMatchingData = 1;
+message InitKnobMatching1 {
+  BankData bankData = 1;
 }
+
+message InitKnobMatching2 {
+  BankData bankData = 1;
+}
+
+message InitKnobMatching3 {
+  BankData bankData = 1;
+}
+
+message KnobMatchingAll { repeated KnobMatching knobMatchingData = 1; }
 
 message ClearEffects { bool clear = 1; }
 

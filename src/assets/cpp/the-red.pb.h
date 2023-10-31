@@ -11,47 +11,47 @@
 
 /* Enum definitions */
 typedef enum _MessageID {
-    MessageID_ACK = 0,
-    MessageID_NACK = 1,
-    MessageID_INIT_FROM_APP = 2,
-    MessageID_INIT_FROM_GUITAR = 3,
-    MessageID_CHANGE_GUITAR_NAME = 4,
-    MessageID_TUNER_ON_OFF = 5,
-    MessageID_TUNER_FREQUENCY = 6,
-    MessageID_KNOB_CLICKED = 7,
-    MessageID_KNOB_MATCHING_START = 8,
-    MessageID_BATTERY_LEVEL = 9,
-    MessageID_PARAM_GATE = 10,
-    MessageID_PARAM_EFX_OVERDRIVE = 11,
-    MessageID_PARAM_EFX_DISTORTION = 12,
-    MessageID_PARAM_EFX_FUZZ = 13,
-    MessageID_PARAM_EFX_T_SCREAMER = 14,
-    MessageID_PARAM_EFX_SUPREME_OVERDRIVE = 15,
-    MessageID_PARAM_EFX_RATT = 16,
-    MessageID_PARAM_EFX_ACOUSTIC = 17,
-    MessageID_PARAM_AMP_F = 18,
-    MessageID_PARAM_AMP_MA = 19,
-    MessageID_PARAM_AMP_ME = 20,
-    MessageID_PARAM_AMP_V = 21,
-    MessageID_PARAM_AMP_B = 22,
-    MessageID_PARAM_CAB_A = 23,
-    MessageID_PARAM_CAB_B = 24,
-    MessageID_PARAM_CAB_C = 25,
-    MessageID_PARAM_CAB_D = 26,
-    MessageID_PARAM_CAB_E = 27,
-    MessageID_PARAM_MOD_FLANGE = 28,
+    MessageID_INVALID = 0,
+    MessageID_ACK = 1,
+    MessageID_NACK = 2,
+    MessageID_INIT_FROM_APP = 3,
+    MessageID_INIT_FROM_GUITAR = 4,
+    MessageID_REQ_INIT_FROM_GUITAR = 5,
+    MessageID_CHANGE_GUITAR_NAME = 6,
+    MessageID_TUNER_ON_OFF = 7,
+    MessageID_TUNER_FREQUENCY = 8,
+    MessageID_KNOB_CLICKED = 9,
+    MessageID_KNOB_MATCHING_START = 10,
+    MessageID_BATTERY_LEVEL = 11,
+    MessageID_PARAM_GATE = 12,
+    MessageID_PARAM_EFX_TS90 = 13,
+    MessageID_PARAM_EFX_SD10 = 14,
+    MessageID_PARAM_EFX_RAT = 15,
+    MessageID_PARAM_EFX_DISTORTION = 16,
+    MessageID_PARAM_EFX_AUTOWAH = 17,
+    MessageID_PARAM_EFX_ACOUSTIC = 18,
+    MessageID_PARAM_AMP_FD = 19,
+    MessageID_PARAM_AMP_MS = 20,
+    MessageID_PARAM_AMP_MSBG = 21,
+    MessageID_PARAM_AMP_VX = 22,
+    MessageID_PARAM_AMP_BGN = 23,
+    MessageID_PARAM_CAB_A = 24,
+    MessageID_PARAM_CAB_B = 25,
+    MessageID_PARAM_CAB_C = 26,
+    MessageID_PARAM_CAB_D = 27,
+    MessageID_PARAM_CAB_E = 28,
     MessageID_PARAM_MOD_CHORUS = 29,
     MessageID_PARAM_MOD_TREMOLO = 30,
     MessageID_PARAM_MOD_PHASER = 31,
     MessageID_PARAM_MOD_VIBRATO = 32,
     MessageID_PARAM_DELAY_DELAY = 33,
-    MessageID_PARAM_REVERB_ROOM = 34,
-    MessageID_PARAM_REVERB_HALL = 35,
-    MessageID_PARAM_REVERB_PLATE = 36,
-    MessageID_PARAM_REVERB_SPRING = 37,
-    MessageID_CATEGORY_DATA = 38,
-    MessageID_BANK_DATA = 39,
-    MessageID_KNOB_MATCHING = 40,
+    MessageID_PARAM_REVERB = 34,
+    MessageID_CATEGORY_DATA = 35,
+    MessageID_BANK_DATA = 36,
+    MessageID_KNOB_MATCHING = 37,
+    MessageID_INIT_KNOB_MATCHING1 = 38,
+    MessageID_INIT_KNOB_MATCHING2 = 39,
+    MessageID_INIT_KNOB_MATCHING3 = 40,
     MessageID_KNOB_MATCHING_ALL = 41,
     MessageID_CLEAR_EFFECTS = 42,
     MessageID_SINGLE_PARAM = 43,
@@ -81,19 +81,21 @@ typedef enum _CATEGORY1_GATE_SELECT {
 } CATEGORY1_GATE_SELECT;
 
 typedef enum _CATEGORY2_EFX_SELECT {
-    CATEGORY2_EFX_SELECT_EFX_OVERDRIVE = 0,
-    CATEGORY2_EFX_SELECT_EFX_DISTORTION = 1,
-    CATEGORY2_EFX_SELECT_EFX_FUZZ = 2,
-    CATEGORY2_EFX_SELECT_EFX_ACOUSTIC = 3,
-    CATEGORY2_EFX_SELECT_NUMBER_OF_EFX = 4
+    CATEGORY2_EFX_SELECT_EFX_TS90 = 0,
+    CATEGORY2_EFX_SELECT_EFX_SD10 = 1,
+    CATEGORY2_EFX_SELECT_EFX_RAT = 2,
+    CATEGORY2_EFX_SELECT_EFX_DISTORTION = 4,
+    CATEGORY2_EFX_SELECT_EFX_AUTOWAH = 5,
+    CATEGORY2_EFX_SELECT_EFX_ACOUSTIC = 6,
+    CATEGORY2_EFX_SELECT_NUMBER_OF_EFX = 7
 } CATEGORY2_EFX_SELECT;
 
 typedef enum _CATEGORY3_AMP_SELECT {
-    CATEGORY3_AMP_SELECT_AMP_F = 0,
-    CATEGORY3_AMP_SELECT_AMP_MA = 1,
-    CATEGORY3_AMP_SELECT_AMP_ME = 2,
-    CATEGORY3_AMP_SELECT_AMP_V = 3,
-    CATEGORY3_AMP_SELECT_AMP_B = 4,
+    CATEGORY3_AMP_SELECT_AMP_FD = 0,
+    CATEGORY3_AMP_SELECT_AMP_MS = 1,
+    CATEGORY3_AMP_SELECT_AMP_MSBG = 2,
+    CATEGORY3_AMP_SELECT_AMP_VX = 3,
+    CATEGORY3_AMP_SELECT_AMP_BGN = 4,
     CATEGORY3_AMP_SELECT_NUMBER_OF_AMP = 5
 } CATEGORY3_AMP_SELECT;
 
@@ -107,12 +109,11 @@ typedef enum _CATEGORY4_CAB_SELECT {
 } CATEGORY4_CAB_SELECT;
 
 typedef enum _CATEGORY5_MOD_SELECT {
-    CATEGORY5_MOD_SELECT_MOD_FLANGE = 0,
-    CATEGORY5_MOD_SELECT_MOD_CHORUS = 1,
-    CATEGORY5_MOD_SELECT_MOD_TREMOLO = 2,
-    CATEGORY5_MOD_SELECT_MOD_PHASER = 3,
-    CATEGORY5_MOD_SELECT_MOD_VIBRATO = 4,
-    CATEGORY5_MOD_SELECT_NUMBER_OF_MOD = 5
+    CATEGORY5_MOD_SELECT_MOD_CHORUS = 0,
+    CATEGORY5_MOD_SELECT_MOD_TREMOLO = 1,
+    CATEGORY5_MOD_SELECT_MOD_PHASER = 2,
+    CATEGORY5_MOD_SELECT_MOD_VIBRATO = 3,
+    CATEGORY5_MOD_SELECT_NUMBER_OF_MOD = 4
 } CATEGORY5_MOD_SELECT;
 
 typedef enum _CATEGORY6_DELAY_SELECT {
@@ -121,11 +122,8 @@ typedef enum _CATEGORY6_DELAY_SELECT {
 } CATEGORY6_DELAY_SELECT;
 
 typedef enum _CATEGORY7_REVERB_SELECT {
-    CATEGORY7_REVERB_SELECT_REVERB_ROOM = 0,
-    CATEGORY7_REVERB_SELECT_REVERB_HALL = 1,
-    CATEGORY7_REVERB_SELECT_REVERB_PLATE = 2,
-    CATEGORY7_REVERB_SELECT_REVERB_SPRING = 3,
-    CATEGORY7_REVERB_SELECT_NUMBER_OF_REVERB = 4
+    CATEGORY7_REVERB_SELECT_REVERB_REVERB = 0,
+    CATEGORY7_REVERB_SELECT_NUMBER_OF_REVERB = 1
 } CATEGORY7_REVERB_SELECT;
 
 /* App -> Guitar */
@@ -157,6 +155,8 @@ typedef struct _Ack {
 } Ack;
 
 typedef struct _Nack {
+    int32_t receivedMessageLength;
+    int32_t receivedMessageId;
     Nack_ERROR_CODE errorCode;
 } Nack;
 
@@ -174,6 +174,10 @@ typedef struct _InitFromGuitar {
     int32_t batteryLevel;
     bool isCharging;
 } InitFromGuitar;
+
+typedef struct _ReqInitFromGuitar {
+    bool request;
+} ReqInitFromGuitar;
 
 typedef struct _ChangeGuitarName {
     char guitarName[64];
@@ -213,104 +217,93 @@ typedef struct _ParamGate {
     int32_t compressorGain;
     int32_t compressorRatio;
     int32_t compressorHysteresis;
-    int32_t autowahDepth;
-    int32_t autowahMix;
 } ParamGate;
 
-typedef struct _ParamEfxOverdrive {
+typedef struct _ParamEfxTs90 {
     bool isOn;
+    int32_t level;
     int32_t gain;
     int32_t tone;
+} ParamEfxTs90;
+
+typedef struct _ParamEfxSd10 {
+    bool isOn;
     int32_t level;
-} ParamEfxOverdrive;
+    int32_t gain;
+    int32_t tone;
+} ParamEfxSd10;
+
+typedef struct _ParamEfxRat {
+    bool isOn;
+    int32_t level;
+    int32_t gain;
+    int32_t tone;
+} ParamEfxRat;
 
 typedef struct _ParamEfxDistortion {
     bool isOn;
+    int32_t level;
     int32_t gain;
     int32_t tone;
-    int32_t level;
 } ParamEfxDistortion;
 
-typedef struct _ParamEfxFuzz {
+typedef struct _ParamEfxAutowah {
     bool isOn;
-    int32_t gain;
-    int32_t tone;
     int32_t level;
-} ParamEfxFuzz;
-
-typedef struct _ParamEfxTScreamer {
-    bool isOn;
-    int32_t gain;
-    int32_t tone;
-    int32_t level;
-} ParamEfxTScreamer;
-
-typedef struct _ParamEfxSupremeOverdrive {
-    bool isOn;
-    int32_t gain;
-    int32_t tone;
-    int32_t level;
-} ParamEfxSupremeOverdrive;
-
-typedef struct _ParamEfxRatt {
-    bool isOn;
-    int32_t gain;
-    int32_t tone;
-    int32_t level;
-} ParamEfxRatt;
+} ParamEfxAutowah;
 
 typedef struct _ParamEfxAcoustic {
     bool isOn;
+    int32_t level;
     int32_t bass;
     int32_t middle;
     int32_t treble;
-    int32_t level;
 } ParamEfxAcoustic;
 
-typedef struct _ParamAmpF {
+typedef struct _ParamAmpFd {
     bool isOn;
+    int32_t level;
     int32_t gain;
     int32_t bass;
     int32_t middle;
     int32_t treble;
-    int32_t level;
-} ParamAmpF;
+} ParamAmpFd;
 
-typedef struct _ParamAmpMa {
+typedef struct _ParamAmpMs {
     bool isOn;
+    int32_t level;
     int32_t gain;
     int32_t bass;
     int32_t middle;
     int32_t treble;
-    int32_t level;
-} ParamAmpMa;
+} ParamAmpMs;
 
-typedef struct _ParamAmpMe {
+typedef struct _ParamAmpMsbg {
     bool isOn;
+    int32_t level;
     int32_t gain;
     int32_t bass;
     int32_t middle;
     int32_t treble;
-    int32_t level;
-} ParamAmpMe;
+} ParamAmpMsbg;
 
-typedef struct _ParamAmpV {
+typedef struct _ParamAmpVx {
     bool isOn;
+    int32_t level;
     int32_t gain;
     int32_t bass;
     int32_t middle;
     int32_t treble;
-    int32_t level;
-} ParamAmpV;
+} ParamAmpVx;
 
-typedef struct _ParamAmpB {
+typedef struct _ParamAmpBgn {
     bool isOn;
+    int32_t level;
     int32_t gain;
     int32_t bass;
     int32_t middle;
     int32_t treble;
-    int32_t level;
-} ParamAmpB;
+} ParamAmpBgn;
 
 typedef struct _ParamCabA {
     bool isOn;
@@ -332,15 +325,9 @@ typedef struct _ParamCabE {
     bool isOn;
 } ParamCabE;
 
-typedef struct _ParamModFlange {
-    bool isOn;
-    int32_t manual;
-    int32_t depth;
-    int32_t rate;
-} ParamModFlange;
-
 typedef struct _ParamModChorus {
     bool isOn;
+    int32_t depth;
     int32_t rate;
 } ParamModChorus;
 
@@ -369,33 +356,12 @@ typedef struct _ParamDelayDelay {
     int32_t feedback;
 } ParamDelayDelay;
 
-typedef struct _ParamReverbRoom {
+typedef struct _ParamReverb {
     bool isOn;
-    int32_t roomsize;
+    int32_t decay;
     int32_t tone;
     int32_t mix;
-} ParamReverbRoom;
-
-typedef struct _ParamReverbHall {
-    bool isOn;
-    int32_t roomsize;
-    int32_t tone;
-    int32_t mix;
-} ParamReverbHall;
-
-typedef struct _ParamReverbPlate {
-    bool isOn;
-    int32_t roomsize;
-    int32_t tone;
-    int32_t mix;
-} ParamReverbPlate;
-
-typedef struct _ParamReverbSpring {
-    bool isOn;
-    int32_t roomsize;
-    int32_t tone;
-    int32_t mix;
-} ParamReverbSpring;
+} ParamReverb;
 
 typedef struct _CategoryData {
     bool isOn;
@@ -415,6 +381,21 @@ typedef struct _KnobMatching {
     bool has_bankData;
     BankData bankData;
 } KnobMatching;
+
+typedef struct _InitKnobMatching1 {
+    bool has_bankData;
+    BankData bankData;
+} InitKnobMatching1;
+
+typedef struct _InitKnobMatching2 {
+    bool has_bankData;
+    BankData bankData;
+} InitKnobMatching2;
+
+typedef struct _InitKnobMatching3 {
+    bool has_bankData;
+    BankData bankData;
+} InitKnobMatching3;
 
 typedef struct _KnobMatchingAll {
     pb_size_t knobMatchingData_count;
@@ -480,7 +461,7 @@ extern "C" {
 #endif
 
 /* Helper constants for enums */
-#define _MessageID_MIN MessageID_ACK
+#define _MessageID_MIN MessageID_INVALID
 #define _MessageID_MAX MessageID_BULK_IR_RES
 #define _MessageID_ARRAYSIZE ((MessageID)(MessageID_BULK_IR_RES+1))
 
@@ -492,11 +473,11 @@ extern "C" {
 #define _CATEGORY1_GATE_SELECT_MAX CATEGORY1_GATE_SELECT_NUMBER_OF_GATE
 #define _CATEGORY1_GATE_SELECT_ARRAYSIZE ((CATEGORY1_GATE_SELECT)(CATEGORY1_GATE_SELECT_NUMBER_OF_GATE+1))
 
-#define _CATEGORY2_EFX_SELECT_MIN CATEGORY2_EFX_SELECT_EFX_OVERDRIVE
+#define _CATEGORY2_EFX_SELECT_MIN CATEGORY2_EFX_SELECT_EFX_TS90
 #define _CATEGORY2_EFX_SELECT_MAX CATEGORY2_EFX_SELECT_NUMBER_OF_EFX
 #define _CATEGORY2_EFX_SELECT_ARRAYSIZE ((CATEGORY2_EFX_SELECT)(CATEGORY2_EFX_SELECT_NUMBER_OF_EFX+1))
 
-#define _CATEGORY3_AMP_SELECT_MIN CATEGORY3_AMP_SELECT_AMP_F
+#define _CATEGORY3_AMP_SELECT_MIN CATEGORY3_AMP_SELECT_AMP_FD
 #define _CATEGORY3_AMP_SELECT_MAX CATEGORY3_AMP_SELECT_NUMBER_OF_AMP
 #define _CATEGORY3_AMP_SELECT_ARRAYSIZE ((CATEGORY3_AMP_SELECT)(CATEGORY3_AMP_SELECT_NUMBER_OF_AMP+1))
 
@@ -504,7 +485,7 @@ extern "C" {
 #define _CATEGORY4_CAB_SELECT_MAX CATEGORY4_CAB_SELECT_NUMBER_OF_CAB
 #define _CATEGORY4_CAB_SELECT_ARRAYSIZE ((CATEGORY4_CAB_SELECT)(CATEGORY4_CAB_SELECT_NUMBER_OF_CAB+1))
 
-#define _CATEGORY5_MOD_SELECT_MIN CATEGORY5_MOD_SELECT_MOD_FLANGE
+#define _CATEGORY5_MOD_SELECT_MIN CATEGORY5_MOD_SELECT_MOD_CHORUS
 #define _CATEGORY5_MOD_SELECT_MAX CATEGORY5_MOD_SELECT_NUMBER_OF_MOD
 #define _CATEGORY5_MOD_SELECT_ARRAYSIZE ((CATEGORY5_MOD_SELECT)(CATEGORY5_MOD_SELECT_NUMBER_OF_MOD+1))
 
@@ -512,7 +493,7 @@ extern "C" {
 #define _CATEGORY6_DELAY_SELECT_MAX CATEGORY6_DELAY_SELECT_NUMBER_OF_DELAY
 #define _CATEGORY6_DELAY_SELECT_ARRAYSIZE ((CATEGORY6_DELAY_SELECT)(CATEGORY6_DELAY_SELECT_NUMBER_OF_DELAY+1))
 
-#define _CATEGORY7_REVERB_SELECT_MIN CATEGORY7_REVERB_SELECT_REVERB_ROOM
+#define _CATEGORY7_REVERB_SELECT_MIN CATEGORY7_REVERB_SELECT_REVERB_REVERB
 #define _CATEGORY7_REVERB_SELECT_MAX CATEGORY7_REVERB_SELECT_NUMBER_OF_REVERB
 #define _CATEGORY7_REVERB_SELECT_ARRAYSIZE ((CATEGORY7_REVERB_SELECT)(CATEGORY7_REVERB_SELECT_NUMBER_OF_REVERB+1))
 
@@ -572,7 +553,6 @@ extern "C" {
 
 
 
-
 #define DiagReq_code_ENUMTYPE DiagCode
 
 
@@ -585,46 +565,45 @@ extern "C" {
 
 /* Initializer values for message structs */
 #define Ack_init_default                         {0, 0}
-#define Nack_init_default                        {_Nack_ERROR_CODE_MIN}
+#define Nack_init_default                        {0, 0, _Nack_ERROR_CODE_MIN}
 #define InitFromApp_init_default                 {"", 0}
 #define InitFromGuitar_init_default              {0, 0, "", "", "", 0, 0}
+#define ReqInitFromGuitar_init_default           {0}
 #define ChangeGuitarName_init_default            {""}
 #define TunerOnOff_init_default                  {0}
 #define TunerFrequency_init_default              {0}
 #define KnobClicked_init_default                 {0}
 #define KnobMatchingStart_init_default           {0}
 #define BatteryLevel_init_default                {0, 0}
-#define ParamGate_init_default                   {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
-#define ParamEfxOverdrive_init_default           {0, 0, 0, 0}
+#define ParamGate_init_default                   {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+#define ParamEfxTs90_init_default                {0, 0, 0, 0}
+#define ParamEfxSd10_init_default                {0, 0, 0, 0}
+#define ParamEfxRat_init_default                 {0, 0, 0, 0}
 #define ParamEfxDistortion_init_default          {0, 0, 0, 0}
-#define ParamEfxFuzz_init_default                {0, 0, 0, 0}
-#define ParamEfxTScreamer_init_default           {0, 0, 0, 0}
-#define ParamEfxSupremeOverdrive_init_default    {0, 0, 0, 0}
-#define ParamEfxRatt_init_default                {0, 0, 0, 0}
+#define ParamEfxAutowah_init_default             {0, 0}
 #define ParamEfxAcoustic_init_default            {0, 0, 0, 0, 0}
-#define ParamAmpF_init_default                   {0, 0, 0, 0, 0, 0}
-#define ParamAmpMa_init_default                  {0, 0, 0, 0, 0, 0}
-#define ParamAmpMe_init_default                  {0, 0, 0, 0, 0, 0}
-#define ParamAmpV_init_default                   {0, 0, 0, 0, 0, 0}
-#define ParamAmpB_init_default                   {0, 0, 0, 0, 0, 0}
+#define ParamAmpFd_init_default                  {0, 0, 0, 0, 0, 0}
+#define ParamAmpMs_init_default                  {0, 0, 0, 0, 0, 0}
+#define ParamAmpMsbg_init_default                {0, 0, 0, 0, 0, 0}
+#define ParamAmpVx_init_default                  {0, 0, 0, 0, 0, 0}
+#define ParamAmpBgn_init_default                 {0, 0, 0, 0, 0, 0}
 #define ParamCabA_init_default                   {0}
 #define ParamCabB_init_default                   {0}
 #define ParamCabC_init_default                   {0}
 #define ParamCabD_init_default                   {0}
 #define ParamCabE_init_default                   {0}
-#define ParamModFlange_init_default              {0, 0, 0, 0}
-#define ParamModChorus_init_default              {0, 0}
+#define ParamModChorus_init_default              {0, 0, 0}
 #define ParamModTremolo_init_default             {0, 0, 0}
 #define ParamModPhaser_init_default              {0, 0, 0}
 #define ParamModVibrato_init_default             {0, 0, 0}
 #define ParamDelayDelay_init_default             {0, 0, 0, 0}
-#define ParamReverbRoom_init_default             {0, 0, 0, 0}
-#define ParamReverbHall_init_default             {0, 0, 0, 0}
-#define ParamReverbPlate_init_default            {0, 0, 0, 0}
-#define ParamReverbSpring_init_default           {0, 0, 0, 0}
+#define ParamReverb_init_default                 {0, 0, 0, 0}
 #define CategoryData_init_default                {0, 0, 0, 0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}
 #define BankData_init_default                    {0, {CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default}}
 #define KnobMatching_init_default                {0, false, BankData_init_default}
+#define InitKnobMatching1_init_default           {false, BankData_init_default}
+#define InitKnobMatching2_init_default           {false, BankData_init_default}
+#define InitKnobMatching3_init_default           {false, BankData_init_default}
 #define KnobMatchingAll_init_default             {0, {KnobMatching_init_default, KnobMatching_init_default, KnobMatching_init_default}}
 #define ClearEffects_init_default                {0}
 #define SingleParam_init_default                 {0, 0, 0, 0}
@@ -637,46 +616,45 @@ extern "C" {
 #define BulkIrEndReq_init_default                {0, 0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}
 #define BulkIrRes_init_default                   {0, 0}
 #define Ack_init_zero                            {0, 0}
-#define Nack_init_zero                           {_Nack_ERROR_CODE_MIN}
+#define Nack_init_zero                           {0, 0, _Nack_ERROR_CODE_MIN}
 #define InitFromApp_init_zero                    {"", 0}
 #define InitFromGuitar_init_zero                 {0, 0, "", "", "", 0, 0}
+#define ReqInitFromGuitar_init_zero              {0}
 #define ChangeGuitarName_init_zero               {""}
 #define TunerOnOff_init_zero                     {0}
 #define TunerFrequency_init_zero                 {0}
 #define KnobClicked_init_zero                    {0}
 #define KnobMatchingStart_init_zero              {0}
 #define BatteryLevel_init_zero                   {0, 0}
-#define ParamGate_init_zero                      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
-#define ParamEfxOverdrive_init_zero              {0, 0, 0, 0}
+#define ParamGate_init_zero                      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+#define ParamEfxTs90_init_zero                   {0, 0, 0, 0}
+#define ParamEfxSd10_init_zero                   {0, 0, 0, 0}
+#define ParamEfxRat_init_zero                    {0, 0, 0, 0}
 #define ParamEfxDistortion_init_zero             {0, 0, 0, 0}
-#define ParamEfxFuzz_init_zero                   {0, 0, 0, 0}
-#define ParamEfxTScreamer_init_zero              {0, 0, 0, 0}
-#define ParamEfxSupremeOverdrive_init_zero       {0, 0, 0, 0}
-#define ParamEfxRatt_init_zero                   {0, 0, 0, 0}
+#define ParamEfxAutowah_init_zero                {0, 0}
 #define ParamEfxAcoustic_init_zero               {0, 0, 0, 0, 0}
-#define ParamAmpF_init_zero                      {0, 0, 0, 0, 0, 0}
-#define ParamAmpMa_init_zero                     {0, 0, 0, 0, 0, 0}
-#define ParamAmpMe_init_zero                     {0, 0, 0, 0, 0, 0}
-#define ParamAmpV_init_zero                      {0, 0, 0, 0, 0, 0}
-#define ParamAmpB_init_zero                      {0, 0, 0, 0, 0, 0}
+#define ParamAmpFd_init_zero                     {0, 0, 0, 0, 0, 0}
+#define ParamAmpMs_init_zero                     {0, 0, 0, 0, 0, 0}
+#define ParamAmpMsbg_init_zero                   {0, 0, 0, 0, 0, 0}
+#define ParamAmpVx_init_zero                     {0, 0, 0, 0, 0, 0}
+#define ParamAmpBgn_init_zero                    {0, 0, 0, 0, 0, 0}
 #define ParamCabA_init_zero                      {0}
 #define ParamCabB_init_zero                      {0}
 #define ParamCabC_init_zero                      {0}
 #define ParamCabD_init_zero                      {0}
 #define ParamCabE_init_zero                      {0}
-#define ParamModFlange_init_zero                 {0, 0, 0, 0}
-#define ParamModChorus_init_zero                 {0, 0}
+#define ParamModChorus_init_zero                 {0, 0, 0}
 #define ParamModTremolo_init_zero                {0, 0, 0}
 #define ParamModPhaser_init_zero                 {0, 0, 0}
 #define ParamModVibrato_init_zero                {0, 0, 0}
 #define ParamDelayDelay_init_zero                {0, 0, 0, 0}
-#define ParamReverbRoom_init_zero                {0, 0, 0, 0}
-#define ParamReverbHall_init_zero                {0, 0, 0, 0}
-#define ParamReverbPlate_init_zero               {0, 0, 0, 0}
-#define ParamReverbSpring_init_zero              {0, 0, 0, 0}
+#define ParamReverb_init_zero                    {0, 0, 0, 0}
 #define CategoryData_init_zero                   {0, 0, 0, 0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}
 #define BankData_init_zero                       {0, {CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero}}
 #define KnobMatching_init_zero                   {0, false, BankData_init_zero}
+#define InitKnobMatching1_init_zero              {false, BankData_init_zero}
+#define InitKnobMatching2_init_zero              {false, BankData_init_zero}
+#define InitKnobMatching3_init_zero              {false, BankData_init_zero}
 #define KnobMatchingAll_init_zero                {0, {KnobMatching_init_zero, KnobMatching_init_zero, KnobMatching_init_zero}}
 #define ClearEffects_init_zero                   {0}
 #define SingleParam_init_zero                    {0, 0, 0, 0}
@@ -692,7 +670,9 @@ extern "C" {
 /* Field tags (for use in manual encoding/decoding) */
 #define Ack_receivedMessageLength_tag            1
 #define Ack_receivedMessageId_tag                2
-#define Nack_errorCode_tag                       1
+#define Nack_receivedMessageLength_tag           1
+#define Nack_receivedMessageId_tag               2
+#define Nack_errorCode_tag                       3
 #define InitFromApp_appVersion_tag               1
 #define InitFromApp_KnobClicked_tag              2
 #define InitFromGuitar_receivedMessageLength_tag 1
@@ -702,6 +682,7 @@ extern "C" {
 #define InitFromGuitar_firmwareVersion_tag       5
 #define InitFromGuitar_batteryLevel_tag          6
 #define InitFromGuitar_isCharging_tag            7
+#define ReqInitFromGuitar_request_tag            1
 #define ChangeGuitarName_guitarName_tag          1
 #define TunerOnOff_isOn_tag                      1
 #define TunerFrequency_tunerFrequency_tag        1
@@ -720,78 +701,67 @@ extern "C" {
 #define ParamGate_compressorGain_tag             9
 #define ParamGate_compressorRatio_tag            10
 #define ParamGate_compressorHysteresis_tag       111
-#define ParamGate_autowahDepth_tag               112
-#define ParamGate_autowahMix_tag                 113
-#define ParamEfxOverdrive_isOn_tag               1
-#define ParamEfxOverdrive_gain_tag               2
-#define ParamEfxOverdrive_tone_tag               3
-#define ParamEfxOverdrive_level_tag              4
+#define ParamEfxTs90_isOn_tag                    1
+#define ParamEfxTs90_level_tag                   2
+#define ParamEfxTs90_gain_tag                    3
+#define ParamEfxTs90_tone_tag                    4
+#define ParamEfxSd10_isOn_tag                    1
+#define ParamEfxSd10_level_tag                   2
+#define ParamEfxSd10_gain_tag                    3
+#define ParamEfxSd10_tone_tag                    4
+#define ParamEfxRat_isOn_tag                     1
+#define ParamEfxRat_level_tag                    2
+#define ParamEfxRat_gain_tag                     3
+#define ParamEfxRat_tone_tag                     4
 #define ParamEfxDistortion_isOn_tag              1
-#define ParamEfxDistortion_gain_tag              2
-#define ParamEfxDistortion_tone_tag              3
-#define ParamEfxDistortion_level_tag             4
-#define ParamEfxFuzz_isOn_tag                    1
-#define ParamEfxFuzz_gain_tag                    2
-#define ParamEfxFuzz_tone_tag                    3
-#define ParamEfxFuzz_level_tag                   4
-#define ParamEfxTScreamer_isOn_tag               1
-#define ParamEfxTScreamer_gain_tag               2
-#define ParamEfxTScreamer_tone_tag               3
-#define ParamEfxTScreamer_level_tag              4
-#define ParamEfxSupremeOverdrive_isOn_tag        1
-#define ParamEfxSupremeOverdrive_gain_tag        2
-#define ParamEfxSupremeOverdrive_tone_tag        3
-#define ParamEfxSupremeOverdrive_level_tag       4
-#define ParamEfxRatt_isOn_tag                    1
-#define ParamEfxRatt_gain_tag                    2
-#define ParamEfxRatt_tone_tag                    3
-#define ParamEfxRatt_level_tag                   4
+#define ParamEfxDistortion_level_tag             2
+#define ParamEfxDistortion_gain_tag              3
+#define ParamEfxDistortion_tone_tag              4
+#define ParamEfxAutowah_isOn_tag                 1
+#define ParamEfxAutowah_level_tag                2
 #define ParamEfxAcoustic_isOn_tag                1
-#define ParamEfxAcoustic_bass_tag                2
-#define ParamEfxAcoustic_middle_tag              3
-#define ParamEfxAcoustic_treble_tag              4
-#define ParamEfxAcoustic_level_tag               5
-#define ParamAmpF_isOn_tag                       1
-#define ParamAmpF_gain_tag                       2
-#define ParamAmpF_bass_tag                       3
-#define ParamAmpF_middle_tag                     4
-#define ParamAmpF_treble_tag                     5
-#define ParamAmpF_level_tag                      6
-#define ParamAmpMa_isOn_tag                      1
-#define ParamAmpMa_gain_tag                      2
-#define ParamAmpMa_bass_tag                      3
-#define ParamAmpMa_middle_tag                    4
-#define ParamAmpMa_treble_tag                    5
-#define ParamAmpMa_level_tag                     6
-#define ParamAmpMe_isOn_tag                      1
-#define ParamAmpMe_gain_tag                      2
-#define ParamAmpMe_bass_tag                      3
-#define ParamAmpMe_middle_tag                    4
-#define ParamAmpMe_treble_tag                    5
-#define ParamAmpMe_level_tag                     6
-#define ParamAmpV_isOn_tag                       1
-#define ParamAmpV_gain_tag                       2
-#define ParamAmpV_bass_tag                       3
-#define ParamAmpV_middle_tag                     4
-#define ParamAmpV_treble_tag                     5
-#define ParamAmpV_level_tag                      6
-#define ParamAmpB_isOn_tag                       1
-#define ParamAmpB_gain_tag                       2
-#define ParamAmpB_bass_tag                       3
-#define ParamAmpB_middle_tag                     4
-#define ParamAmpB_treble_tag                     5
-#define ParamAmpB_level_tag                      6
+#define ParamEfxAcoustic_level_tag               2
+#define ParamEfxAcoustic_bass_tag                3
+#define ParamEfxAcoustic_middle_tag              4
+#define ParamEfxAcoustic_treble_tag              5
+#define ParamAmpFd_isOn_tag                      1
+#define ParamAmpFd_level_tag                     2
+#define ParamAmpFd_gain_tag                      3
+#define ParamAmpFd_bass_tag                      4
+#define ParamAmpFd_middle_tag                    5
+#define ParamAmpFd_treble_tag                    6
+#define ParamAmpMs_isOn_tag                      1
+#define ParamAmpMs_level_tag                     2
+#define ParamAmpMs_gain_tag                      3
+#define ParamAmpMs_bass_tag                      4
+#define ParamAmpMs_middle_tag                    5
+#define ParamAmpMs_treble_tag                    6
+#define ParamAmpMsbg_isOn_tag                    1
+#define ParamAmpMsbg_level_tag                   2
+#define ParamAmpMsbg_gain_tag                    3
+#define ParamAmpMsbg_bass_tag                    4
+#define ParamAmpMsbg_middle_tag                  5
+#define ParamAmpMsbg_treble_tag                  6
+#define ParamAmpVx_isOn_tag                      1
+#define ParamAmpVx_level_tag                     2
+#define ParamAmpVx_gain_tag                      3
+#define ParamAmpVx_bass_tag                      4
+#define ParamAmpVx_middle_tag                    5
+#define ParamAmpVx_treble_tag                    6
+#define ParamAmpBgn_isOn_tag                     1
+#define ParamAmpBgn_level_tag                    2
+#define ParamAmpBgn_gain_tag                     3
+#define ParamAmpBgn_bass_tag                     4
+#define ParamAmpBgn_middle_tag                   5
+#define ParamAmpBgn_treble_tag                   6
 #define ParamCabA_isOn_tag                       1
 #define ParamCabB_isOn_tag                       1
 #define ParamCabC_isOn_tag                       1
 #define ParamCabD_isOn_tag                       1
 #define ParamCabE_isOn_tag                       1
-#define ParamModFlange_isOn_tag                  1
-#define ParamModFlange_manual_tag                2
-#define ParamModFlange_depth_tag                 3
-#define ParamModFlange_rate_tag                  4
 #define ParamModChorus_isOn_tag                  1
-#define ParamModChorus_rate_tag                  2
+#define ParamModChorus_depth_tag                 2
+#define ParamModChorus_rate_tag                  3
 #define ParamModTremolo_isOn_tag                 1
 #define ParamModTremolo_depth_tag                2
 #define ParamModTremolo_rate_tag                 3
@@ -805,22 +775,10 @@ extern "C" {
 #define ParamDelayDelay_time_tag                 2
 #define ParamDelayDelay_level_tag                3
 #define ParamDelayDelay_feedback_tag             4
-#define ParamReverbRoom_isOn_tag                 1
-#define ParamReverbRoom_roomsize_tag             2
-#define ParamReverbRoom_tone_tag                 3
-#define ParamReverbRoom_mix_tag                  4
-#define ParamReverbHall_isOn_tag                 1
-#define ParamReverbHall_roomsize_tag             2
-#define ParamReverbHall_tone_tag                 3
-#define ParamReverbHall_mix_tag                  4
-#define ParamReverbPlate_isOn_tag                1
-#define ParamReverbPlate_roomsize_tag            2
-#define ParamReverbPlate_tone_tag                3
-#define ParamReverbPlate_mix_tag                 4
-#define ParamReverbSpring_isOn_tag               1
-#define ParamReverbSpring_roomsize_tag           2
-#define ParamReverbSpring_tone_tag               3
-#define ParamReverbSpring_mix_tag                4
+#define ParamReverb_isOn_tag                     1
+#define ParamReverb_decay_tag                    2
+#define ParamReverb_tone_tag                     3
+#define ParamReverb_mix_tag                      4
 #define CategoryData_isOn_tag                    1
 #define CategoryData_categoryNumber_tag          2
 #define CategoryData_select_tag                  3
@@ -828,6 +786,9 @@ extern "C" {
 #define BankData_categoryData_tag                1
 #define KnobMatching_knobNumber_tag              1
 #define KnobMatching_bankData_tag                2
+#define InitKnobMatching1_bankData_tag           1
+#define InitKnobMatching2_bankData_tag           1
+#define InitKnobMatching3_bankData_tag           1
 #define KnobMatchingAll_knobMatchingData_tag     1
 #define ClearEffects_clear_tag                   1
 #define SingleParam_categoryIndex_tag            1
@@ -856,7 +817,9 @@ X(a, STATIC,   SINGULAR, INT32,    receivedMessageId,   2)
 #define Ack_DEFAULT NULL
 
 #define Nack_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, UENUM,    errorCode,         1)
+X(a, STATIC,   SINGULAR, INT32,    receivedMessageLength,   1) \
+X(a, STATIC,   SINGULAR, INT32,    receivedMessageId,   2) \
+X(a, STATIC,   SINGULAR, UENUM,    errorCode,         3)
 #define Nack_CALLBACK NULL
 #define Nack_DEFAULT NULL
 
@@ -876,6 +839,11 @@ X(a, STATIC,   SINGULAR, INT32,    batteryLevel,      6) \
 X(a, STATIC,   SINGULAR, BOOL,     isCharging,        7)
 #define InitFromGuitar_CALLBACK NULL
 #define InitFromGuitar_DEFAULT NULL
+
+#define ReqInitFromGuitar_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, BOOL,     request,           1)
+#define ReqInitFromGuitar_CALLBACK NULL
+#define ReqInitFromGuitar_DEFAULT NULL
 
 #define ChangeGuitarName_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, STRING,   guitarName,        1)
@@ -919,118 +887,106 @@ X(a, STATIC,   SINGULAR, INT32,    compressorAttack,   7) \
 X(a, STATIC,   SINGULAR, INT32,    compressorRelease,   8) \
 X(a, STATIC,   SINGULAR, INT32,    compressorGain,    9) \
 X(a, STATIC,   SINGULAR, INT32,    compressorRatio,  10) \
-X(a, STATIC,   SINGULAR, INT32,    compressorHysteresis, 111) \
-X(a, STATIC,   SINGULAR, INT32,    autowahDepth,    112) \
-X(a, STATIC,   SINGULAR, INT32,    autowahMix,      113)
+X(a, STATIC,   SINGULAR, INT32,    compressorHysteresis, 111)
 #define ParamGate_CALLBACK NULL
 #define ParamGate_DEFAULT NULL
 
-#define ParamEfxOverdrive_FIELDLIST(X, a) \
+#define ParamEfxTs90_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
-X(a, STATIC,   SINGULAR, INT32,    gain,              2) \
-X(a, STATIC,   SINGULAR, INT32,    tone,              3) \
-X(a, STATIC,   SINGULAR, INT32,    level,             4)
-#define ParamEfxOverdrive_CALLBACK NULL
-#define ParamEfxOverdrive_DEFAULT NULL
+X(a, STATIC,   SINGULAR, INT32,    level,             2) \
+X(a, STATIC,   SINGULAR, INT32,    gain,              3) \
+X(a, STATIC,   SINGULAR, INT32,    tone,              4)
+#define ParamEfxTs90_CALLBACK NULL
+#define ParamEfxTs90_DEFAULT NULL
+
+#define ParamEfxSd10_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
+X(a, STATIC,   SINGULAR, INT32,    level,             2) \
+X(a, STATIC,   SINGULAR, INT32,    gain,              3) \
+X(a, STATIC,   SINGULAR, INT32,    tone,              4)
+#define ParamEfxSd10_CALLBACK NULL
+#define ParamEfxSd10_DEFAULT NULL
+
+#define ParamEfxRat_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
+X(a, STATIC,   SINGULAR, INT32,    level,             2) \
+X(a, STATIC,   SINGULAR, INT32,    gain,              3) \
+X(a, STATIC,   SINGULAR, INT32,    tone,              4)
+#define ParamEfxRat_CALLBACK NULL
+#define ParamEfxRat_DEFAULT NULL
 
 #define ParamEfxDistortion_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
-X(a, STATIC,   SINGULAR, INT32,    gain,              2) \
-X(a, STATIC,   SINGULAR, INT32,    tone,              3) \
-X(a, STATIC,   SINGULAR, INT32,    level,             4)
+X(a, STATIC,   SINGULAR, INT32,    level,             2) \
+X(a, STATIC,   SINGULAR, INT32,    gain,              3) \
+X(a, STATIC,   SINGULAR, INT32,    tone,              4)
 #define ParamEfxDistortion_CALLBACK NULL
 #define ParamEfxDistortion_DEFAULT NULL
 
-#define ParamEfxFuzz_FIELDLIST(X, a) \
+#define ParamEfxAutowah_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
-X(a, STATIC,   SINGULAR, INT32,    gain,              2) \
-X(a, STATIC,   SINGULAR, INT32,    tone,              3) \
-X(a, STATIC,   SINGULAR, INT32,    level,             4)
-#define ParamEfxFuzz_CALLBACK NULL
-#define ParamEfxFuzz_DEFAULT NULL
-
-#define ParamEfxTScreamer_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
-X(a, STATIC,   SINGULAR, INT32,    gain,              2) \
-X(a, STATIC,   SINGULAR, INT32,    tone,              3) \
-X(a, STATIC,   SINGULAR, INT32,    level,             4)
-#define ParamEfxTScreamer_CALLBACK NULL
-#define ParamEfxTScreamer_DEFAULT NULL
-
-#define ParamEfxSupremeOverdrive_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
-X(a, STATIC,   SINGULAR, INT32,    gain,              2) \
-X(a, STATIC,   SINGULAR, INT32,    tone,              3) \
-X(a, STATIC,   SINGULAR, INT32,    level,             4)
-#define ParamEfxSupremeOverdrive_CALLBACK NULL
-#define ParamEfxSupremeOverdrive_DEFAULT NULL
-
-#define ParamEfxRatt_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
-X(a, STATIC,   SINGULAR, INT32,    gain,              2) \
-X(a, STATIC,   SINGULAR, INT32,    tone,              3) \
-X(a, STATIC,   SINGULAR, INT32,    level,             4)
-#define ParamEfxRatt_CALLBACK NULL
-#define ParamEfxRatt_DEFAULT NULL
+X(a, STATIC,   SINGULAR, INT32,    level,             2)
+#define ParamEfxAutowah_CALLBACK NULL
+#define ParamEfxAutowah_DEFAULT NULL
 
 #define ParamEfxAcoustic_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
-X(a, STATIC,   SINGULAR, INT32,    bass,              2) \
-X(a, STATIC,   SINGULAR, INT32,    middle,            3) \
-X(a, STATIC,   SINGULAR, INT32,    treble,            4) \
-X(a, STATIC,   SINGULAR, INT32,    level,             5)
+X(a, STATIC,   SINGULAR, INT32,    level,             2) \
+X(a, STATIC,   SINGULAR, INT32,    bass,              3) \
+X(a, STATIC,   SINGULAR, INT32,    middle,            4) \
+X(a, STATIC,   SINGULAR, INT32,    treble,            5)
 #define ParamEfxAcoustic_CALLBACK NULL
 #define ParamEfxAcoustic_DEFAULT NULL
 
-#define ParamAmpF_FIELDLIST(X, a) \
+#define ParamAmpFd_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
-X(a, STATIC,   SINGULAR, INT32,    gain,              2) \
-X(a, STATIC,   SINGULAR, INT32,    bass,              3) \
-X(a, STATIC,   SINGULAR, INT32,    middle,            4) \
-X(a, STATIC,   SINGULAR, INT32,    treble,            5) \
-X(a, STATIC,   SINGULAR, INT32,    level,             6)
-#define ParamAmpF_CALLBACK NULL
-#define ParamAmpF_DEFAULT NULL
+X(a, STATIC,   SINGULAR, INT32,    level,             2) \
+X(a, STATIC,   SINGULAR, INT32,    gain,              3) \
+X(a, STATIC,   SINGULAR, INT32,    bass,              4) \
+X(a, STATIC,   SINGULAR, INT32,    middle,            5) \
+X(a, STATIC,   SINGULAR, INT32,    treble,            6)
+#define ParamAmpFd_CALLBACK NULL
+#define ParamAmpFd_DEFAULT NULL
 
-#define ParamAmpMa_FIELDLIST(X, a) \
+#define ParamAmpMs_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
-X(a, STATIC,   SINGULAR, INT32,    gain,              2) \
-X(a, STATIC,   SINGULAR, INT32,    bass,              3) \
-X(a, STATIC,   SINGULAR, INT32,    middle,            4) \
-X(a, STATIC,   SINGULAR, INT32,    treble,            5) \
-X(a, STATIC,   SINGULAR, INT32,    level,             6)
-#define ParamAmpMa_CALLBACK NULL
-#define ParamAmpMa_DEFAULT NULL
+X(a, STATIC,   SINGULAR, INT32,    level,             2) \
+X(a, STATIC,   SINGULAR, INT32,    gain,              3) \
+X(a, STATIC,   SINGULAR, INT32,    bass,              4) \
+X(a, STATIC,   SINGULAR, INT32,    middle,            5) \
+X(a, STATIC,   SINGULAR, INT32,    treble,            6)
+#define ParamAmpMs_CALLBACK NULL
+#define ParamAmpMs_DEFAULT NULL
 
-#define ParamAmpMe_FIELDLIST(X, a) \
+#define ParamAmpMsbg_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
-X(a, STATIC,   SINGULAR, INT32,    gain,              2) \
-X(a, STATIC,   SINGULAR, INT32,    bass,              3) \
-X(a, STATIC,   SINGULAR, INT32,    middle,            4) \
-X(a, STATIC,   SINGULAR, INT32,    treble,            5) \
-X(a, STATIC,   SINGULAR, INT32,    level,             6)
-#define ParamAmpMe_CALLBACK NULL
-#define ParamAmpMe_DEFAULT NULL
+X(a, STATIC,   SINGULAR, INT32,    level,             2) \
+X(a, STATIC,   SINGULAR, INT32,    gain,              3) \
+X(a, STATIC,   SINGULAR, INT32,    bass,              4) \
+X(a, STATIC,   SINGULAR, INT32,    middle,            5) \
+X(a, STATIC,   SINGULAR, INT32,    treble,            6)
+#define ParamAmpMsbg_CALLBACK NULL
+#define ParamAmpMsbg_DEFAULT NULL
 
-#define ParamAmpV_FIELDLIST(X, a) \
+#define ParamAmpVx_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
-X(a, STATIC,   SINGULAR, INT32,    gain,              2) \
-X(a, STATIC,   SINGULAR, INT32,    bass,              3) \
-X(a, STATIC,   SINGULAR, INT32,    middle,            4) \
-X(a, STATIC,   SINGULAR, INT32,    treble,            5) \
-X(a, STATIC,   SINGULAR, INT32,    level,             6)
-#define ParamAmpV_CALLBACK NULL
-#define ParamAmpV_DEFAULT NULL
+X(a, STATIC,   SINGULAR, INT32,    level,             2) \
+X(a, STATIC,   SINGULAR, INT32,    gain,              3) \
+X(a, STATIC,   SINGULAR, INT32,    bass,              4) \
+X(a, STATIC,   SINGULAR, INT32,    middle,            5) \
+X(a, STATIC,   SINGULAR, INT32,    treble,            6)
+#define ParamAmpVx_CALLBACK NULL
+#define ParamAmpVx_DEFAULT NULL
 
-#define ParamAmpB_FIELDLIST(X, a) \
+#define ParamAmpBgn_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
-X(a, STATIC,   SINGULAR, INT32,    gain,              2) \
-X(a, STATIC,   SINGULAR, INT32,    bass,              3) \
-X(a, STATIC,   SINGULAR, INT32,    middle,            4) \
-X(a, STATIC,   SINGULAR, INT32,    treble,            5) \
-X(a, STATIC,   SINGULAR, INT32,    level,             6)
-#define ParamAmpB_CALLBACK NULL
-#define ParamAmpB_DEFAULT NULL
+X(a, STATIC,   SINGULAR, INT32,    level,             2) \
+X(a, STATIC,   SINGULAR, INT32,    gain,              3) \
+X(a, STATIC,   SINGULAR, INT32,    bass,              4) \
+X(a, STATIC,   SINGULAR, INT32,    middle,            5) \
+X(a, STATIC,   SINGULAR, INT32,    treble,            6)
+#define ParamAmpBgn_CALLBACK NULL
+#define ParamAmpBgn_DEFAULT NULL
 
 #define ParamCabA_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, BOOL,     isOn,              1)
@@ -1057,17 +1013,10 @@ X(a, STATIC,   SINGULAR, BOOL,     isOn,              1)
 #define ParamCabE_CALLBACK NULL
 #define ParamCabE_DEFAULT NULL
 
-#define ParamModFlange_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
-X(a, STATIC,   SINGULAR, INT32,    manual,            2) \
-X(a, STATIC,   SINGULAR, INT32,    depth,             3) \
-X(a, STATIC,   SINGULAR, INT32,    rate,              4)
-#define ParamModFlange_CALLBACK NULL
-#define ParamModFlange_DEFAULT NULL
-
 #define ParamModChorus_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
-X(a, STATIC,   SINGULAR, INT32,    rate,              2)
+X(a, STATIC,   SINGULAR, INT32,    depth,             2) \
+X(a, STATIC,   SINGULAR, INT32,    rate,              3)
 #define ParamModChorus_CALLBACK NULL
 #define ParamModChorus_DEFAULT NULL
 
@@ -1100,37 +1049,13 @@ X(a, STATIC,   SINGULAR, INT32,    feedback,          4)
 #define ParamDelayDelay_CALLBACK NULL
 #define ParamDelayDelay_DEFAULT NULL
 
-#define ParamReverbRoom_FIELDLIST(X, a) \
+#define ParamReverb_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
-X(a, STATIC,   SINGULAR, INT32,    roomsize,          2) \
+X(a, STATIC,   SINGULAR, INT32,    decay,             2) \
 X(a, STATIC,   SINGULAR, INT32,    tone,              3) \
 X(a, STATIC,   SINGULAR, INT32,    mix,               4)
-#define ParamReverbRoom_CALLBACK NULL
-#define ParamReverbRoom_DEFAULT NULL
-
-#define ParamReverbHall_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
-X(a, STATIC,   SINGULAR, INT32,    roomsize,          2) \
-X(a, STATIC,   SINGULAR, INT32,    tone,              3) \
-X(a, STATIC,   SINGULAR, INT32,    mix,               4)
-#define ParamReverbHall_CALLBACK NULL
-#define ParamReverbHall_DEFAULT NULL
-
-#define ParamReverbPlate_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
-X(a, STATIC,   SINGULAR, INT32,    roomsize,          2) \
-X(a, STATIC,   SINGULAR, INT32,    tone,              3) \
-X(a, STATIC,   SINGULAR, INT32,    mix,               4)
-#define ParamReverbPlate_CALLBACK NULL
-#define ParamReverbPlate_DEFAULT NULL
-
-#define ParamReverbSpring_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
-X(a, STATIC,   SINGULAR, INT32,    roomsize,          2) \
-X(a, STATIC,   SINGULAR, INT32,    tone,              3) \
-X(a, STATIC,   SINGULAR, INT32,    mix,               4)
-#define ParamReverbSpring_CALLBACK NULL
-#define ParamReverbSpring_DEFAULT NULL
+#define ParamReverb_CALLBACK NULL
+#define ParamReverb_DEFAULT NULL
 
 #define CategoryData_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
@@ -1152,6 +1077,24 @@ X(a, STATIC,   OPTIONAL, MESSAGE,  bankData,          2)
 #define KnobMatching_CALLBACK NULL
 #define KnobMatching_DEFAULT NULL
 #define KnobMatching_bankData_MSGTYPE BankData
+
+#define InitKnobMatching1_FIELDLIST(X, a) \
+X(a, STATIC,   OPTIONAL, MESSAGE,  bankData,          1)
+#define InitKnobMatching1_CALLBACK NULL
+#define InitKnobMatching1_DEFAULT NULL
+#define InitKnobMatching1_bankData_MSGTYPE BankData
+
+#define InitKnobMatching2_FIELDLIST(X, a) \
+X(a, STATIC,   OPTIONAL, MESSAGE,  bankData,          1)
+#define InitKnobMatching2_CALLBACK NULL
+#define InitKnobMatching2_DEFAULT NULL
+#define InitKnobMatching2_bankData_MSGTYPE BankData
+
+#define InitKnobMatching3_FIELDLIST(X, a) \
+X(a, STATIC,   OPTIONAL, MESSAGE,  bankData,          1)
+#define InitKnobMatching3_CALLBACK NULL
+#define InitKnobMatching3_DEFAULT NULL
+#define InitKnobMatching3_bankData_MSGTYPE BankData
 
 #define KnobMatchingAll_FIELDLIST(X, a) \
 X(a, STATIC,   REPEATED, MESSAGE,  knobMatchingData,   1)
@@ -1221,6 +1164,7 @@ extern const pb_msgdesc_t Ack_msg;
 extern const pb_msgdesc_t Nack_msg;
 extern const pb_msgdesc_t InitFromApp_msg;
 extern const pb_msgdesc_t InitFromGuitar_msg;
+extern const pb_msgdesc_t ReqInitFromGuitar_msg;
 extern const pb_msgdesc_t ChangeGuitarName_msg;
 extern const pb_msgdesc_t TunerOnOff_msg;
 extern const pb_msgdesc_t TunerFrequency_msg;
@@ -1228,36 +1172,34 @@ extern const pb_msgdesc_t KnobClicked_msg;
 extern const pb_msgdesc_t KnobMatchingStart_msg;
 extern const pb_msgdesc_t BatteryLevel_msg;
 extern const pb_msgdesc_t ParamGate_msg;
-extern const pb_msgdesc_t ParamEfxOverdrive_msg;
+extern const pb_msgdesc_t ParamEfxTs90_msg;
+extern const pb_msgdesc_t ParamEfxSd10_msg;
+extern const pb_msgdesc_t ParamEfxRat_msg;
 extern const pb_msgdesc_t ParamEfxDistortion_msg;
-extern const pb_msgdesc_t ParamEfxFuzz_msg;
-extern const pb_msgdesc_t ParamEfxTScreamer_msg;
-extern const pb_msgdesc_t ParamEfxSupremeOverdrive_msg;
-extern const pb_msgdesc_t ParamEfxRatt_msg;
+extern const pb_msgdesc_t ParamEfxAutowah_msg;
 extern const pb_msgdesc_t ParamEfxAcoustic_msg;
-extern const pb_msgdesc_t ParamAmpF_msg;
-extern const pb_msgdesc_t ParamAmpMa_msg;
-extern const pb_msgdesc_t ParamAmpMe_msg;
-extern const pb_msgdesc_t ParamAmpV_msg;
-extern const pb_msgdesc_t ParamAmpB_msg;
+extern const pb_msgdesc_t ParamAmpFd_msg;
+extern const pb_msgdesc_t ParamAmpMs_msg;
+extern const pb_msgdesc_t ParamAmpMsbg_msg;
+extern const pb_msgdesc_t ParamAmpVx_msg;
+extern const pb_msgdesc_t ParamAmpBgn_msg;
 extern const pb_msgdesc_t ParamCabA_msg;
 extern const pb_msgdesc_t ParamCabB_msg;
 extern const pb_msgdesc_t ParamCabC_msg;
 extern const pb_msgdesc_t ParamCabD_msg;
 extern const pb_msgdesc_t ParamCabE_msg;
-extern const pb_msgdesc_t ParamModFlange_msg;
 extern const pb_msgdesc_t ParamModChorus_msg;
 extern const pb_msgdesc_t ParamModTremolo_msg;
 extern const pb_msgdesc_t ParamModPhaser_msg;
 extern const pb_msgdesc_t ParamModVibrato_msg;
 extern const pb_msgdesc_t ParamDelayDelay_msg;
-extern const pb_msgdesc_t ParamReverbRoom_msg;
-extern const pb_msgdesc_t ParamReverbHall_msg;
-extern const pb_msgdesc_t ParamReverbPlate_msg;
-extern const pb_msgdesc_t ParamReverbSpring_msg;
+extern const pb_msgdesc_t ParamReverb_msg;
 extern const pb_msgdesc_t CategoryData_msg;
 extern const pb_msgdesc_t BankData_msg;
 extern const pb_msgdesc_t KnobMatching_msg;
+extern const pb_msgdesc_t InitKnobMatching1_msg;
+extern const pb_msgdesc_t InitKnobMatching2_msg;
+extern const pb_msgdesc_t InitKnobMatching3_msg;
 extern const pb_msgdesc_t KnobMatchingAll_msg;
 extern const pb_msgdesc_t ClearEffects_msg;
 extern const pb_msgdesc_t SingleParam_msg;
@@ -1275,6 +1217,7 @@ extern const pb_msgdesc_t BulkIrRes_msg;
 #define Nack_fields &Nack_msg
 #define InitFromApp_fields &InitFromApp_msg
 #define InitFromGuitar_fields &InitFromGuitar_msg
+#define ReqInitFromGuitar_fields &ReqInitFromGuitar_msg
 #define ChangeGuitarName_fields &ChangeGuitarName_msg
 #define TunerOnOff_fields &TunerOnOff_msg
 #define TunerFrequency_fields &TunerFrequency_msg
@@ -1282,36 +1225,34 @@ extern const pb_msgdesc_t BulkIrRes_msg;
 #define KnobMatchingStart_fields &KnobMatchingStart_msg
 #define BatteryLevel_fields &BatteryLevel_msg
 #define ParamGate_fields &ParamGate_msg
-#define ParamEfxOverdrive_fields &ParamEfxOverdrive_msg
+#define ParamEfxTs90_fields &ParamEfxTs90_msg
+#define ParamEfxSd10_fields &ParamEfxSd10_msg
+#define ParamEfxRat_fields &ParamEfxRat_msg
 #define ParamEfxDistortion_fields &ParamEfxDistortion_msg
-#define ParamEfxFuzz_fields &ParamEfxFuzz_msg
-#define ParamEfxTScreamer_fields &ParamEfxTScreamer_msg
-#define ParamEfxSupremeOverdrive_fields &ParamEfxSupremeOverdrive_msg
-#define ParamEfxRatt_fields &ParamEfxRatt_msg
+#define ParamEfxAutowah_fields &ParamEfxAutowah_msg
 #define ParamEfxAcoustic_fields &ParamEfxAcoustic_msg
-#define ParamAmpF_fields &ParamAmpF_msg
-#define ParamAmpMa_fields &ParamAmpMa_msg
-#define ParamAmpMe_fields &ParamAmpMe_msg
-#define ParamAmpV_fields &ParamAmpV_msg
-#define ParamAmpB_fields &ParamAmpB_msg
+#define ParamAmpFd_fields &ParamAmpFd_msg
+#define ParamAmpMs_fields &ParamAmpMs_msg
+#define ParamAmpMsbg_fields &ParamAmpMsbg_msg
+#define ParamAmpVx_fields &ParamAmpVx_msg
+#define ParamAmpBgn_fields &ParamAmpBgn_msg
 #define ParamCabA_fields &ParamCabA_msg
 #define ParamCabB_fields &ParamCabB_msg
 #define ParamCabC_fields &ParamCabC_msg
 #define ParamCabD_fields &ParamCabD_msg
 #define ParamCabE_fields &ParamCabE_msg
-#define ParamModFlange_fields &ParamModFlange_msg
 #define ParamModChorus_fields &ParamModChorus_msg
 #define ParamModTremolo_fields &ParamModTremolo_msg
 #define ParamModPhaser_fields &ParamModPhaser_msg
 #define ParamModVibrato_fields &ParamModVibrato_msg
 #define ParamDelayDelay_fields &ParamDelayDelay_msg
-#define ParamReverbRoom_fields &ParamReverbRoom_msg
-#define ParamReverbHall_fields &ParamReverbHall_msg
-#define ParamReverbPlate_fields &ParamReverbPlate_msg
-#define ParamReverbSpring_fields &ParamReverbSpring_msg
+#define ParamReverb_fields &ParamReverb_msg
 #define CategoryData_fields &CategoryData_msg
 #define BankData_fields &BankData_msg
 #define KnobMatching_fields &KnobMatching_msg
+#define InitKnobMatching1_fields &InitKnobMatching1_msg
+#define InitKnobMatching2_fields &InitKnobMatching2_msg
+#define InitKnobMatching3_fields &InitKnobMatching3_msg
 #define KnobMatchingAll_fields &KnobMatchingAll_msg
 #define ClearEffects_fields &ClearEffects_msg
 #define SingleParam_fields &SingleParam_msg
@@ -1341,16 +1282,19 @@ extern const pb_msgdesc_t BulkIrRes_msg;
 #define DiagRespPOC_size                         11
 #define InitFromApp_size                         76
 #define InitFromGuitar_size                      230
+#define InitKnobMatching1_size                   1424
+#define InitKnobMatching2_size                   1424
+#define InitKnobMatching3_size                   1424
 #define KnobClicked_size                         11
 #define KnobMatchingAll_size                     4314
 #define KnobMatchingStart_size                   11
 #define KnobMatching_size                        1435
-#define Nack_size                                2
-#define ParamAmpB_size                           57
-#define ParamAmpF_size                           57
-#define ParamAmpMa_size                          57
-#define ParamAmpMe_size                          57
-#define ParamAmpV_size                           57
+#define Nack_size                                24
+#define ParamAmpBgn_size                         57
+#define ParamAmpFd_size                          57
+#define ParamAmpMs_size                          57
+#define ParamAmpMsbg_size                        57
+#define ParamAmpVx_size                          57
 #define ParamCabA_size                           2
 #define ParamCabB_size                           2
 #define ParamCabC_size                           2
@@ -1358,22 +1302,18 @@ extern const pb_msgdesc_t BulkIrRes_msg;
 #define ParamCabE_size                           2
 #define ParamDelayDelay_size                     35
 #define ParamEfxAcoustic_size                    46
+#define ParamEfxAutowah_size                     13
 #define ParamEfxDistortion_size                  35
-#define ParamEfxFuzz_size                        35
-#define ParamEfxOverdrive_size                   35
-#define ParamEfxRatt_size                        35
-#define ParamEfxSupremeOverdrive_size            35
-#define ParamEfxTScreamer_size                   35
-#define ParamGate_size                           137
-#define ParamModChorus_size                      13
-#define ParamModFlange_size                      35
+#define ParamEfxRat_size                         35
+#define ParamEfxSd10_size                        35
+#define ParamEfxTs90_size                        35
+#define ParamGate_size                           113
+#define ParamModChorus_size                      24
 #define ParamModPhaser_size                      24
 #define ParamModTremolo_size                     24
 #define ParamModVibrato_size                     24
-#define ParamReverbHall_size                     35
-#define ParamReverbPlate_size                    35
-#define ParamReverbRoom_size                     35
-#define ParamReverbSpring_size                   35
+#define ParamReverb_size                         35
+#define ReqInitFromGuitar_size                   2
 #define SingleParam_size                         44
 #define TunerFrequency_size                      5
 #define TunerOnOff_size                          2

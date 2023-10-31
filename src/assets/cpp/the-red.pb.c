@@ -18,6 +18,9 @@ PB_BIND(InitFromApp, InitFromApp, AUTO)
 PB_BIND(InitFromGuitar, InitFromGuitar, AUTO)
 
 
+PB_BIND(ReqInitFromGuitar, ReqInitFromGuitar, AUTO)
+
+
 PB_BIND(ChangeGuitarName, ChangeGuitarName, AUTO)
 
 
@@ -39,40 +42,37 @@ PB_BIND(BatteryLevel, BatteryLevel, AUTO)
 PB_BIND(ParamGate, ParamGate, 2)
 
 
-PB_BIND(ParamEfxOverdrive, ParamEfxOverdrive, AUTO)
+PB_BIND(ParamEfxTs90, ParamEfxTs90, AUTO)
+
+
+PB_BIND(ParamEfxSd10, ParamEfxSd10, AUTO)
+
+
+PB_BIND(ParamEfxRat, ParamEfxRat, AUTO)
 
 
 PB_BIND(ParamEfxDistortion, ParamEfxDistortion, AUTO)
 
 
-PB_BIND(ParamEfxFuzz, ParamEfxFuzz, AUTO)
-
-
-PB_BIND(ParamEfxTScreamer, ParamEfxTScreamer, AUTO)
-
-
-PB_BIND(ParamEfxSupremeOverdrive, ParamEfxSupremeOverdrive, AUTO)
-
-
-PB_BIND(ParamEfxRatt, ParamEfxRatt, AUTO)
+PB_BIND(ParamEfxAutowah, ParamEfxAutowah, AUTO)
 
 
 PB_BIND(ParamEfxAcoustic, ParamEfxAcoustic, AUTO)
 
 
-PB_BIND(ParamAmpF, ParamAmpF, AUTO)
+PB_BIND(ParamAmpFd, ParamAmpFd, AUTO)
 
 
-PB_BIND(ParamAmpMa, ParamAmpMa, AUTO)
+PB_BIND(ParamAmpMs, ParamAmpMs, AUTO)
 
 
-PB_BIND(ParamAmpMe, ParamAmpMe, AUTO)
+PB_BIND(ParamAmpMsbg, ParamAmpMsbg, AUTO)
 
 
-PB_BIND(ParamAmpV, ParamAmpV, AUTO)
+PB_BIND(ParamAmpVx, ParamAmpVx, AUTO)
 
 
-PB_BIND(ParamAmpB, ParamAmpB, AUTO)
+PB_BIND(ParamAmpBgn, ParamAmpBgn, AUTO)
 
 
 PB_BIND(ParamCabA, ParamCabA, AUTO)
@@ -90,9 +90,6 @@ PB_BIND(ParamCabD, ParamCabD, AUTO)
 PB_BIND(ParamCabE, ParamCabE, AUTO)
 
 
-PB_BIND(ParamModFlange, ParamModFlange, AUTO)
-
-
 PB_BIND(ParamModChorus, ParamModChorus, AUTO)
 
 
@@ -108,16 +105,7 @@ PB_BIND(ParamModVibrato, ParamModVibrato, AUTO)
 PB_BIND(ParamDelayDelay, ParamDelayDelay, AUTO)
 
 
-PB_BIND(ParamReverbRoom, ParamReverbRoom, AUTO)
-
-
-PB_BIND(ParamReverbHall, ParamReverbHall, AUTO)
-
-
-PB_BIND(ParamReverbPlate, ParamReverbPlate, AUTO)
-
-
-PB_BIND(ParamReverbSpring, ParamReverbSpring, AUTO)
+PB_BIND(ParamReverb, ParamReverb, AUTO)
 
 
 PB_BIND(CategoryData, CategoryData, AUTO)
@@ -127,6 +115,15 @@ PB_BIND(BankData, BankData, 2)
 
 
 PB_BIND(KnobMatching, KnobMatching, 2)
+
+
+PB_BIND(InitKnobMatching1, InitKnobMatching1, 2)
+
+
+PB_BIND(InitKnobMatching2, InitKnobMatching2, 2)
+
+
+PB_BIND(InitKnobMatching3, InitKnobMatching3, 2)
 
 
 PB_BIND(KnobMatchingAll, KnobMatchingAll, 2)
