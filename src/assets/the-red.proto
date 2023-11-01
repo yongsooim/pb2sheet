@@ -1,5 +1,9 @@
 /*
  the-red.proto
+ 
+ 2023-11-01 jason:
+  - add field : Reverb.predelay
+  - delete field : Reverb.tone
 
  2023-10-31 jason:
   - edit param messages : update refer to the sheet
@@ -398,8 +402,8 @@ message ParamDelayDelay {
 
 message ParamReverb {
   bool isOn = 1;
-  int32 decay = 2;
-  int32 tone = 3;
+  int32 predelay = 2;
+  int32 decay = 3;
   int32 mix = 4;
 }
 

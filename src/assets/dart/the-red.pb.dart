@@ -2152,8 +2152,8 @@ class ParamReverb extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamReverb', createEmptyInstance: create)
     ..aOB(1, _omitFieldNames ? '' : 'isOn', protoName: 'isOn')
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'decay', $pb.PbFieldType.O3)
-    ..a<$core.int>(3, _omitFieldNames ? '' : 'tone', $pb.PbFieldType.O3)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'predelay', $pb.PbFieldType.O3)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'decay', $pb.PbFieldType.O3)
     ..a<$core.int>(4, _omitFieldNames ? '' : 'mix', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
@@ -2189,22 +2189,22 @@ class ParamReverb extends $pb.GeneratedMessage {
   void clearIsOn() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.int get decay => $_getIZ(1);
+  $core.int get predelay => $_getIZ(1);
   @$pb.TagNumber(2)
-  set decay($core.int v) { $_setSignedInt32(1, v); }
+  set predelay($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasDecay() => $_has(1);
+  $core.bool hasPredelay() => $_has(1);
   @$pb.TagNumber(2)
-  void clearDecay() => clearField(2);
+  void clearPredelay() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.int get tone => $_getIZ(2);
+  $core.int get decay => $_getIZ(2);
   @$pb.TagNumber(3)
-  set tone($core.int v) { $_setSignedInt32(2, v); }
+  set decay($core.int v) { $_setSignedInt32(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasTone() => $_has(2);
+  $core.bool hasDecay() => $_has(2);
   @$pb.TagNumber(3)
-  void clearTone() => clearField(3);
+  void clearDecay() => clearField(3);
 
   @$pb.TagNumber(4)
   $core.int get mix => $_getIZ(3);

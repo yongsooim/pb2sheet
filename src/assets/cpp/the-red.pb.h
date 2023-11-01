@@ -358,8 +358,8 @@ typedef struct _ParamDelayDelay {
 
 typedef struct _ParamReverb {
     bool isOn;
+    int32_t predelay;
     int32_t decay;
-    int32_t tone;
     int32_t mix;
 } ParamReverb;
 
@@ -776,8 +776,8 @@ extern "C" {
 #define ParamDelayDelay_level_tag                3
 #define ParamDelayDelay_feedback_tag             4
 #define ParamReverb_isOn_tag                     1
-#define ParamReverb_decay_tag                    2
-#define ParamReverb_tone_tag                     3
+#define ParamReverb_predelay_tag                 2
+#define ParamReverb_decay_tag                    3
 #define ParamReverb_mix_tag                      4
 #define CategoryData_isOn_tag                    1
 #define CategoryData_categoryNumber_tag          2
@@ -1051,8 +1051,8 @@ X(a, STATIC,   SINGULAR, INT32,    feedback,          4)
 
 #define ParamReverb_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
-X(a, STATIC,   SINGULAR, INT32,    decay,             2) \
-X(a, STATIC,   SINGULAR, INT32,    tone,              3) \
+X(a, STATIC,   SINGULAR, INT32,    predelay,          2) \
+X(a, STATIC,   SINGULAR, INT32,    decay,             3) \
 X(a, STATIC,   SINGULAR, INT32,    mix,               4)
 #define ParamReverb_CALLBACK NULL
 #define ParamReverb_DEFAULT NULL

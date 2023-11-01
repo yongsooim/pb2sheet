@@ -779,16 +779,16 @@ const ParamReverb$json = {
   '1': 'ParamReverb',
   '2': [
     {'1': 'isOn', '3': 1, '4': 1, '5': 8, '10': 'isOn'},
-    {'1': 'decay', '3': 2, '4': 1, '5': 5, '10': 'decay'},
-    {'1': 'tone', '3': 3, '4': 1, '5': 5, '10': 'tone'},
+    {'1': 'predelay', '3': 2, '4': 1, '5': 5, '10': 'predelay'},
+    {'1': 'decay', '3': 3, '4': 1, '5': 5, '10': 'decay'},
     {'1': 'mix', '3': 4, '4': 1, '5': 5, '10': 'mix'},
   ],
 };
 
 /// Descriptor for `ParamReverb`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List paramReverbDescriptor = $convert.base64Decode(
-    'CgtQYXJhbVJldmVyYhISCgRpc09uGAEgASgIUgRpc09uEhQKBWRlY2F5GAIgASgFUgVkZWNheR'
-    'ISCgR0b25lGAMgASgFUgR0b25lEhAKA21peBgEIAEoBVIDbWl4');
+    'CgtQYXJhbVJldmVyYhISCgRpc09uGAEgASgIUgRpc09uEhoKCHByZWRlbGF5GAIgASgFUghwcm'
+    'VkZWxheRIUCgVkZWNheRgDIAEoBVIFZGVjYXkSEAoDbWl4GAQgASgFUgNtaXg=');
 
 @$core.Deprecated('Use categoryDataDescriptor instead')
 const CategoryData$json = {
