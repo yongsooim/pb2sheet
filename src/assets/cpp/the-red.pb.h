@@ -62,7 +62,10 @@ typedef enum _MessageID {
     MessageID_BULK_IR_START_REQ = 48,
     MessageID_BULK_IR_REQ = 49,
     MessageID_BULK_IR_END_REQ = 50,
-    MessageID_BULK_IR_RES = 51
+    MessageID_BULK_IR_RES = 51,
+    MessageID_REQ_DISCONNECT = 52,
+    MessageID_REQ_GUITAR_NAME = 53,
+    MessageID_RES_GUITAR_NAME = 54
 } MessageID;
 
 typedef enum _CATEGORY_NUMBER {
@@ -163,11 +166,17 @@ typedef struct _Nack {
 typedef struct _InitFromApp {
     char appVersion[64];
     int32_t KnobClicked;
+    bool isLastPaired;
 } InitFromApp;
 
+/* guitar model name mapping 
+ "1r": "TR1 Pop Red"
+ "1g": "TR1 Forest Green"
+ "1i": "TR1 Creamy Ivory"
+ "1b": "TR1 Jet Black" */
 typedef struct _InitFromGuitar {
-    int32_t receivedMessageLength;
-    int32_t receivedMessageId;
+    int32_t receivedMessageLength; /* not used */
+    int32_t receivedMessageId; /* not used */
     char guitarName[64];
     char guitarModelName[64];
     char firmwareVersion[64];
@@ -373,7 +382,7 @@ typedef struct _CategoryData {
 
 typedef struct _BankData {
     pb_size_t categoryData_count;
-    CategoryData categoryData[7];
+    CategoryData categoryData[16];
 } BankData;
 
 typedef struct _KnobMatching {
@@ -455,6 +464,18 @@ typedef struct _BulkIrRes {
     bool done;
 } BulkIrRes;
 
+typedef struct _ReqDisconnect {
+    bool forgetMe;
+} ReqDisconnect;
+
+typedef struct _ReqGuitarName {
+    bool request;
+} ReqGuitarName;
+
+typedef struct _ResGuitarName {
+    char guitarName[64];
+} ResGuitarName;
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -462,8 +483,8 @@ extern "C" {
 
 /* Helper constants for enums */
 #define _MessageID_MIN MessageID_INVALID
-#define _MessageID_MAX MessageID_BULK_IR_RES
-#define _MessageID_ARRAYSIZE ((MessageID)(MessageID_BULK_IR_RES+1))
+#define _MessageID_MAX MessageID_RES_GUITAR_NAME
+#define _MessageID_ARRAYSIZE ((MessageID)(MessageID_RES_GUITAR_NAME+1))
 
 #define _CATEGORY_NUMBER_MIN CATEGORY_NUMBER_CAT_NO1_GATE
 #define _CATEGORY_NUMBER_MAX CATEGORY_NUMBER_CAT_NO7_REVERB
@@ -563,10 +584,13 @@ extern "C" {
 
 
 
+
+
+
 /* Initializer values for message structs */
 #define Ack_init_default                         {0, 0}
 #define Nack_init_default                        {0, 0, _Nack_ERROR_CODE_MIN}
-#define InitFromApp_init_default                 {"", 0}
+#define InitFromApp_init_default                 {"", 0, 0}
 #define InitFromGuitar_init_default              {0, 0, "", "", "", 0, 0}
 #define ReqInitFromGuitar_init_default           {0}
 #define ChangeGuitarName_init_default            {""}
@@ -599,7 +623,7 @@ extern "C" {
 #define ParamDelayDelay_init_default             {0, 0, 0, 0}
 #define ParamReverb_init_default                 {0, 0, 0, 0}
 #define CategoryData_init_default                {0, 0, 0, 0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}
-#define BankData_init_default                    {0, {CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default}}
+#define BankData_init_default                    {0, {CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default}}
 #define KnobMatching_init_default                {0, false, BankData_init_default}
 #define InitKnobMatching1_init_default           {false, BankData_init_default}
 #define InitKnobMatching2_init_default           {false, BankData_init_default}
@@ -615,9 +639,12 @@ extern "C" {
 #define BulkIrReq_init_default                   {0, 0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}
 #define BulkIrEndReq_init_default                {0, 0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}
 #define BulkIrRes_init_default                   {0, 0}
+#define ReqDisconnect_init_default               {0}
+#define ReqGuitarName_init_default               {0}
+#define ResGuitarName_init_default               {""}
 #define Ack_init_zero                            {0, 0}
 #define Nack_init_zero                           {0, 0, _Nack_ERROR_CODE_MIN}
-#define InitFromApp_init_zero                    {"", 0}
+#define InitFromApp_init_zero                    {"", 0, 0}
 #define InitFromGuitar_init_zero                 {0, 0, "", "", "", 0, 0}
 #define ReqInitFromGuitar_init_zero              {0}
 #define ChangeGuitarName_init_zero               {""}
@@ -650,7 +677,7 @@ extern "C" {
 #define ParamDelayDelay_init_zero                {0, 0, 0, 0}
 #define ParamReverb_init_zero                    {0, 0, 0, 0}
 #define CategoryData_init_zero                   {0, 0, 0, 0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}
-#define BankData_init_zero                       {0, {CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero}}
+#define BankData_init_zero                       {0, {CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero}}
 #define KnobMatching_init_zero                   {0, false, BankData_init_zero}
 #define InitKnobMatching1_init_zero              {false, BankData_init_zero}
 #define InitKnobMatching2_init_zero              {false, BankData_init_zero}
@@ -666,6 +693,9 @@ extern "C" {
 #define BulkIrReq_init_zero                      {0, 0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}
 #define BulkIrEndReq_init_zero                   {0, 0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}
 #define BulkIrRes_init_zero                      {0, 0}
+#define ReqDisconnect_init_zero                  {0}
+#define ReqGuitarName_init_zero                  {0}
+#define ResGuitarName_init_zero                  {""}
 
 /* Field tags (for use in manual encoding/decoding) */
 #define Ack_receivedMessageLength_tag            1
@@ -675,6 +705,7 @@ extern "C" {
 #define Nack_errorCode_tag                       3
 #define InitFromApp_appVersion_tag               1
 #define InitFromApp_KnobClicked_tag              2
+#define InitFromApp_isLastPaired_tag             3
 #define InitFromGuitar_receivedMessageLength_tag 1
 #define InitFromGuitar_receivedMessageId_tag     2
 #define InitFromGuitar_guitarName_tag            3
@@ -808,6 +839,9 @@ extern "C" {
 #define BulkIrEndReq_data_tag                    2
 #define BulkIrRes_sequenceNumber_tag             1
 #define BulkIrRes_done_tag                       2
+#define ReqDisconnect_forgetMe_tag               1
+#define ReqGuitarName_request_tag                1
+#define ResGuitarName_guitarName_tag             1
 
 /* Struct field encoding specification for nanopb */
 #define Ack_FIELDLIST(X, a) \
@@ -825,7 +859,8 @@ X(a, STATIC,   SINGULAR, UENUM,    errorCode,         3)
 
 #define InitFromApp_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, STRING,   appVersion,        1) \
-X(a, STATIC,   SINGULAR, INT32,    KnobClicked,       2)
+X(a, STATIC,   SINGULAR, INT32,    KnobClicked,       2) \
+X(a, STATIC,   SINGULAR, BOOL,     isLastPaired,      3)
 #define InitFromApp_CALLBACK NULL
 #define InitFromApp_DEFAULT NULL
 
@@ -1160,6 +1195,21 @@ X(a, STATIC,   SINGULAR, BOOL,     done,              2)
 #define BulkIrRes_CALLBACK NULL
 #define BulkIrRes_DEFAULT NULL
 
+#define ReqDisconnect_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, BOOL,     forgetMe,          1)
+#define ReqDisconnect_CALLBACK NULL
+#define ReqDisconnect_DEFAULT NULL
+
+#define ReqGuitarName_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, BOOL,     request,           1)
+#define ReqGuitarName_CALLBACK NULL
+#define ReqGuitarName_DEFAULT NULL
+
+#define ResGuitarName_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, STRING,   guitarName,        1)
+#define ResGuitarName_CALLBACK NULL
+#define ResGuitarName_DEFAULT NULL
+
 extern const pb_msgdesc_t Ack_msg;
 extern const pb_msgdesc_t Nack_msg;
 extern const pb_msgdesc_t InitFromApp_msg;
@@ -1211,6 +1261,9 @@ extern const pb_msgdesc_t BulkIrStartReq_msg;
 extern const pb_msgdesc_t BulkIrReq_msg;
 extern const pb_msgdesc_t BulkIrEndReq_msg;
 extern const pb_msgdesc_t BulkIrRes_msg;
+extern const pb_msgdesc_t ReqDisconnect_msg;
+extern const pb_msgdesc_t ReqGuitarName_msg;
+extern const pb_msgdesc_t ResGuitarName_msg;
 
 /* Defines for backwards compatibility with code written before nanopb-0.4.0 */
 #define Ack_fields &Ack_msg
@@ -1264,10 +1317,13 @@ extern const pb_msgdesc_t BulkIrRes_msg;
 #define BulkIrReq_fields &BulkIrReq_msg
 #define BulkIrEndReq_fields &BulkIrEndReq_msg
 #define BulkIrRes_fields &BulkIrRes_msg
+#define ReqDisconnect_fields &ReqDisconnect_msg
+#define ReqGuitarName_fields &ReqGuitarName_msg
+#define ResGuitarName_fields &ResGuitarName_msg
 
 /* Maximum encoded size of messages (where known) */
 #define Ack_size                                 22
-#define BankData_size                            1421
+#define BankData_size                            3248
 #define BatteryLevel_size                        13
 #define BulkIrEndReq_size                        61
 #define BulkIrReq_size                           61
@@ -1280,15 +1336,15 @@ extern const pb_msgdesc_t BulkIrRes_msg;
 #define DiagRespErrCode_size                     11
 #define DiagRespFirstParing_size                 11
 #define DiagRespPOC_size                         11
-#define InitFromApp_size                         76
+#define InitFromApp_size                         78
 #define InitFromGuitar_size                      230
-#define InitKnobMatching1_size                   1424
-#define InitKnobMatching2_size                   1424
-#define InitKnobMatching3_size                   1424
+#define InitKnobMatching1_size                   3251
+#define InitKnobMatching2_size                   3251
+#define InitKnobMatching3_size                   3251
 #define KnobClicked_size                         11
-#define KnobMatchingAll_size                     4314
+#define KnobMatchingAll_size                     9795
 #define KnobMatchingStart_size                   11
-#define KnobMatching_size                        1435
+#define KnobMatching_size                        3262
 #define Nack_size                                24
 #define ParamAmpBgn_size                         57
 #define ParamAmpFd_size                          57
@@ -1313,7 +1369,10 @@ extern const pb_msgdesc_t BulkIrRes_msg;
 #define ParamModTremolo_size                     24
 #define ParamModVibrato_size                     24
 #define ParamReverb_size                         35
+#define ReqDisconnect_size                       2
+#define ReqGuitarName_size                       2
 #define ReqInitFromGuitar_size                   2
+#define ResGuitarName_size                       65
 #define SingleParam_size                         44
 #define TunerFrequency_size                      5
 #define TunerOnOff_size                          2

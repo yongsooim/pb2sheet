@@ -69,6 +69,9 @@ const MessageID$json = {
     {'1': 'BULK_IR_REQ', '2': 49},
     {'1': 'BULK_IR_END_REQ', '2': 50},
     {'1': 'BULK_IR_RES', '2': 51},
+    {'1': 'REQ_DISCONNECT', '2': 52},
+    {'1': 'REQ_GUITAR_NAME', '2': 53},
+    {'1': 'RES_GUITAR_NAME', '2': 54},
   ],
 };
 
@@ -92,7 +95,8 @@ final $typed_data.Uint8List messageIDDescriptor = $convert.base64Decode(
     'NISU5HX0FMTBApEhEKDUNMRUFSX0VGRkVDVFMQKhIQCgxTSU5HTEVfUEFSQU0QKxIMCghESUFH'
     'X1JFURAsEhEKDURJQUdfUkVTUF9QT0MQLRIaChZESUFHX1JFU1BfRklSU1RfUEFSSU5HEC4SFg'
     'oSRElBR19SRVNQX0VSUl9DT0RFEC8SFQoRQlVMS19JUl9TVEFSVF9SRVEQMBIPCgtCVUxLX0lS'
-    'X1JFURAxEhMKD0JVTEtfSVJfRU5EX1JFURAyEg8KC0JVTEtfSVJfUkVTEDM=');
+    'X1JFURAxEhMKD0JVTEtfSVJfRU5EX1JFURAyEg8KC0JVTEtfSVJfUkVTEDMSEgoOUkVRX0RJU0'
+    'NPTk5FQ1QQNBITCg9SRVFfR1VJVEFSX05BTUUQNRITCg9SRVNfR1VJVEFSX05BTUUQNg==');
 
 @$core.Deprecated('Use cATEGORY_NUMBERDescriptor instead')
 const CATEGORY_NUMBER$json = {
@@ -298,13 +302,15 @@ const InitFromApp$json = {
   '2': [
     {'1': 'appVersion', '3': 1, '4': 1, '5': 9, '10': 'appVersion'},
     {'1': 'KnobClicked', '3': 2, '4': 1, '5': 5, '10': 'KnobClicked'},
+    {'1': 'isLastPaired', '3': 3, '4': 1, '5': 8, '10': 'isLastPaired'},
   ],
 };
 
 /// Descriptor for `InitFromApp`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List initFromAppDescriptor = $convert.base64Decode(
     'CgtJbml0RnJvbUFwcBIeCgphcHBWZXJzaW9uGAEgASgJUgphcHBWZXJzaW9uEiAKC0tub2JDbG'
-    'lja2VkGAIgASgFUgtLbm9iQ2xpY2tlZA==');
+    'lja2VkGAIgASgFUgtLbm9iQ2xpY2tlZBIiCgxpc0xhc3RQYWlyZWQYAyABKAhSDGlzTGFzdFBh'
+    'aXJlZA==');
 
 @$core.Deprecated('Use initFromGuitarDescriptor instead')
 const InitFromGuitar$json = {
@@ -1032,4 +1038,40 @@ const BulkIrRes$json = {
 final $typed_data.Uint8List bulkIrResDescriptor = $convert.base64Decode(
     'CglCdWxrSXJSZXMSJgoOc2VxdWVuY2VOdW1iZXIYASABKAVSDnNlcXVlbmNlTnVtYmVyEhIKBG'
     'RvbmUYAiABKAhSBGRvbmU=');
+
+@$core.Deprecated('Use reqDisconnectDescriptor instead')
+const ReqDisconnect$json = {
+  '1': 'ReqDisconnect',
+  '2': [
+    {'1': 'forgetMe', '3': 1, '4': 1, '5': 8, '10': 'forgetMe'},
+  ],
+};
+
+/// Descriptor for `ReqDisconnect`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List reqDisconnectDescriptor = $convert.base64Decode(
+    'Cg1SZXFEaXNjb25uZWN0EhoKCGZvcmdldE1lGAEgASgIUghmb3JnZXRNZQ==');
+
+@$core.Deprecated('Use reqGuitarNameDescriptor instead')
+const ReqGuitarName$json = {
+  '1': 'ReqGuitarName',
+  '2': [
+    {'1': 'request', '3': 1, '4': 1, '5': 8, '10': 'request'},
+  ],
+};
+
+/// Descriptor for `ReqGuitarName`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List reqGuitarNameDescriptor = $convert.base64Decode(
+    'Cg1SZXFHdWl0YXJOYW1lEhgKB3JlcXVlc3QYASABKAhSB3JlcXVlc3Q=');
+
+@$core.Deprecated('Use resGuitarNameDescriptor instead')
+const ResGuitarName$json = {
+  '1': 'ResGuitarName',
+  '2': [
+    {'1': 'guitarName', '3': 1, '4': 1, '5': 9, '10': 'guitarName'},
+  ],
+};
+
+/// Descriptor for `ResGuitarName`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List resGuitarNameDescriptor = $convert.base64Decode(
+    'Cg1SZXNHdWl0YXJOYW1lEh4KCmd1aXRhck5hbWUYASABKAlSCmd1aXRhck5hbWU=');
 

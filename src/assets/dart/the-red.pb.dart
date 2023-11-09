@@ -141,6 +141,7 @@ class InitFromApp extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'InitFromApp', createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'appVersion', protoName: 'appVersion')
     ..a<$core.int>(2, _omitFieldNames ? '' : 'KnobClicked', $pb.PbFieldType.O3, protoName: 'KnobClicked')
+    ..aOB(3, _omitFieldNames ? '' : 'isLastPaired', protoName: 'isLastPaired')
     ..hasRequiredFields = false
   ;
 
@@ -182,6 +183,15 @@ class InitFromApp extends $pb.GeneratedMessage {
   $core.bool hasKnobClicked() => $_has(1);
   @$pb.TagNumber(2)
   void clearKnobClicked() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.bool get isLastPaired => $_getBF(2);
+  @$pb.TagNumber(3)
+  set isLastPaired($core.bool v) { $_setBool(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasIsLastPaired() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearIsLastPaired() => clearField(3);
 }
 
 class InitFromGuitar extends $pb.GeneratedMessage {
@@ -3020,6 +3030,132 @@ class BulkIrRes extends $pb.GeneratedMessage {
   $core.bool hasDone() => $_has(1);
   @$pb.TagNumber(2)
   void clearDone() => clearField(2);
+}
+
+class ReqDisconnect extends $pb.GeneratedMessage {
+  factory ReqDisconnect() => create();
+  ReqDisconnect._() : super();
+  factory ReqDisconnect.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ReqDisconnect.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ReqDisconnect', createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'forgetMe', protoName: 'forgetMe')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ReqDisconnect clone() => ReqDisconnect()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ReqDisconnect copyWith(void Function(ReqDisconnect) updates) => super.copyWith((message) => updates(message as ReqDisconnect)) as ReqDisconnect;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ReqDisconnect create() => ReqDisconnect._();
+  ReqDisconnect createEmptyInstance() => create();
+  static $pb.PbList<ReqDisconnect> createRepeated() => $pb.PbList<ReqDisconnect>();
+  @$core.pragma('dart2js:noInline')
+  static ReqDisconnect getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ReqDisconnect>(create);
+  static ReqDisconnect? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get forgetMe => $_getBF(0);
+  @$pb.TagNumber(1)
+  set forgetMe($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasForgetMe() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearForgetMe() => clearField(1);
+}
+
+class ReqGuitarName extends $pb.GeneratedMessage {
+  factory ReqGuitarName() => create();
+  ReqGuitarName._() : super();
+  factory ReqGuitarName.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ReqGuitarName.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ReqGuitarName', createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'request')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ReqGuitarName clone() => ReqGuitarName()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ReqGuitarName copyWith(void Function(ReqGuitarName) updates) => super.copyWith((message) => updates(message as ReqGuitarName)) as ReqGuitarName;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ReqGuitarName create() => ReqGuitarName._();
+  ReqGuitarName createEmptyInstance() => create();
+  static $pb.PbList<ReqGuitarName> createRepeated() => $pb.PbList<ReqGuitarName>();
+  @$core.pragma('dart2js:noInline')
+  static ReqGuitarName getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ReqGuitarName>(create);
+  static ReqGuitarName? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get request => $_getBF(0);
+  @$pb.TagNumber(1)
+  set request($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasRequest() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearRequest() => clearField(1);
+}
+
+class ResGuitarName extends $pb.GeneratedMessage {
+  factory ResGuitarName() => create();
+  ResGuitarName._() : super();
+  factory ResGuitarName.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ResGuitarName.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ResGuitarName', createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'guitarName', protoName: 'guitarName')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ResGuitarName clone() => ResGuitarName()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ResGuitarName copyWith(void Function(ResGuitarName) updates) => super.copyWith((message) => updates(message as ResGuitarName)) as ResGuitarName;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ResGuitarName create() => ResGuitarName._();
+  ResGuitarName createEmptyInstance() => create();
+  static $pb.PbList<ResGuitarName> createRepeated() => $pb.PbList<ResGuitarName>();
+  @$core.pragma('dart2js:noInline')
+  static ResGuitarName getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ResGuitarName>(create);
+  static ResGuitarName? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get guitarName => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set guitarName($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasGuitarName() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearGuitarName() => clearField(1);
 }
 
 

@@ -1,5 +1,10 @@
 /*
  the-red.proto
+
+ 2023-11-09 jason:
+  - add messsage : ReqDisconnect, ReqGuitarName, ResGuitarName
+  - add field : InitFromApp.isLastPaired
+  - add comments for not used fields in InitFromGuitar
  
  2023-11-01 jason:
   - add field : Reverb.predelay
@@ -146,6 +151,9 @@ enum MessageID {
   BULK_IR_REQ = 49;
   BULK_IR_END_REQ = 50;
   BULK_IR_RES = 51;
+  REQ_DISCONNECT = 52;
+  REQ_GUITAR_NAME = 53;
+  RES_GUITAR_NAME = 54;
 }
 
 enum CATEGORY_NUMBER {
@@ -232,13 +240,19 @@ message Nack {
 message InitFromApp {
   string appVersion = 1;
   int32 KnobClicked = 2;
+  bool isLastPaired = 3;
 }
 
+// guitar model name mapping 
+// "1r": "TR1 Pop Red"
+// "1g": "TR1 Forest Green"
+// "1i": "TR1 Creamy Ivory"
+// "1b": "TR1 Jet Black"
 message InitFromGuitar {
-  int32 receivedMessageLength = 1;
-  int32 receivedMessageId = 2;
+  int32 receivedMessageLength = 1; // not used
+  int32 receivedMessageId = 2; // not used
   string guitarName = 3;
-  string guitarModelName = 4;
+  string guitarModelName = 4; 
   string firmwareVersion = 5;
   int32 batteryLevel = 6;
   bool isCharging = 7;
@@ -488,4 +502,16 @@ message BulkIrEndReq {
 message BulkIrRes {
   int32 sequenceNumber = 1;
   bool done = 2;
+}
+
+message ReqDisconnect {
+  bool forgetMe = 1;
+}
+
+message ReqGuitarName {
+  bool request = 1;
+}
+
+message ResGuitarName {
+  string guitarName = 1;
 }

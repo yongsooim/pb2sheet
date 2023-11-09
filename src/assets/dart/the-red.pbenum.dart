@@ -66,6 +66,9 @@ class MessageID extends $pb.ProtobufEnum {
   static const MessageID BULK_IR_REQ = MessageID._(49, _omitEnumNames ? '' : 'BULK_IR_REQ');
   static const MessageID BULK_IR_END_REQ = MessageID._(50, _omitEnumNames ? '' : 'BULK_IR_END_REQ');
   static const MessageID BULK_IR_RES = MessageID._(51, _omitEnumNames ? '' : 'BULK_IR_RES');
+  static const MessageID REQ_DISCONNECT = MessageID._(52, _omitEnumNames ? '' : 'REQ_DISCONNECT');
+  static const MessageID REQ_GUITAR_NAME = MessageID._(53, _omitEnumNames ? '' : 'REQ_GUITAR_NAME');
+  static const MessageID RES_GUITAR_NAME = MessageID._(54, _omitEnumNames ? '' : 'RES_GUITAR_NAME');
 
   static const $core.List<MessageID> values = <MessageID> [
     INVALID,
@@ -120,6 +123,9 @@ class MessageID extends $pb.ProtobufEnum {
     BULK_IR_REQ,
     BULK_IR_END_REQ,
     BULK_IR_RES,
+    REQ_DISCONNECT,
+    REQ_GUITAR_NAME,
+    RES_GUITAR_NAME,
   ];
 
   static final $core.Map<$core.int, MessageID> _byValue = $pb.ProtobufEnum.initByValue(values);

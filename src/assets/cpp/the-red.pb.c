@@ -159,6 +159,15 @@ PB_BIND(BulkIrEndReq, BulkIrEndReq, AUTO)
 PB_BIND(BulkIrRes, BulkIrRes, AUTO)
 
 
+PB_BIND(ReqDisconnect, ReqDisconnect, AUTO)
+
+
+PB_BIND(ReqGuitarName, ReqGuitarName, AUTO)
+
+
+PB_BIND(ResGuitarName, ResGuitarName, AUTO)
+
+
 
 
 
