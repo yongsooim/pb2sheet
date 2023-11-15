@@ -240,7 +240,7 @@ message Nack {\r
 message InitFromApp {\r
   string appVersion = 1;\r
   int32 KnobClicked = 2;\r
-  bool isLastPaired = 3;\r
+  bool playPairingSound = 3;\r
 }\r
 \r
 // guitar model name mapping \r
@@ -514,6 +514,14 @@ message ReqGuitarName {\r
 \r
 message ResGuitarName {\r
   string guitarName = 1;\r
+}\r
+\r
+message ReqPlayPairingSound {\r
+  bool request = 1;\r
+}\r
+\r
+message ReqBootloadMode {\r
+  bool request = 1;\r
 }\r
 `,protobufData=writable(protoString),aceWidth=writable(0),selectedMessage=writable("");var commonjsGlobal=typeof globalThis<"u"?globalThis:typeof window<"u"?window:typeof global<"u"?global:typeof self<"u"?self:{};function getDefaultExportFromCjs(h){return h&&h.__esModule&&Object.prototype.hasOwnProperty.call(h,"default")?h.default:h}var tokenize_1=tokenize$1;const delimRe=/[\s{}=;:[\],'"()<>]/g,stringDoubleRe=/(?:"([^"\\]*(?:\\.[^"\\]*)*)")/g,stringSingleRe=/(?:'([^'\\]*(?:\\.[^'\\]*)*)')/g,setCommentRe=/^ *[*/]+ */,setCommentAltRe=/^\s*\*?\/*/,setCommentSplitRe=/\n/g,whitespaceRe=/\s/,unescapeRe=/\\(.?)/g,unescapeMap={0:"\0",r:"\r",n:`
 `,t:"	"};function unescape$1(h){return h.replace(unescapeRe,(w,g)=>{switch(g){case"\\":case"":return g;default:return unescapeMap[g]||""}})}tokenize$1.unescape=unescape$1;function tokenize$1(h,w){h=h.toString();let g=0;const{length:v}=h;let F=1,R=null,O=null,p=0,r=!1,u=!1;const l=[];let c=null;function o(E){const _=`illegal ${E}`,T=new Error(_);return T.line=F,T}function e(){const E=c==="'"?stringSingleRe:stringDoubleRe;E.lastIndex=g-1;const _=E.exec(h);if(!_)throw o("string");return g=E.lastIndex,S(c),c=null,unescape$1(_[1])}function n(E){return h.charAt(E)}function a(E,_){R=h.charAt(E++),p=F,r=!1;let T;w?T=2:T=3;let I=E-T,k;do if(--I<0||(k=h.charAt(I))===`

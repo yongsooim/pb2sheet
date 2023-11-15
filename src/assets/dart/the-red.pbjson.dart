@@ -302,15 +302,15 @@ const InitFromApp$json = {
   '2': [
     {'1': 'appVersion', '3': 1, '4': 1, '5': 9, '10': 'appVersion'},
     {'1': 'KnobClicked', '3': 2, '4': 1, '5': 5, '10': 'KnobClicked'},
-    {'1': 'isLastPaired', '3': 3, '4': 1, '5': 8, '10': 'isLastPaired'},
+    {'1': 'playPairingSound', '3': 3, '4': 1, '5': 8, '10': 'playPairingSound'},
   ],
 };
 
 /// Descriptor for `InitFromApp`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List initFromAppDescriptor = $convert.base64Decode(
     'CgtJbml0RnJvbUFwcBIeCgphcHBWZXJzaW9uGAEgASgJUgphcHBWZXJzaW9uEiAKC0tub2JDbG'
-    'lja2VkGAIgASgFUgtLbm9iQ2xpY2tlZBIiCgxpc0xhc3RQYWlyZWQYAyABKAhSDGlzTGFzdFBh'
-    'aXJlZA==');
+    'lja2VkGAIgASgFUgtLbm9iQ2xpY2tlZBIqChBwbGF5UGFpcmluZ1NvdW5kGAMgASgIUhBwbGF5'
+    'UGFpcmluZ1NvdW5k');
 
 @$core.Deprecated('Use initFromGuitarDescriptor instead')
 const InitFromGuitar$json = {
@@ -1074,4 +1074,28 @@ const ResGuitarName$json = {
 /// Descriptor for `ResGuitarName`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List resGuitarNameDescriptor = $convert.base64Decode(
     'Cg1SZXNHdWl0YXJOYW1lEh4KCmd1aXRhck5hbWUYASABKAlSCmd1aXRhck5hbWU=');
+
+@$core.Deprecated('Use reqPlayPairingSoundDescriptor instead')
+const ReqPlayPairingSound$json = {
+  '1': 'ReqPlayPairingSound',
+  '2': [
+    {'1': 'request', '3': 1, '4': 1, '5': 8, '10': 'request'},
+  ],
+};
+
+/// Descriptor for `ReqPlayPairingSound`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List reqPlayPairingSoundDescriptor = $convert.base64Decode(
+    'ChNSZXFQbGF5UGFpcmluZ1NvdW5kEhgKB3JlcXVlc3QYASABKAhSB3JlcXVlc3Q=');
+
+@$core.Deprecated('Use reqBootloadModeDescriptor instead')
+const ReqBootloadMode$json = {
+  '1': 'ReqBootloadMode',
+  '2': [
+    {'1': 'request', '3': 1, '4': 1, '5': 8, '10': 'request'},
+  ],
+};
+
+/// Descriptor for `ReqBootloadMode`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List reqBootloadModeDescriptor = $convert.base64Decode(
+    'Cg9SZXFCb290bG9hZE1vZGUSGAoHcmVxdWVzdBgBIAEoCFIHcmVxdWVzdA==');
 

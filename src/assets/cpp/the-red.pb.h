@@ -166,7 +166,7 @@ typedef struct _Nack {
 typedef struct _InitFromApp {
     char appVersion[64];
     int32_t KnobClicked;
-    bool isLastPaired;
+    bool playPairingSound;
 } InitFromApp;
 
 /* guitar model name mapping 
@@ -476,6 +476,14 @@ typedef struct _ResGuitarName {
     char guitarName[64];
 } ResGuitarName;
 
+typedef struct _ReqPlayPairingSound {
+    bool request;
+} ReqPlayPairingSound;
+
+typedef struct _ReqBootloadMode {
+    bool request;
+} ReqBootloadMode;
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -587,6 +595,8 @@ extern "C" {
 
 
 
+
+
 /* Initializer values for message structs */
 #define Ack_init_default                         {0, 0}
 #define Nack_init_default                        {0, 0, _Nack_ERROR_CODE_MIN}
@@ -642,6 +652,8 @@ extern "C" {
 #define ReqDisconnect_init_default               {0}
 #define ReqGuitarName_init_default               {0}
 #define ResGuitarName_init_default               {""}
+#define ReqPlayPairingSound_init_default         {0}
+#define ReqBootloadMode_init_default             {0}
 #define Ack_init_zero                            {0, 0}
 #define Nack_init_zero                           {0, 0, _Nack_ERROR_CODE_MIN}
 #define InitFromApp_init_zero                    {"", 0, 0}
@@ -696,6 +708,8 @@ extern "C" {
 #define ReqDisconnect_init_zero                  {0}
 #define ReqGuitarName_init_zero                  {0}
 #define ResGuitarName_init_zero                  {""}
+#define ReqPlayPairingSound_init_zero            {0}
+#define ReqBootloadMode_init_zero                {0}
 
 /* Field tags (for use in manual encoding/decoding) */
 #define Ack_receivedMessageLength_tag            1
@@ -705,7 +719,7 @@ extern "C" {
 #define Nack_errorCode_tag                       3
 #define InitFromApp_appVersion_tag               1
 #define InitFromApp_KnobClicked_tag              2
-#define InitFromApp_isLastPaired_tag             3
+#define InitFromApp_playPairingSound_tag         3
 #define InitFromGuitar_receivedMessageLength_tag 1
 #define InitFromGuitar_receivedMessageId_tag     2
 #define InitFromGuitar_guitarName_tag            3
@@ -842,6 +856,8 @@ extern "C" {
 #define ReqDisconnect_forgetMe_tag               1
 #define ReqGuitarName_request_tag                1
 #define ResGuitarName_guitarName_tag             1
+#define ReqPlayPairingSound_request_tag          1
+#define ReqBootloadMode_request_tag              1
 
 /* Struct field encoding specification for nanopb */
 #define Ack_FIELDLIST(X, a) \
@@ -860,7 +876,7 @@ X(a, STATIC,   SINGULAR, UENUM,    errorCode,         3)
 #define InitFromApp_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, STRING,   appVersion,        1) \
 X(a, STATIC,   SINGULAR, INT32,    KnobClicked,       2) \
-X(a, STATIC,   SINGULAR, BOOL,     isLastPaired,      3)
+X(a, STATIC,   SINGULAR, BOOL,     playPairingSound,   3)
 #define InitFromApp_CALLBACK NULL
 #define InitFromApp_DEFAULT NULL
 
@@ -1210,6 +1226,16 @@ X(a, STATIC,   SINGULAR, STRING,   guitarName,        1)
 #define ResGuitarName_CALLBACK NULL
 #define ResGuitarName_DEFAULT NULL
 
+#define ReqPlayPairingSound_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, BOOL,     request,           1)
+#define ReqPlayPairingSound_CALLBACK NULL
+#define ReqPlayPairingSound_DEFAULT NULL
+
+#define ReqBootloadMode_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, BOOL,     request,           1)
+#define ReqBootloadMode_CALLBACK NULL
+#define ReqBootloadMode_DEFAULT NULL
+
 extern const pb_msgdesc_t Ack_msg;
 extern const pb_msgdesc_t Nack_msg;
 extern const pb_msgdesc_t InitFromApp_msg;
@@ -1264,6 +1290,8 @@ extern const pb_msgdesc_t BulkIrRes_msg;
 extern const pb_msgdesc_t ReqDisconnect_msg;
 extern const pb_msgdesc_t ReqGuitarName_msg;
 extern const pb_msgdesc_t ResGuitarName_msg;
+extern const pb_msgdesc_t ReqPlayPairingSound_msg;
+extern const pb_msgdesc_t ReqBootloadMode_msg;
 
 /* Defines for backwards compatibility with code written before nanopb-0.4.0 */
 #define Ack_fields &Ack_msg
@@ -1320,6 +1348,8 @@ extern const pb_msgdesc_t ResGuitarName_msg;
 #define ReqDisconnect_fields &ReqDisconnect_msg
 #define ReqGuitarName_fields &ReqGuitarName_msg
 #define ResGuitarName_fields &ResGuitarName_msg
+#define ReqPlayPairingSound_fields &ReqPlayPairingSound_msg
+#define ReqBootloadMode_fields &ReqBootloadMode_msg
 
 /* Maximum encoded size of messages (where known) */
 #define Ack_size                                 22
@@ -1369,9 +1399,11 @@ extern const pb_msgdesc_t ResGuitarName_msg;
 #define ParamModTremolo_size                     24
 #define ParamModVibrato_size                     24
 #define ParamReverb_size                         35
+#define ReqBootloadMode_size                     2
 #define ReqDisconnect_size                       2
 #define ReqGuitarName_size                       2
 #define ReqInitFromGuitar_size                   2
+#define ReqPlayPairingSound_size                 2
 #define ResGuitarName_size                       65
 #define SingleParam_size                         44
 #define TunerFrequency_size                      5

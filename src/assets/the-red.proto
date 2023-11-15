@@ -240,7 +240,7 @@ message Nack {
 message InitFromApp {
   string appVersion = 1;
   int32 KnobClicked = 2;
-  bool isLastPaired = 3;
+  bool playPairingSound = 3;
 }
 
 // guitar model name mapping 
@@ -514,4 +514,12 @@ message ReqGuitarName {
 
 message ResGuitarName {
   string guitarName = 1;
+}
+
+message ReqPlayPairingSound {
+  bool request = 1;
+}
+
+message ReqBootloadMode {
+  bool request = 1;
 }

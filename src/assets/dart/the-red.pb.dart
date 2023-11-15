@@ -141,7 +141,7 @@ class InitFromApp extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'InitFromApp', createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'appVersion', protoName: 'appVersion')
     ..a<$core.int>(2, _omitFieldNames ? '' : 'KnobClicked', $pb.PbFieldType.O3, protoName: 'KnobClicked')
-    ..aOB(3, _omitFieldNames ? '' : 'isLastPaired', protoName: 'isLastPaired')
+    ..aOB(3, _omitFieldNames ? '' : 'playPairingSound', protoName: 'playPairingSound')
     ..hasRequiredFields = false
   ;
 
@@ -185,13 +185,13 @@ class InitFromApp extends $pb.GeneratedMessage {
   void clearKnobClicked() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.bool get isLastPaired => $_getBF(2);
+  $core.bool get playPairingSound => $_getBF(2);
   @$pb.TagNumber(3)
-  set isLastPaired($core.bool v) { $_setBool(2, v); }
+  set playPairingSound($core.bool v) { $_setBool(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasIsLastPaired() => $_has(2);
+  $core.bool hasPlayPairingSound() => $_has(2);
   @$pb.TagNumber(3)
-  void clearIsLastPaired() => clearField(3);
+  void clearPlayPairingSound() => clearField(3);
 }
 
 class InitFromGuitar extends $pb.GeneratedMessage {
@@ -3156,6 +3156,90 @@ class ResGuitarName extends $pb.GeneratedMessage {
   $core.bool hasGuitarName() => $_has(0);
   @$pb.TagNumber(1)
   void clearGuitarName() => clearField(1);
+}
+
+class ReqPlayPairingSound extends $pb.GeneratedMessage {
+  factory ReqPlayPairingSound() => create();
+  ReqPlayPairingSound._() : super();
+  factory ReqPlayPairingSound.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ReqPlayPairingSound.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ReqPlayPairingSound', createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'request')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ReqPlayPairingSound clone() => ReqPlayPairingSound()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ReqPlayPairingSound copyWith(void Function(ReqPlayPairingSound) updates) => super.copyWith((message) => updates(message as ReqPlayPairingSound)) as ReqPlayPairingSound;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ReqPlayPairingSound create() => ReqPlayPairingSound._();
+  ReqPlayPairingSound createEmptyInstance() => create();
+  static $pb.PbList<ReqPlayPairingSound> createRepeated() => $pb.PbList<ReqPlayPairingSound>();
+  @$core.pragma('dart2js:noInline')
+  static ReqPlayPairingSound getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ReqPlayPairingSound>(create);
+  static ReqPlayPairingSound? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get request => $_getBF(0);
+  @$pb.TagNumber(1)
+  set request($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasRequest() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearRequest() => clearField(1);
+}
+
+class ReqBootloadMode extends $pb.GeneratedMessage {
+  factory ReqBootloadMode() => create();
+  ReqBootloadMode._() : super();
+  factory ReqBootloadMode.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ReqBootloadMode.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ReqBootloadMode', createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'request')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ReqBootloadMode clone() => ReqBootloadMode()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ReqBootloadMode copyWith(void Function(ReqBootloadMode) updates) => super.copyWith((message) => updates(message as ReqBootloadMode)) as ReqBootloadMode;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ReqBootloadMode create() => ReqBootloadMode._();
+  ReqBootloadMode createEmptyInstance() => create();
+  static $pb.PbList<ReqBootloadMode> createRepeated() => $pb.PbList<ReqBootloadMode>();
+  @$core.pragma('dart2js:noInline')
+  static ReqBootloadMode getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ReqBootloadMode>(create);
+  static ReqBootloadMode? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get request => $_getBF(0);
+  @$pb.TagNumber(1)
+  set request($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasRequest() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearRequest() => clearField(1);
 }
 
 

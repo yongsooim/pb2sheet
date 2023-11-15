@@ -168,6 +168,12 @@ PB_BIND(ReqGuitarName, ReqGuitarName, AUTO)
 PB_BIND(ResGuitarName, ResGuitarName, AUTO)
 
 
+PB_BIND(ReqPlayPairingSound, ReqPlayPairingSound, AUTO)
+
+
+PB_BIND(ReqBootloadMode, ReqBootloadMode, AUTO)
+
+
 
 
 
