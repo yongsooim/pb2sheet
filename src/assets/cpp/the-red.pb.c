@@ -174,6 +174,30 @@ PB_BIND(ReqPlayPairingSound, ReqPlayPairingSound, AUTO)
 PB_BIND(ReqBootloadMode, ReqBootloadMode, AUTO)
 
 
+PB_BIND(ReqIsBootloadMode, ReqIsBootloadMode, AUTO)
+
+
+PB_BIND(ResIsBootloadMode, ResIsBootloadMode, AUTO)
+
+
+PB_BIND(ParamAmp6Jazz, ParamAmp6Jazz, AUTO)
+
+
+PB_BIND(ParamAmp7MoonBrt, ParamAmp7MoonBrt, AUTO)
+
+
+PB_BIND(ParamAmp8CaliRhythm, ParamAmp8CaliRhythm, AUTO)
+
+
+PB_BIND(ParamAmp9Archtype, ParamAmp9Archtype, AUTO)
+
+
+PB_BIND(ParamAmp10SoloLead, ParamAmp10SoloLead, AUTO)
+
+
+PB_BIND(ParamAmp11Line6Litigator, ParamAmp11Line6Litigator, AUTO)
+
+
 
 
 

@@ -1,11 +1,18 @@
 /*
  the-red.proto
 
+ 2023-11-24 jason:
+  - add field : Nack.receivedData
+  - add messages : add amps
+
+ 2023-11-21 jason:
+  - add field : BankData.knobNumber
+
  2023-11-09 jason:
   - add messsage : ReqDisconnect, ReqGuitarName, ResGuitarName
   - add field : InitFromApp.isLastPaired
   - add comments for not used fields in InitFromGuitar
- 
+
  2023-11-01 jason:
   - add field : Reverb.predelay
   - delete field : Reverb.tone
@@ -154,6 +161,16 @@ enum MessageID {
   REQ_DISCONNECT = 52;
   REQ_GUITAR_NAME = 53;
   RES_GUITAR_NAME = 54;
+  REQ_PLAY_PAIRING_SOUND = 55;
+  REQ_BOOTLOAD_MODE = 56;
+  REQ_IS_BOOTLOAD_MODE = 57;
+  RES_IS_BOOTLOAD_MODE = 58;
+  PARAM_AMP6_JAZZ = 59;
+  PARAM_AMP7_MOON_BRT = 60;
+  PARAM_AMP8_CALI_RHYTHM = 61;
+  PARAM_AMP9_ARCHTYPE = 62;
+  PARAM_AMP10_SOLO_LEAD = 63;
+  PARAM_AMP11_LINE6_LITIGATOR = 64;
 }
 
 enum CATEGORY_NUMBER {
@@ -235,6 +252,7 @@ message Nack {
   int32 receivedMessageLength = 1;
   int32 receivedMessageId = 2;
   ERROR_CODE errorCode = 3;
+  repeated int32 receivedData = 4;
 }
 
 message InitFromApp {
@@ -243,24 +261,22 @@ message InitFromApp {
   bool playPairingSound = 3;
 }
 
-// guitar model name mapping 
+// guitar model name mapping
 // "1r": "TR1 Pop Red"
 // "1g": "TR1 Forest Green"
 // "1i": "TR1 Creamy Ivory"
 // "1b": "TR1 Jet Black"
 message InitFromGuitar {
   int32 receivedMessageLength = 1; // not used
-  int32 receivedMessageId = 2; // not used
+  int32 receivedMessageId = 2;     // not used
   string guitarName = 3;
-  string guitarModelName = 4; 
+  string guitarModelName = 4;
   string firmwareVersion = 5;
   int32 batteryLevel = 6;
   bool isCharging = 7;
 }
 
-message ReqInitFromGuitar {
-  bool request = 1;
-}
+message ReqInitFromGuitar { bool request = 1; }
 
 message ChangeGuitarName { string guitarName = 1; }
 
@@ -428,25 +444,21 @@ message CategoryData {
   repeated int32 params = 4;
 }
 
-message BankData { repeated CategoryData categoryData = 1; }
+message BankData {
+  repeated CategoryData categoryData = 1;
+  int32 knobNumber = 2;
+}
 
 message KnobMatching {
   int32 knobNumber = 1;
   BankData bankData = 2;
 }
 
-message InitKnobMatching1 {
-  BankData bankData = 1;
-}
+message InitKnobMatching1 { BankData bankData = 1; }
+message InitKnobMatching2 { BankData bankData = 1; }
+message InitKnobMatching3 { BankData bankData = 1; }
 
-message InitKnobMatching2 {
-  BankData bankData = 1;
-}
-
-message InitKnobMatching3 {
-  BankData bankData = 1;
-}
-
+// message length is too long to send at once
 message KnobMatchingAll { repeated KnobMatching knobMatchingData = 1; }
 
 message ClearEffects { bool clear = 1; }
@@ -504,22 +516,70 @@ message BulkIrRes {
   bool done = 2;
 }
 
-message ReqDisconnect {
-  bool forgetMe = 1;
+message ReqDisconnect { bool forgetMe = 1; }
+
+message ReqGuitarName { bool request = 1; }
+
+message ResGuitarName { string guitarName = 1; }
+
+message ReqPlayPairingSound { bool request = 1; }
+
+message ReqBootloadMode { bool request = 1; }
+
+message ReqIsBootloadMode { bool request = 1; }
+
+message ResIsBootloadMode { bool isBootloadMode = 1; }
+
+message ParamAmp6Jazz {
+  bool isOn = 1;
+  int32 level = 2;
+  int32 gain = 3;
+  int32 bass = 4;
+  int32 middle = 5;
+  int32 treble = 6;
 }
 
-message ReqGuitarName {
-  bool request = 1;
+message ParamAmp7MoonBrt {
+  bool isOn = 1;
+  int32 level = 2;
+  int32 gain = 3;
+  int32 bass = 4;
+  int32 middle = 5;
+  int32 treble = 6;
 }
 
-message ResGuitarName {
-  string guitarName = 1;
+message ParamAmp8CaliRhythm {
+  bool isOn = 1;
+  int32 level = 2;
+  int32 gain = 3;
+  int32 bass = 4;
+  int32 middle = 5;
+  int32 treble = 6;
 }
 
-message ReqPlayPairingSound {
-  bool request = 1;
+message ParamAmp9Archtype {
+  bool isOn = 1;
+  int32 level = 2;
+  int32 gain = 3;
+  int32 bass = 4;
+  int32 middle = 5;
+  int32 treble = 6;
 }
 
-message ReqBootloadMode {
-  bool request = 1;
+message ParamAmp10SoloLead {
+  bool isOn = 1;
+  int32 level = 2;
+  int32 gain = 3;
+  int32 bass = 4;
+  int32 middle = 5;
+  int32 treble = 6;
+}
+
+message ParamAmp11Line6Litigator {
+  bool isOn = 1;
+  int32 level = 2;
+  int32 gain = 3;
+  int32 bass = 4;
+  int32 middle = 5;
+  int32 treble = 6;
 }

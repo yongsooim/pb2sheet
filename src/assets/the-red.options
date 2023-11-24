@@ -18,3 +18,5 @@ BankData.categoryData max_count: 16
 KnobMatchingAll.knobMatchingData max_count: 3
 
 ResGuitarName.guitarName max_size: 64
+
+Nack.errorCode max_size: 110

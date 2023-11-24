@@ -65,7 +65,17 @@ typedef enum _MessageID {
     MessageID_BULK_IR_RES = 51,
     MessageID_REQ_DISCONNECT = 52,
     MessageID_REQ_GUITAR_NAME = 53,
-    MessageID_RES_GUITAR_NAME = 54
+    MessageID_RES_GUITAR_NAME = 54,
+    MessageID_REQ_PLAY_PAIRING_SOUND = 55,
+    MessageID_REQ_BOOTLOAD_MODE = 56,
+    MessageID_REQ_IS_BOOTLOAD_MODE = 57,
+    MessageID_RES_IS_BOOTLOAD_MODE = 58,
+    MessageID_PARAM_AMP6_JAZZ = 59,
+    MessageID_PARAM_AMP7_MOON_BRT = 60,
+    MessageID_PARAM_AMP8_CALI_RHYTHM = 61,
+    MessageID_PARAM_AMP9_ARCHTYPE = 62,
+    MessageID_PARAM_AMP10_SOLO_LEAD = 63,
+    MessageID_PARAM_AMP11_LINE6_LITIGATOR = 64
 } MessageID;
 
 typedef enum _CATEGORY_NUMBER {
@@ -161,6 +171,7 @@ typedef struct _Nack {
     int32_t receivedMessageLength;
     int32_t receivedMessageId;
     Nack_ERROR_CODE errorCode;
+    pb_callback_t receivedData;
 } Nack;
 
 typedef struct _InitFromApp {
@@ -169,7 +180,7 @@ typedef struct _InitFromApp {
     bool playPairingSound;
 } InitFromApp;
 
-/* guitar model name mapping 
+/* guitar model name mapping
  "1r": "TR1 Pop Red"
  "1g": "TR1 Forest Green"
  "1i": "TR1 Creamy Ivory"
@@ -383,6 +394,7 @@ typedef struct _CategoryData {
 typedef struct _BankData {
     pb_size_t categoryData_count;
     CategoryData categoryData[16];
+    int32_t knobNumber;
 } BankData;
 
 typedef struct _KnobMatching {
@@ -406,6 +418,7 @@ typedef struct _InitKnobMatching3 {
     BankData bankData;
 } InitKnobMatching3;
 
+/* message length is too long to send at once */
 typedef struct _KnobMatchingAll {
     pb_size_t knobMatchingData_count;
     KnobMatching knobMatchingData[3];
@@ -484,6 +497,68 @@ typedef struct _ReqBootloadMode {
     bool request;
 } ReqBootloadMode;
 
+typedef struct _ReqIsBootloadMode {
+    bool request;
+} ReqIsBootloadMode;
+
+typedef struct _ResIsBootloadMode {
+    bool isBootloadMode;
+} ResIsBootloadMode;
+
+typedef struct _ParamAmp6Jazz {
+    bool isOn;
+    int32_t level;
+    int32_t gain;
+    int32_t bass;
+    int32_t middle;
+    int32_t treble;
+} ParamAmp6Jazz;
+
+typedef struct _ParamAmp7MoonBrt {
+    bool isOn;
+    int32_t level;
+    int32_t gain;
+    int32_t bass;
+    int32_t middle;
+    int32_t treble;
+} ParamAmp7MoonBrt;
+
+typedef struct _ParamAmp8CaliRhythm {
+    bool isOn;
+    int32_t level;
+    int32_t gain;
+    int32_t bass;
+    int32_t middle;
+    int32_t treble;
+} ParamAmp8CaliRhythm;
+
+typedef struct _ParamAmp9Archtype {
+    bool isOn;
+    int32_t level;
+    int32_t gain;
+    int32_t bass;
+    int32_t middle;
+    int32_t treble;
+} ParamAmp9Archtype;
+
+typedef struct _ParamAmp10SoloLead {
+    bool isOn;
+    int32_t level;
+    int32_t gain;
+    int32_t bass;
+    int32_t middle;
+    int32_t treble;
+} ParamAmp10SoloLead;
+
+typedef struct _ParamAmp11Line6Litigator {
+    bool isOn;
+    int32_t level;
+    int32_t gain;
+    int32_t bass;
+    int32_t middle;
+    int32_t treble;
+} ParamAmp11Line6Litigator;
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -491,8 +566,8 @@ extern "C" {
 
 /* Helper constants for enums */
 #define _MessageID_MIN MessageID_INVALID
-#define _MessageID_MAX MessageID_RES_GUITAR_NAME
-#define _MessageID_ARRAYSIZE ((MessageID)(MessageID_RES_GUITAR_NAME+1))
+#define _MessageID_MAX MessageID_PARAM_AMP11_LINE6_LITIGATOR
+#define _MessageID_ARRAYSIZE ((MessageID)(MessageID_PARAM_AMP11_LINE6_LITIGATOR+1))
 
 #define _CATEGORY_NUMBER_MIN CATEGORY_NUMBER_CAT_NO1_GATE
 #define _CATEGORY_NUMBER_MAX CATEGORY_NUMBER_CAT_NO7_REVERB
@@ -597,9 +672,17 @@ extern "C" {
 
 
 
+
+
+
+
+
+
+
+
 /* Initializer values for message structs */
 #define Ack_init_default                         {0, 0}
-#define Nack_init_default                        {0, 0, _Nack_ERROR_CODE_MIN}
+#define Nack_init_default                        {0, 0, _Nack_ERROR_CODE_MIN, {{NULL}, NULL}}
 #define InitFromApp_init_default                 {"", 0, 0}
 #define InitFromGuitar_init_default              {0, 0, "", "", "", 0, 0}
 #define ReqInitFromGuitar_init_default           {0}
@@ -633,7 +716,7 @@ extern "C" {
 #define ParamDelayDelay_init_default             {0, 0, 0, 0}
 #define ParamReverb_init_default                 {0, 0, 0, 0}
 #define CategoryData_init_default                {0, 0, 0, 0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}
-#define BankData_init_default                    {0, {CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default}}
+#define BankData_init_default                    {0, {CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default}, 0}
 #define KnobMatching_init_default                {0, false, BankData_init_default}
 #define InitKnobMatching1_init_default           {false, BankData_init_default}
 #define InitKnobMatching2_init_default           {false, BankData_init_default}
@@ -654,8 +737,16 @@ extern "C" {
 #define ResGuitarName_init_default               {""}
 #define ReqPlayPairingSound_init_default         {0}
 #define ReqBootloadMode_init_default             {0}
+#define ReqIsBootloadMode_init_default           {0}
+#define ResIsBootloadMode_init_default           {0}
+#define ParamAmp6Jazz_init_default               {0, 0, 0, 0, 0, 0}
+#define ParamAmp7MoonBrt_init_default            {0, 0, 0, 0, 0, 0}
+#define ParamAmp8CaliRhythm_init_default         {0, 0, 0, 0, 0, 0}
+#define ParamAmp9Archtype_init_default           {0, 0, 0, 0, 0, 0}
+#define ParamAmp10SoloLead_init_default          {0, 0, 0, 0, 0, 0}
+#define ParamAmp11Line6Litigator_init_default    {0, 0, 0, 0, 0, 0}
 #define Ack_init_zero                            {0, 0}
-#define Nack_init_zero                           {0, 0, _Nack_ERROR_CODE_MIN}
+#define Nack_init_zero                           {0, 0, _Nack_ERROR_CODE_MIN, {{NULL}, NULL}}
 #define InitFromApp_init_zero                    {"", 0, 0}
 #define InitFromGuitar_init_zero                 {0, 0, "", "", "", 0, 0}
 #define ReqInitFromGuitar_init_zero              {0}
@@ -689,7 +780,7 @@ extern "C" {
 #define ParamDelayDelay_init_zero                {0, 0, 0, 0}
 #define ParamReverb_init_zero                    {0, 0, 0, 0}
 #define CategoryData_init_zero                   {0, 0, 0, 0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}
-#define BankData_init_zero                       {0, {CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero}}
+#define BankData_init_zero                       {0, {CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero}, 0}
 #define KnobMatching_init_zero                   {0, false, BankData_init_zero}
 #define InitKnobMatching1_init_zero              {false, BankData_init_zero}
 #define InitKnobMatching2_init_zero              {false, BankData_init_zero}
@@ -710,6 +801,14 @@ extern "C" {
 #define ResGuitarName_init_zero                  {""}
 #define ReqPlayPairingSound_init_zero            {0}
 #define ReqBootloadMode_init_zero                {0}
+#define ReqIsBootloadMode_init_zero              {0}
+#define ResIsBootloadMode_init_zero              {0}
+#define ParamAmp6Jazz_init_zero                  {0, 0, 0, 0, 0, 0}
+#define ParamAmp7MoonBrt_init_zero               {0, 0, 0, 0, 0, 0}
+#define ParamAmp8CaliRhythm_init_zero            {0, 0, 0, 0, 0, 0}
+#define ParamAmp9Archtype_init_zero              {0, 0, 0, 0, 0, 0}
+#define ParamAmp10SoloLead_init_zero             {0, 0, 0, 0, 0, 0}
+#define ParamAmp11Line6Litigator_init_zero       {0, 0, 0, 0, 0, 0}
 
 /* Field tags (for use in manual encoding/decoding) */
 #define Ack_receivedMessageLength_tag            1
@@ -717,6 +816,7 @@ extern "C" {
 #define Nack_receivedMessageLength_tag           1
 #define Nack_receivedMessageId_tag               2
 #define Nack_errorCode_tag                       3
+#define Nack_receivedData_tag                    4
 #define InitFromApp_appVersion_tag               1
 #define InitFromApp_KnobClicked_tag              2
 #define InitFromApp_playPairingSound_tag         3
@@ -829,6 +929,7 @@ extern "C" {
 #define CategoryData_select_tag                  3
 #define CategoryData_params_tag                  4
 #define BankData_categoryData_tag                1
+#define BankData_knobNumber_tag                  2
 #define KnobMatching_knobNumber_tag              1
 #define KnobMatching_bankData_tag                2
 #define InitKnobMatching1_bankData_tag           1
@@ -858,6 +959,44 @@ extern "C" {
 #define ResGuitarName_guitarName_tag             1
 #define ReqPlayPairingSound_request_tag          1
 #define ReqBootloadMode_request_tag              1
+#define ReqIsBootloadMode_request_tag            1
+#define ResIsBootloadMode_isBootloadMode_tag     1
+#define ParamAmp6Jazz_isOn_tag                   1
+#define ParamAmp6Jazz_level_tag                  2
+#define ParamAmp6Jazz_gain_tag                   3
+#define ParamAmp6Jazz_bass_tag                   4
+#define ParamAmp6Jazz_middle_tag                 5
+#define ParamAmp6Jazz_treble_tag                 6
+#define ParamAmp7MoonBrt_isOn_tag                1
+#define ParamAmp7MoonBrt_level_tag               2
+#define ParamAmp7MoonBrt_gain_tag                3
+#define ParamAmp7MoonBrt_bass_tag                4
+#define ParamAmp7MoonBrt_middle_tag              5
+#define ParamAmp7MoonBrt_treble_tag              6
+#define ParamAmp8CaliRhythm_isOn_tag             1
+#define ParamAmp8CaliRhythm_level_tag            2
+#define ParamAmp8CaliRhythm_gain_tag             3
+#define ParamAmp8CaliRhythm_bass_tag             4
+#define ParamAmp8CaliRhythm_middle_tag           5
+#define ParamAmp8CaliRhythm_treble_tag           6
+#define ParamAmp9Archtype_isOn_tag               1
+#define ParamAmp9Archtype_level_tag              2
+#define ParamAmp9Archtype_gain_tag               3
+#define ParamAmp9Archtype_bass_tag               4
+#define ParamAmp9Archtype_middle_tag             5
+#define ParamAmp9Archtype_treble_tag             6
+#define ParamAmp10SoloLead_isOn_tag              1
+#define ParamAmp10SoloLead_level_tag             2
+#define ParamAmp10SoloLead_gain_tag              3
+#define ParamAmp10SoloLead_bass_tag              4
+#define ParamAmp10SoloLead_middle_tag            5
+#define ParamAmp10SoloLead_treble_tag            6
+#define ParamAmp11Line6Litigator_isOn_tag        1
+#define ParamAmp11Line6Litigator_level_tag       2
+#define ParamAmp11Line6Litigator_gain_tag        3
+#define ParamAmp11Line6Litigator_bass_tag        4
+#define ParamAmp11Line6Litigator_middle_tag      5
+#define ParamAmp11Line6Litigator_treble_tag      6
 
 /* Struct field encoding specification for nanopb */
 #define Ack_FIELDLIST(X, a) \
@@ -869,8 +1008,9 @@ X(a, STATIC,   SINGULAR, INT32,    receivedMessageId,   2)
 #define Nack_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, INT32,    receivedMessageLength,   1) \
 X(a, STATIC,   SINGULAR, INT32,    receivedMessageId,   2) \
-X(a, STATIC,   SINGULAR, UENUM,    errorCode,         3)
-#define Nack_CALLBACK NULL
+X(a, STATIC,   SINGULAR, UENUM,    errorCode,         3) \
+X(a, CALLBACK, REPEATED, INT32,    receivedData,      4)
+#define Nack_CALLBACK pb_default_field_callback
 #define Nack_DEFAULT NULL
 
 #define InitFromApp_FIELDLIST(X, a) \
@@ -1117,7 +1257,8 @@ X(a, STATIC,   REPEATED, INT32,    params,            4)
 #define CategoryData_DEFAULT NULL
 
 #define BankData_FIELDLIST(X, a) \
-X(a, STATIC,   REPEATED, MESSAGE,  categoryData,      1)
+X(a, STATIC,   REPEATED, MESSAGE,  categoryData,      1) \
+X(a, STATIC,   SINGULAR, INT32,    knobNumber,        2)
 #define BankData_CALLBACK NULL
 #define BankData_DEFAULT NULL
 #define BankData_categoryData_MSGTYPE CategoryData
@@ -1236,6 +1377,76 @@ X(a, STATIC,   SINGULAR, BOOL,     request,           1)
 #define ReqBootloadMode_CALLBACK NULL
 #define ReqBootloadMode_DEFAULT NULL
 
+#define ReqIsBootloadMode_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, BOOL,     request,           1)
+#define ReqIsBootloadMode_CALLBACK NULL
+#define ReqIsBootloadMode_DEFAULT NULL
+
+#define ResIsBootloadMode_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, BOOL,     isBootloadMode,    1)
+#define ResIsBootloadMode_CALLBACK NULL
+#define ResIsBootloadMode_DEFAULT NULL
+
+#define ParamAmp6Jazz_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
+X(a, STATIC,   SINGULAR, INT32,    level,             2) \
+X(a, STATIC,   SINGULAR, INT32,    gain,              3) \
+X(a, STATIC,   SINGULAR, INT32,    bass,              4) \
+X(a, STATIC,   SINGULAR, INT32,    middle,            5) \
+X(a, STATIC,   SINGULAR, INT32,    treble,            6)
+#define ParamAmp6Jazz_CALLBACK NULL
+#define ParamAmp6Jazz_DEFAULT NULL
+
+#define ParamAmp7MoonBrt_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
+X(a, STATIC,   SINGULAR, INT32,    level,             2) \
+X(a, STATIC,   SINGULAR, INT32,    gain,              3) \
+X(a, STATIC,   SINGULAR, INT32,    bass,              4) \
+X(a, STATIC,   SINGULAR, INT32,    middle,            5) \
+X(a, STATIC,   SINGULAR, INT32,    treble,            6)
+#define ParamAmp7MoonBrt_CALLBACK NULL
+#define ParamAmp7MoonBrt_DEFAULT NULL
+
+#define ParamAmp8CaliRhythm_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
+X(a, STATIC,   SINGULAR, INT32,    level,             2) \
+X(a, STATIC,   SINGULAR, INT32,    gain,              3) \
+X(a, STATIC,   SINGULAR, INT32,    bass,              4) \
+X(a, STATIC,   SINGULAR, INT32,    middle,            5) \
+X(a, STATIC,   SINGULAR, INT32,    treble,            6)
+#define ParamAmp8CaliRhythm_CALLBACK NULL
+#define ParamAmp8CaliRhythm_DEFAULT NULL
+
+#define ParamAmp9Archtype_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
+X(a, STATIC,   SINGULAR, INT32,    level,             2) \
+X(a, STATIC,   SINGULAR, INT32,    gain,              3) \
+X(a, STATIC,   SINGULAR, INT32,    bass,              4) \
+X(a, STATIC,   SINGULAR, INT32,    middle,            5) \
+X(a, STATIC,   SINGULAR, INT32,    treble,            6)
+#define ParamAmp9Archtype_CALLBACK NULL
+#define ParamAmp9Archtype_DEFAULT NULL
+
+#define ParamAmp10SoloLead_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
+X(a, STATIC,   SINGULAR, INT32,    level,             2) \
+X(a, STATIC,   SINGULAR, INT32,    gain,              3) \
+X(a, STATIC,   SINGULAR, INT32,    bass,              4) \
+X(a, STATIC,   SINGULAR, INT32,    middle,            5) \
+X(a, STATIC,   SINGULAR, INT32,    treble,            6)
+#define ParamAmp10SoloLead_CALLBACK NULL
+#define ParamAmp10SoloLead_DEFAULT NULL
+
+#define ParamAmp11Line6Litigator_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
+X(a, STATIC,   SINGULAR, INT32,    level,             2) \
+X(a, STATIC,   SINGULAR, INT32,    gain,              3) \
+X(a, STATIC,   SINGULAR, INT32,    bass,              4) \
+X(a, STATIC,   SINGULAR, INT32,    middle,            5) \
+X(a, STATIC,   SINGULAR, INT32,    treble,            6)
+#define ParamAmp11Line6Litigator_CALLBACK NULL
+#define ParamAmp11Line6Litigator_DEFAULT NULL
+
 extern const pb_msgdesc_t Ack_msg;
 extern const pb_msgdesc_t Nack_msg;
 extern const pb_msgdesc_t InitFromApp_msg;
@@ -1292,6 +1503,14 @@ extern const pb_msgdesc_t ReqGuitarName_msg;
 extern const pb_msgdesc_t ResGuitarName_msg;
 extern const pb_msgdesc_t ReqPlayPairingSound_msg;
 extern const pb_msgdesc_t ReqBootloadMode_msg;
+extern const pb_msgdesc_t ReqIsBootloadMode_msg;
+extern const pb_msgdesc_t ResIsBootloadMode_msg;
+extern const pb_msgdesc_t ParamAmp6Jazz_msg;
+extern const pb_msgdesc_t ParamAmp7MoonBrt_msg;
+extern const pb_msgdesc_t ParamAmp8CaliRhythm_msg;
+extern const pb_msgdesc_t ParamAmp9Archtype_msg;
+extern const pb_msgdesc_t ParamAmp10SoloLead_msg;
+extern const pb_msgdesc_t ParamAmp11Line6Litigator_msg;
 
 /* Defines for backwards compatibility with code written before nanopb-0.4.0 */
 #define Ack_fields &Ack_msg
@@ -1350,10 +1569,19 @@ extern const pb_msgdesc_t ReqBootloadMode_msg;
 #define ResGuitarName_fields &ResGuitarName_msg
 #define ReqPlayPairingSound_fields &ReqPlayPairingSound_msg
 #define ReqBootloadMode_fields &ReqBootloadMode_msg
+#define ReqIsBootloadMode_fields &ReqIsBootloadMode_msg
+#define ResIsBootloadMode_fields &ResIsBootloadMode_msg
+#define ParamAmp6Jazz_fields &ParamAmp6Jazz_msg
+#define ParamAmp7MoonBrt_fields &ParamAmp7MoonBrt_msg
+#define ParamAmp8CaliRhythm_fields &ParamAmp8CaliRhythm_msg
+#define ParamAmp9Archtype_fields &ParamAmp9Archtype_msg
+#define ParamAmp10SoloLead_fields &ParamAmp10SoloLead_msg
+#define ParamAmp11Line6Litigator_fields &ParamAmp11Line6Litigator_msg
 
 /* Maximum encoded size of messages (where known) */
+/* Nack_size depends on runtime parameters */
 #define Ack_size                                 22
-#define BankData_size                            3248
+#define BankData_size                            3259
 #define BatteryLevel_size                        13
 #define BulkIrEndReq_size                        61
 #define BulkIrReq_size                           61
@@ -1368,14 +1596,19 @@ extern const pb_msgdesc_t ReqBootloadMode_msg;
 #define DiagRespPOC_size                         11
 #define InitFromApp_size                         78
 #define InitFromGuitar_size                      230
-#define InitKnobMatching1_size                   3251
-#define InitKnobMatching2_size                   3251
-#define InitKnobMatching3_size                   3251
+#define InitKnobMatching1_size                   3262
+#define InitKnobMatching2_size                   3262
+#define InitKnobMatching3_size                   3262
 #define KnobClicked_size                         11
-#define KnobMatchingAll_size                     9795
+#define KnobMatchingAll_size                     9828
 #define KnobMatchingStart_size                   11
-#define KnobMatching_size                        3262
-#define Nack_size                                24
+#define KnobMatching_size                        3273
+#define ParamAmp10SoloLead_size                  57
+#define ParamAmp11Line6Litigator_size            57
+#define ParamAmp6Jazz_size                       57
+#define ParamAmp7MoonBrt_size                    57
+#define ParamAmp8CaliRhythm_size                 57
+#define ParamAmp9Archtype_size                   57
 #define ParamAmpBgn_size                         57
 #define ParamAmpFd_size                          57
 #define ParamAmpMs_size                          57
@@ -1403,8 +1636,10 @@ extern const pb_msgdesc_t ReqBootloadMode_msg;
 #define ReqDisconnect_size                       2
 #define ReqGuitarName_size                       2
 #define ReqInitFromGuitar_size                   2
+#define ReqIsBootloadMode_size                   2
 #define ReqPlayPairingSound_size                 2
 #define ResGuitarName_size                       65
+#define ResIsBootloadMode_size                   2
 #define SingleParam_size                         44
 #define TunerFrequency_size                      5
 #define TunerOnOff_size                          2

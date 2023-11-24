@@ -72,6 +72,16 @@ const MessageID$json = {
     {'1': 'REQ_DISCONNECT', '2': 52},
     {'1': 'REQ_GUITAR_NAME', '2': 53},
     {'1': 'RES_GUITAR_NAME', '2': 54},
+    {'1': 'REQ_PLAY_PAIRING_SOUND', '2': 55},
+    {'1': 'REQ_BOOTLOAD_MODE', '2': 56},
+    {'1': 'REQ_IS_BOOTLOAD_MODE', '2': 57},
+    {'1': 'RES_IS_BOOTLOAD_MODE', '2': 58},
+    {'1': 'PARAM_AMP6_JAZZ', '2': 59},
+    {'1': 'PARAM_AMP7_MOON_BRT', '2': 60},
+    {'1': 'PARAM_AMP8_CALI_RHYTHM', '2': 61},
+    {'1': 'PARAM_AMP9_ARCHTYPE', '2': 62},
+    {'1': 'PARAM_AMP10_SOLO_LEAD', '2': 63},
+    {'1': 'PARAM_AMP11_LINE6_LITIGATOR', '2': 64},
   ],
 };
 
@@ -96,7 +106,12 @@ final $typed_data.Uint8List messageIDDescriptor = $convert.base64Decode(
     'X1JFURAsEhEKDURJQUdfUkVTUF9QT0MQLRIaChZESUFHX1JFU1BfRklSU1RfUEFSSU5HEC4SFg'
     'oSRElBR19SRVNQX0VSUl9DT0RFEC8SFQoRQlVMS19JUl9TVEFSVF9SRVEQMBIPCgtCVUxLX0lS'
     'X1JFURAxEhMKD0JVTEtfSVJfRU5EX1JFURAyEg8KC0JVTEtfSVJfUkVTEDMSEgoOUkVRX0RJU0'
-    'NPTk5FQ1QQNBITCg9SRVFfR1VJVEFSX05BTUUQNRITCg9SRVNfR1VJVEFSX05BTUUQNg==');
+    'NPTk5FQ1QQNBITCg9SRVFfR1VJVEFSX05BTUUQNRITCg9SRVNfR1VJVEFSX05BTUUQNhIaChZS'
+    'RVFfUExBWV9QQUlSSU5HX1NPVU5EEDcSFQoRUkVRX0JPT1RMT0FEX01PREUQOBIYChRSRVFfSV'
+    'NfQk9PVExPQURfTU9ERRA5EhgKFFJFU19JU19CT09UTE9BRF9NT0RFEDoSEwoPUEFSQU1fQU1Q'
+    'Nl9KQVpaEDsSFwoTUEFSQU1fQU1QN19NT09OX0JSVBA8EhoKFlBBUkFNX0FNUDhfQ0FMSV9SSF'
+    'lUSE0QPRIXChNQQVJBTV9BTVA5X0FSQ0hUWVBFED4SGQoVUEFSQU1fQU1QMTBfU09MT19MRUFE'
+    'ED8SHwobUEFSQU1fQU1QMTFfTElORTZfTElUSUdBVE9SEEA=');
 
 @$core.Deprecated('Use cATEGORY_NUMBERDescriptor instead')
 const CATEGORY_NUMBER$json = {
@@ -269,6 +284,7 @@ const Nack$json = {
     {'1': 'receivedMessageLength', '3': 1, '4': 1, '5': 5, '10': 'receivedMessageLength'},
     {'1': 'receivedMessageId', '3': 2, '4': 1, '5': 5, '10': 'receivedMessageId'},
     {'1': 'errorCode', '3': 3, '4': 1, '5': 14, '6': '.Nack.ERROR_CODE', '10': 'errorCode'},
+    {'1': 'receivedData', '3': 4, '4': 3, '5': 5, '10': 'receivedData'},
   ],
   '4': [Nack_ERROR_CODE$json],
 };
@@ -291,10 +307,11 @@ const Nack_ERROR_CODE$json = {
 final $typed_data.Uint8List nackDescriptor = $convert.base64Decode(
     'CgROYWNrEjQKFXJlY2VpdmVkTWVzc2FnZUxlbmd0aBgBIAEoBVIVcmVjZWl2ZWRNZXNzYWdlTG'
     'VuZ3RoEiwKEXJlY2VpdmVkTWVzc2FnZUlkGAIgASgFUhFyZWNlaXZlZE1lc3NhZ2VJZBIuCgll'
-    'cnJvckNvZGUYAyABKA4yEC5OYWNrLkVSUk9SX0NPREVSCWVycm9yQ29kZSKoAQoKRVJST1JfQ0'
-    '9ERRIWChJJTlZBTElEX01FU1NBR0VfSUQQABIYChRJTlZBTElEX01FU1NBR0VfREFUQRABEhEK'
-    'DUlOVkFMSURfU1RBVEUQAhISCg5JTlZBTElEX09QQ09ERRADEhkKFUlOVkFMSURfUEFDS0VUX0'
-    'xFTkdUSBAEEhkKFVBST1RPQlVGX0RFQ09ERV9FUlJPUhAFEgsKB1RJTUVPVVQQBg==');
+    'cnJvckNvZGUYAyABKA4yEC5OYWNrLkVSUk9SX0NPREVSCWVycm9yQ29kZRIiCgxyZWNlaXZlZE'
+    'RhdGEYBCADKAVSDHJlY2VpdmVkRGF0YSKoAQoKRVJST1JfQ09ERRIWChJJTlZBTElEX01FU1NB'
+    'R0VfSUQQABIYChRJTlZBTElEX01FU1NBR0VfREFUQRABEhEKDUlOVkFMSURfU1RBVEUQAhISCg'
+    '5JTlZBTElEX09QQ09ERRADEhkKFUlOVkFMSURfUEFDS0VUX0xFTkdUSBAEEhkKFVBST1RPQlVG'
+    'X0RFQ09ERV9FUlJPUhAFEgsKB1RJTUVPVVQQBg==');
 
 @$core.Deprecated('Use initFromAppDescriptor instead')
 const InitFromApp$json = {
@@ -818,13 +835,14 @@ const BankData$json = {
   '1': 'BankData',
   '2': [
     {'1': 'categoryData', '3': 1, '4': 3, '5': 11, '6': '.CategoryData', '10': 'categoryData'},
+    {'1': 'knobNumber', '3': 2, '4': 1, '5': 5, '10': 'knobNumber'},
   ],
 };
 
 /// Descriptor for `BankData`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List bankDataDescriptor = $convert.base64Decode(
     'CghCYW5rRGF0YRIxCgxjYXRlZ29yeURhdGEYASADKAsyDS5DYXRlZ29yeURhdGFSDGNhdGVnb3'
-    'J5RGF0YQ==');
+    'J5RGF0YRIeCgprbm9iTnVtYmVyGAIgASgFUgprbm9iTnVtYmVy');
 
 @$core.Deprecated('Use knobMatchingDescriptor instead')
 const KnobMatching$json = {
@@ -1098,4 +1116,143 @@ const ReqBootloadMode$json = {
 /// Descriptor for `ReqBootloadMode`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List reqBootloadModeDescriptor = $convert.base64Decode(
     'Cg9SZXFCb290bG9hZE1vZGUSGAoHcmVxdWVzdBgBIAEoCFIHcmVxdWVzdA==');
+
+@$core.Deprecated('Use reqIsBootloadModeDescriptor instead')
+const ReqIsBootloadMode$json = {
+  '1': 'ReqIsBootloadMode',
+  '2': [
+    {'1': 'request', '3': 1, '4': 1, '5': 8, '10': 'request'},
+  ],
+};
+
+/// Descriptor for `ReqIsBootloadMode`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List reqIsBootloadModeDescriptor = $convert.base64Decode(
+    'ChFSZXFJc0Jvb3Rsb2FkTW9kZRIYCgdyZXF1ZXN0GAEgASgIUgdyZXF1ZXN0');
+
+@$core.Deprecated('Use resIsBootloadModeDescriptor instead')
+const ResIsBootloadMode$json = {
+  '1': 'ResIsBootloadMode',
+  '2': [
+    {'1': 'isBootloadMode', '3': 1, '4': 1, '5': 8, '10': 'isBootloadMode'},
+  ],
+};
+
+/// Descriptor for `ResIsBootloadMode`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List resIsBootloadModeDescriptor = $convert.base64Decode(
+    'ChFSZXNJc0Jvb3Rsb2FkTW9kZRImCg5pc0Jvb3Rsb2FkTW9kZRgBIAEoCFIOaXNCb290bG9hZE'
+    '1vZGU=');
+
+@$core.Deprecated('Use paramAmp6JazzDescriptor instead')
+const ParamAmp6Jazz$json = {
+  '1': 'ParamAmp6Jazz',
+  '2': [
+    {'1': 'isOn', '3': 1, '4': 1, '5': 8, '10': 'isOn'},
+    {'1': 'level', '3': 2, '4': 1, '5': 5, '10': 'level'},
+    {'1': 'gain', '3': 3, '4': 1, '5': 5, '10': 'gain'},
+    {'1': 'bass', '3': 4, '4': 1, '5': 5, '10': 'bass'},
+    {'1': 'middle', '3': 5, '4': 1, '5': 5, '10': 'middle'},
+    {'1': 'treble', '3': 6, '4': 1, '5': 5, '10': 'treble'},
+  ],
+};
+
+/// Descriptor for `ParamAmp6Jazz`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List paramAmp6JazzDescriptor = $convert.base64Decode(
+    'Cg1QYXJhbUFtcDZKYXp6EhIKBGlzT24YASABKAhSBGlzT24SFAoFbGV2ZWwYAiABKAVSBWxldm'
+    'VsEhIKBGdhaW4YAyABKAVSBGdhaW4SEgoEYmFzcxgEIAEoBVIEYmFzcxIWCgZtaWRkbGUYBSAB'
+    'KAVSBm1pZGRsZRIWCgZ0cmVibGUYBiABKAVSBnRyZWJsZQ==');
+
+@$core.Deprecated('Use paramAmp7MoonBrtDescriptor instead')
+const ParamAmp7MoonBrt$json = {
+  '1': 'ParamAmp7MoonBrt',
+  '2': [
+    {'1': 'isOn', '3': 1, '4': 1, '5': 8, '10': 'isOn'},
+    {'1': 'level', '3': 2, '4': 1, '5': 5, '10': 'level'},
+    {'1': 'gain', '3': 3, '4': 1, '5': 5, '10': 'gain'},
+    {'1': 'bass', '3': 4, '4': 1, '5': 5, '10': 'bass'},
+    {'1': 'middle', '3': 5, '4': 1, '5': 5, '10': 'middle'},
+    {'1': 'treble', '3': 6, '4': 1, '5': 5, '10': 'treble'},
+  ],
+};
+
+/// Descriptor for `ParamAmp7MoonBrt`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List paramAmp7MoonBrtDescriptor = $convert.base64Decode(
+    'ChBQYXJhbUFtcDdNb29uQnJ0EhIKBGlzT24YASABKAhSBGlzT24SFAoFbGV2ZWwYAiABKAVSBW'
+    'xldmVsEhIKBGdhaW4YAyABKAVSBGdhaW4SEgoEYmFzcxgEIAEoBVIEYmFzcxIWCgZtaWRkbGUY'
+    'BSABKAVSBm1pZGRsZRIWCgZ0cmVibGUYBiABKAVSBnRyZWJsZQ==');
+
+@$core.Deprecated('Use paramAmp8CaliRhythmDescriptor instead')
+const ParamAmp8CaliRhythm$json = {
+  '1': 'ParamAmp8CaliRhythm',
+  '2': [
+    {'1': 'isOn', '3': 1, '4': 1, '5': 8, '10': 'isOn'},
+    {'1': 'level', '3': 2, '4': 1, '5': 5, '10': 'level'},
+    {'1': 'gain', '3': 3, '4': 1, '5': 5, '10': 'gain'},
+    {'1': 'bass', '3': 4, '4': 1, '5': 5, '10': 'bass'},
+    {'1': 'middle', '3': 5, '4': 1, '5': 5, '10': 'middle'},
+    {'1': 'treble', '3': 6, '4': 1, '5': 5, '10': 'treble'},
+  ],
+};
+
+/// Descriptor for `ParamAmp8CaliRhythm`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List paramAmp8CaliRhythmDescriptor = $convert.base64Decode(
+    'ChNQYXJhbUFtcDhDYWxpUmh5dGhtEhIKBGlzT24YASABKAhSBGlzT24SFAoFbGV2ZWwYAiABKA'
+    'VSBWxldmVsEhIKBGdhaW4YAyABKAVSBGdhaW4SEgoEYmFzcxgEIAEoBVIEYmFzcxIWCgZtaWRk'
+    'bGUYBSABKAVSBm1pZGRsZRIWCgZ0cmVibGUYBiABKAVSBnRyZWJsZQ==');
+
+@$core.Deprecated('Use paramAmp9ArchtypeDescriptor instead')
+const ParamAmp9Archtype$json = {
+  '1': 'ParamAmp9Archtype',
+  '2': [
+    {'1': 'isOn', '3': 1, '4': 1, '5': 8, '10': 'isOn'},
+    {'1': 'level', '3': 2, '4': 1, '5': 5, '10': 'level'},
+    {'1': 'gain', '3': 3, '4': 1, '5': 5, '10': 'gain'},
+    {'1': 'bass', '3': 4, '4': 1, '5': 5, '10': 'bass'},
+    {'1': 'middle', '3': 5, '4': 1, '5': 5, '10': 'middle'},
+    {'1': 'treble', '3': 6, '4': 1, '5': 5, '10': 'treble'},
+  ],
+};
+
+/// Descriptor for `ParamAmp9Archtype`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List paramAmp9ArchtypeDescriptor = $convert.base64Decode(
+    'ChFQYXJhbUFtcDlBcmNodHlwZRISCgRpc09uGAEgASgIUgRpc09uEhQKBWxldmVsGAIgASgFUg'
+    'VsZXZlbBISCgRnYWluGAMgASgFUgRnYWluEhIKBGJhc3MYBCABKAVSBGJhc3MSFgoGbWlkZGxl'
+    'GAUgASgFUgZtaWRkbGUSFgoGdHJlYmxlGAYgASgFUgZ0cmVibGU=');
+
+@$core.Deprecated('Use paramAmp10SoloLeadDescriptor instead')
+const ParamAmp10SoloLead$json = {
+  '1': 'ParamAmp10SoloLead',
+  '2': [
+    {'1': 'isOn', '3': 1, '4': 1, '5': 8, '10': 'isOn'},
+    {'1': 'level', '3': 2, '4': 1, '5': 5, '10': 'level'},
+    {'1': 'gain', '3': 3, '4': 1, '5': 5, '10': 'gain'},
+    {'1': 'bass', '3': 4, '4': 1, '5': 5, '10': 'bass'},
+    {'1': 'middle', '3': 5, '4': 1, '5': 5, '10': 'middle'},
+    {'1': 'treble', '3': 6, '4': 1, '5': 5, '10': 'treble'},
+  ],
+};
+
+/// Descriptor for `ParamAmp10SoloLead`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List paramAmp10SoloLeadDescriptor = $convert.base64Decode(
+    'ChJQYXJhbUFtcDEwU29sb0xlYWQSEgoEaXNPbhgBIAEoCFIEaXNPbhIUCgVsZXZlbBgCIAEoBV'
+    'IFbGV2ZWwSEgoEZ2FpbhgDIAEoBVIEZ2FpbhISCgRiYXNzGAQgASgFUgRiYXNzEhYKBm1pZGRs'
+    'ZRgFIAEoBVIGbWlkZGxlEhYKBnRyZWJsZRgGIAEoBVIGdHJlYmxl');
+
+@$core.Deprecated('Use paramAmp11Line6LitigatorDescriptor instead')
+const ParamAmp11Line6Litigator$json = {
+  '1': 'ParamAmp11Line6Litigator',
+  '2': [
+    {'1': 'isOn', '3': 1, '4': 1, '5': 8, '10': 'isOn'},
+    {'1': 'level', '3': 2, '4': 1, '5': 5, '10': 'level'},
+    {'1': 'gain', '3': 3, '4': 1, '5': 5, '10': 'gain'},
+    {'1': 'bass', '3': 4, '4': 1, '5': 5, '10': 'bass'},
+    {'1': 'middle', '3': 5, '4': 1, '5': 5, '10': 'middle'},
+    {'1': 'treble', '3': 6, '4': 1, '5': 5, '10': 'treble'},
+  ],
+};
+
+/// Descriptor for `ParamAmp11Line6Litigator`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List paramAmp11Line6LitigatorDescriptor = $convert.base64Decode(
+    'ChhQYXJhbUFtcDExTGluZTZMaXRpZ2F0b3ISEgoEaXNPbhgBIAEoCFIEaXNPbhIUCgVsZXZlbB'
+    'gCIAEoBVIFbGV2ZWwSEgoEZ2FpbhgDIAEoBVIEZ2FpbhISCgRiYXNzGAQgASgFUgRiYXNzEhYK'
+    'Bm1pZGRsZRgFIAEoBVIGbWlkZGxlEhYKBnRyZWJsZRgGIAEoBVIGdHJlYmxl');
 

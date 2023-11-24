@@ -1,11 +1,18 @@
 var Er=Object.defineProperty;var Lr=(h,w,g)=>w in h?Er(h,w,{enumerable:!0,configurable:!0,writable:!0,value:g}):h[w]=g;var Jt=(h,w,g)=>(Lr(h,typeof w!="symbol"?w+"":w,g),g);(function(){const w=document.createElement("link").relList;if(w&&w.supports&&w.supports("modulepreload"))return;for(const F of document.querySelectorAll('link[rel="modulepreload"]'))v(F);new MutationObserver(F=>{for(const R of F)if(R.type==="childList")for(const O of R.addedNodes)O.tagName==="LINK"&&O.rel==="modulepreload"&&v(O)}).observe(document,{childList:!0,subtree:!0});function g(F){const R={};return F.integrity&&(R.integrity=F.integrity),F.referrerPolicy&&(R.referrerPolicy=F.referrerPolicy),F.crossOrigin==="use-credentials"?R.credentials="include":F.crossOrigin==="anonymous"?R.credentials="omit":R.credentials="same-origin",R}function v(F){if(F.ep)return;F.ep=!0;const R=g(F);fetch(F.href,R)}})();const app="";function noop(){}function run(h){return h()}function blank_object(){return Object.create(null)}function run_all(h){h.forEach(run)}function is_function(h){return typeof h=="function"}function safe_not_equal(h,w){return h!=h?w==w:h!==w||h&&typeof h=="object"||typeof h=="function"}function is_empty(h){return Object.keys(h).length===0}function append(h,w){h.appendChild(w)}function insert(h,w,g){h.insertBefore(w,g||null)}function detach(h){h.parentNode&&h.parentNode.removeChild(h)}function element(h){return document.createElement(h)}function text(h){return document.createTextNode(h)}function space(){return text(" ")}function listen(h,w,g,v){return h.addEventListener(w,g,v),()=>h.removeEventListener(w,g,v)}function attr(h,w,g){g==null?h.removeAttribute(w):h.getAttribute(w)!==g&&h.setAttribute(w,g)}function children(h){return Array.from(h.childNodes)}function set_data(h,w){w=""+w,h.data!==w&&(h.data=w)}let current_component;function set_current_component(h){current_component=h}function get_current_component(){if(!current_component)throw new Error("Function called outside component initialization");return current_component}function onMount(h){get_current_component().$$.on_mount.push(h)}const dirty_components=[],binding_callbacks=[];let render_callbacks=[];const flush_callbacks=[],resolved_promise=Promise.resolve();let update_scheduled=!1;function schedule_update(){update_scheduled||(update_scheduled=!0,resolved_promise.then(flush))}function add_render_callback(h){render_callbacks.push(h)}const seen_callbacks=new Set;let flushidx=0;function flush(){if(flushidx!==0)return;const h=current_component;do{try{for(;flushidx<dirty_components.length;){const w=dirty_components[flushidx];flushidx++,set_current_component(w),update(w.$$)}}catch(w){throw dirty_components.length=0,flushidx=0,w}for(set_current_component(null),dirty_components.length=0,flushidx=0;binding_callbacks.length;)binding_callbacks.pop()();for(let w=0;w<render_callbacks.length;w+=1){const g=render_callbacks[w];seen_callbacks.has(g)||(seen_callbacks.add(g),g())}render_callbacks.length=0}while(dirty_components.length);for(;flush_callbacks.length;)flush_callbacks.pop()();update_scheduled=!1,seen_callbacks.clear(),set_current_component(h)}function update(h){if(h.fragment!==null){h.update(),run_all(h.before_update);const w=h.dirty;h.dirty=[-1],h.fragment&&h.fragment.p(h.ctx,w),h.after_update.forEach(add_render_callback)}}function flush_render_callbacks(h){const w=[],g=[];render_callbacks.forEach(v=>h.indexOf(v)===-1?w.push(v):g.push(v)),g.forEach(v=>v()),render_callbacks=w}const outroing=new Set;let outros;function transition_in(h,w){h&&h.i&&(outroing.delete(h),h.i(w))}function transition_out(h,w,g,v){if(h&&h.o){if(outroing.has(h))return;outroing.add(h),outros.c.push(()=>{outroing.delete(h),v&&(g&&h.d(1),v())}),h.o(w)}else v&&v()}function create_component(h){h&&h.c()}function mount_component(h,w,g){const{fragment:v,after_update:F}=h.$$;v&&v.m(w,g),add_render_callback(()=>{const R=h.$$.on_mount.map(run).filter(is_function);h.$$.on_destroy?h.$$.on_destroy.push(...R):run_all(R),h.$$.on_mount=[]}),F.forEach(add_render_callback)}function destroy_component(h,w){const g=h.$$;g.fragment!==null&&(flush_render_callbacks(g.after_update),run_all(g.on_destroy),g.fragment&&g.fragment.d(w),g.on_destroy=g.fragment=null,g.ctx=[])}function make_dirty(h,w){h.$$.dirty[0]===-1&&(dirty_components.push(h),schedule_update(),h.$$.dirty.fill(0)),h.$$.dirty[w/31|0]|=1<<w%31}function init(h,w,g,v,F,R,O,p=[-1]){const r=current_component;set_current_component(h);const u=h.$$={fragment:null,ctx:[],props:R,update:noop,not_equal:F,bound:blank_object(),on_mount:[],on_destroy:[],on_disconnect:[],before_update:[],after_update:[],context:new Map(w.context||(r?r.$$.context:[])),callbacks:blank_object(),dirty:p,skip_bound:!1,root:w.target||r.$$.root};O&&O(u.root);let l=!1;if(u.ctx=g?g(h,w.props||{},(c,o,...e)=>{const n=e.length?e[0]:o;return u.ctx&&F(u.ctx[c],u.ctx[c]=n)&&(!u.skip_bound&&u.bound[c]&&u.bound[c](n),l&&make_dirty(h,c)),o}):[],u.update(),l=!0,run_all(u.before_update),u.fragment=v?v(u.ctx):!1,w.target){if(w.hydrate){const c=children(w.target);u.fragment&&u.fragment.l(c),c.forEach(detach)}else u.fragment&&u.fragment.c();w.intro&&transition_in(h.$$.fragment),mount_component(h,w.target,w.anchor),flush()}set_current_component(r)}class SvelteComponent{constructor(){Jt(this,"$$");Jt(this,"$$set")}$destroy(){destroy_component(this,1),this.$destroy=noop}$on(w,g){if(!is_function(g))return noop;const v=this.$$.callbacks[w]||(this.$$.callbacks[w]=[]);return v.push(g),()=>{const F=v.indexOf(g);F!==-1&&v.splice(F,1)}}$set(w){this.$$set&&!is_empty(w)&&(this.$$.skip_bound=!0,this.$$set(w),this.$$.skip_bound=!1)}}const PUBLIC_VERSION="4";typeof window<"u"&&(window.__svelte||(window.__svelte={v:new Set})).v.add(PUBLIC_VERSION);const subscriber_queue=[];function writable(h,w=noop){let g;const v=new Set;function F(p){if(safe_not_equal(h,p)&&(h=p,g)){const r=!subscriber_queue.length;for(const u of v)u[1](),subscriber_queue.push(u,h);if(r){for(let u=0;u<subscriber_queue.length;u+=2)subscriber_queue[u][0](subscriber_queue[u+1]);subscriber_queue.length=0}}}function R(p){F(p(h))}function O(p,r=noop){const u=[p,r];return v.add(u),v.size===1&&(g=w(F,R)||noop),p(h),()=>{v.delete(u),v.size===0&&g&&(g(),g=null)}}return{set:F,update:R,subscribe:O}}const protoString=`/*\r
  the-red.proto\r
 \r
+ 2023-11-24 jason:\r
+  - add field : Nack.receivedData\r
+  - add messages : add amps\r
+\r
+ 2023-11-21 jason:\r
+  - add field : BankData.knobNumber\r
+\r
  2023-11-09 jason:\r
   - add messsage : ReqDisconnect, ReqGuitarName, ResGuitarName\r
   - add field : InitFromApp.isLastPaired\r
   - add comments for not used fields in InitFromGuitar\r
- \r
+\r
  2023-11-01 jason:\r
   - add field : Reverb.predelay\r
   - delete field : Reverb.tone\r
@@ -154,6 +161,16 @@ enum MessageID {\r
   REQ_DISCONNECT = 52;\r
   REQ_GUITAR_NAME = 53;\r
   RES_GUITAR_NAME = 54;\r
+  REQ_PLAY_PAIRING_SOUND = 55;\r
+  REQ_BOOTLOAD_MODE = 56;\r
+  REQ_IS_BOOTLOAD_MODE = 57;\r
+  RES_IS_BOOTLOAD_MODE = 58;\r
+  PARAM_AMP6_JAZZ = 59;\r
+  PARAM_AMP7_MOON_BRT = 60;\r
+  PARAM_AMP8_CALI_RHYTHM = 61;\r
+  PARAM_AMP9_ARCHTYPE = 62;\r
+  PARAM_AMP10_SOLO_LEAD = 63;\r
+  PARAM_AMP11_LINE6_LITIGATOR = 64;\r
 }\r
 \r
 enum CATEGORY_NUMBER {\r
@@ -235,6 +252,7 @@ message Nack {\r
   int32 receivedMessageLength = 1;\r
   int32 receivedMessageId = 2;\r
   ERROR_CODE errorCode = 3;\r
+  repeated int32 receivedData = 4;\r
 }\r
 \r
 message InitFromApp {\r
@@ -243,24 +261,22 @@ message InitFromApp {\r
   bool playPairingSound = 3;\r
 }\r
 \r
-// guitar model name mapping \r
+// guitar model name mapping\r
 // "1r": "TR1 Pop Red"\r
 // "1g": "TR1 Forest Green"\r
 // "1i": "TR1 Creamy Ivory"\r
 // "1b": "TR1 Jet Black"\r
 message InitFromGuitar {\r
   int32 receivedMessageLength = 1; // not used\r
-  int32 receivedMessageId = 2; // not used\r
+  int32 receivedMessageId = 2;     // not used\r
   string guitarName = 3;\r
-  string guitarModelName = 4; \r
+  string guitarModelName = 4;\r
   string firmwareVersion = 5;\r
   int32 batteryLevel = 6;\r
   bool isCharging = 7;\r
 }\r
 \r
-message ReqInitFromGuitar {\r
-  bool request = 1;\r
-}\r
+message ReqInitFromGuitar { bool request = 1; }\r
 \r
 message ChangeGuitarName { string guitarName = 1; }\r
 \r
@@ -428,25 +444,21 @@ message CategoryData {\r
   repeated int32 params = 4;\r
 }\r
 \r
-message BankData { repeated CategoryData categoryData = 1; }\r
+message BankData {\r
+  repeated CategoryData categoryData = 1;\r
+  int32 knobNumber = 2;\r
+}\r
 \r
 message KnobMatching {\r
   int32 knobNumber = 1;\r
   BankData bankData = 2;\r
 }\r
 \r
-message InitKnobMatching1 {\r
-  BankData bankData = 1;\r
-}\r
+message InitKnobMatching1 { BankData bankData = 1; }\r
+message InitKnobMatching2 { BankData bankData = 1; }\r
+message InitKnobMatching3 { BankData bankData = 1; }\r
 \r
-message InitKnobMatching2 {\r
-  BankData bankData = 1;\r
-}\r
-\r
-message InitKnobMatching3 {\r
-  BankData bankData = 1;\r
-}\r
-\r
+// message length is too long to send at once\r
 message KnobMatchingAll { repeated KnobMatching knobMatchingData = 1; }\r
 \r
 message ClearEffects { bool clear = 1; }\r
@@ -504,24 +516,72 @@ message BulkIrRes {\r
   bool done = 2;\r
 }\r
 \r
-message ReqDisconnect {\r
-  bool forgetMe = 1;\r
+message ReqDisconnect { bool forgetMe = 1; }\r
+\r
+message ReqGuitarName { bool request = 1; }\r
+\r
+message ResGuitarName { string guitarName = 1; }\r
+\r
+message ReqPlayPairingSound { bool request = 1; }\r
+\r
+message ReqBootloadMode { bool request = 1; }\r
+\r
+message ReqIsBootloadMode { bool request = 1; }\r
+\r
+message ResIsBootloadMode { bool isBootloadMode = 1; }\r
+\r
+message ParamAmp6Jazz {\r
+  bool isOn = 1;\r
+  int32 level = 2;\r
+  int32 gain = 3;\r
+  int32 bass = 4;\r
+  int32 middle = 5;\r
+  int32 treble = 6;\r
 }\r
 \r
-message ReqGuitarName {\r
-  bool request = 1;\r
+message ParamAmp7MoonBrt {\r
+  bool isOn = 1;\r
+  int32 level = 2;\r
+  int32 gain = 3;\r
+  int32 bass = 4;\r
+  int32 middle = 5;\r
+  int32 treble = 6;\r
 }\r
 \r
-message ResGuitarName {\r
-  string guitarName = 1;\r
+message ParamAmp8CaliRhythm {\r
+  bool isOn = 1;\r
+  int32 level = 2;\r
+  int32 gain = 3;\r
+  int32 bass = 4;\r
+  int32 middle = 5;\r
+  int32 treble = 6;\r
 }\r
 \r
-message ReqPlayPairingSound {\r
-  bool request = 1;\r
+message ParamAmp9Archtype {\r
+  bool isOn = 1;\r
+  int32 level = 2;\r
+  int32 gain = 3;\r
+  int32 bass = 4;\r
+  int32 middle = 5;\r
+  int32 treble = 6;\r
 }\r
 \r
-message ReqBootloadMode {\r
-  bool request = 1;\r
+message ParamAmp10SoloLead {\r
+  bool isOn = 1;\r
+  int32 level = 2;\r
+  int32 gain = 3;\r
+  int32 bass = 4;\r
+  int32 middle = 5;\r
+  int32 treble = 6;\r
+}\r
+\r
+message ParamAmp11Line6Litigator {\r
+  bool isOn = 1;\r
+  int32 level = 2;\r
+  int32 gain = 3;\r
+  int32 bass = 4;\r
+  int32 middle = 5;\r
+  int32 treble = 6;\r
 }\r
 `,protobufData=writable(protoString),aceWidth=writable(0),selectedMessage=writable("");var commonjsGlobal=typeof globalThis<"u"?globalThis:typeof window<"u"?window:typeof global<"u"?global:typeof self<"u"?self:{};function getDefaultExportFromCjs(h){return h&&h.__esModule&&Object.prototype.hasOwnProperty.call(h,"default")?h.default:h}var tokenize_1=tokenize$1;const delimRe=/[\s{}=;:[\],'"()<>]/g,stringDoubleRe=/(?:"([^"\\]*(?:\\.[^"\\]*)*)")/g,stringSingleRe=/(?:'([^'\\]*(?:\\.[^'\\]*)*)')/g,setCommentRe=/^ *[*/]+ */,setCommentAltRe=/^\s*\*?\/*/,setCommentSplitRe=/\n/g,whitespaceRe=/\s/,unescapeRe=/\\(.?)/g,unescapeMap={0:"\0",r:"\r",n:`
 `,t:"	"};function unescape$1(h){return h.replace(unescapeRe,(w,g)=>{switch(g){case"\\":case"":return g;default:return unescapeMap[g]||""}})}tokenize$1.unescape=unescape$1;function tokenize$1(h,w){h=h.toString();let g=0;const{length:v}=h;let F=1,R=null,O=null,p=0,r=!1,u=!1;const l=[];let c=null;function o(E){const _=`illegal ${E}`,T=new Error(_);return T.line=F,T}function e(){const E=c==="'"?stringSingleRe:stringDoubleRe;E.lastIndex=g-1;const _=E.exec(h);if(!_)throw o("string");return g=E.lastIndex,S(c),c=null,unescape$1(_[1])}function n(E){return h.charAt(E)}function a(E,_){R=h.charAt(E++),p=F,r=!1;let T;w?T=2:T=3;let I=E-T,k;do if(--I<0||(k=h.charAt(I))===`

@@ -80,6 +80,7 @@ class Nack extends $pb.GeneratedMessage {
     ..a<$core.int>(1, _omitFieldNames ? '' : 'receivedMessageLength', $pb.PbFieldType.O3, protoName: 'receivedMessageLength')
     ..a<$core.int>(2, _omitFieldNames ? '' : 'receivedMessageId', $pb.PbFieldType.O3, protoName: 'receivedMessageId')
     ..e<Nack_ERROR_CODE>(3, _omitFieldNames ? '' : 'errorCode', $pb.PbFieldType.OE, protoName: 'errorCode', defaultOrMaker: Nack_ERROR_CODE.INVALID_MESSAGE_ID, valueOf: Nack_ERROR_CODE.valueOf, enumValues: Nack_ERROR_CODE.values)
+    ..p<$core.int>(4, _omitFieldNames ? '' : 'receivedData', $pb.PbFieldType.K3, protoName: 'receivedData')
     ..hasRequiredFields = false
   ;
 
@@ -130,6 +131,9 @@ class Nack extends $pb.GeneratedMessage {
   $core.bool hasErrorCode() => $_has(2);
   @$pb.TagNumber(3)
   void clearErrorCode() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.List<$core.int> get receivedData => $_getList(3);
 }
 
 class InitFromApp extends $pb.GeneratedMessage {
@@ -2300,6 +2304,7 @@ class BankData extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BankData', createEmptyInstance: create)
     ..pc<CategoryData>(1, _omitFieldNames ? '' : 'categoryData', $pb.PbFieldType.PM, protoName: 'categoryData', subBuilder: CategoryData.create)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'knobNumber', $pb.PbFieldType.O3, protoName: 'knobNumber')
     ..hasRequiredFields = false
   ;
 
@@ -2326,6 +2331,15 @@ class BankData extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   $core.List<CategoryData> get categoryData => $_getList(0);
+
+  @$pb.TagNumber(2)
+  $core.int get knobNumber => $_getIZ(1);
+  @$pb.TagNumber(2)
+  set knobNumber($core.int v) { $_setSignedInt32(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasKnobNumber() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearKnobNumber() => clearField(2);
 }
 
 class KnobMatching extends $pb.GeneratedMessage {
@@ -3240,6 +3254,642 @@ class ReqBootloadMode extends $pb.GeneratedMessage {
   $core.bool hasRequest() => $_has(0);
   @$pb.TagNumber(1)
   void clearRequest() => clearField(1);
+}
+
+class ReqIsBootloadMode extends $pb.GeneratedMessage {
+  factory ReqIsBootloadMode() => create();
+  ReqIsBootloadMode._() : super();
+  factory ReqIsBootloadMode.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ReqIsBootloadMode.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ReqIsBootloadMode', createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'request')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ReqIsBootloadMode clone() => ReqIsBootloadMode()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ReqIsBootloadMode copyWith(void Function(ReqIsBootloadMode) updates) => super.copyWith((message) => updates(message as ReqIsBootloadMode)) as ReqIsBootloadMode;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ReqIsBootloadMode create() => ReqIsBootloadMode._();
+  ReqIsBootloadMode createEmptyInstance() => create();
+  static $pb.PbList<ReqIsBootloadMode> createRepeated() => $pb.PbList<ReqIsBootloadMode>();
+  @$core.pragma('dart2js:noInline')
+  static ReqIsBootloadMode getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ReqIsBootloadMode>(create);
+  static ReqIsBootloadMode? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get request => $_getBF(0);
+  @$pb.TagNumber(1)
+  set request($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasRequest() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearRequest() => clearField(1);
+}
+
+class ResIsBootloadMode extends $pb.GeneratedMessage {
+  factory ResIsBootloadMode() => create();
+  ResIsBootloadMode._() : super();
+  factory ResIsBootloadMode.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ResIsBootloadMode.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ResIsBootloadMode', createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'isBootloadMode', protoName: 'isBootloadMode')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ResIsBootloadMode clone() => ResIsBootloadMode()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ResIsBootloadMode copyWith(void Function(ResIsBootloadMode) updates) => super.copyWith((message) => updates(message as ResIsBootloadMode)) as ResIsBootloadMode;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ResIsBootloadMode create() => ResIsBootloadMode._();
+  ResIsBootloadMode createEmptyInstance() => create();
+  static $pb.PbList<ResIsBootloadMode> createRepeated() => $pb.PbList<ResIsBootloadMode>();
+  @$core.pragma('dart2js:noInline')
+  static ResIsBootloadMode getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ResIsBootloadMode>(create);
+  static ResIsBootloadMode? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get isBootloadMode => $_getBF(0);
+  @$pb.TagNumber(1)
+  set isBootloadMode($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasIsBootloadMode() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearIsBootloadMode() => clearField(1);
+}
+
+class ParamAmp6Jazz extends $pb.GeneratedMessage {
+  factory ParamAmp6Jazz() => create();
+  ParamAmp6Jazz._() : super();
+  factory ParamAmp6Jazz.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ParamAmp6Jazz.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamAmp6Jazz', createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'isOn', protoName: 'isOn')
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'level', $pb.PbFieldType.O3)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'gain', $pb.PbFieldType.O3)
+    ..a<$core.int>(4, _omitFieldNames ? '' : 'bass', $pb.PbFieldType.O3)
+    ..a<$core.int>(5, _omitFieldNames ? '' : 'middle', $pb.PbFieldType.O3)
+    ..a<$core.int>(6, _omitFieldNames ? '' : 'treble', $pb.PbFieldType.O3)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ParamAmp6Jazz clone() => ParamAmp6Jazz()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ParamAmp6Jazz copyWith(void Function(ParamAmp6Jazz) updates) => super.copyWith((message) => updates(message as ParamAmp6Jazz)) as ParamAmp6Jazz;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ParamAmp6Jazz create() => ParamAmp6Jazz._();
+  ParamAmp6Jazz createEmptyInstance() => create();
+  static $pb.PbList<ParamAmp6Jazz> createRepeated() => $pb.PbList<ParamAmp6Jazz>();
+  @$core.pragma('dart2js:noInline')
+  static ParamAmp6Jazz getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ParamAmp6Jazz>(create);
+  static ParamAmp6Jazz? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get isOn => $_getBF(0);
+  @$pb.TagNumber(1)
+  set isOn($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasIsOn() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearIsOn() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.int get level => $_getIZ(1);
+  @$pb.TagNumber(2)
+  set level($core.int v) { $_setSignedInt32(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasLevel() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearLevel() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.int get gain => $_getIZ(2);
+  @$pb.TagNumber(3)
+  set gain($core.int v) { $_setSignedInt32(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasGain() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearGain() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.int get bass => $_getIZ(3);
+  @$pb.TagNumber(4)
+  set bass($core.int v) { $_setSignedInt32(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasBass() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearBass() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.int get middle => $_getIZ(4);
+  @$pb.TagNumber(5)
+  set middle($core.int v) { $_setSignedInt32(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasMiddle() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearMiddle() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.int get treble => $_getIZ(5);
+  @$pb.TagNumber(6)
+  set treble($core.int v) { $_setSignedInt32(5, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasTreble() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearTreble() => clearField(6);
+}
+
+class ParamAmp7MoonBrt extends $pb.GeneratedMessage {
+  factory ParamAmp7MoonBrt() => create();
+  ParamAmp7MoonBrt._() : super();
+  factory ParamAmp7MoonBrt.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ParamAmp7MoonBrt.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamAmp7MoonBrt', createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'isOn', protoName: 'isOn')
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'level', $pb.PbFieldType.O3)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'gain', $pb.PbFieldType.O3)
+    ..a<$core.int>(4, _omitFieldNames ? '' : 'bass', $pb.PbFieldType.O3)
+    ..a<$core.int>(5, _omitFieldNames ? '' : 'middle', $pb.PbFieldType.O3)
+    ..a<$core.int>(6, _omitFieldNames ? '' : 'treble', $pb.PbFieldType.O3)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ParamAmp7MoonBrt clone() => ParamAmp7MoonBrt()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ParamAmp7MoonBrt copyWith(void Function(ParamAmp7MoonBrt) updates) => super.copyWith((message) => updates(message as ParamAmp7MoonBrt)) as ParamAmp7MoonBrt;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ParamAmp7MoonBrt create() => ParamAmp7MoonBrt._();
+  ParamAmp7MoonBrt createEmptyInstance() => create();
+  static $pb.PbList<ParamAmp7MoonBrt> createRepeated() => $pb.PbList<ParamAmp7MoonBrt>();
+  @$core.pragma('dart2js:noInline')
+  static ParamAmp7MoonBrt getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ParamAmp7MoonBrt>(create);
+  static ParamAmp7MoonBrt? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get isOn => $_getBF(0);
+  @$pb.TagNumber(1)
+  set isOn($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasIsOn() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearIsOn() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.int get level => $_getIZ(1);
+  @$pb.TagNumber(2)
+  set level($core.int v) { $_setSignedInt32(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasLevel() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearLevel() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.int get gain => $_getIZ(2);
+  @$pb.TagNumber(3)
+  set gain($core.int v) { $_setSignedInt32(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasGain() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearGain() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.int get bass => $_getIZ(3);
+  @$pb.TagNumber(4)
+  set bass($core.int v) { $_setSignedInt32(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasBass() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearBass() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.int get middle => $_getIZ(4);
+  @$pb.TagNumber(5)
+  set middle($core.int v) { $_setSignedInt32(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasMiddle() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearMiddle() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.int get treble => $_getIZ(5);
+  @$pb.TagNumber(6)
+  set treble($core.int v) { $_setSignedInt32(5, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasTreble() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearTreble() => clearField(6);
+}
+
+class ParamAmp8CaliRhythm extends $pb.GeneratedMessage {
+  factory ParamAmp8CaliRhythm() => create();
+  ParamAmp8CaliRhythm._() : super();
+  factory ParamAmp8CaliRhythm.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ParamAmp8CaliRhythm.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamAmp8CaliRhythm', createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'isOn', protoName: 'isOn')
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'level', $pb.PbFieldType.O3)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'gain', $pb.PbFieldType.O3)
+    ..a<$core.int>(4, _omitFieldNames ? '' : 'bass', $pb.PbFieldType.O3)
+    ..a<$core.int>(5, _omitFieldNames ? '' : 'middle', $pb.PbFieldType.O3)
+    ..a<$core.int>(6, _omitFieldNames ? '' : 'treble', $pb.PbFieldType.O3)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ParamAmp8CaliRhythm clone() => ParamAmp8CaliRhythm()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ParamAmp8CaliRhythm copyWith(void Function(ParamAmp8CaliRhythm) updates) => super.copyWith((message) => updates(message as ParamAmp8CaliRhythm)) as ParamAmp8CaliRhythm;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ParamAmp8CaliRhythm create() => ParamAmp8CaliRhythm._();
+  ParamAmp8CaliRhythm createEmptyInstance() => create();
+  static $pb.PbList<ParamAmp8CaliRhythm> createRepeated() => $pb.PbList<ParamAmp8CaliRhythm>();
+  @$core.pragma('dart2js:noInline')
+  static ParamAmp8CaliRhythm getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ParamAmp8CaliRhythm>(create);
+  static ParamAmp8CaliRhythm? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get isOn => $_getBF(0);
+  @$pb.TagNumber(1)
+  set isOn($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasIsOn() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearIsOn() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.int get level => $_getIZ(1);
+  @$pb.TagNumber(2)
+  set level($core.int v) { $_setSignedInt32(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasLevel() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearLevel() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.int get gain => $_getIZ(2);
+  @$pb.TagNumber(3)
+  set gain($core.int v) { $_setSignedInt32(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasGain() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearGain() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.int get bass => $_getIZ(3);
+  @$pb.TagNumber(4)
+  set bass($core.int v) { $_setSignedInt32(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasBass() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearBass() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.int get middle => $_getIZ(4);
+  @$pb.TagNumber(5)
+  set middle($core.int v) { $_setSignedInt32(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasMiddle() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearMiddle() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.int get treble => $_getIZ(5);
+  @$pb.TagNumber(6)
+  set treble($core.int v) { $_setSignedInt32(5, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasTreble() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearTreble() => clearField(6);
+}
+
+class ParamAmp9Archtype extends $pb.GeneratedMessage {
+  factory ParamAmp9Archtype() => create();
+  ParamAmp9Archtype._() : super();
+  factory ParamAmp9Archtype.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ParamAmp9Archtype.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamAmp9Archtype', createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'isOn', protoName: 'isOn')
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'level', $pb.PbFieldType.O3)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'gain', $pb.PbFieldType.O3)
+    ..a<$core.int>(4, _omitFieldNames ? '' : 'bass', $pb.PbFieldType.O3)
+    ..a<$core.int>(5, _omitFieldNames ? '' : 'middle', $pb.PbFieldType.O3)
+    ..a<$core.int>(6, _omitFieldNames ? '' : 'treble', $pb.PbFieldType.O3)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ParamAmp9Archtype clone() => ParamAmp9Archtype()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ParamAmp9Archtype copyWith(void Function(ParamAmp9Archtype) updates) => super.copyWith((message) => updates(message as ParamAmp9Archtype)) as ParamAmp9Archtype;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ParamAmp9Archtype create() => ParamAmp9Archtype._();
+  ParamAmp9Archtype createEmptyInstance() => create();
+  static $pb.PbList<ParamAmp9Archtype> createRepeated() => $pb.PbList<ParamAmp9Archtype>();
+  @$core.pragma('dart2js:noInline')
+  static ParamAmp9Archtype getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ParamAmp9Archtype>(create);
+  static ParamAmp9Archtype? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get isOn => $_getBF(0);
+  @$pb.TagNumber(1)
+  set isOn($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasIsOn() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearIsOn() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.int get level => $_getIZ(1);
+  @$pb.TagNumber(2)
+  set level($core.int v) { $_setSignedInt32(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasLevel() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearLevel() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.int get gain => $_getIZ(2);
+  @$pb.TagNumber(3)
+  set gain($core.int v) { $_setSignedInt32(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasGain() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearGain() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.int get bass => $_getIZ(3);
+  @$pb.TagNumber(4)
+  set bass($core.int v) { $_setSignedInt32(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasBass() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearBass() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.int get middle => $_getIZ(4);
+  @$pb.TagNumber(5)
+  set middle($core.int v) { $_setSignedInt32(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasMiddle() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearMiddle() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.int get treble => $_getIZ(5);
+  @$pb.TagNumber(6)
+  set treble($core.int v) { $_setSignedInt32(5, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasTreble() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearTreble() => clearField(6);
+}
+
+class ParamAmp10SoloLead extends $pb.GeneratedMessage {
+  factory ParamAmp10SoloLead() => create();
+  ParamAmp10SoloLead._() : super();
+  factory ParamAmp10SoloLead.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ParamAmp10SoloLead.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamAmp10SoloLead', createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'isOn', protoName: 'isOn')
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'level', $pb.PbFieldType.O3)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'gain', $pb.PbFieldType.O3)
+    ..a<$core.int>(4, _omitFieldNames ? '' : 'bass', $pb.PbFieldType.O3)
+    ..a<$core.int>(5, _omitFieldNames ? '' : 'middle', $pb.PbFieldType.O3)
+    ..a<$core.int>(6, _omitFieldNames ? '' : 'treble', $pb.PbFieldType.O3)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ParamAmp10SoloLead clone() => ParamAmp10SoloLead()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ParamAmp10SoloLead copyWith(void Function(ParamAmp10SoloLead) updates) => super.copyWith((message) => updates(message as ParamAmp10SoloLead)) as ParamAmp10SoloLead;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ParamAmp10SoloLead create() => ParamAmp10SoloLead._();
+  ParamAmp10SoloLead createEmptyInstance() => create();
+  static $pb.PbList<ParamAmp10SoloLead> createRepeated() => $pb.PbList<ParamAmp10SoloLead>();
+  @$core.pragma('dart2js:noInline')
+  static ParamAmp10SoloLead getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ParamAmp10SoloLead>(create);
+  static ParamAmp10SoloLead? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get isOn => $_getBF(0);
+  @$pb.TagNumber(1)
+  set isOn($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasIsOn() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearIsOn() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.int get level => $_getIZ(1);
+  @$pb.TagNumber(2)
+  set level($core.int v) { $_setSignedInt32(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasLevel() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearLevel() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.int get gain => $_getIZ(2);
+  @$pb.TagNumber(3)
+  set gain($core.int v) { $_setSignedInt32(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasGain() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearGain() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.int get bass => $_getIZ(3);
+  @$pb.TagNumber(4)
+  set bass($core.int v) { $_setSignedInt32(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasBass() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearBass() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.int get middle => $_getIZ(4);
+  @$pb.TagNumber(5)
+  set middle($core.int v) { $_setSignedInt32(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasMiddle() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearMiddle() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.int get treble => $_getIZ(5);
+  @$pb.TagNumber(6)
+  set treble($core.int v) { $_setSignedInt32(5, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasTreble() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearTreble() => clearField(6);
+}
+
+class ParamAmp11Line6Litigator extends $pb.GeneratedMessage {
+  factory ParamAmp11Line6Litigator() => create();
+  ParamAmp11Line6Litigator._() : super();
+  factory ParamAmp11Line6Litigator.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ParamAmp11Line6Litigator.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamAmp11Line6Litigator', createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'isOn', protoName: 'isOn')
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'level', $pb.PbFieldType.O3)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'gain', $pb.PbFieldType.O3)
+    ..a<$core.int>(4, _omitFieldNames ? '' : 'bass', $pb.PbFieldType.O3)
+    ..a<$core.int>(5, _omitFieldNames ? '' : 'middle', $pb.PbFieldType.O3)
+    ..a<$core.int>(6, _omitFieldNames ? '' : 'treble', $pb.PbFieldType.O3)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ParamAmp11Line6Litigator clone() => ParamAmp11Line6Litigator()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ParamAmp11Line6Litigator copyWith(void Function(ParamAmp11Line6Litigator) updates) => super.copyWith((message) => updates(message as ParamAmp11Line6Litigator)) as ParamAmp11Line6Litigator;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ParamAmp11Line6Litigator create() => ParamAmp11Line6Litigator._();
+  ParamAmp11Line6Litigator createEmptyInstance() => create();
+  static $pb.PbList<ParamAmp11Line6Litigator> createRepeated() => $pb.PbList<ParamAmp11Line6Litigator>();
+  @$core.pragma('dart2js:noInline')
+  static ParamAmp11Line6Litigator getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ParamAmp11Line6Litigator>(create);
+  static ParamAmp11Line6Litigator? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get isOn => $_getBF(0);
+  @$pb.TagNumber(1)
+  set isOn($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasIsOn() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearIsOn() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.int get level => $_getIZ(1);
+  @$pb.TagNumber(2)
+  set level($core.int v) { $_setSignedInt32(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasLevel() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearLevel() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.int get gain => $_getIZ(2);
+  @$pb.TagNumber(3)
+  set gain($core.int v) { $_setSignedInt32(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasGain() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearGain() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.int get bass => $_getIZ(3);
+  @$pb.TagNumber(4)
+  set bass($core.int v) { $_setSignedInt32(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasBass() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearBass() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.int get middle => $_getIZ(4);
+  @$pb.TagNumber(5)
+  set middle($core.int v) { $_setSignedInt32(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasMiddle() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearMiddle() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.int get treble => $_getIZ(5);
+  @$pb.TagNumber(6)
+  set treble($core.int v) { $_setSignedInt32(5, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasTreble() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearTreble() => clearField(6);
 }
 
 
