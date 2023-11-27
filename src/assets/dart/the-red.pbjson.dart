@@ -1142,9 +1142,9 @@ final $typed_data.Uint8List resIsBootloadModeDescriptor = $convert.base64Decode(
     'ChFSZXNJc0Jvb3Rsb2FkTW9kZRImCg5pc0Jvb3Rsb2FkTW9kZRgBIAEoCFIOaXNCb290bG9hZE'
     '1vZGU=');
 
-@$core.Deprecated('Use paramAmp6JazzDescriptor instead')
-const ParamAmp6Jazz$json = {
-  '1': 'ParamAmp6Jazz',
+@$core.Deprecated('Use paramAmpCleanDescriptor instead')
+const ParamAmpClean$json = {
+  '1': 'ParamAmpClean',
   '2': [
     {'1': 'isOn', '3': 1, '4': 1, '5': 8, '10': 'isOn'},
     {'1': 'level', '3': 2, '4': 1, '5': 5, '10': 'level'},
@@ -1155,104 +1155,9 @@ const ParamAmp6Jazz$json = {
   ],
 };
 
-/// Descriptor for `ParamAmp6Jazz`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List paramAmp6JazzDescriptor = $convert.base64Decode(
-    'Cg1QYXJhbUFtcDZKYXp6EhIKBGlzT24YASABKAhSBGlzT24SFAoFbGV2ZWwYAiABKAVSBWxldm'
+/// Descriptor for `ParamAmpClean`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List paramAmpCleanDescriptor = $convert.base64Decode(
+    'Cg1QYXJhbUFtcENsZWFuEhIKBGlzT24YASABKAhSBGlzT24SFAoFbGV2ZWwYAiABKAVSBWxldm'
     'VsEhIKBGdhaW4YAyABKAVSBGdhaW4SEgoEYmFzcxgEIAEoBVIEYmFzcxIWCgZtaWRkbGUYBSAB'
     'KAVSBm1pZGRsZRIWCgZ0cmVibGUYBiABKAVSBnRyZWJsZQ==');
-
-@$core.Deprecated('Use paramAmp7MoonBrtDescriptor instead')
-const ParamAmp7MoonBrt$json = {
-  '1': 'ParamAmp7MoonBrt',
-  '2': [
-    {'1': 'isOn', '3': 1, '4': 1, '5': 8, '10': 'isOn'},
-    {'1': 'level', '3': 2, '4': 1, '5': 5, '10': 'level'},
-    {'1': 'gain', '3': 3, '4': 1, '5': 5, '10': 'gain'},
-    {'1': 'bass', '3': 4, '4': 1, '5': 5, '10': 'bass'},
-    {'1': 'middle', '3': 5, '4': 1, '5': 5, '10': 'middle'},
-    {'1': 'treble', '3': 6, '4': 1, '5': 5, '10': 'treble'},
-  ],
-};
-
-/// Descriptor for `ParamAmp7MoonBrt`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List paramAmp7MoonBrtDescriptor = $convert.base64Decode(
-    'ChBQYXJhbUFtcDdNb29uQnJ0EhIKBGlzT24YASABKAhSBGlzT24SFAoFbGV2ZWwYAiABKAVSBW'
-    'xldmVsEhIKBGdhaW4YAyABKAVSBGdhaW4SEgoEYmFzcxgEIAEoBVIEYmFzcxIWCgZtaWRkbGUY'
-    'BSABKAVSBm1pZGRsZRIWCgZ0cmVibGUYBiABKAVSBnRyZWJsZQ==');
-
-@$core.Deprecated('Use paramAmp8CaliRhythmDescriptor instead')
-const ParamAmp8CaliRhythm$json = {
-  '1': 'ParamAmp8CaliRhythm',
-  '2': [
-    {'1': 'isOn', '3': 1, '4': 1, '5': 8, '10': 'isOn'},
-    {'1': 'level', '3': 2, '4': 1, '5': 5, '10': 'level'},
-    {'1': 'gain', '3': 3, '4': 1, '5': 5, '10': 'gain'},
-    {'1': 'bass', '3': 4, '4': 1, '5': 5, '10': 'bass'},
-    {'1': 'middle', '3': 5, '4': 1, '5': 5, '10': 'middle'},
-    {'1': 'treble', '3': 6, '4': 1, '5': 5, '10': 'treble'},
-  ],
-};
-
-/// Descriptor for `ParamAmp8CaliRhythm`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List paramAmp8CaliRhythmDescriptor = $convert.base64Decode(
-    'ChNQYXJhbUFtcDhDYWxpUmh5dGhtEhIKBGlzT24YASABKAhSBGlzT24SFAoFbGV2ZWwYAiABKA'
-    'VSBWxldmVsEhIKBGdhaW4YAyABKAVSBGdhaW4SEgoEYmFzcxgEIAEoBVIEYmFzcxIWCgZtaWRk'
-    'bGUYBSABKAVSBm1pZGRsZRIWCgZ0cmVibGUYBiABKAVSBnRyZWJsZQ==');
-
-@$core.Deprecated('Use paramAmp9ArchtypeDescriptor instead')
-const ParamAmp9Archtype$json = {
-  '1': 'ParamAmp9Archtype',
-  '2': [
-    {'1': 'isOn', '3': 1, '4': 1, '5': 8, '10': 'isOn'},
-    {'1': 'level', '3': 2, '4': 1, '5': 5, '10': 'level'},
-    {'1': 'gain', '3': 3, '4': 1, '5': 5, '10': 'gain'},
-    {'1': 'bass', '3': 4, '4': 1, '5': 5, '10': 'bass'},
-    {'1': 'middle', '3': 5, '4': 1, '5': 5, '10': 'middle'},
-    {'1': 'treble', '3': 6, '4': 1, '5': 5, '10': 'treble'},
-  ],
-};
-
-/// Descriptor for `ParamAmp9Archtype`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List paramAmp9ArchtypeDescriptor = $convert.base64Decode(
-    'ChFQYXJhbUFtcDlBcmNodHlwZRISCgRpc09uGAEgASgIUgRpc09uEhQKBWxldmVsGAIgASgFUg'
-    'VsZXZlbBISCgRnYWluGAMgASgFUgRnYWluEhIKBGJhc3MYBCABKAVSBGJhc3MSFgoGbWlkZGxl'
-    'GAUgASgFUgZtaWRkbGUSFgoGdHJlYmxlGAYgASgFUgZ0cmVibGU=');
-
-@$core.Deprecated('Use paramAmp10SoloLeadDescriptor instead')
-const ParamAmp10SoloLead$json = {
-  '1': 'ParamAmp10SoloLead',
-  '2': [
-    {'1': 'isOn', '3': 1, '4': 1, '5': 8, '10': 'isOn'},
-    {'1': 'level', '3': 2, '4': 1, '5': 5, '10': 'level'},
-    {'1': 'gain', '3': 3, '4': 1, '5': 5, '10': 'gain'},
-    {'1': 'bass', '3': 4, '4': 1, '5': 5, '10': 'bass'},
-    {'1': 'middle', '3': 5, '4': 1, '5': 5, '10': 'middle'},
-    {'1': 'treble', '3': 6, '4': 1, '5': 5, '10': 'treble'},
-  ],
-};
-
-/// Descriptor for `ParamAmp10SoloLead`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List paramAmp10SoloLeadDescriptor = $convert.base64Decode(
-    'ChJQYXJhbUFtcDEwU29sb0xlYWQSEgoEaXNPbhgBIAEoCFIEaXNPbhIUCgVsZXZlbBgCIAEoBV'
-    'IFbGV2ZWwSEgoEZ2FpbhgDIAEoBVIEZ2FpbhISCgRiYXNzGAQgASgFUgRiYXNzEhYKBm1pZGRs'
-    'ZRgFIAEoBVIGbWlkZGxlEhYKBnRyZWJsZRgGIAEoBVIGdHJlYmxl');
-
-@$core.Deprecated('Use paramAmp11Line6LitigatorDescriptor instead')
-const ParamAmp11Line6Litigator$json = {
-  '1': 'ParamAmp11Line6Litigator',
-  '2': [
-    {'1': 'isOn', '3': 1, '4': 1, '5': 8, '10': 'isOn'},
-    {'1': 'level', '3': 2, '4': 1, '5': 5, '10': 'level'},
-    {'1': 'gain', '3': 3, '4': 1, '5': 5, '10': 'gain'},
-    {'1': 'bass', '3': 4, '4': 1, '5': 5, '10': 'bass'},
-    {'1': 'middle', '3': 5, '4': 1, '5': 5, '10': 'middle'},
-    {'1': 'treble', '3': 6, '4': 1, '5': 5, '10': 'treble'},
-  ],
-};
-
-/// Descriptor for `ParamAmp11Line6Litigator`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List paramAmp11Line6LitigatorDescriptor = $convert.base64Decode(
-    'ChhQYXJhbUFtcDExTGluZTZMaXRpZ2F0b3ISEgoEaXNPbhgBIAEoCFIEaXNPbhIUCgVsZXZlbB'
-    'gCIAEoBVIFbGV2ZWwSEgoEZ2FpbhgDIAEoBVIEZ2FpbhISCgRiYXNzGAQgASgFUgRiYXNzEhYK'
-    'Bm1pZGRsZRgFIAEoBVIGbWlkZGxlEhYKBnRyZWJsZRgGIAEoBVIGdHJlYmxl');
 

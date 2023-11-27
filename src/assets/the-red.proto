@@ -1,5 +1,8 @@
 /*
  the-red.proto
+ 
+ 2023-11-27 jason:
+  - only clean amp is used
 
  2023-11-24 jason:
   - add field : Nack.receivedData
@@ -530,52 +533,7 @@ message ReqIsBootloadMode { bool request = 1; }
 
 message ResIsBootloadMode { bool isBootloadMode = 1; }
 
-message ParamAmp6Jazz {
-  bool isOn = 1;
-  int32 level = 2;
-  int32 gain = 3;
-  int32 bass = 4;
-  int32 middle = 5;
-  int32 treble = 6;
-}
-
-message ParamAmp7MoonBrt {
-  bool isOn = 1;
-  int32 level = 2;
-  int32 gain = 3;
-  int32 bass = 4;
-  int32 middle = 5;
-  int32 treble = 6;
-}
-
-message ParamAmp8CaliRhythm {
-  bool isOn = 1;
-  int32 level = 2;
-  int32 gain = 3;
-  int32 bass = 4;
-  int32 middle = 5;
-  int32 treble = 6;
-}
-
-message ParamAmp9Archtype {
-  bool isOn = 1;
-  int32 level = 2;
-  int32 gain = 3;
-  int32 bass = 4;
-  int32 middle = 5;
-  int32 treble = 6;
-}
-
-message ParamAmp10SoloLead {
-  bool isOn = 1;
-  int32 level = 2;
-  int32 gain = 3;
-  int32 bass = 4;
-  int32 middle = 5;
-  int32 treble = 6;
-}
-
-message ParamAmp11Line6Litigator {
+message ParamAmpClean {
   bool isOn = 1;
   int32 level = 2;
   int32 gain = 3;

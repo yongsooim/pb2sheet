@@ -505,59 +505,14 @@ typedef struct _ResIsBootloadMode {
     bool isBootloadMode;
 } ResIsBootloadMode;
 
-typedef struct _ParamAmp6Jazz {
+typedef struct _ParamAmpClean {
     bool isOn;
     int32_t level;
     int32_t gain;
     int32_t bass;
     int32_t middle;
     int32_t treble;
-} ParamAmp6Jazz;
-
-typedef struct _ParamAmp7MoonBrt {
-    bool isOn;
-    int32_t level;
-    int32_t gain;
-    int32_t bass;
-    int32_t middle;
-    int32_t treble;
-} ParamAmp7MoonBrt;
-
-typedef struct _ParamAmp8CaliRhythm {
-    bool isOn;
-    int32_t level;
-    int32_t gain;
-    int32_t bass;
-    int32_t middle;
-    int32_t treble;
-} ParamAmp8CaliRhythm;
-
-typedef struct _ParamAmp9Archtype {
-    bool isOn;
-    int32_t level;
-    int32_t gain;
-    int32_t bass;
-    int32_t middle;
-    int32_t treble;
-} ParamAmp9Archtype;
-
-typedef struct _ParamAmp10SoloLead {
-    bool isOn;
-    int32_t level;
-    int32_t gain;
-    int32_t bass;
-    int32_t middle;
-    int32_t treble;
-} ParamAmp10SoloLead;
-
-typedef struct _ParamAmp11Line6Litigator {
-    bool isOn;
-    int32_t level;
-    int32_t gain;
-    int32_t bass;
-    int32_t middle;
-    int32_t treble;
-} ParamAmp11Line6Litigator;
+} ParamAmpClean;
 
 
 #ifdef __cplusplus
@@ -675,11 +630,6 @@ extern "C" {
 
 
 
-
-
-
-
-
 /* Initializer values for message structs */
 #define Ack_init_default                         {0, 0}
 #define Nack_init_default                        {0, 0, _Nack_ERROR_CODE_MIN, {{NULL}, NULL}}
@@ -739,12 +689,7 @@ extern "C" {
 #define ReqBootloadMode_init_default             {0}
 #define ReqIsBootloadMode_init_default           {0}
 #define ResIsBootloadMode_init_default           {0}
-#define ParamAmp6Jazz_init_default               {0, 0, 0, 0, 0, 0}
-#define ParamAmp7MoonBrt_init_default            {0, 0, 0, 0, 0, 0}
-#define ParamAmp8CaliRhythm_init_default         {0, 0, 0, 0, 0, 0}
-#define ParamAmp9Archtype_init_default           {0, 0, 0, 0, 0, 0}
-#define ParamAmp10SoloLead_init_default          {0, 0, 0, 0, 0, 0}
-#define ParamAmp11Line6Litigator_init_default    {0, 0, 0, 0, 0, 0}
+#define ParamAmpClean_init_default               {0, 0, 0, 0, 0, 0}
 #define Ack_init_zero                            {0, 0}
 #define Nack_init_zero                           {0, 0, _Nack_ERROR_CODE_MIN, {{NULL}, NULL}}
 #define InitFromApp_init_zero                    {"", 0, 0}
@@ -803,12 +748,7 @@ extern "C" {
 #define ReqBootloadMode_init_zero                {0}
 #define ReqIsBootloadMode_init_zero              {0}
 #define ResIsBootloadMode_init_zero              {0}
-#define ParamAmp6Jazz_init_zero                  {0, 0, 0, 0, 0, 0}
-#define ParamAmp7MoonBrt_init_zero               {0, 0, 0, 0, 0, 0}
-#define ParamAmp8CaliRhythm_init_zero            {0, 0, 0, 0, 0, 0}
-#define ParamAmp9Archtype_init_zero              {0, 0, 0, 0, 0, 0}
-#define ParamAmp10SoloLead_init_zero             {0, 0, 0, 0, 0, 0}
-#define ParamAmp11Line6Litigator_init_zero       {0, 0, 0, 0, 0, 0}
+#define ParamAmpClean_init_zero                  {0, 0, 0, 0, 0, 0}
 
 /* Field tags (for use in manual encoding/decoding) */
 #define Ack_receivedMessageLength_tag            1
@@ -961,42 +901,12 @@ extern "C" {
 #define ReqBootloadMode_request_tag              1
 #define ReqIsBootloadMode_request_tag            1
 #define ResIsBootloadMode_isBootloadMode_tag     1
-#define ParamAmp6Jazz_isOn_tag                   1
-#define ParamAmp6Jazz_level_tag                  2
-#define ParamAmp6Jazz_gain_tag                   3
-#define ParamAmp6Jazz_bass_tag                   4
-#define ParamAmp6Jazz_middle_tag                 5
-#define ParamAmp6Jazz_treble_tag                 6
-#define ParamAmp7MoonBrt_isOn_tag                1
-#define ParamAmp7MoonBrt_level_tag               2
-#define ParamAmp7MoonBrt_gain_tag                3
-#define ParamAmp7MoonBrt_bass_tag                4
-#define ParamAmp7MoonBrt_middle_tag              5
-#define ParamAmp7MoonBrt_treble_tag              6
-#define ParamAmp8CaliRhythm_isOn_tag             1
-#define ParamAmp8CaliRhythm_level_tag            2
-#define ParamAmp8CaliRhythm_gain_tag             3
-#define ParamAmp8CaliRhythm_bass_tag             4
-#define ParamAmp8CaliRhythm_middle_tag           5
-#define ParamAmp8CaliRhythm_treble_tag           6
-#define ParamAmp9Archtype_isOn_tag               1
-#define ParamAmp9Archtype_level_tag              2
-#define ParamAmp9Archtype_gain_tag               3
-#define ParamAmp9Archtype_bass_tag               4
-#define ParamAmp9Archtype_middle_tag             5
-#define ParamAmp9Archtype_treble_tag             6
-#define ParamAmp10SoloLead_isOn_tag              1
-#define ParamAmp10SoloLead_level_tag             2
-#define ParamAmp10SoloLead_gain_tag              3
-#define ParamAmp10SoloLead_bass_tag              4
-#define ParamAmp10SoloLead_middle_tag            5
-#define ParamAmp10SoloLead_treble_tag            6
-#define ParamAmp11Line6Litigator_isOn_tag        1
-#define ParamAmp11Line6Litigator_level_tag       2
-#define ParamAmp11Line6Litigator_gain_tag        3
-#define ParamAmp11Line6Litigator_bass_tag        4
-#define ParamAmp11Line6Litigator_middle_tag      5
-#define ParamAmp11Line6Litigator_treble_tag      6
+#define ParamAmpClean_isOn_tag                   1
+#define ParamAmpClean_level_tag                  2
+#define ParamAmpClean_gain_tag                   3
+#define ParamAmpClean_bass_tag                   4
+#define ParamAmpClean_middle_tag                 5
+#define ParamAmpClean_treble_tag                 6
 
 /* Struct field encoding specification for nanopb */
 #define Ack_FIELDLIST(X, a) \
@@ -1387,65 +1297,15 @@ X(a, STATIC,   SINGULAR, BOOL,     isBootloadMode,    1)
 #define ResIsBootloadMode_CALLBACK NULL
 #define ResIsBootloadMode_DEFAULT NULL
 
-#define ParamAmp6Jazz_FIELDLIST(X, a) \
+#define ParamAmpClean_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
 X(a, STATIC,   SINGULAR, INT32,    level,             2) \
 X(a, STATIC,   SINGULAR, INT32,    gain,              3) \
 X(a, STATIC,   SINGULAR, INT32,    bass,              4) \
 X(a, STATIC,   SINGULAR, INT32,    middle,            5) \
 X(a, STATIC,   SINGULAR, INT32,    treble,            6)
-#define ParamAmp6Jazz_CALLBACK NULL
-#define ParamAmp6Jazz_DEFAULT NULL
-
-#define ParamAmp7MoonBrt_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
-X(a, STATIC,   SINGULAR, INT32,    level,             2) \
-X(a, STATIC,   SINGULAR, INT32,    gain,              3) \
-X(a, STATIC,   SINGULAR, INT32,    bass,              4) \
-X(a, STATIC,   SINGULAR, INT32,    middle,            5) \
-X(a, STATIC,   SINGULAR, INT32,    treble,            6)
-#define ParamAmp7MoonBrt_CALLBACK NULL
-#define ParamAmp7MoonBrt_DEFAULT NULL
-
-#define ParamAmp8CaliRhythm_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
-X(a, STATIC,   SINGULAR, INT32,    level,             2) \
-X(a, STATIC,   SINGULAR, INT32,    gain,              3) \
-X(a, STATIC,   SINGULAR, INT32,    bass,              4) \
-X(a, STATIC,   SINGULAR, INT32,    middle,            5) \
-X(a, STATIC,   SINGULAR, INT32,    treble,            6)
-#define ParamAmp8CaliRhythm_CALLBACK NULL
-#define ParamAmp8CaliRhythm_DEFAULT NULL
-
-#define ParamAmp9Archtype_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
-X(a, STATIC,   SINGULAR, INT32,    level,             2) \
-X(a, STATIC,   SINGULAR, INT32,    gain,              3) \
-X(a, STATIC,   SINGULAR, INT32,    bass,              4) \
-X(a, STATIC,   SINGULAR, INT32,    middle,            5) \
-X(a, STATIC,   SINGULAR, INT32,    treble,            6)
-#define ParamAmp9Archtype_CALLBACK NULL
-#define ParamAmp9Archtype_DEFAULT NULL
-
-#define ParamAmp10SoloLead_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
-X(a, STATIC,   SINGULAR, INT32,    level,             2) \
-X(a, STATIC,   SINGULAR, INT32,    gain,              3) \
-X(a, STATIC,   SINGULAR, INT32,    bass,              4) \
-X(a, STATIC,   SINGULAR, INT32,    middle,            5) \
-X(a, STATIC,   SINGULAR, INT32,    treble,            6)
-#define ParamAmp10SoloLead_CALLBACK NULL
-#define ParamAmp10SoloLead_DEFAULT NULL
-
-#define ParamAmp11Line6Litigator_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
-X(a, STATIC,   SINGULAR, INT32,    level,             2) \
-X(a, STATIC,   SINGULAR, INT32,    gain,              3) \
-X(a, STATIC,   SINGULAR, INT32,    bass,              4) \
-X(a, STATIC,   SINGULAR, INT32,    middle,            5) \
-X(a, STATIC,   SINGULAR, INT32,    treble,            6)
-#define ParamAmp11Line6Litigator_CALLBACK NULL
-#define ParamAmp11Line6Litigator_DEFAULT NULL
+#define ParamAmpClean_CALLBACK NULL
+#define ParamAmpClean_DEFAULT NULL
 
 extern const pb_msgdesc_t Ack_msg;
 extern const pb_msgdesc_t Nack_msg;
@@ -1505,12 +1365,7 @@ extern const pb_msgdesc_t ReqPlayPairingSound_msg;
 extern const pb_msgdesc_t ReqBootloadMode_msg;
 extern const pb_msgdesc_t ReqIsBootloadMode_msg;
 extern const pb_msgdesc_t ResIsBootloadMode_msg;
-extern const pb_msgdesc_t ParamAmp6Jazz_msg;
-extern const pb_msgdesc_t ParamAmp7MoonBrt_msg;
-extern const pb_msgdesc_t ParamAmp8CaliRhythm_msg;
-extern const pb_msgdesc_t ParamAmp9Archtype_msg;
-extern const pb_msgdesc_t ParamAmp10SoloLead_msg;
-extern const pb_msgdesc_t ParamAmp11Line6Litigator_msg;
+extern const pb_msgdesc_t ParamAmpClean_msg;
 
 /* Defines for backwards compatibility with code written before nanopb-0.4.0 */
 #define Ack_fields &Ack_msg
@@ -1571,12 +1426,7 @@ extern const pb_msgdesc_t ParamAmp11Line6Litigator_msg;
 #define ReqBootloadMode_fields &ReqBootloadMode_msg
 #define ReqIsBootloadMode_fields &ReqIsBootloadMode_msg
 #define ResIsBootloadMode_fields &ResIsBootloadMode_msg
-#define ParamAmp6Jazz_fields &ParamAmp6Jazz_msg
-#define ParamAmp7MoonBrt_fields &ParamAmp7MoonBrt_msg
-#define ParamAmp8CaliRhythm_fields &ParamAmp8CaliRhythm_msg
-#define ParamAmp9Archtype_fields &ParamAmp9Archtype_msg
-#define ParamAmp10SoloLead_fields &ParamAmp10SoloLead_msg
-#define ParamAmp11Line6Litigator_fields &ParamAmp11Line6Litigator_msg
+#define ParamAmpClean_fields &ParamAmpClean_msg
 
 /* Maximum encoded size of messages (where known) */
 /* Nack_size depends on runtime parameters */
@@ -1603,13 +1453,8 @@ extern const pb_msgdesc_t ParamAmp11Line6Litigator_msg;
 #define KnobMatchingAll_size                     9828
 #define KnobMatchingStart_size                   11
 #define KnobMatching_size                        3273
-#define ParamAmp10SoloLead_size                  57
-#define ParamAmp11Line6Litigator_size            57
-#define ParamAmp6Jazz_size                       57
-#define ParamAmp7MoonBrt_size                    57
-#define ParamAmp8CaliRhythm_size                 57
-#define ParamAmp9Archtype_size                   57
 #define ParamAmpBgn_size                         57
+#define ParamAmpClean_size                       57
 #define ParamAmpFd_size                          57
 #define ParamAmpMs_size                          57
 #define ParamAmpMsbg_size                        57
