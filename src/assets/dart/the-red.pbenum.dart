@@ -73,12 +73,7 @@ class MessageID extends $pb.ProtobufEnum {
   static const MessageID REQ_BOOTLOAD_MODE = MessageID._(56, _omitEnumNames ? '' : 'REQ_BOOTLOAD_MODE');
   static const MessageID REQ_IS_BOOTLOAD_MODE = MessageID._(57, _omitEnumNames ? '' : 'REQ_IS_BOOTLOAD_MODE');
   static const MessageID RES_IS_BOOTLOAD_MODE = MessageID._(58, _omitEnumNames ? '' : 'RES_IS_BOOTLOAD_MODE');
-  static const MessageID PARAM_AMP6_JAZZ = MessageID._(59, _omitEnumNames ? '' : 'PARAM_AMP6_JAZZ');
-  static const MessageID PARAM_AMP7_MOON_BRT = MessageID._(60, _omitEnumNames ? '' : 'PARAM_AMP7_MOON_BRT');
-  static const MessageID PARAM_AMP8_CALI_RHYTHM = MessageID._(61, _omitEnumNames ? '' : 'PARAM_AMP8_CALI_RHYTHM');
-  static const MessageID PARAM_AMP9_ARCHTYPE = MessageID._(62, _omitEnumNames ? '' : 'PARAM_AMP9_ARCHTYPE');
-  static const MessageID PARAM_AMP10_SOLO_LEAD = MessageID._(63, _omitEnumNames ? '' : 'PARAM_AMP10_SOLO_LEAD');
-  static const MessageID PARAM_AMP11_LINE6_LITIGATOR = MessageID._(64, _omitEnumNames ? '' : 'PARAM_AMP11_LINE6_LITIGATOR');
+  static const MessageID PARAM_AMP_CLEAN = MessageID._(59, _omitEnumNames ? '' : 'PARAM_AMP_CLEAN');
 
   static const $core.List<MessageID> values = <MessageID> [
     INVALID,
@@ -140,12 +135,7 @@ class MessageID extends $pb.ProtobufEnum {
     REQ_BOOTLOAD_MODE,
     REQ_IS_BOOTLOAD_MODE,
     RES_IS_BOOTLOAD_MODE,
-    PARAM_AMP6_JAZZ,
-    PARAM_AMP7_MOON_BRT,
-    PARAM_AMP8_CALI_RHYTHM,
-    PARAM_AMP9_ARCHTYPE,
-    PARAM_AMP10_SOLO_LEAD,
-    PARAM_AMP11_LINE6_LITIGATOR,
+    PARAM_AMP_CLEAN,
   ];
 
   static final $core.Map<$core.int, MessageID> _byValue = $pb.ProtobufEnum.initByValue(values);
