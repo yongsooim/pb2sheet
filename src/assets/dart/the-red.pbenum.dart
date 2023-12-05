@@ -74,7 +74,6 @@ class MessageID extends $pb.ProtobufEnum {
   static const MessageID REQ_IS_BOOTLOAD_MODE = MessageID._(57, _omitEnumNames ? '' : 'REQ_IS_BOOTLOAD_MODE');
   static const MessageID RES_IS_BOOTLOAD_MODE = MessageID._(58, _omitEnumNames ? '' : 'RES_IS_BOOTLOAD_MODE');
   static const MessageID PARAM_AMP_CLEAN = MessageID._(59, _omitEnumNames ? '' : 'PARAM_AMP_CLEAN');
-  static const MessageID BANK_DATA_WITH_KNOB_NUMBER = MessageID._(60, _omitEnumNames ? '' : 'BANK_DATA_WITH_KNOB_NUMBER');
 
   static const $core.List<MessageID> values = <MessageID> [
     INVALID,
@@ -137,7 +136,6 @@ class MessageID extends $pb.ProtobufEnum {
     REQ_IS_BOOTLOAD_MODE,
     RES_IS_BOOTLOAD_MODE,
     PARAM_AMP_CLEAN,
-    BANK_DATA_WITH_KNOB_NUMBER,
   ];
 
   static final $core.Map<$core.int, MessageID> _byValue = $pb.ProtobufEnum.initByValue(values);

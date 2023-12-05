@@ -77,7 +77,6 @@ const MessageID$json = {
     {'1': 'REQ_IS_BOOTLOAD_MODE', '2': 57},
     {'1': 'RES_IS_BOOTLOAD_MODE', '2': 58},
     {'1': 'PARAM_AMP_CLEAN', '2': 59},
-    {'1': 'BANK_DATA_WITH_KNOB_NUMBER', '2': 60},
   ],
 };
 
@@ -105,7 +104,7 @@ final $typed_data.Uint8List messageIDDescriptor = $convert.base64Decode(
     'NPTk5FQ1QQNBITCg9SRVFfR1VJVEFSX05BTUUQNRITCg9SRVNfR1VJVEFSX05BTUUQNhIaChZS'
     'RVFfUExBWV9QQUlSSU5HX1NPVU5EEDcSFQoRUkVRX0JPT1RMT0FEX01PREUQOBIYChRSRVFfSV'
     'NfQk9PVExPQURfTU9ERRA5EhgKFFJFU19JU19CT09UTE9BRF9NT0RFEDoSEwoPUEFSQU1fQU1Q'
-    'X0NMRUFOEDsSHgoaQkFOS19EQVRBX1dJVEhfS05PQl9OVU1CRVIQPA==');
+    'X0NMRUFOEDs=');
 
 @$core.Deprecated('Use cATEGORY_NUMBERDescriptor instead')
 const CATEGORY_NUMBER$json = {
@@ -278,6 +277,7 @@ const Nack$json = {
     {'1': 'receivedMessageLength', '3': 1, '4': 1, '5': 5, '10': 'receivedMessageLength'},
     {'1': 'receivedMessageId', '3': 2, '4': 1, '5': 5, '10': 'receivedMessageId'},
     {'1': 'errorCode', '3': 3, '4': 1, '5': 14, '6': '.Nack.ERROR_CODE', '10': 'errorCode'},
+    {'1': 'receivedData', '3': 4, '4': 3, '5': 5, '10': 'receivedData'},
   ],
   '4': [Nack_ERROR_CODE$json],
 };
@@ -300,10 +300,11 @@ const Nack_ERROR_CODE$json = {
 final $typed_data.Uint8List nackDescriptor = $convert.base64Decode(
     'CgROYWNrEjQKFXJlY2VpdmVkTWVzc2FnZUxlbmd0aBgBIAEoBVIVcmVjZWl2ZWRNZXNzYWdlTG'
     'VuZ3RoEiwKEXJlY2VpdmVkTWVzc2FnZUlkGAIgASgFUhFyZWNlaXZlZE1lc3NhZ2VJZBIuCgll'
-    'cnJvckNvZGUYAyABKA4yEC5OYWNrLkVSUk9SX0NPREVSCWVycm9yQ29kZSKoAQoKRVJST1JfQ0'
-    '9ERRIWChJJTlZBTElEX01FU1NBR0VfSUQQABIYChRJTlZBTElEX01FU1NBR0VfREFUQRABEhEK'
-    'DUlOVkFMSURfU1RBVEUQAhISCg5JTlZBTElEX09QQ09ERRADEhkKFUlOVkFMSURfUEFDS0VUX0'
-    'xFTkdUSBAEEhkKFVBST1RPQlVGX0RFQ09ERV9FUlJPUhAFEgsKB1RJTUVPVVQQBg==');
+    'cnJvckNvZGUYAyABKA4yEC5OYWNrLkVSUk9SX0NPREVSCWVycm9yQ29kZRIiCgxyZWNlaXZlZE'
+    'RhdGEYBCADKAVSDHJlY2VpdmVkRGF0YSKoAQoKRVJST1JfQ09ERRIWChJJTlZBTElEX01FU1NB'
+    'R0VfSUQQABIYChRJTlZBTElEX01FU1NBR0VfREFUQRABEhEKDUlOVkFMSURfU1RBVEUQAhISCg'
+    '5JTlZBTElEX09QQ09ERRADEhkKFUlOVkFMSURfUEFDS0VUX0xFTkdUSBAEEhkKFVBST1RPQlVG'
+    'X0RFQ09ERV9FUlJPUhAFEgsKB1RJTUVPVVQQBg==');
 
 @$core.Deprecated('Use initFromAppDescriptor instead')
 const InitFromApp$json = {
@@ -827,13 +828,14 @@ const BankData$json = {
   '1': 'BankData',
   '2': [
     {'1': 'categoryData', '3': 1, '4': 3, '5': 11, '6': '.CategoryData', '10': 'categoryData'},
+    {'1': 'knobNumber', '3': 2, '4': 1, '5': 5, '10': 'knobNumber'},
   ],
 };
 
 /// Descriptor for `BankData`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List bankDataDescriptor = $convert.base64Decode(
     'CghCYW5rRGF0YRIxCgxjYXRlZ29yeURhdGEYASADKAsyDS5DYXRlZ29yeURhdGFSDGNhdGVnb3'
-    'J5RGF0YQ==');
+    'J5RGF0YRIeCgprbm9iTnVtYmVyGAIgASgFUgprbm9iTnVtYmVy');
 
 @$core.Deprecated('Use knobMatchingDescriptor instead')
 const KnobMatching$json = {
@@ -1151,18 +1153,4 @@ final $typed_data.Uint8List paramAmpCleanDescriptor = $convert.base64Decode(
     'Cg1QYXJhbUFtcENsZWFuEhIKBGlzT24YASABKAhSBGlzT24SFAoFbGV2ZWwYAiABKAVSBWxldm'
     'VsEhIKBGdhaW4YAyABKAVSBGdhaW4SEgoEYmFzcxgEIAEoBVIEYmFzcxIWCgZtaWRkbGUYBSAB'
     'KAVSBm1pZGRsZRIWCgZ0cmVibGUYBiABKAVSBnRyZWJsZQ==');
-
-@$core.Deprecated('Use bankDataWithKnobNumberDescriptor instead')
-const BankDataWithKnobNumber$json = {
-  '1': 'BankDataWithKnobNumber',
-  '2': [
-    {'1': 'bankData', '3': 1, '4': 1, '5': 11, '6': '.BankData', '10': 'bankData'},
-    {'1': 'knobNumber', '3': 2, '4': 1, '5': 5, '10': 'knobNumber'},
-  ],
-};
-
-/// Descriptor for `BankDataWithKnobNumber`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List bankDataWithKnobNumberDescriptor = $convert.base64Decode(
-    'ChZCYW5rRGF0YVdpdGhLbm9iTnVtYmVyEiUKCGJhbmtEYXRhGAEgASgLMgkuQmFua0RhdGFSCG'
-    'JhbmtEYXRhEh4KCmtub2JOdW1iZXIYAiABKAVSCmtub2JOdW1iZXI=');
 

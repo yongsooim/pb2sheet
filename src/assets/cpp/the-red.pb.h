@@ -70,8 +70,7 @@ typedef enum _MessageID {
     MessageID_REQ_BOOTLOAD_MODE = 56,
     MessageID_REQ_IS_BOOTLOAD_MODE = 57,
     MessageID_RES_IS_BOOTLOAD_MODE = 58,
-    MessageID_PARAM_AMP_CLEAN = 59,
-    MessageID_BANK_DATA_WITH_KNOB_NUMBER = 60
+    MessageID_PARAM_AMP_CLEAN = 59
 } MessageID;
 
 typedef enum _CATEGORY_NUMBER {
@@ -167,6 +166,7 @@ typedef struct _Nack {
     int32_t receivedMessageLength;
     int32_t receivedMessageId;
     Nack_ERROR_CODE errorCode;
+    pb_callback_t receivedData;
 } Nack;
 
 typedef struct _InitFromApp {
@@ -389,6 +389,7 @@ typedef struct _CategoryData {
 typedef struct _BankData {
     pb_size_t categoryData_count;
     CategoryData categoryData[16];
+    int32_t knobNumber;
 } BankData;
 
 typedef struct _KnobMatching {
@@ -508,12 +509,6 @@ typedef struct _ParamAmpClean {
     int32_t treble;
 } ParamAmpClean;
 
-typedef struct _BankDataWithKnobNumber {
-    bool has_bankData;
-    BankData bankData;
-    int32_t knobNumber;
-} BankDataWithKnobNumber;
-
 
 #ifdef __cplusplus
 extern "C" {
@@ -521,8 +516,8 @@ extern "C" {
 
 /* Helper constants for enums */
 #define _MessageID_MIN MessageID_INVALID
-#define _MessageID_MAX MessageID_BANK_DATA_WITH_KNOB_NUMBER
-#define _MessageID_ARRAYSIZE ((MessageID)(MessageID_BANK_DATA_WITH_KNOB_NUMBER+1))
+#define _MessageID_MAX MessageID_PARAM_AMP_CLEAN
+#define _MessageID_ARRAYSIZE ((MessageID)(MessageID_PARAM_AMP_CLEAN+1))
 
 #define _CATEGORY_NUMBER_MIN CATEGORY_NUMBER_CAT_NO1_GATE
 #define _CATEGORY_NUMBER_MAX CATEGORY_NUMBER_CAT_NO7_REVERB
@@ -630,10 +625,9 @@ extern "C" {
 
 
 
-
 /* Initializer values for message structs */
 #define Ack_init_default                         {0, 0}
-#define Nack_init_default                        {0, 0, _Nack_ERROR_CODE_MIN}
+#define Nack_init_default                        {0, 0, _Nack_ERROR_CODE_MIN, {{NULL}, NULL}}
 #define InitFromApp_init_default                 {"", 0, 0}
 #define InitFromGuitar_init_default              {0, 0, "", "", "", 0, 0}
 #define ReqInitFromGuitar_init_default           {0}
@@ -667,7 +661,7 @@ extern "C" {
 #define ParamDelayDelay_init_default             {0, 0, 0, 0}
 #define ParamReverb_init_default                 {0, 0, 0, 0}
 #define CategoryData_init_default                {0, 0, 0, 0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}
-#define BankData_init_default                    {0, {CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default}}
+#define BankData_init_default                    {0, {CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default, CategoryData_init_default}, 0}
 #define KnobMatching_init_default                {0, false, BankData_init_default}
 #define InitKnobMatching1_init_default           {false, BankData_init_default}
 #define InitKnobMatching2_init_default           {false, BankData_init_default}
@@ -691,9 +685,8 @@ extern "C" {
 #define ReqIsBootloadMode_init_default           {0}
 #define ResIsBootloadMode_init_default           {0}
 #define ParamAmpClean_init_default               {0, 0, 0, 0, 0, 0}
-#define BankDataWithKnobNumber_init_default      {false, BankData_init_default, 0}
 #define Ack_init_zero                            {0, 0}
-#define Nack_init_zero                           {0, 0, _Nack_ERROR_CODE_MIN}
+#define Nack_init_zero                           {0, 0, _Nack_ERROR_CODE_MIN, {{NULL}, NULL}}
 #define InitFromApp_init_zero                    {"", 0, 0}
 #define InitFromGuitar_init_zero                 {0, 0, "", "", "", 0, 0}
 #define ReqInitFromGuitar_init_zero              {0}
@@ -727,7 +720,7 @@ extern "C" {
 #define ParamDelayDelay_init_zero                {0, 0, 0, 0}
 #define ParamReverb_init_zero                    {0, 0, 0, 0}
 #define CategoryData_init_zero                   {0, 0, 0, 0, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}
-#define BankData_init_zero                       {0, {CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero}}
+#define BankData_init_zero                       {0, {CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero, CategoryData_init_zero}, 0}
 #define KnobMatching_init_zero                   {0, false, BankData_init_zero}
 #define InitKnobMatching1_init_zero              {false, BankData_init_zero}
 #define InitKnobMatching2_init_zero              {false, BankData_init_zero}
@@ -751,7 +744,6 @@ extern "C" {
 #define ReqIsBootloadMode_init_zero              {0}
 #define ResIsBootloadMode_init_zero              {0}
 #define ParamAmpClean_init_zero                  {0, 0, 0, 0, 0, 0}
-#define BankDataWithKnobNumber_init_zero         {false, BankData_init_zero, 0}
 
 /* Field tags (for use in manual encoding/decoding) */
 #define Ack_receivedMessageLength_tag            1
@@ -759,6 +751,7 @@ extern "C" {
 #define Nack_receivedMessageLength_tag           1
 #define Nack_receivedMessageId_tag               2
 #define Nack_errorCode_tag                       3
+#define Nack_receivedData_tag                    4
 #define InitFromApp_appVersion_tag               1
 #define InitFromApp_KnobClicked_tag              2
 #define InitFromApp_playPairingSound_tag         3
@@ -871,6 +864,7 @@ extern "C" {
 #define CategoryData_select_tag                  3
 #define CategoryData_params_tag                  4
 #define BankData_categoryData_tag                1
+#define BankData_knobNumber_tag                  2
 #define KnobMatching_knobNumber_tag              1
 #define KnobMatching_bankData_tag                2
 #define InitKnobMatching1_bankData_tag           1
@@ -908,8 +902,6 @@ extern "C" {
 #define ParamAmpClean_bass_tag                   4
 #define ParamAmpClean_middle_tag                 5
 #define ParamAmpClean_treble_tag                 6
-#define BankDataWithKnobNumber_bankData_tag      1
-#define BankDataWithKnobNumber_knobNumber_tag    2
 
 /* Struct field encoding specification for nanopb */
 #define Ack_FIELDLIST(X, a) \
@@ -921,8 +913,9 @@ X(a, STATIC,   SINGULAR, INT32,    receivedMessageId,   2)
 #define Nack_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, INT32,    receivedMessageLength,   1) \
 X(a, STATIC,   SINGULAR, INT32,    receivedMessageId,   2) \
-X(a, STATIC,   SINGULAR, UENUM,    errorCode,         3)
-#define Nack_CALLBACK NULL
+X(a, STATIC,   SINGULAR, UENUM,    errorCode,         3) \
+X(a, CALLBACK, REPEATED, INT32,    receivedData,      4)
+#define Nack_CALLBACK pb_default_field_callback
 #define Nack_DEFAULT NULL
 
 #define InitFromApp_FIELDLIST(X, a) \
@@ -1169,7 +1162,8 @@ X(a, STATIC,   REPEATED, INT32,    params,            4)
 #define CategoryData_DEFAULT NULL
 
 #define BankData_FIELDLIST(X, a) \
-X(a, STATIC,   REPEATED, MESSAGE,  categoryData,      1)
+X(a, STATIC,   REPEATED, MESSAGE,  categoryData,      1) \
+X(a, STATIC,   SINGULAR, INT32,    knobNumber,        2)
 #define BankData_CALLBACK NULL
 #define BankData_DEFAULT NULL
 #define BankData_categoryData_MSGTYPE CategoryData
@@ -1308,13 +1302,6 @@ X(a, STATIC,   SINGULAR, INT32,    treble,            6)
 #define ParamAmpClean_CALLBACK NULL
 #define ParamAmpClean_DEFAULT NULL
 
-#define BankDataWithKnobNumber_FIELDLIST(X, a) \
-X(a, STATIC,   OPTIONAL, MESSAGE,  bankData,          1) \
-X(a, STATIC,   SINGULAR, INT32,    knobNumber,        2)
-#define BankDataWithKnobNumber_CALLBACK NULL
-#define BankDataWithKnobNumber_DEFAULT NULL
-#define BankDataWithKnobNumber_bankData_MSGTYPE BankData
-
 extern const pb_msgdesc_t Ack_msg;
 extern const pb_msgdesc_t Nack_msg;
 extern const pb_msgdesc_t InitFromApp_msg;
@@ -1374,7 +1361,6 @@ extern const pb_msgdesc_t ReqBootloadMode_msg;
 extern const pb_msgdesc_t ReqIsBootloadMode_msg;
 extern const pb_msgdesc_t ResIsBootloadMode_msg;
 extern const pb_msgdesc_t ParamAmpClean_msg;
-extern const pb_msgdesc_t BankDataWithKnobNumber_msg;
 
 /* Defines for backwards compatibility with code written before nanopb-0.4.0 */
 #define Ack_fields &Ack_msg
@@ -1436,12 +1422,11 @@ extern const pb_msgdesc_t BankDataWithKnobNumber_msg;
 #define ReqIsBootloadMode_fields &ReqIsBootloadMode_msg
 #define ResIsBootloadMode_fields &ResIsBootloadMode_msg
 #define ParamAmpClean_fields &ParamAmpClean_msg
-#define BankDataWithKnobNumber_fields &BankDataWithKnobNumber_msg
 
 /* Maximum encoded size of messages (where known) */
+/* Nack_size depends on runtime parameters */
 #define Ack_size                                 22
-#define BankDataWithKnobNumber_size              3262
-#define BankData_size                            3248
+#define BankData_size                            3259
 #define BatteryLevel_size                        13
 #define BulkIrEndReq_size                        61
 #define BulkIrReq_size                           61
@@ -1456,14 +1441,13 @@ extern const pb_msgdesc_t BankDataWithKnobNumber_msg;
 #define DiagRespPOC_size                         11
 #define InitFromApp_size                         78
 #define InitFromGuitar_size                      230
-#define InitKnobMatching1_size                   3251
-#define InitKnobMatching2_size                   3251
-#define InitKnobMatching3_size                   3251
+#define InitKnobMatching1_size                   3262
+#define InitKnobMatching2_size                   3262
+#define InitKnobMatching3_size                   3262
 #define KnobClicked_size                         11
-#define KnobMatchingAll_size                     9795
+#define KnobMatchingAll_size                     9828
 #define KnobMatchingStart_size                   11
-#define KnobMatching_size                        3262
-#define Nack_size                                24
+#define KnobMatching_size                        3273
 #define ParamAmpBgn_size                         57
 #define ParamAmpClean_size                       57
 #define ParamAmpFd_size                          57

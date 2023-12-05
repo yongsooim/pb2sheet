@@ -1,10 +1,6 @@
 /*
  the-red.proto
-
- 2023-12-05 jason: 
-  - delete field: BankData.knobNumber
-  - add message: BankDataWithKnobNumber
-
+ 
  2023-11-27 jason:
   - only clean amp is used
 
@@ -173,7 +169,6 @@ enum MessageID {
   REQ_IS_BOOTLOAD_MODE = 57;
   RES_IS_BOOTLOAD_MODE = 58;
   PARAM_AMP_CLEAN = 59;
-  BANK_DATA_WITH_KNOB_NUMBER = 60;
 }
 
 enum CATEGORY_NUMBER {
@@ -255,6 +250,7 @@ message Nack {
   int32 receivedMessageLength = 1;
   int32 receivedMessageId = 2;
   ERROR_CODE errorCode = 3;
+  repeated int32 receivedData = 4;
 }
 
 message InitFromApp {
@@ -448,6 +444,7 @@ message CategoryData {
 
 message BankData {
   repeated CategoryData categoryData = 1;
+  int32 knobNumber = 2;
 }
 
 message KnobMatching {
@@ -538,9 +535,4 @@ message ParamAmpClean {
   int32 bass = 4;
   int32 middle = 5;
   int32 treble = 6;
-}
-
-message BankDataWithKnobNumber {
-  BankData bankData = 1;
-  int32 knobNumber = 2;
 }

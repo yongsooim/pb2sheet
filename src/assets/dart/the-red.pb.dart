@@ -80,6 +80,7 @@ class Nack extends $pb.GeneratedMessage {
     ..a<$core.int>(1, _omitFieldNames ? '' : 'receivedMessageLength', $pb.PbFieldType.O3, protoName: 'receivedMessageLength')
     ..a<$core.int>(2, _omitFieldNames ? '' : 'receivedMessageId', $pb.PbFieldType.O3, protoName: 'receivedMessageId')
     ..e<Nack_ERROR_CODE>(3, _omitFieldNames ? '' : 'errorCode', $pb.PbFieldType.OE, protoName: 'errorCode', defaultOrMaker: Nack_ERROR_CODE.INVALID_MESSAGE_ID, valueOf: Nack_ERROR_CODE.valueOf, enumValues: Nack_ERROR_CODE.values)
+    ..p<$core.int>(4, _omitFieldNames ? '' : 'receivedData', $pb.PbFieldType.K3, protoName: 'receivedData')
     ..hasRequiredFields = false
   ;
 
@@ -130,6 +131,9 @@ class Nack extends $pb.GeneratedMessage {
   $core.bool hasErrorCode() => $_has(2);
   @$pb.TagNumber(3)
   void clearErrorCode() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.List<$core.int> get receivedData => $_getList(3);
 }
 
 class InitFromApp extends $pb.GeneratedMessage {
@@ -2300,6 +2304,7 @@ class BankData extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BankData', createEmptyInstance: create)
     ..pc<CategoryData>(1, _omitFieldNames ? '' : 'categoryData', $pb.PbFieldType.PM, protoName: 'categoryData', subBuilder: CategoryData.create)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'knobNumber', $pb.PbFieldType.O3, protoName: 'knobNumber')
     ..hasRequiredFields = false
   ;
 
@@ -2326,6 +2331,15 @@ class BankData extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   $core.List<CategoryData> get categoryData => $_getList(0);
+
+  @$pb.TagNumber(2)
+  $core.int get knobNumber => $_getIZ(1);
+  @$pb.TagNumber(2)
+  set knobNumber($core.int v) { $_setSignedInt32(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasKnobNumber() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearKnobNumber() => clearField(2);
 }
 
 class KnobMatching extends $pb.GeneratedMessage {
@@ -3416,60 +3430,6 @@ class ParamAmpClean extends $pb.GeneratedMessage {
   $core.bool hasTreble() => $_has(5);
   @$pb.TagNumber(6)
   void clearTreble() => clearField(6);
-}
-
-class BankDataWithKnobNumber extends $pb.GeneratedMessage {
-  factory BankDataWithKnobNumber() => create();
-  BankDataWithKnobNumber._() : super();
-  factory BankDataWithKnobNumber.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory BankDataWithKnobNumber.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BankDataWithKnobNumber', createEmptyInstance: create)
-    ..aOM<BankData>(1, _omitFieldNames ? '' : 'bankData', protoName: 'bankData', subBuilder: BankData.create)
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'knobNumber', $pb.PbFieldType.O3, protoName: 'knobNumber')
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  BankDataWithKnobNumber clone() => BankDataWithKnobNumber()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  BankDataWithKnobNumber copyWith(void Function(BankDataWithKnobNumber) updates) => super.copyWith((message) => updates(message as BankDataWithKnobNumber)) as BankDataWithKnobNumber;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static BankDataWithKnobNumber create() => BankDataWithKnobNumber._();
-  BankDataWithKnobNumber createEmptyInstance() => create();
-  static $pb.PbList<BankDataWithKnobNumber> createRepeated() => $pb.PbList<BankDataWithKnobNumber>();
-  @$core.pragma('dart2js:noInline')
-  static BankDataWithKnobNumber getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BankDataWithKnobNumber>(create);
-  static BankDataWithKnobNumber? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  BankData get bankData => $_getN(0);
-  @$pb.TagNumber(1)
-  set bankData(BankData v) { setField(1, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasBankData() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearBankData() => clearField(1);
-  @$pb.TagNumber(1)
-  BankData ensureBankData() => $_ensure(0);
-
-  @$pb.TagNumber(2)
-  $core.int get knobNumber => $_getIZ(1);
-  @$pb.TagNumber(2)
-  set knobNumber($core.int v) { $_setSignedInt32(1, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasKnobNumber() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearKnobNumber() => clearField(2);
 }
 
 
