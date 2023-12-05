@@ -183,6 +183,9 @@ PB_BIND(ResIsBootloadMode, ResIsBootloadMode, AUTO)
 PB_BIND(ParamAmpClean, ParamAmpClean, AUTO)
 
 
+PB_BIND(BankDataWithKnobNumber, BankDataWithKnobNumber, 2)
+
+
 
 
 
