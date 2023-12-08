@@ -39,7 +39,7 @@ PB_BIND(KnobMatchingStart, KnobMatchingStart, AUTO)
 PB_BIND(BatteryLevel, BatteryLevel, AUTO)
 
 
-PB_BIND(ParamGate, ParamGate, 2)
+PB_BIND(ParamGate, ParamGate, AUTO)
 
 
 PB_BIND(ParamEfxTs90, ParamEfxTs90, AUTO)

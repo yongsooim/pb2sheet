@@ -1,5 +1,8 @@
 /*
  the-red.proto
+
+ 2023-12-08 jason:
+  - delete Gate params
  
  2023-11-27 jason:
   - only clean amp is used
@@ -250,7 +253,6 @@ message Nack {
   int32 receivedMessageLength = 1;
   int32 receivedMessageId = 2;
   ERROR_CODE errorCode = 3;
-  repeated int32 receivedData = 4;
 }
 
 message InitFromApp {
@@ -294,15 +296,8 @@ message BatteryLevel {
 message ParamGate {
   bool isOn = 1;
   int32 noiseGateThreshold = 2;
-  int32 noiseGateOpeningTime = 3;
-  int32 noiseGateClosingTime = 4;
-  int32 noiseGateHoldTime = 5;
-  int32 compressorThreshold = 6;
-  int32 compressorAttack = 7;
-  int32 compressorRelease = 8;
-  int32 compressorGain = 9;
-  int32 compressorRatio = 10;
-  int32 compressorHysteresis = 111;
+  int32 compressorThreshold = 3;
+  int32 compressorRatio = 4;
 }
 
 message ParamEfxTs90 {

@@ -277,7 +277,6 @@ const Nack$json = {
     {'1': 'receivedMessageLength', '3': 1, '4': 1, '5': 5, '10': 'receivedMessageLength'},
     {'1': 'receivedMessageId', '3': 2, '4': 1, '5': 5, '10': 'receivedMessageId'},
     {'1': 'errorCode', '3': 3, '4': 1, '5': 14, '6': '.Nack.ERROR_CODE', '10': 'errorCode'},
-    {'1': 'receivedData', '3': 4, '4': 3, '5': 5, '10': 'receivedData'},
   ],
   '4': [Nack_ERROR_CODE$json],
 };
@@ -300,11 +299,10 @@ const Nack_ERROR_CODE$json = {
 final $typed_data.Uint8List nackDescriptor = $convert.base64Decode(
     'CgROYWNrEjQKFXJlY2VpdmVkTWVzc2FnZUxlbmd0aBgBIAEoBVIVcmVjZWl2ZWRNZXNzYWdlTG'
     'VuZ3RoEiwKEXJlY2VpdmVkTWVzc2FnZUlkGAIgASgFUhFyZWNlaXZlZE1lc3NhZ2VJZBIuCgll'
-    'cnJvckNvZGUYAyABKA4yEC5OYWNrLkVSUk9SX0NPREVSCWVycm9yQ29kZRIiCgxyZWNlaXZlZE'
-    'RhdGEYBCADKAVSDHJlY2VpdmVkRGF0YSKoAQoKRVJST1JfQ09ERRIWChJJTlZBTElEX01FU1NB'
-    'R0VfSUQQABIYChRJTlZBTElEX01FU1NBR0VfREFUQRABEhEKDUlOVkFMSURfU1RBVEUQAhISCg'
-    '5JTlZBTElEX09QQ09ERRADEhkKFUlOVkFMSURfUEFDS0VUX0xFTkdUSBAEEhkKFVBST1RPQlVG'
-    'X0RFQ09ERV9FUlJPUhAFEgsKB1RJTUVPVVQQBg==');
+    'cnJvckNvZGUYAyABKA4yEC5OYWNrLkVSUk9SX0NPREVSCWVycm9yQ29kZSKoAQoKRVJST1JfQ0'
+    '9ERRIWChJJTlZBTElEX01FU1NBR0VfSUQQABIYChRJTlZBTElEX01FU1NBR0VfREFUQRABEhEK'
+    'DUlOVkFMSURfU1RBVEUQAhISCg5JTlZBTElEX09QQ09ERRADEhkKFUlOVkFMSURfUEFDS0VUX0'
+    'xFTkdUSBAEEhkKFVBST1RPQlVGX0RFQ09ERV9FUlJPUhAFEgsKB1RJTUVPVVQQBg==');
 
 @$core.Deprecated('Use initFromAppDescriptor instead')
 const InitFromApp$json = {
@@ -438,30 +436,17 @@ const ParamGate$json = {
   '2': [
     {'1': 'isOn', '3': 1, '4': 1, '5': 8, '10': 'isOn'},
     {'1': 'noiseGateThreshold', '3': 2, '4': 1, '5': 5, '10': 'noiseGateThreshold'},
-    {'1': 'noiseGateOpeningTime', '3': 3, '4': 1, '5': 5, '10': 'noiseGateOpeningTime'},
-    {'1': 'noiseGateClosingTime', '3': 4, '4': 1, '5': 5, '10': 'noiseGateClosingTime'},
-    {'1': 'noiseGateHoldTime', '3': 5, '4': 1, '5': 5, '10': 'noiseGateHoldTime'},
-    {'1': 'compressorThreshold', '3': 6, '4': 1, '5': 5, '10': 'compressorThreshold'},
-    {'1': 'compressorAttack', '3': 7, '4': 1, '5': 5, '10': 'compressorAttack'},
-    {'1': 'compressorRelease', '3': 8, '4': 1, '5': 5, '10': 'compressorRelease'},
-    {'1': 'compressorGain', '3': 9, '4': 1, '5': 5, '10': 'compressorGain'},
-    {'1': 'compressorRatio', '3': 10, '4': 1, '5': 5, '10': 'compressorRatio'},
-    {'1': 'compressorHysteresis', '3': 111, '4': 1, '5': 5, '10': 'compressorHysteresis'},
+    {'1': 'compressorThreshold', '3': 3, '4': 1, '5': 5, '10': 'compressorThreshold'},
+    {'1': 'compressorRatio', '3': 4, '4': 1, '5': 5, '10': 'compressorRatio'},
   ],
 };
 
 /// Descriptor for `ParamGate`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List paramGateDescriptor = $convert.base64Decode(
     'CglQYXJhbUdhdGUSEgoEaXNPbhgBIAEoCFIEaXNPbhIuChJub2lzZUdhdGVUaHJlc2hvbGQYAi'
-    'ABKAVSEm5vaXNlR2F0ZVRocmVzaG9sZBIyChRub2lzZUdhdGVPcGVuaW5nVGltZRgDIAEoBVIU'
-    'bm9pc2VHYXRlT3BlbmluZ1RpbWUSMgoUbm9pc2VHYXRlQ2xvc2luZ1RpbWUYBCABKAVSFG5vaX'
-    'NlR2F0ZUNsb3NpbmdUaW1lEiwKEW5vaXNlR2F0ZUhvbGRUaW1lGAUgASgFUhFub2lzZUdhdGVI'
-    'b2xkVGltZRIwChNjb21wcmVzc29yVGhyZXNob2xkGAYgASgFUhNjb21wcmVzc29yVGhyZXNob2'
-    'xkEioKEGNvbXByZXNzb3JBdHRhY2sYByABKAVSEGNvbXByZXNzb3JBdHRhY2sSLAoRY29tcHJl'
-    'c3NvclJlbGVhc2UYCCABKAVSEWNvbXByZXNzb3JSZWxlYXNlEiYKDmNvbXByZXNzb3JHYWluGA'
-    'kgASgFUg5jb21wcmVzc29yR2FpbhIoCg9jb21wcmVzc29yUmF0aW8YCiABKAVSD2NvbXByZXNz'
-    'b3JSYXRpbxIyChRjb21wcmVzc29ySHlzdGVyZXNpcxhvIAEoBVIUY29tcHJlc3Nvckh5c3Rlcm'
-    'VzaXM=');
+    'ABKAVSEm5vaXNlR2F0ZVRocmVzaG9sZBIwChNjb21wcmVzc29yVGhyZXNob2xkGAMgASgFUhNj'
+    'b21wcmVzc29yVGhyZXNob2xkEigKD2NvbXByZXNzb3JSYXRpbxgEIAEoBVIPY29tcHJlc3Nvcl'
+    'JhdGlv');
 
 @$core.Deprecated('Use paramEfxTs90Descriptor instead')
 const ParamEfxTs90$json = {

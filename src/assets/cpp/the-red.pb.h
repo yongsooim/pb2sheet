@@ -166,11 +166,10 @@ typedef struct _Nack {
     int32_t receivedMessageLength;
     int32_t receivedMessageId;
     Nack_ERROR_CODE errorCode;
-    pb_callback_t receivedData;
 } Nack;
 
 typedef struct _InitFromApp {
-    char appVersion[64];
+    char appVersion[32];
     int32_t KnobClicked;
     bool playPairingSound;
 } InitFromApp;
@@ -183,9 +182,9 @@ typedef struct _InitFromApp {
 typedef struct _InitFromGuitar {
     int32_t receivedMessageLength; /* not used */
     int32_t receivedMessageId; /* not used */
-    char guitarName[64];
-    char guitarModelName[64];
-    char firmwareVersion[64];
+    char guitarName[32];
+    char guitarModelName[32];
+    char firmwareVersion[32];
     int32_t batteryLevel;
     bool isCharging;
 } InitFromGuitar;
@@ -195,7 +194,7 @@ typedef struct _ReqInitFromGuitar {
 } ReqInitFromGuitar;
 
 typedef struct _ChangeGuitarName {
-    char guitarName[64];
+    char guitarName[32];
 } ChangeGuitarName;
 
 typedef struct _TunerOnOff {
@@ -223,15 +222,8 @@ typedef struct _BatteryLevel {
 typedef struct _ParamGate {
     bool isOn;
     int32_t noiseGateThreshold;
-    int32_t noiseGateOpeningTime;
-    int32_t noiseGateClosingTime;
-    int32_t noiseGateHoldTime;
     int32_t compressorThreshold;
-    int32_t compressorAttack;
-    int32_t compressorRelease;
-    int32_t compressorGain;
     int32_t compressorRatio;
-    int32_t compressorHysteresis;
 } ParamGate;
 
 typedef struct _ParamEfxTs90 {
@@ -448,7 +440,7 @@ typedef struct _DiagRespErrCode {
 
 /* Save IR Request */
 typedef struct _BulkIrStartReq {
-    char irName[64];
+    char irName[32];
     int32_t sequenceNumber;
     pb_size_t data_count;
     float data[10];
@@ -481,7 +473,7 @@ typedef struct _ReqGuitarName {
 } ReqGuitarName;
 
 typedef struct _ResGuitarName {
-    char guitarName[64];
+    char guitarName[32];
 } ResGuitarName;
 
 typedef struct _ReqPlayPairingSound {
@@ -627,7 +619,7 @@ extern "C" {
 
 /* Initializer values for message structs */
 #define Ack_init_default                         {0, 0}
-#define Nack_init_default                        {0, 0, _Nack_ERROR_CODE_MIN, {{NULL}, NULL}}
+#define Nack_init_default                        {0, 0, _Nack_ERROR_CODE_MIN}
 #define InitFromApp_init_default                 {"", 0, 0}
 #define InitFromGuitar_init_default              {0, 0, "", "", "", 0, 0}
 #define ReqInitFromGuitar_init_default           {0}
@@ -637,7 +629,7 @@ extern "C" {
 #define KnobClicked_init_default                 {0}
 #define KnobMatchingStart_init_default           {0}
 #define BatteryLevel_init_default                {0, 0}
-#define ParamGate_init_default                   {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+#define ParamGate_init_default                   {0, 0, 0, 0}
 #define ParamEfxTs90_init_default                {0, 0, 0, 0}
 #define ParamEfxSd10_init_default                {0, 0, 0, 0}
 #define ParamEfxRat_init_default                 {0, 0, 0, 0}
@@ -686,7 +678,7 @@ extern "C" {
 #define ResIsBootloadMode_init_default           {0}
 #define ParamAmpClean_init_default               {0, 0, 0, 0, 0, 0}
 #define Ack_init_zero                            {0, 0}
-#define Nack_init_zero                           {0, 0, _Nack_ERROR_CODE_MIN, {{NULL}, NULL}}
+#define Nack_init_zero                           {0, 0, _Nack_ERROR_CODE_MIN}
 #define InitFromApp_init_zero                    {"", 0, 0}
 #define InitFromGuitar_init_zero                 {0, 0, "", "", "", 0, 0}
 #define ReqInitFromGuitar_init_zero              {0}
@@ -696,7 +688,7 @@ extern "C" {
 #define KnobClicked_init_zero                    {0}
 #define KnobMatchingStart_init_zero              {0}
 #define BatteryLevel_init_zero                   {0, 0}
-#define ParamGate_init_zero                      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+#define ParamGate_init_zero                      {0, 0, 0, 0}
 #define ParamEfxTs90_init_zero                   {0, 0, 0, 0}
 #define ParamEfxSd10_init_zero                   {0, 0, 0, 0}
 #define ParamEfxRat_init_zero                    {0, 0, 0, 0}
@@ -751,7 +743,6 @@ extern "C" {
 #define Nack_receivedMessageLength_tag           1
 #define Nack_receivedMessageId_tag               2
 #define Nack_errorCode_tag                       3
-#define Nack_receivedData_tag                    4
 #define InitFromApp_appVersion_tag               1
 #define InitFromApp_KnobClicked_tag              2
 #define InitFromApp_playPairingSound_tag         3
@@ -772,15 +763,8 @@ extern "C" {
 #define BatteryLevel_isCharging_tag              2
 #define ParamGate_isOn_tag                       1
 #define ParamGate_noiseGateThreshold_tag         2
-#define ParamGate_noiseGateOpeningTime_tag       3
-#define ParamGate_noiseGateClosingTime_tag       4
-#define ParamGate_noiseGateHoldTime_tag          5
-#define ParamGate_compressorThreshold_tag        6
-#define ParamGate_compressorAttack_tag           7
-#define ParamGate_compressorRelease_tag          8
-#define ParamGate_compressorGain_tag             9
-#define ParamGate_compressorRatio_tag            10
-#define ParamGate_compressorHysteresis_tag       111
+#define ParamGate_compressorThreshold_tag        3
+#define ParamGate_compressorRatio_tag            4
 #define ParamEfxTs90_isOn_tag                    1
 #define ParamEfxTs90_level_tag                   2
 #define ParamEfxTs90_gain_tag                    3
@@ -913,9 +897,8 @@ X(a, STATIC,   SINGULAR, INT32,    receivedMessageId,   2)
 #define Nack_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, INT32,    receivedMessageLength,   1) \
 X(a, STATIC,   SINGULAR, INT32,    receivedMessageId,   2) \
-X(a, STATIC,   SINGULAR, UENUM,    errorCode,         3) \
-X(a, CALLBACK, REPEATED, INT32,    receivedData,      4)
-#define Nack_CALLBACK pb_default_field_callback
+X(a, STATIC,   SINGULAR, UENUM,    errorCode,         3)
+#define Nack_CALLBACK NULL
 #define Nack_DEFAULT NULL
 
 #define InitFromApp_FIELDLIST(X, a) \
@@ -975,15 +958,8 @@ X(a, STATIC,   SINGULAR, BOOL,     isCharging,        2)
 #define ParamGate_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
 X(a, STATIC,   SINGULAR, INT32,    noiseGateThreshold,   2) \
-X(a, STATIC,   SINGULAR, INT32,    noiseGateOpeningTime,   3) \
-X(a, STATIC,   SINGULAR, INT32,    noiseGateClosingTime,   4) \
-X(a, STATIC,   SINGULAR, INT32,    noiseGateHoldTime,   5) \
-X(a, STATIC,   SINGULAR, INT32,    compressorThreshold,   6) \
-X(a, STATIC,   SINGULAR, INT32,    compressorAttack,   7) \
-X(a, STATIC,   SINGULAR, INT32,    compressorRelease,   8) \
-X(a, STATIC,   SINGULAR, INT32,    compressorGain,    9) \
-X(a, STATIC,   SINGULAR, INT32,    compressorRatio,  10) \
-X(a, STATIC,   SINGULAR, INT32,    compressorHysteresis, 111)
+X(a, STATIC,   SINGULAR, INT32,    compressorThreshold,   3) \
+X(a, STATIC,   SINGULAR, INT32,    compressorRatio,   4)
 #define ParamGate_CALLBACK NULL
 #define ParamGate_DEFAULT NULL
 
@@ -1424,23 +1400,22 @@ extern const pb_msgdesc_t ParamAmpClean_msg;
 #define ParamAmpClean_fields &ParamAmpClean_msg
 
 /* Maximum encoded size of messages (where known) */
-/* Nack_size depends on runtime parameters */
 #define Ack_size                                 22
 #define BankData_size                            3259
 #define BatteryLevel_size                        13
 #define BulkIrEndReq_size                        61
 #define BulkIrReq_size                           61
 #define BulkIrRes_size                           13
-#define BulkIrStartReq_size                      126
+#define BulkIrStartReq_size                      94
 #define CategoryData_size                        200
-#define ChangeGuitarName_size                    65
+#define ChangeGuitarName_size                    33
 #define ClearEffects_size                        2
 #define DiagReq_size                             2
 #define DiagRespErrCode_size                     11
 #define DiagRespFirstParing_size                 11
 #define DiagRespPOC_size                         11
-#define InitFromApp_size                         78
-#define InitFromGuitar_size                      230
+#define InitFromApp_size                         46
+#define InitFromGuitar_size                      134
 #define InitKnobMatching1_size                   3262
 #define InitKnobMatching2_size                   3262
 #define InitKnobMatching3_size                   3262
@@ -1448,6 +1423,7 @@ extern const pb_msgdesc_t ParamAmpClean_msg;
 #define KnobMatchingAll_size                     9828
 #define KnobMatchingStart_size                   11
 #define KnobMatching_size                        3273
+#define Nack_size                                24
 #define ParamAmpBgn_size                         57
 #define ParamAmpClean_size                       57
 #define ParamAmpFd_size                          57
@@ -1466,7 +1442,7 @@ extern const pb_msgdesc_t ParamAmpClean_msg;
 #define ParamEfxRat_size                         35
 #define ParamEfxSd10_size                        35
 #define ParamEfxTs90_size                        35
-#define ParamGate_size                           113
+#define ParamGate_size                           35
 #define ParamModChorus_size                      24
 #define ParamModPhaser_size                      24
 #define ParamModTremolo_size                     24
@@ -1478,7 +1454,7 @@ extern const pb_msgdesc_t ParamAmpClean_msg;
 #define ReqInitFromGuitar_size                   2
 #define ReqIsBootloadMode_size                   2
 #define ReqPlayPairingSound_size                 2
-#define ResGuitarName_size                       65
+#define ResGuitarName_size                       33
 #define ResIsBootloadMode_size                   2
 #define SingleParam_size                         44
 #define TunerFrequency_size                      5

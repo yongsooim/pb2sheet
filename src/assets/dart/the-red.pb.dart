@@ -80,7 +80,6 @@ class Nack extends $pb.GeneratedMessage {
     ..a<$core.int>(1, _omitFieldNames ? '' : 'receivedMessageLength', $pb.PbFieldType.O3, protoName: 'receivedMessageLength')
     ..a<$core.int>(2, _omitFieldNames ? '' : 'receivedMessageId', $pb.PbFieldType.O3, protoName: 'receivedMessageId')
     ..e<Nack_ERROR_CODE>(3, _omitFieldNames ? '' : 'errorCode', $pb.PbFieldType.OE, protoName: 'errorCode', defaultOrMaker: Nack_ERROR_CODE.INVALID_MESSAGE_ID, valueOf: Nack_ERROR_CODE.valueOf, enumValues: Nack_ERROR_CODE.values)
-    ..p<$core.int>(4, _omitFieldNames ? '' : 'receivedData', $pb.PbFieldType.K3, protoName: 'receivedData')
     ..hasRequiredFields = false
   ;
 
@@ -131,9 +130,6 @@ class Nack extends $pb.GeneratedMessage {
   $core.bool hasErrorCode() => $_has(2);
   @$pb.TagNumber(3)
   void clearErrorCode() => clearField(3);
-
-  @$pb.TagNumber(4)
-  $core.List<$core.int> get receivedData => $_getList(3);
 }
 
 class InitFromApp extends $pb.GeneratedMessage {
@@ -613,15 +609,8 @@ class ParamGate extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ParamGate', createEmptyInstance: create)
     ..aOB(1, _omitFieldNames ? '' : 'isOn', protoName: 'isOn')
     ..a<$core.int>(2, _omitFieldNames ? '' : 'noiseGateThreshold', $pb.PbFieldType.O3, protoName: 'noiseGateThreshold')
-    ..a<$core.int>(3, _omitFieldNames ? '' : 'noiseGateOpeningTime', $pb.PbFieldType.O3, protoName: 'noiseGateOpeningTime')
-    ..a<$core.int>(4, _omitFieldNames ? '' : 'noiseGateClosingTime', $pb.PbFieldType.O3, protoName: 'noiseGateClosingTime')
-    ..a<$core.int>(5, _omitFieldNames ? '' : 'noiseGateHoldTime', $pb.PbFieldType.O3, protoName: 'noiseGateHoldTime')
-    ..a<$core.int>(6, _omitFieldNames ? '' : 'compressorThreshold', $pb.PbFieldType.O3, protoName: 'compressorThreshold')
-    ..a<$core.int>(7, _omitFieldNames ? '' : 'compressorAttack', $pb.PbFieldType.O3, protoName: 'compressorAttack')
-    ..a<$core.int>(8, _omitFieldNames ? '' : 'compressorRelease', $pb.PbFieldType.O3, protoName: 'compressorRelease')
-    ..a<$core.int>(9, _omitFieldNames ? '' : 'compressorGain', $pb.PbFieldType.O3, protoName: 'compressorGain')
-    ..a<$core.int>(10, _omitFieldNames ? '' : 'compressorRatio', $pb.PbFieldType.O3, protoName: 'compressorRatio')
-    ..a<$core.int>(111, _omitFieldNames ? '' : 'compressorHysteresis', $pb.PbFieldType.O3, protoName: 'compressorHysteresis')
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'compressorThreshold', $pb.PbFieldType.O3, protoName: 'compressorThreshold')
+    ..a<$core.int>(4, _omitFieldNames ? '' : 'compressorRatio', $pb.PbFieldType.O3, protoName: 'compressorRatio')
     ..hasRequiredFields = false
   ;
 
@@ -665,85 +654,22 @@ class ParamGate extends $pb.GeneratedMessage {
   void clearNoiseGateThreshold() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.int get noiseGateOpeningTime => $_getIZ(2);
+  $core.int get compressorThreshold => $_getIZ(2);
   @$pb.TagNumber(3)
-  set noiseGateOpeningTime($core.int v) { $_setSignedInt32(2, v); }
+  set compressorThreshold($core.int v) { $_setSignedInt32(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasNoiseGateOpeningTime() => $_has(2);
+  $core.bool hasCompressorThreshold() => $_has(2);
   @$pb.TagNumber(3)
-  void clearNoiseGateOpeningTime() => clearField(3);
+  void clearCompressorThreshold() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.int get noiseGateClosingTime => $_getIZ(3);
+  $core.int get compressorRatio => $_getIZ(3);
   @$pb.TagNumber(4)
-  set noiseGateClosingTime($core.int v) { $_setSignedInt32(3, v); }
+  set compressorRatio($core.int v) { $_setSignedInt32(3, v); }
   @$pb.TagNumber(4)
-  $core.bool hasNoiseGateClosingTime() => $_has(3);
+  $core.bool hasCompressorRatio() => $_has(3);
   @$pb.TagNumber(4)
-  void clearNoiseGateClosingTime() => clearField(4);
-
-  @$pb.TagNumber(5)
-  $core.int get noiseGateHoldTime => $_getIZ(4);
-  @$pb.TagNumber(5)
-  set noiseGateHoldTime($core.int v) { $_setSignedInt32(4, v); }
-  @$pb.TagNumber(5)
-  $core.bool hasNoiseGateHoldTime() => $_has(4);
-  @$pb.TagNumber(5)
-  void clearNoiseGateHoldTime() => clearField(5);
-
-  @$pb.TagNumber(6)
-  $core.int get compressorThreshold => $_getIZ(5);
-  @$pb.TagNumber(6)
-  set compressorThreshold($core.int v) { $_setSignedInt32(5, v); }
-  @$pb.TagNumber(6)
-  $core.bool hasCompressorThreshold() => $_has(5);
-  @$pb.TagNumber(6)
-  void clearCompressorThreshold() => clearField(6);
-
-  @$pb.TagNumber(7)
-  $core.int get compressorAttack => $_getIZ(6);
-  @$pb.TagNumber(7)
-  set compressorAttack($core.int v) { $_setSignedInt32(6, v); }
-  @$pb.TagNumber(7)
-  $core.bool hasCompressorAttack() => $_has(6);
-  @$pb.TagNumber(7)
-  void clearCompressorAttack() => clearField(7);
-
-  @$pb.TagNumber(8)
-  $core.int get compressorRelease => $_getIZ(7);
-  @$pb.TagNumber(8)
-  set compressorRelease($core.int v) { $_setSignedInt32(7, v); }
-  @$pb.TagNumber(8)
-  $core.bool hasCompressorRelease() => $_has(7);
-  @$pb.TagNumber(8)
-  void clearCompressorRelease() => clearField(8);
-
-  @$pb.TagNumber(9)
-  $core.int get compressorGain => $_getIZ(8);
-  @$pb.TagNumber(9)
-  set compressorGain($core.int v) { $_setSignedInt32(8, v); }
-  @$pb.TagNumber(9)
-  $core.bool hasCompressorGain() => $_has(8);
-  @$pb.TagNumber(9)
-  void clearCompressorGain() => clearField(9);
-
-  @$pb.TagNumber(10)
-  $core.int get compressorRatio => $_getIZ(9);
-  @$pb.TagNumber(10)
-  set compressorRatio($core.int v) { $_setSignedInt32(9, v); }
-  @$pb.TagNumber(10)
-  $core.bool hasCompressorRatio() => $_has(9);
-  @$pb.TagNumber(10)
-  void clearCompressorRatio() => clearField(10);
-
-  @$pb.TagNumber(111)
-  $core.int get compressorHysteresis => $_getIZ(10);
-  @$pb.TagNumber(111)
-  set compressorHysteresis($core.int v) { $_setSignedInt32(10, v); }
-  @$pb.TagNumber(111)
-  $core.bool hasCompressorHysteresis() => $_has(10);
-  @$pb.TagNumber(111)
-  void clearCompressorHysteresis() => clearField(111);
+  void clearCompressorRatio() => clearField(4);
 }
 
 class ParamEfxTs90 extends $pb.GeneratedMessage {

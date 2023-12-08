@@ -1,22 +1,22 @@
-BulkIrStartReq.irName             max_size: 64
+BulkIrStartReq.irName             max_size: 32
 BulkIrStartReq.data               max_count:10
 
 BulkIrReq.data                    max_count:10
 
 BulkIrEndReq.data                 max_count:10
 
-InitFromApp.appVersion           max_size: 64
+InitFromApp.appVersion           max_size: 32
 
-InitFromGuitar.guitarName       max_size: 64
-InitFromGuitar.guitarModelName  max_size: 64
-InitFromGuitar.firmwareVersion  max_size: 64
+InitFromGuitar.guitarName       max_size: 32
+InitFromGuitar.guitarModelName  max_size: 32
+InitFromGuitar.firmwareVersion  max_size: 32
 
-ChangeGuitarName.guitarName  max_size: 64
+ChangeGuitarName.guitarName  max_size: 32
 
 CategoryData.params  max_count: 16
 BankData.categoryData max_count: 16
 KnobMatchingAll.knobMatchingData max_count: 3
 
-ResGuitarName.guitarName max_size: 64
+ResGuitarName.guitarName max_size: 32
 
 Nack.errorCode max_size: 110
