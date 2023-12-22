@@ -1,6 +1,9 @@
 /*
  the-red.proto
 
+ 2023-12-22 jason:
+  - add clean2, clean3
+ 
  2023-12-08 jason:
   - delete Gate params
  
@@ -524,6 +527,24 @@ message ReqIsBootloadMode { bool request = 1; }
 message ResIsBootloadMode { bool isBootloadMode = 1; }
 
 message ParamAmpClean {
+  bool isOn = 1;
+  int32 level = 2;
+  int32 gain = 3;
+  int32 bass = 4;
+  int32 middle = 5;
+  int32 treble = 6;
+}
+
+message ParamAmpClean2 {
+  bool isOn = 1;
+  int32 level = 2;
+  int32 gain = 3;
+  int32 bass = 4;
+  int32 middle = 5;
+  int32 treble = 6;
+}
+
+message ParamAmpClean3 {
   bool isOn = 1;
   int32 level = 2;
   int32 gain = 3;

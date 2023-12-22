@@ -1139,3 +1139,41 @@ final $typed_data.Uint8List paramAmpCleanDescriptor = $convert.base64Decode(
     'VsEhIKBGdhaW4YAyABKAVSBGdhaW4SEgoEYmFzcxgEIAEoBVIEYmFzcxIWCgZtaWRkbGUYBSAB'
     'KAVSBm1pZGRsZRIWCgZ0cmVibGUYBiABKAVSBnRyZWJsZQ==');
 
+@$core.Deprecated('Use paramAmpClean2Descriptor instead')
+const ParamAmpClean2$json = {
+  '1': 'ParamAmpClean2',
+  '2': [
+    {'1': 'isOn', '3': 1, '4': 1, '5': 8, '10': 'isOn'},
+    {'1': 'level', '3': 2, '4': 1, '5': 5, '10': 'level'},
+    {'1': 'gain', '3': 3, '4': 1, '5': 5, '10': 'gain'},
+    {'1': 'bass', '3': 4, '4': 1, '5': 5, '10': 'bass'},
+    {'1': 'middle', '3': 5, '4': 1, '5': 5, '10': 'middle'},
+    {'1': 'treble', '3': 6, '4': 1, '5': 5, '10': 'treble'},
+  ],
+};
+
+/// Descriptor for `ParamAmpClean2`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List paramAmpClean2Descriptor = $convert.base64Decode(
+    'Cg5QYXJhbUFtcENsZWFuMhISCgRpc09uGAEgASgIUgRpc09uEhQKBWxldmVsGAIgASgFUgVsZX'
+    'ZlbBISCgRnYWluGAMgASgFUgRnYWluEhIKBGJhc3MYBCABKAVSBGJhc3MSFgoGbWlkZGxlGAUg'
+    'ASgFUgZtaWRkbGUSFgoGdHJlYmxlGAYgASgFUgZ0cmVibGU=');
+
+@$core.Deprecated('Use paramAmpClean3Descriptor instead')
+const ParamAmpClean3$json = {
+  '1': 'ParamAmpClean3',
+  '2': [
+    {'1': 'isOn', '3': 1, '4': 1, '5': 8, '10': 'isOn'},
+    {'1': 'level', '3': 2, '4': 1, '5': 5, '10': 'level'},
+    {'1': 'gain', '3': 3, '4': 1, '5': 5, '10': 'gain'},
+    {'1': 'bass', '3': 4, '4': 1, '5': 5, '10': 'bass'},
+    {'1': 'middle', '3': 5, '4': 1, '5': 5, '10': 'middle'},
+    {'1': 'treble', '3': 6, '4': 1, '5': 5, '10': 'treble'},
+  ],
+};
+
+/// Descriptor for `ParamAmpClean3`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List paramAmpClean3Descriptor = $convert.base64Decode(
+    'Cg5QYXJhbUFtcENsZWFuMxISCgRpc09uGAEgASgIUgRpc09uEhQKBWxldmVsGAIgASgFUgVsZX'
+    'ZlbBISCgRnYWluGAMgASgFUgRnYWluEhIKBGJhc3MYBCABKAVSBGJhc3MSFgoGbWlkZGxlGAUg'
+    'ASgFUgZtaWRkbGUSFgoGdHJlYmxlGAYgASgFUgZ0cmVibGU=');
+

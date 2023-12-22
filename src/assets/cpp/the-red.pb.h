@@ -501,6 +501,24 @@ typedef struct _ParamAmpClean {
     int32_t treble;
 } ParamAmpClean;
 
+typedef struct _ParamAmpClean2 {
+    bool isOn;
+    int32_t level;
+    int32_t gain;
+    int32_t bass;
+    int32_t middle;
+    int32_t treble;
+} ParamAmpClean2;
+
+typedef struct _ParamAmpClean3 {
+    bool isOn;
+    int32_t level;
+    int32_t gain;
+    int32_t bass;
+    int32_t middle;
+    int32_t treble;
+} ParamAmpClean3;
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -617,6 +635,8 @@ extern "C" {
 
 
 
+
+
 /* Initializer values for message structs */
 #define Ack_init_default                         {0, 0}
 #define Nack_init_default                        {0, 0, _Nack_ERROR_CODE_MIN}
@@ -677,6 +697,8 @@ extern "C" {
 #define ReqIsBootloadMode_init_default           {0}
 #define ResIsBootloadMode_init_default           {0}
 #define ParamAmpClean_init_default               {0, 0, 0, 0, 0, 0}
+#define ParamAmpClean2_init_default              {0, 0, 0, 0, 0, 0}
+#define ParamAmpClean3_init_default              {0, 0, 0, 0, 0, 0}
 #define Ack_init_zero                            {0, 0}
 #define Nack_init_zero                           {0, 0, _Nack_ERROR_CODE_MIN}
 #define InitFromApp_init_zero                    {"", 0, 0}
@@ -736,6 +758,8 @@ extern "C" {
 #define ReqIsBootloadMode_init_zero              {0}
 #define ResIsBootloadMode_init_zero              {0}
 #define ParamAmpClean_init_zero                  {0, 0, 0, 0, 0, 0}
+#define ParamAmpClean2_init_zero                 {0, 0, 0, 0, 0, 0}
+#define ParamAmpClean3_init_zero                 {0, 0, 0, 0, 0, 0}
 
 /* Field tags (for use in manual encoding/decoding) */
 #define Ack_receivedMessageLength_tag            1
@@ -886,6 +910,18 @@ extern "C" {
 #define ParamAmpClean_bass_tag                   4
 #define ParamAmpClean_middle_tag                 5
 #define ParamAmpClean_treble_tag                 6
+#define ParamAmpClean2_isOn_tag                  1
+#define ParamAmpClean2_level_tag                 2
+#define ParamAmpClean2_gain_tag                  3
+#define ParamAmpClean2_bass_tag                  4
+#define ParamAmpClean2_middle_tag                5
+#define ParamAmpClean2_treble_tag                6
+#define ParamAmpClean3_isOn_tag                  1
+#define ParamAmpClean3_level_tag                 2
+#define ParamAmpClean3_gain_tag                  3
+#define ParamAmpClean3_bass_tag                  4
+#define ParamAmpClean3_middle_tag                5
+#define ParamAmpClean3_treble_tag                6
 
 /* Struct field encoding specification for nanopb */
 #define Ack_FIELDLIST(X, a) \
@@ -1278,6 +1314,26 @@ X(a, STATIC,   SINGULAR, INT32,    treble,            6)
 #define ParamAmpClean_CALLBACK NULL
 #define ParamAmpClean_DEFAULT NULL
 
+#define ParamAmpClean2_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
+X(a, STATIC,   SINGULAR, INT32,    level,             2) \
+X(a, STATIC,   SINGULAR, INT32,    gain,              3) \
+X(a, STATIC,   SINGULAR, INT32,    bass,              4) \
+X(a, STATIC,   SINGULAR, INT32,    middle,            5) \
+X(a, STATIC,   SINGULAR, INT32,    treble,            6)
+#define ParamAmpClean2_CALLBACK NULL
+#define ParamAmpClean2_DEFAULT NULL
+
+#define ParamAmpClean3_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
+X(a, STATIC,   SINGULAR, INT32,    level,             2) \
+X(a, STATIC,   SINGULAR, INT32,    gain,              3) \
+X(a, STATIC,   SINGULAR, INT32,    bass,              4) \
+X(a, STATIC,   SINGULAR, INT32,    middle,            5) \
+X(a, STATIC,   SINGULAR, INT32,    treble,            6)
+#define ParamAmpClean3_CALLBACK NULL
+#define ParamAmpClean3_DEFAULT NULL
+
 extern const pb_msgdesc_t Ack_msg;
 extern const pb_msgdesc_t Nack_msg;
 extern const pb_msgdesc_t InitFromApp_msg;
@@ -1337,6 +1393,8 @@ extern const pb_msgdesc_t ReqBootloadMode_msg;
 extern const pb_msgdesc_t ReqIsBootloadMode_msg;
 extern const pb_msgdesc_t ResIsBootloadMode_msg;
 extern const pb_msgdesc_t ParamAmpClean_msg;
+extern const pb_msgdesc_t ParamAmpClean2_msg;
+extern const pb_msgdesc_t ParamAmpClean3_msg;
 
 /* Defines for backwards compatibility with code written before nanopb-0.4.0 */
 #define Ack_fields &Ack_msg
@@ -1398,6 +1456,8 @@ extern const pb_msgdesc_t ParamAmpClean_msg;
 #define ReqIsBootloadMode_fields &ReqIsBootloadMode_msg
 #define ResIsBootloadMode_fields &ResIsBootloadMode_msg
 #define ParamAmpClean_fields &ParamAmpClean_msg
+#define ParamAmpClean2_fields &ParamAmpClean2_msg
+#define ParamAmpClean3_fields &ParamAmpClean3_msg
 
 /* Maximum encoded size of messages (where known) */
 #define Ack_size                                 22
@@ -1425,6 +1485,8 @@ extern const pb_msgdesc_t ParamAmpClean_msg;
 #define KnobMatching_size                        3273
 #define Nack_size                                24
 #define ParamAmpBgn_size                         57
+#define ParamAmpClean2_size                      57
+#define ParamAmpClean3_size                      57
 #define ParamAmpClean_size                       57
 #define ParamAmpFd_size                          57
 #define ParamAmpMs_size                          57

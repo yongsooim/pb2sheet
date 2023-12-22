@@ -183,6 +183,12 @@ PB_BIND(ResIsBootloadMode, ResIsBootloadMode, AUTO)
 PB_BIND(ParamAmpClean, ParamAmpClean, AUTO)
 
 
+PB_BIND(ParamAmpClean2, ParamAmpClean2, AUTO)
+
+
+PB_BIND(ParamAmpClean3, ParamAmpClean3, AUTO)
+
+
 
 
 
