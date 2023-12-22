@@ -70,7 +70,9 @@ typedef enum _MessageID {
     MessageID_REQ_BOOTLOAD_MODE = 56,
     MessageID_REQ_IS_BOOTLOAD_MODE = 57,
     MessageID_RES_IS_BOOTLOAD_MODE = 58,
-    MessageID_PARAM_AMP_CLEAN = 59
+    MessageID_PARAM_AMP_CLEAN = 59,
+    MessageID_PARAM_AMP_CLEAN2 = 60,
+    MessageID_PARAM_AMP_CLEAN3 = 61
 } MessageID;
 
 typedef enum _CATEGORY_NUMBER {
@@ -526,8 +528,8 @@ extern "C" {
 
 /* Helper constants for enums */
 #define _MessageID_MIN MessageID_INVALID
-#define _MessageID_MAX MessageID_PARAM_AMP_CLEAN
-#define _MessageID_ARRAYSIZE ((MessageID)(MessageID_PARAM_AMP_CLEAN+1))
+#define _MessageID_MAX MessageID_PARAM_AMP_CLEAN3
+#define _MessageID_ARRAYSIZE ((MessageID)(MessageID_PARAM_AMP_CLEAN3+1))
 
 #define _CATEGORY_NUMBER_MIN CATEGORY_NUMBER_CAT_NO1_GATE
 #define _CATEGORY_NUMBER_MAX CATEGORY_NUMBER_CAT_NO7_REVERB

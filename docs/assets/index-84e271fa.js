@@ -175,6 +175,8 @@ enum MessageID {\r
   REQ_IS_BOOTLOAD_MODE = 57;\r
   RES_IS_BOOTLOAD_MODE = 58;\r
   PARAM_AMP_CLEAN = 59;\r
+  PARAM_AMP_CLEAN2 = 60;\r
+  PARAM_AMP_CLEAN3 = 61;\r
 }\r
 \r
 enum CATEGORY_NUMBER {\r
