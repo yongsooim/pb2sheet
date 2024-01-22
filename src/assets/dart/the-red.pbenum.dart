@@ -76,6 +76,10 @@ class MessageID extends $pb.ProtobufEnum {
   static const MessageID PARAM_AMP_CLEAN = MessageID._(59, _omitEnumNames ? '' : 'PARAM_AMP_CLEAN');
   static const MessageID PARAM_AMP_CLEAN2 = MessageID._(60, _omitEnumNames ? '' : 'PARAM_AMP_CLEAN2');
   static const MessageID PARAM_AMP_CLEAN3 = MessageID._(61, _omitEnumNames ? '' : 'PARAM_AMP_CLEAN3');
+  static const MessageID PARAM_AMP_CLEAN4 = MessageID._(62, _omitEnumNames ? '' : 'PARAM_AMP_CLEAN4');
+  static const MessageID PARAM_AMP_CLEAN5 = MessageID._(63, _omitEnumNames ? '' : 'PARAM_AMP_CLEAN5');
+  static const MessageID PARAM_AMP_CLEAN6 = MessageID._(64, _omitEnumNames ? '' : 'PARAM_AMP_CLEAN6');
+  static const MessageID PARAM_AMP_CLEAN7 = MessageID._(65, _omitEnumNames ? '' : 'PARAM_AMP_CLEAN7');
 
   static const $core.List<MessageID> values = <MessageID> [
     INVALID,
@@ -140,6 +144,10 @@ class MessageID extends $pb.ProtobufEnum {
     PARAM_AMP_CLEAN,
     PARAM_AMP_CLEAN2,
     PARAM_AMP_CLEAN3,
+    PARAM_AMP_CLEAN4,
+    PARAM_AMP_CLEAN5,
+    PARAM_AMP_CLEAN6,
+    PARAM_AMP_CLEAN7,
   ];
 
   static final $core.Map<$core.int, MessageID> _byValue = $pb.ProtobufEnum.initByValue(values);

@@ -177,6 +177,10 @@ enum MessageID {
   PARAM_AMP_CLEAN = 59;
   PARAM_AMP_CLEAN2 = 60;
   PARAM_AMP_CLEAN3 = 61;
+  PARAM_AMP_CLEAN4 = 62;
+  PARAM_AMP_CLEAN5 = 63;
+  PARAM_AMP_CLEAN6 = 64;
+  PARAM_AMP_CLEAN7 = 65;
 }
 
 enum CATEGORY_NUMBER {
@@ -547,6 +551,46 @@ message ParamAmpClean2 {
 }
 
 message ParamAmpClean3 {
+  bool isOn = 1;
+  int32 level = 2;
+  int32 gain = 3;
+  int32 bass = 4;
+  int32 middle = 5;
+  int32 treble = 6;
+}
+
+
+message ParamAmpClean4 {
+  bool isOn = 1;
+  int32 level = 2;
+  int32 gain = 3;
+  int32 bass = 4;
+  int32 middle = 5;
+  int32 treble = 6;
+}
+
+
+message ParamAmpClean5 {
+  bool isOn = 1;
+  int32 level = 2;
+  int32 gain = 3;
+  int32 bass = 4;
+  int32 middle = 5;
+  int32 treble = 6;
+}
+
+
+message ParamAmpClean6 {
+  bool isOn = 1;
+  int32 level = 2;
+  int32 gain = 3;
+  int32 bass = 4;
+  int32 middle = 5;
+  int32 treble = 6;
+}
+
+
+message ParamAmpClean7 {
   bool isOn = 1;
   int32 level = 2;
   int32 gain = 3;

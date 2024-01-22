@@ -189,6 +189,18 @@ PB_BIND(ParamAmpClean2, ParamAmpClean2, AUTO)
 PB_BIND(ParamAmpClean3, ParamAmpClean3, AUTO)
 
 
+PB_BIND(ParamAmpClean4, ParamAmpClean4, AUTO)
+
+
+PB_BIND(ParamAmpClean5, ParamAmpClean5, AUTO)
+
+
+PB_BIND(ParamAmpClean6, ParamAmpClean6, AUTO)
+
+
+PB_BIND(ParamAmpClean7, ParamAmpClean7, AUTO)
+
+
 
 
 

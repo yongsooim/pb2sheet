@@ -72,7 +72,11 @@ typedef enum _MessageID {
     MessageID_RES_IS_BOOTLOAD_MODE = 58,
     MessageID_PARAM_AMP_CLEAN = 59,
     MessageID_PARAM_AMP_CLEAN2 = 60,
-    MessageID_PARAM_AMP_CLEAN3 = 61
+    MessageID_PARAM_AMP_CLEAN3 = 61,
+    MessageID_PARAM_AMP_CLEAN4 = 62,
+    MessageID_PARAM_AMP_CLEAN5 = 63,
+    MessageID_PARAM_AMP_CLEAN6 = 64,
+    MessageID_PARAM_AMP_CLEAN7 = 65
 } MessageID;
 
 typedef enum _CATEGORY_NUMBER {
@@ -521,6 +525,42 @@ typedef struct _ParamAmpClean3 {
     int32_t treble;
 } ParamAmpClean3;
 
+typedef struct _ParamAmpClean4 {
+    bool isOn;
+    int32_t level;
+    int32_t gain;
+    int32_t bass;
+    int32_t middle;
+    int32_t treble;
+} ParamAmpClean4;
+
+typedef struct _ParamAmpClean5 {
+    bool isOn;
+    int32_t level;
+    int32_t gain;
+    int32_t bass;
+    int32_t middle;
+    int32_t treble;
+} ParamAmpClean5;
+
+typedef struct _ParamAmpClean6 {
+    bool isOn;
+    int32_t level;
+    int32_t gain;
+    int32_t bass;
+    int32_t middle;
+    int32_t treble;
+} ParamAmpClean6;
+
+typedef struct _ParamAmpClean7 {
+    bool isOn;
+    int32_t level;
+    int32_t gain;
+    int32_t bass;
+    int32_t middle;
+    int32_t treble;
+} ParamAmpClean7;
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -528,8 +568,8 @@ extern "C" {
 
 /* Helper constants for enums */
 #define _MessageID_MIN MessageID_INVALID
-#define _MessageID_MAX MessageID_PARAM_AMP_CLEAN3
-#define _MessageID_ARRAYSIZE ((MessageID)(MessageID_PARAM_AMP_CLEAN3+1))
+#define _MessageID_MAX MessageID_PARAM_AMP_CLEAN7
+#define _MessageID_ARRAYSIZE ((MessageID)(MessageID_PARAM_AMP_CLEAN7+1))
 
 #define _CATEGORY_NUMBER_MIN CATEGORY_NUMBER_CAT_NO1_GATE
 #define _CATEGORY_NUMBER_MAX CATEGORY_NUMBER_CAT_NO7_REVERB
@@ -639,6 +679,10 @@ extern "C" {
 
 
 
+
+
+
+
 /* Initializer values for message structs */
 #define Ack_init_default                         {0, 0}
 #define Nack_init_default                        {0, 0, _Nack_ERROR_CODE_MIN}
@@ -701,6 +745,10 @@ extern "C" {
 #define ParamAmpClean_init_default               {0, 0, 0, 0, 0, 0}
 #define ParamAmpClean2_init_default              {0, 0, 0, 0, 0, 0}
 #define ParamAmpClean3_init_default              {0, 0, 0, 0, 0, 0}
+#define ParamAmpClean4_init_default              {0, 0, 0, 0, 0, 0}
+#define ParamAmpClean5_init_default              {0, 0, 0, 0, 0, 0}
+#define ParamAmpClean6_init_default              {0, 0, 0, 0, 0, 0}
+#define ParamAmpClean7_init_default              {0, 0, 0, 0, 0, 0}
 #define Ack_init_zero                            {0, 0}
 #define Nack_init_zero                           {0, 0, _Nack_ERROR_CODE_MIN}
 #define InitFromApp_init_zero                    {"", 0, 0}
@@ -762,6 +810,10 @@ extern "C" {
 #define ParamAmpClean_init_zero                  {0, 0, 0, 0, 0, 0}
 #define ParamAmpClean2_init_zero                 {0, 0, 0, 0, 0, 0}
 #define ParamAmpClean3_init_zero                 {0, 0, 0, 0, 0, 0}
+#define ParamAmpClean4_init_zero                 {0, 0, 0, 0, 0, 0}
+#define ParamAmpClean5_init_zero                 {0, 0, 0, 0, 0, 0}
+#define ParamAmpClean6_init_zero                 {0, 0, 0, 0, 0, 0}
+#define ParamAmpClean7_init_zero                 {0, 0, 0, 0, 0, 0}
 
 /* Field tags (for use in manual encoding/decoding) */
 #define Ack_receivedMessageLength_tag            1
@@ -924,6 +976,30 @@ extern "C" {
 #define ParamAmpClean3_bass_tag                  4
 #define ParamAmpClean3_middle_tag                5
 #define ParamAmpClean3_treble_tag                6
+#define ParamAmpClean4_isOn_tag                  1
+#define ParamAmpClean4_level_tag                 2
+#define ParamAmpClean4_gain_tag                  3
+#define ParamAmpClean4_bass_tag                  4
+#define ParamAmpClean4_middle_tag                5
+#define ParamAmpClean4_treble_tag                6
+#define ParamAmpClean5_isOn_tag                  1
+#define ParamAmpClean5_level_tag                 2
+#define ParamAmpClean5_gain_tag                  3
+#define ParamAmpClean5_bass_tag                  4
+#define ParamAmpClean5_middle_tag                5
+#define ParamAmpClean5_treble_tag                6
+#define ParamAmpClean6_isOn_tag                  1
+#define ParamAmpClean6_level_tag                 2
+#define ParamAmpClean6_gain_tag                  3
+#define ParamAmpClean6_bass_tag                  4
+#define ParamAmpClean6_middle_tag                5
+#define ParamAmpClean6_treble_tag                6
+#define ParamAmpClean7_isOn_tag                  1
+#define ParamAmpClean7_level_tag                 2
+#define ParamAmpClean7_gain_tag                  3
+#define ParamAmpClean7_bass_tag                  4
+#define ParamAmpClean7_middle_tag                5
+#define ParamAmpClean7_treble_tag                6
 
 /* Struct field encoding specification for nanopb */
 #define Ack_FIELDLIST(X, a) \
@@ -1336,6 +1412,46 @@ X(a, STATIC,   SINGULAR, INT32,    treble,            6)
 #define ParamAmpClean3_CALLBACK NULL
 #define ParamAmpClean3_DEFAULT NULL
 
+#define ParamAmpClean4_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
+X(a, STATIC,   SINGULAR, INT32,    level,             2) \
+X(a, STATIC,   SINGULAR, INT32,    gain,              3) \
+X(a, STATIC,   SINGULAR, INT32,    bass,              4) \
+X(a, STATIC,   SINGULAR, INT32,    middle,            5) \
+X(a, STATIC,   SINGULAR, INT32,    treble,            6)
+#define ParamAmpClean4_CALLBACK NULL
+#define ParamAmpClean4_DEFAULT NULL
+
+#define ParamAmpClean5_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
+X(a, STATIC,   SINGULAR, INT32,    level,             2) \
+X(a, STATIC,   SINGULAR, INT32,    gain,              3) \
+X(a, STATIC,   SINGULAR, INT32,    bass,              4) \
+X(a, STATIC,   SINGULAR, INT32,    middle,            5) \
+X(a, STATIC,   SINGULAR, INT32,    treble,            6)
+#define ParamAmpClean5_CALLBACK NULL
+#define ParamAmpClean5_DEFAULT NULL
+
+#define ParamAmpClean6_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
+X(a, STATIC,   SINGULAR, INT32,    level,             2) \
+X(a, STATIC,   SINGULAR, INT32,    gain,              3) \
+X(a, STATIC,   SINGULAR, INT32,    bass,              4) \
+X(a, STATIC,   SINGULAR, INT32,    middle,            5) \
+X(a, STATIC,   SINGULAR, INT32,    treble,            6)
+#define ParamAmpClean6_CALLBACK NULL
+#define ParamAmpClean6_DEFAULT NULL
+
+#define ParamAmpClean7_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, BOOL,     isOn,              1) \
+X(a, STATIC,   SINGULAR, INT32,    level,             2) \
+X(a, STATIC,   SINGULAR, INT32,    gain,              3) \
+X(a, STATIC,   SINGULAR, INT32,    bass,              4) \
+X(a, STATIC,   SINGULAR, INT32,    middle,            5) \
+X(a, STATIC,   SINGULAR, INT32,    treble,            6)
+#define ParamAmpClean7_CALLBACK NULL
+#define ParamAmpClean7_DEFAULT NULL
+
 extern const pb_msgdesc_t Ack_msg;
 extern const pb_msgdesc_t Nack_msg;
 extern const pb_msgdesc_t InitFromApp_msg;
@@ -1397,6 +1513,10 @@ extern const pb_msgdesc_t ResIsBootloadMode_msg;
 extern const pb_msgdesc_t ParamAmpClean_msg;
 extern const pb_msgdesc_t ParamAmpClean2_msg;
 extern const pb_msgdesc_t ParamAmpClean3_msg;
+extern const pb_msgdesc_t ParamAmpClean4_msg;
+extern const pb_msgdesc_t ParamAmpClean5_msg;
+extern const pb_msgdesc_t ParamAmpClean6_msg;
+extern const pb_msgdesc_t ParamAmpClean7_msg;
 
 /* Defines for backwards compatibility with code written before nanopb-0.4.0 */
 #define Ack_fields &Ack_msg
@@ -1460,6 +1580,10 @@ extern const pb_msgdesc_t ParamAmpClean3_msg;
 #define ParamAmpClean_fields &ParamAmpClean_msg
 #define ParamAmpClean2_fields &ParamAmpClean2_msg
 #define ParamAmpClean3_fields &ParamAmpClean3_msg
+#define ParamAmpClean4_fields &ParamAmpClean4_msg
+#define ParamAmpClean5_fields &ParamAmpClean5_msg
+#define ParamAmpClean6_fields &ParamAmpClean6_msg
+#define ParamAmpClean7_fields &ParamAmpClean7_msg
 
 /* Maximum encoded size of messages (where known) */
 #define Ack_size                                 22
@@ -1489,6 +1613,10 @@ extern const pb_msgdesc_t ParamAmpClean3_msg;
 #define ParamAmpBgn_size                         57
 #define ParamAmpClean2_size                      57
 #define ParamAmpClean3_size                      57
+#define ParamAmpClean4_size                      57
+#define ParamAmpClean5_size                      57
+#define ParamAmpClean6_size                      57
+#define ParamAmpClean7_size                      57
 #define ParamAmpClean_size                       57
 #define ParamAmpFd_size                          57
 #define ParamAmpMs_size                          57
